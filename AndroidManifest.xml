@@ -18,7 +18,7 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools"
     android:installLocation="auto"
-    android:sharedUserId="archos.openmediacenter"
+    android:sharedUserId="leeroy.flix"
     android:sharedUserMaxSdkVersion="32">
 
     <supports-screens android:largeScreens="true" />
@@ -72,7 +72,7 @@
     <!-- uses-permission android:name="android.permission.INJECT_EVENTS" / -->
     <!-- uses-permission android:name="android.permission.STATUS_BAR" / -->
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-    <!-- uses-permission android:name="android.permission.ARCHOS_READ_RAWFS" / -->
+    <!-- uses-permission android:name="android.permission.LEEROYFLIX_READ_RAWFS" / -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <!-- Required for Android TV channels -->
@@ -99,7 +99,7 @@
     </queries>
 
     <application
-        android:name=".CustomApplication"
+        android:name=".LeeroyFlixApp"
         android:allowTaskReparenting="true"
         android:extractNativeLibs="true"
         android:hardwareAccelerated="true"
@@ -117,10 +117,10 @@
             android:value="true" />
 
         <!--
-        Make the free version of Archos Video available for Archos devices
-        only by asking for this archos framework library
+        Make the free version of LeeroyFlix Video available for LeeroyFlix devices
+        only by asking for this leeroyflix framework library
         -->
-        <!-- <uses-library android:name="com.archos.frameworks" /> -->
+        <!-- <uses-library android:name="org.leeroy.frameworks" /> -->
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
@@ -129,20 +129,20 @@
             android:name=".EntryActivity"
             android:exported="true"
             android:launchMode="singleTask"
-            android:taskAffinity="archos.task.video"
-            android:theme="@style/ArchosThemeBlue" />
+            android:taskAffinity="leeroy.task.video"
+            android:theme="@style/LeeroyFlixThemeBlue" />
 
         <activity
-            android:name=".browser.MainActivity"
+            android:name=".browser.LeeroyFlixActivity"
             android:configChanges="keyboard|keyboardHidden"
             android:launchMode="singleTask"
-            android:taskAffinity="archos.task.video"
-            android:theme="@style/ArchosThemeBlueNoActionBar"
+            android:taskAffinity="leeroy.task.video"
+            android:theme="@style/LeeroyFlixThemeBlueNoActionBar"
             android:windowSoftInputMode="adjustPan">
             <!-- Points to searchable meta data. -->
             <meta-data
                 android:name="android.app.default_searchable"
-                android:value="com.archos.mediacenter.video.browser.QueryBrowserActivityVideo" />
+                android:value="org.leeroy.mediaplayer.video.browser.QueryBrowserActivityVideo" />
 
         </activity>
 
@@ -162,13 +162,13 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".browser.MainActivityStereo"
-            android:targetActivity=".browser.MainActivity">
+            android:name=".browser.LeeroyFlixActivityStereo"
+            android:targetActivity=".browser.LeeroyFlixActivity">
 
             <!-- Points to searchable meta data. -->
             <meta-data
                 android:name="android.app.default_searchable"
-                android:value="com.archos.mediacenter.video.browser.QueryBrowserActivityVideo" />
+                android:value="org.leeroy.mediaplayer.video.browser.QueryBrowserActivityVideo" />
             <meta-data
                 android:name="stereo_mode"
                 android:value="true" />
@@ -177,7 +177,7 @@
         <activity
             android:name=".browser.QueryBrowserActivityVideo"
             android:exported="true"
-            android:theme="@style/ArchosThemeBlue">
+            android:theme="@style/LeeroyFlixThemeBlue">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
                 <action android:name="android.intent.action.MEDIA_SEARCH" />
@@ -193,7 +193,7 @@
 
         <!-- Provides search suggestions for video search. -->
         <provider
-            android:name="com.archos.mediacenter.video.browser.SearchProviderVideo"
+            android:name="org.leeroy.mediaplayer.video.browser.SearchProviderVideo"
             android:authorities="browser.SearchProviderVideocommunity" />
 
         <provider
@@ -215,8 +215,8 @@
             android:launchMode="singleTask"
             android:resizeableActivity="true"
             android:supportsPictureInPicture="true"
-            android:taskAffinity="archos.task.video"
-            android:theme="@style/ArchosThemeBlueOverlay">
+            android:taskAffinity="leeroy.task.video"
+            android:theme="@style/LeeroyFlixThemeBlueOverlay">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -1060,7 +1060,7 @@
                 <data android:pathPattern=".*\\.wtv" />
             </intent-filter>
             <intent-filter>
-                <action android:name="archos.intent.action.RESUME_VIDEOPLAYER" />
+                <action android:name="leeroy.intent.action.RESUME_VIDEOPLAYER" />
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:mimeType="video/*" />
@@ -1085,7 +1085,7 @@
             android:exported="true"
             android:label="@string/get_subtitles_on_drive"
             android:launchMode="singleTask"
-            android:theme="@style/ArchosThemeBlueTransparent">
+            android:theme="@style/LeeroyFlixThemeBlueTransparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -1095,7 +1095,7 @@
             android:excludeFromRecents="true"
             android:label="@string/samba_settings_title"
             android:launchMode="singleTask"
-            android:theme="@style/ArchosThemeBlue" />
+            android:theme="@style/LeeroyFlixThemeBlue" />
         <activity
             android:name=".utils.VideoPreferencesActivity"
             android:configChanges="orientation|screenLayout"
@@ -1103,7 +1103,7 @@
             android:exported="true"
             android:label="@string/preferences"
             android:launchMode="singleTop"
-            android:theme="@style/ArchosThemeBlue">
+            android:theme="@style/LeeroyFlixThemeBlue">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -1115,7 +1115,7 @@
             android:exported="true"
             android:label="@string/preferences_video_licenses"
             android:launchMode="singleTop"
-            android:theme="@style/ArchosThemeBlue">
+            android:theme="@style/LeeroyFlixThemeBlue">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -1124,7 +1124,7 @@
             android:name=".browser.VideoPicker"
             android:exported="true"
             android:label="@string/video_picker_title"
-            android:theme="@style/ArchosThemeBlue">
+            android:theme="@style/LeeroyFlixThemeBlue">
             <!-- Someone asks to get content of any of the video types we support. -->
             <intent-filter>
                 <action android:name="android.intent.action.GET_CONTENT" />
@@ -1144,12 +1144,12 @@
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.Transparent" />
         <activity
-            android:name="com.archos.filecorelibrary.samba.SharedPasswordRequest"
+            android:name="org.leeroy.filecorelibrary.samba.SharedPasswordRequest"
             android:theme="@style/Theme.Transparent" />
         <activity
-            android:name="com.archos.mediacenter.utils.HelpOverlayActivity"
+            android:name="org.leeroy.mediaplayer.utils.HelpOverlayActivity"
             android:configChanges="orientation|screenSize"
-            android:taskAffinity="archos.task.video"
+            android:taskAffinity="leeroy.task.video"
             android:theme="@style/Theme.HelpOverlay" />
 
         <service android:name="org.jupnp.android.AndroidUpnpServiceImpl" />
@@ -1158,7 +1158,7 @@
             android:name=".player.FloatingPlayerService"
             android:exported="false" android:foregroundServiceType="mediaPlayback"/>
 
-        <service android:name="com.archos.mediacenter.video.player.PlayerService"
+        <service android:name="org.leeroy.mediaplayer.video.player.PlayerService"
             android:exported="true" android:foregroundServiceType="mediaPlayback"/>
 
         <service
@@ -1166,65 +1166,65 @@
             android:exported="false"
             android:foregroundServiceType="mediaPlayback" />
 
-        <service android:name="com.archos.mediascraper.AutoScrapeService"
+        <service android:name="org.leeroy.mediascraper.AutoScrapeService"
             android:foregroundServiceType="dataSync"/>
-        <service android:name="com.archos.mediascraper.AllCollectionScrapeService"
+        <service android:name="org.leeroy.mediascraper.AllCollectionScrapeService"
             android:foregroundServiceType="dataSync"/>
-        <service android:name="com.archos.mediacenter.video.browser.FileManagerService"
+        <service android:name="org.leeroy.mediaplayer.video.browser.FileManagerService"
             android:foregroundServiceType="dataSync"/>
-        <service android:name="com.archos.mediacenter.video.utils.MediaLibraryBackupService"
+        <service android:name="org.leeroy.mediaplayer.video.utils.MediaLibraryBackupService"
             android:foregroundServiceType="dataSync"/>
 
         <receiver
-            android:name="com.archos.mediacenter.LibAvosReceiver"
+            android:name="org.leeroy.mediaplayer.LibAvosReceiver"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.archos.mediacenter.NEW_PLUGINS" />
+                <action android:name="org.leeroy.mediaplayer.NEW_PLUGINS" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.archos.mediacenter.DEBUG" />
+                <action android:name="org.leeroy.mediaplayer.DEBUG" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.archos.mediacenter.DEBUG_SCAN" />
+                <action android:name="org.leeroy.mediaplayer.DEBUG_SCAN" />
                 <data android:scheme="file" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.archos.mediacenter.AVSH" />
+                <action android:name="org.leeroy.mediaplayer.AVSH" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.archos.mediacenter.RM_XML" />
+                <action android:name="org.leeroy.mediaplayer.RM_XML" />
             </intent-filter>
         </receiver>
 
         <receiver
-            android:name="com.archos.mediaprovider.video.NetworkAutoRefresh"
+            android:name="org.leeroy.mediaprovider.video.NetworkAutoRefresh"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.archos.mediaprovider.video.NetworkAutoRefresh_force" />
+                <action android:name="org.leeroy.mediaprovider.video.NetworkAutoRefresh_force" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.archos.mediaprovider.video.NetworkAutoRefresh" />
+                <action android:name="org.leeroy.mediaprovider.video.NetworkAutoRefresh" />
             </intent-filter>
         </receiver>
 
         <service
-            android:name="com.archos.mediaprovider.video.NetworkRefreshJob"
+            android:name="org.leeroy.mediaprovider.video.NetworkRefreshJob"
             android:label="NetworkRefreshJob"
             android:permission="android.permission.BIND_JOB_SERVICE">
         </service>
 
-        <!-- ArchosMediaProvider & related, all running in a separate process -->
+        <!-- LeeroyFlix related, all running in a separate process -->
         <!-- ContentProvider for media -->
         <provider
-            android:name="com.archos.mediaprovider.video.VideoProvider"
-            android:authorities="com.archos.media.videocommunity;com.archos.media.scrapercommunity"
+            android:name="org.leeroy.mediaprovider.video.VideoProvider"
+            android:authorities="org.leeroy.media.videocommunity;org.leeroy.media.scrapercommunity"
             android:exported="true" />
         <!-- BroadcastReceiver to trigger database import -->
         <receiver
-            android:name="com.archos.mediaprovider.video.VideoStoreImportReceiver"
+            android:name="org.leeroy.mediaprovider.video.VideoStoreImportReceiver"
             android:exported="true">
             <!-- Android broadcast that stops importing -->
             <intent-filter>
@@ -1233,9 +1233,9 @@
             <!-- Our broadcasts that trigger scanner actions -->
             <!-- Starts network indexing -->
             <intent-filter>
-                <action android:name="archos.media.intent.action.VIDEO_SCANNER_SCAN_FILE" />
+                <action android:name="leeroy.media.intent.action.VIDEO_SCANNER_SCAN_FILE" />
                 <action android:name="android.intent.action.MEDIA_SCANNER_SCAN_FILE" />
-                <action android:name="archos.intent.action.MEDIA_SCANNER_SCAN_FILE" />
+                <action android:name="leeroy.intent.action.MEDIA_SCANNER_SCAN_FILE" />
                  
                 <data android:scheme=""/>
                 <data android:scheme="smb" />
@@ -1255,12 +1255,12 @@
             </intent-filter>
             <!-- Starts incremental local storage import -->
             <intent-filter>
-                <action android:name="archos.media.intent.action.VIDEO_SCANNER_IMPORT_INCR" />
+                <action android:name="leeroy.media.intent.action.VIDEO_SCANNER_IMPORT_INCR" />
             </intent-filter>
             <!-- Starts network un-indexing -->
             <intent-filter>
-                <action android:name="archos.media.intent.action.VIDEO_SCANNER_REMOVE_FILE" />
-                <action android:name="archos.intent.action.MEDIA_SCANNER_REMOVE_FILE" />
+                <action android:name="leeroy.media.intent.action.VIDEO_SCANNER_REMOVE_FILE" />
+                <action android:name="leeroy.intent.action.MEDIA_SCANNER_REMOVE_FILE" />
 
                 <data android:scheme=""/>                 
                 <data android:scheme="sftp" />
@@ -1278,7 +1278,7 @@
             </intent-filter>
             <!-- Triggers metadata update -->
             <intent-filter>
-                <action android:name="archos.media.intent.action.VIDEO_SCANNER_METADATA_UPDATE" />
+                <action android:name="leeroy.media.intent.action.VIDEO_SCANNER_METADATA_UPDATE" />
 
                 <data android:scheme=""/>                 
                 <data android:scheme="sftp" />
@@ -1297,48 +1297,48 @@
         </receiver>
 
         <service
-            android:name="com.archos.mediaprovider.MediaThumbnailService"
+            android:name="org.leeroy.mediaprovider.MediaThumbnailService"
             android:process=":scanner"/>
         <service
-            android:name="com.archos.mediaprovider.MediaRetrieverService"
+            android:name="org.leeroy.mediaprovider.MediaRetrieverService"
             android:process=":scanner"
             android:exported="true"
             android:enabled="true"/>
 
         <!-- Service doing the import -->
-        <service android:name="com.archos.mediaprovider.video.VideoStoreImportService"
+        <service android:name="org.leeroy.mediaprovider.video.VideoStoreImportService"
             android:foregroundServiceType="dataSync"/>
 
         <!-- Service doing SMB scanning -->
-        <service android:name="com.archos.mediaprovider.video.NetworkScannerServiceVideo"
+        <service android:name="org.leeroy.mediaprovider.video.NetworkScannerServiceVideo"
             android:foregroundServiceType="dataSync"/>
 
         <!-- Service doing Trakt.tv stuff -->
-        <service android:name="com.archos.mediacenter.utils.trakt.TraktService"/>
+        <service android:name="org.leeroy.mediaplayer.utils.trakt.TraktService"/>
 
         <!-- MediaScraper -->
         <receiver
-            android:name="com.archos.mediascraper.receiver.ScraperReceiver"
+            android:name="org.leeroy.mediascraper.receiver.ScraperReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="archos.intent.action.MEDIA_LIBRARY_FLUSH" />
+                <action android:name="leeroy.intent.action.MEDIA_LIBRARY_FLUSH" />
             </intent-filter>
             <intent-filter>
-                <action android:name="archos.intent.action.MEDIASCANNER_MEDIASCRAPER_RESET" />
+                <action android:name="leeroy.intent.action.MEDIASCANNER_MEDIASCRAPER_RESET" />
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.archos.filecorelibrary.samba.SambaPreferenceActivity" />
+        <activity android:name="org.leeroy.filecorelibrary.samba.SambaPreferenceActivity" />
 
         <activity
             android:name=".info.VideoInfoActivity"
             android:theme="@style/Theme.TransparentCompat" />
         <activity
             android:name=".info.VideoInfoScraperActivity"
-            android:theme="@style/ArchosThemeBlue" />
+            android:theme="@style/LeeroyFlixThemeBlue" />
         <activity
             android:name=".info.VideoInfoPosterBackdropActivity"
-            android:theme="@style/ArchosThemeBlue" />
+            android:theme="@style/LeeroyFlixThemeBlue" />
         <activity
             android:name=".player.TorrentLoaderActivity"
             android:exported="true"
@@ -1446,15 +1446,15 @@
             android:theme="@style/Theme.TransparentCompat" />
 
         <!-- Shows/hides JCIFS smb:// shares -->
-        <service android:name="com.archos.mediaprovider.video.RemoteStateService"
+        <service android:name="org.leeroy.mediaprovider.video.RemoteStateService"
             android:exported="false"/>
 
         <!-- keeps track of network scanning state -->
         <receiver
-            android:name="com.archos.mediaprovider.video.NetworkScannerReceiver"
+            android:name="org.leeroy.mediaprovider.video.NetworkScannerReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="archos.media.intent.action.VIDEO_SCANNER_SCAN_STARTED" />
+                <action android:name="leeroy.media.intent.action.VIDEO_SCANNER_SCAN_STARTED" />
 
                 <data android:scheme=""/>                 
                 <data android:scheme="sftp" />
@@ -1471,7 +1471,7 @@
 
             </intent-filter>
             <intent-filter>
-                <action android:name="archos.media.intent.action.VIDEO_SCANNER_SCAN_FINISHED" />
+                <action android:name="leeroy.media.intent.action.VIDEO_SCANNER_SCAN_FINISHED" />
 
                 <data android:scheme=""/>                 
                 <data android:scheme="sftp" />
@@ -1490,7 +1490,7 @@
         </receiver>
 
         <receiver
-            android:name="com.archos.filecorelibrary.ExtStorageReceiver"
+            android:name="org.leeroy.filecorelibrary.ExtStorageReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_MOUNTED" />
@@ -1511,7 +1511,7 @@
 
         <!-- small service that can be told to export a bunch of nfo files -->
         <service
-            android:name="com.archos.mediascraper.NfoExportService"
+            android:name="org.leeroy.mediascraper.NfoExportService"
             android:foregroundServiceType="dataSync"
             android:exported="false"/>
         <service
@@ -1519,11 +1519,11 @@
             android:enabled="true"/>
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.MainActivityLeanback"
+            android:name="org.leeroy.mediaplayer.video.leanback.LeeroyFlixActivityLeanback"
             android:exported="true"
             android:launchMode="singleTask"
             android:label="@string/nova"
-            android:taskAffinity="archos.task.video"
+            android:taskAffinity="leeroy.task.video"
             android:theme="@style/MyLeanbackTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1532,167 +1532,167 @@
         </activity>
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.movies.AllMoviesGridActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.movies.AllMoviesGridActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.animes.AllAnimesGridActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.animes.AllAnimesGridActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.tvshow.AllAnimeShowsGridActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.tvshow.AllAnimeShowsGridActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.tvshow.AllTvshowsGridActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.tvshow.AllTvshowsGridActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.collections.AllCollectionsGridActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.collections.AllCollectionsGridActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.collections.AllAnimeCollectionsGridActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.collections.AllAnimeCollectionsGridActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.tvshow.AnimeShowsByAlphaActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.tvshow.AnimeShowsByAlphaActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.collections.CollectionActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.collections.CollectionActivity"
             android:exported="true"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.tvshow.TvshowActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.tvshow.TvshowActivity"
             android:exported="true"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.tvshow.TvshowMoreDetailsActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.tvshow.TvshowMoreDetailsActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.tvshow.SeasonActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.tvshow.SeasonActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.movies.MoviesByAlphaActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.movies.MoviesByAlphaActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.movies.MoviesByGenreActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.movies.MoviesByGenreActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.movies.MoviesByRatingActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.movies.MoviesByRatingActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.movies.MoviesByYearActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.movies.MoviesByYearActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.animes.AnimesByAlphaActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.animes.AnimesByAlphaActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.animes.AnimesByGenreActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.animes.AnimesByGenreActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.animes.AnimesByRatingActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.animes.AnimesByRatingActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.animes.AnimesByYearActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.animes.AnimesByYearActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.tvshow.TvshowsByAlphaActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.tvshow.TvshowsByAlphaActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.tvshow.TvshowsByGenreActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.tvshow.TvshowsByGenreActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.tvshow.TvshowsByRatingActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.tvshow.TvshowsByRatingActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.tvshow.EpisodesByDateActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.tvshow.EpisodesByDateActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.VideosByListActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.VideosByListActivity"
             android:theme="@style/MyLeanbackTheme" />
 
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.details.VideoDetailsActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.details.VideoDetailsActivity"
             android:exported="true"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.details.VideoDetailsOverlayActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.details.VideoDetailsOverlayActivity"
             android:theme="@style/MyLeanbackTheme.Transparent" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.scrapping.ManualVideoScrappingActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.scrapping.ManualVideoScrappingActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.scrapping.ManualShowScrappingActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.scrapping.ManualShowScrappingActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.filebrowsing.LocalListingActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.filebrowsing.LocalListingActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.filebrowsing.ExtStorageListingActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.filebrowsing.ExtStorageListingActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.network.NetworkRootActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.network.NetworkRootActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.network.NetworkShortcutDetailsActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.network.NetworkShortcutDetailsActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.network.ftp.FtpListingActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.network.ftp.FtpListingActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.network.smb.SmbListingActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.network.smb.SmbListingActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.network.upnp.UpnpListingActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.network.upnp.UpnpListingActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.network.webdav.WebdavListingActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.network.webdav.WebdavListingActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.network.smbj.SmbjListingActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.network.smbj.SmbjListingActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.network.sshj.SshjListingActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.network.sshj.SshjListingActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.nonscraped.NonScrapedVideosActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.nonscraped.NonScrapedVideosActivity"
             android:theme="@style/MyLeanbackTheme" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.search.VideoSearchActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.search.VideoSearchActivity"
             android:exported="true"
             android:theme="@style/MyLeanbackTheme">
             <intent-filter>
@@ -1704,36 +1704,36 @@
         </activity>
 
         <provider
-            android:name="com.archos.mediacenter.video.leanback.search.VideoSearchProvider"
+            android:name="org.leeroy.mediaplayer.video.leanback.search.VideoSearchProvider"
             android:authorities="${applicationId}.leanback.search.VideoSearchProvider"
             android:exported="true" />
 
 
         <activity
-            android:name="com.archos.mediacenter.video.utils.WebViewActivity"
+            android:name="org.leeroy.mediaplayer.video.utils.WebViewActivity"
             android:excludeFromRecents="true"
             android:exported="false"
-            android:label="@string/leanback_archos_video_webview"
-            android:theme="@style/ArchosThemeBlue" />
+            android:label="@string/leanback_leeroyflix_video_webview"
+            android:theme="@style/LeeroyFlixThemeBlue" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.network.rescan.RescanActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.network.rescan.RescanActivity"
             android:theme="@style/Theme.Leanback.GuidedStep" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.wizard.SubtitlesWizardActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.wizard.SubtitlesWizardActivity"
             android:theme="@style/MyLeanbackTheme.Wizard" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.settings.VideoSettingsActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.settings.VideoSettingsActivity"
             android:theme="@style/MyLeanbackTheme.Preferences" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.settings.VideoSettingsLicencesActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.settings.VideoSettingsLicencesActivity"
             android:theme="@style/MyLeanbackTheme.Preferences" />
 
         <activity
-            android:name="com.archos.mediacenter.video.leanback.settings.VideoSettingsMoreLeanbackActivity"
+            android:name="org.leeroy.mediaplayer.video.leanback.settings.VideoSettingsMoreLeanbackActivity"
             android:theme="@style/MyLeanbackTheme.Preferences" />
 
         <meta-data android:name="io.sentry.auto-init" android:value="false" />

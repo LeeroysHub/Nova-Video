@@ -21,7 +21,8 @@
         android:drawablePadding="4dip"
         android:drawableTop="@drawable/label_resume_padded"
         android:text="M&apos;SS&apos;&apos;"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/bookmark"
@@ -31,6 +32,7 @@
         android:drawablePadding="4dip"
         android:drawableTop="@drawable/label_bookmark"
         android:text="M&apos;SS&apos;&apos;"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:textAllCaps="false" />
 
 </LinearLayout>
