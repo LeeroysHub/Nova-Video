@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="20dip" >
 
-    <com.archos.mediacenter.video.player.AudioDelayPicker
+    <org.leeroy.mediaplayer.video.player.AudioDelayPicker
         android:id="@+id/audioDelayPicker"
         android:padding="5dip"
         android:layout_gravity="center_horizontal"

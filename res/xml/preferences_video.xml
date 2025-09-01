@@ -20,6 +20,7 @@
             android:summary="@string/UiLang_summary"
             android:title="@string/UiLang_title"
             app:iconSpaceReserved="false"/>
+
     </PreferenceCategory>
     <PreferenceCategory
         android:key="preferences_category_video"
@@ -180,19 +181,6 @@
             android:summary="@string/enable_android_frame_timing_summary"
             android:title="@string/enable_android_frame_timing"
             app:iconSpaceReserved="false"/>
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/preferences_user_interface" android:key="category_user_interface"
-        app:iconSpaceReserved="false" >
-
-        <!-- first "uimode" item is for Android before 4.2 that does not support leanback -->
-        <!-- second "uimode" item is for Android >= 4.2 that does support leanback -->
-        <!-- (in case of actual leanback device we display none) -->
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="smart_recently_rows"
-            android:summary="@string/pref_declutter_home_rows_summary"
-            android:title="@string/pref_smart_recently_rows_title"
-            app:iconSpaceReserved="false"/>
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="player_projector_mode_key"
@@ -200,14 +188,20 @@
             android:summary="@string/enable_projector_mode_summary"
             android:title="@string/enable_projector_mode"
             app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preferences_user_interface" android:key="category_user_interface"
+        app:iconSpaceReserved="false" >
+
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="hide_watched"
+            android:key="@string/preferences_show_basic_interface_key"
             android:persistent="true"
-            android:summary="@string/hide_watched_videos_summary"
-            android:title="@string/hide_watched_videos"
+            android:summary="@string/preferences_show_basic_interface_summary"
+            android:title="@string/preferences_show_basic_interface_title"
             app:iconSpaceReserved="false"/>
-
+        <!-- first "uimode" item is for Android before 4.2 that does not support leanback -->
+        <!-- second "uimode" item is for Android >= 4.2 that does support leanback -->
+        <!-- (in case of actual leanback device we display none) -->
         <ListPreference
             android:defaultValue="0"
             android:dialogTitle="@string/ui_mode_title"
@@ -233,12 +227,40 @@
             android:key="ui_zoom"
             android:summary="@string/interface_size_summary"
             app:iconSpaceReserved="false"/>
+ 
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="smart_recently_rows"
+            android:summary="@string/pref_declutter_home_rows_summary"
+            android:title="@string/pref_smart_recently_rows_title"
+            app:iconSpaceReserved="false"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="hide_watched"
+            android:persistent="true"
+            android:summary="@string/hide_watched_videos_summary"
+            android:title="@string/hide_watched_videos"
+            app:iconSpaceReserved="false"/>
 
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="display_resume_box"
             android:summary="@string/preferences_display_resume_box_summary"
             android:title="@string/preferences_display_resume_box"
+            app:iconSpaceReserved="false"/>
+        
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/preferences_display_recently_added_key"
+            android:summary="@string/preferences_display_recently_added_summary"
+            android:title="@string/preferences_display_recently_added"
+            app:iconSpaceReserved="false"/>
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/preferences_display_recently_played_key"
+            android:summary="@string/preferences_display_recently_played_summary"
+            android:title="@string/preferences_display_recently_played"
             app:iconSpaceReserved="false"/>
 
          <CheckBoxPreference
@@ -273,14 +295,14 @@
             app:iconSpaceReserved="false"/>
         
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="show_last_added_row"
             android:summary="@string/preferences_show_last_added_row_summary"
             android:title="@string/preferences_show_last_added_row"
             app:iconSpaceReserved="false"/>
 
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="show_last_played_row"
             android:summary="@string/preferences_show_last_played_row_summary"
             android:title="@string/preferences_show_last_played_row"
@@ -354,7 +376,7 @@
         </Preference>
 
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="subtitles_hide_default"
             android:summary="@string/subtitles_hide_default_summary"
             android:title="@string/subtitles_hide_default"
@@ -399,7 +421,7 @@
             android:title="@string/upgrade_to_add_free_version"
             app:iconSpaceReserved="false"/>
 
-        <com.archos.mediacenter.video.utils.TraktSigninDialogPreference
+        <org.leeroy.mediaplayer.video.utils.TraktSigninDialogPreference
             android:dialogTitle="@string/trakt_signin_dialog_title"
             android:key="trakt_signin"
             android:title="@string/trakt_signin_title"
@@ -435,7 +457,7 @@
             android:summary="@string/trakt_force_pull_summary"
             app:iconSpaceReserved="false"/>
 
-        <com.archos.mediacenter.video.utils.TraktWipeDialogPreference
+        <org.leeroy.mediaplayer.video.utils.TraktWipeDialogPreference
             android:key="trakt_wipe"
             android:title="@string/trakt_wipe_title"
             app:iconSpaceReserved="false"/>
@@ -508,7 +530,7 @@
             app:iconSpaceReserved="false"/>
 
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="network_bookmarks"
             android:summary="@string/network_bookmarks_summary"
             android:title="@string/network_bookmarks"
@@ -616,13 +638,13 @@
 
     <PreferenceCategory android:title="@string/torrent_category"
         app:iconSpaceReserved="false">
-        <com.archos.mediacenter.video.utils.TorrentPathDialogPreference
+        <org.leeroy.mediaplayer.video.utils.TorrentPathDialogPreference
             android:dialogTitle="@string/torrent_path"
             android:key="preferences_torrent_path"
             android:title="@string/torrent_path"
             app:iconSpaceReserved="false" />
     
-        <com.archos.mediacenter.video.utils.TorrentBlocklistDialogPreference
+        <org.leeroy.mediaplayer.video.utils.TorrentBlocklistDialogPreference
             android:dialogTitle="@string/torrent_blocklist"
             android:key="preferences_torrent_blocklist"
             android:title="@string/torrent_blocklist" 
@@ -643,16 +665,19 @@
         <Preference
             android:key="preferences_video_os"
             android:title="@string/preferences_video_os_text"
+            android:selectable="false"
             android:widgetLayout="@layout/preferences_video_os_button"
             app:iconSpaceReserved="false"/>
         <Preference
             android:key="preferences_video_tmdb"
             android:title="@string/preferences_video_tmdb_text"
+            android:selectable="false"
             android:widgetLayout="@layout/preferences_video_tmdb_button"
             app:iconSpaceReserved="false"/>
         <Preference
             android:key="preferences_video_trakt"
             android:title="@string/preferences_video_trakt_text"
+            android:selectable="false"
             android:widgetLayout="@layout/preferences_video_trakt_button"
             app:iconSpaceReserved="false"/>
         <!--<PreferenceScreen
