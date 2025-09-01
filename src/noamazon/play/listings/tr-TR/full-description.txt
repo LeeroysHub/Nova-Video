@@ -1,4 +1,4 @@
-Nova, https://github.com/nova-video-player/aos-AVP adresinde bulunan tabletler, telefonlar ve AndroidTV cihazları için tasarlanmış bir Video Player'dir.
+LeeroyFlix, https://github.com/nova-video-player/aos-AVP adresinde bulunan tabletler, telefonlar ve AndroidTV cihazları için tasarlanmış bir Video Player'dir.
 
 Evrensel oynatıcı:
 Bilgisayarınızdan, sunucunuzdan (FTP, SFTP, WebDAV), NAS'dan (SMB, UPnP) video oynatın

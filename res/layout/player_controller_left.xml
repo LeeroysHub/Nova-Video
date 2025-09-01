@@ -17,9 +17,9 @@
     android:gravity="center"
     android:orientation="vertical"
     android:visibility="gone"
-    tools:context="com.archos.mediacenter.video.player.PlayerActivity" >
+    tools:context="org.leeroy.mediaplayer.video.player.PlayerActivity" >
 
-    <com.archos.mediacenter.utils.RepeatingImageButton
+    <org.leeroy.mediaplayer.utils.RepeatingImageButton
         android:id="@+id/volume_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         android:adjustViewBounds="true"
         android:src="@drawable/volume_up" />
 
-    <com.archos.mediacenter.utils.seekbar.ArchosProgressSlider
+    <org.leeroy.mediaplayer.utils.seekbar.LeeroyFlixProgressSlider
         android:id="@+id/volume_level"
         style="@style/PlayerSliderVertical"
         android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
         android:paddingRight="17dip"
         android:paddingTop="4dip" />
 
-    <com.archos.mediacenter.utils.RepeatingImageButton
+    <org.leeroy.mediaplayer.utils.RepeatingImageButton
         android:id="@+id/volume_down"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

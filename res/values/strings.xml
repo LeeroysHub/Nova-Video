@@ -19,7 +19,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" tools:ignore="MissingTranslation">
 
     <!-- Menu item that takes the user back to the top level screen of the music player -->
-    <string name="goto_start">Library</string>
+    <string name="goto_start">Media Library</string>
     <!-- Menu item that takes the user to the "now playing" screen of the music player -->
     <!-- Menu item to refresh servers list -->
     <string name="refresh_servers_list">Refresh server list</string>
@@ -45,7 +45,7 @@
     <!-- Context menu item -->
     <string name="multiple_selection">Multiple selection</string>
     <!-- Context menu item -->
-    <string name="play_from_beginning">Play from beginning</string>
+    <string name="play_from_beginning">Play</string>
     <!-- Dialog box button -->
 
     <!--The fast scroll thumb will show one character from this string depending on the position in the list -->
@@ -67,8 +67,8 @@
     <string name="info_tab_share">Share</string>
     <string name="info_menu_backdrop_select">Backdrop</string>
     <string name="info_menu_series_backdrop_select">Series Backdrop</string>
-    <string name="info_menu_poster_select">Select another poster</string>
-    <string name="info_menu_series_poster_select">Select another poster</string>
+    <string name="info_menu_poster_select">Choose a poster</string>
+    <string name="info_menu_series_poster_select">Choose a poster</string>
 
     <!-- COVER ROLL -->
     <string name="watching_up_next">Watching/Up next</string>
@@ -89,9 +89,9 @@
     <string name="sd_card_storage">SD card</string>
     <string name="usb_host_storage">External drive</string>
     <string name="other_storage">Drive</string>
-    <string name="network_media_servers">Media servers (UPnP)</string>
-    <string name="network_shared_folders">Shared folders (SMB)</string>
-    <string name="network_connected_as">Connected as %s</string>
+    <string name="network_media_servers">DLNA servers</string>
+    <string name="network_shared_folders">SMB folders</string>
+    <string name="network_connected_as">User: %s</string>
     <string name="network_guest">guest</string>
     <string name="sftp_folders">FTP</string>
     <string name="network_jcifs">Samba (Experimental)</string>
@@ -310,7 +310,7 @@
     </plurals>
 
     <!-- Media Center -->
-    <string name="mediacenterlabel">Media Center</string>
+    <string name="mediaplayerlabel">Media Center</string>
 
     <string name="view_mode">Display mode</string>
     <string name="view_mode_list">List</string>
@@ -431,11 +431,11 @@
     <string name="player_plugin_video_audio_msg">This file contains an <xliff:g id="video">%1$s</xliff:g> video format and an <xliff:g id="audio">%2$s</xliff:g> audio format.</string>
     <string name="player_plugin_purchase_msg">You need to purchase the <xliff:g id="plugin">%1$s</xliff:g></string>
     <string name="player_plugin_purchase">Go to the Store</string>
-    <string name="player_plugin_purchase_archos_msg">You can purchase additional codec plug-ins on www.archos.com.</string>
+    <string name="player_plugin_purchase_leeroyflix_msg">You can purchase additional codec plug-ins on www.leeroyflix.com.</string>
     <string name="player_plugin_purchase_google_play_msg">You can purchase additional codec plug-ins on Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Go to Google Play</string>
     <string name="plugin_update_required_title">Codec update required</string>
-    <string name="plugin_update_required_message">It looks like you already have additional codecs installed for Nova Video Player.\n\nThis new version of Nova Video Player requires an update of these codecs.\n\nPlease go to Google Play to update and re-install the codecs.</string>
+    <string name="plugin_update_required_message">It looks like you already have additional codecs installed for LeeroyFlix.\n\nThis new version of LeeroyFlix requires an update of these codecs.\n\nPlease go to Google Play to update and re-install the codecs.</string>
 
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Select subtitles on storage</string>
@@ -465,12 +465,12 @@
     <string name="sub_force_all">All your videos already have at least one subtitles track. Do you want to force download of new subtitles tracks?</string>
     <string name="dialog_subloader_nonetwork_title">No Internet connection</string>
     <string name="dialog_subloader_nonetwork_message">An internet connection is required to download subtitles</string>
-    <string name="dialog_subloader_connecting">Connecting to opensubtitles service…</string>
+    <string name="dialog_subloader_connecting">Connecting to OpenSubtitles service…</string>
     <string name="opensubtitles_quota_download_remaining">OpenSubtitles download quota: %1$d/%2$d remaining</string>
-    <string name="dialog_subloader_credentials">Opensubtitles credentials</string>
+    <string name="dialog_subloader_credentials">OpenSubtitles credentials</string>
     <string name="dialog_subloader_credentials_empty">You must specify a valid username and password!</string>
-    <string name="toast_subloader_credentials_empty">Provide your opensubtitles credentials in settings to be able to download more subtitles</string>
-    <string name="toast_subloader_login_failed">Incorrect opensubtitles credentials or service not available</string>
+    <string name="toast_subloader_credentials_empty">Provide your OpenSubtitles credentials in settings to be able to download more subtitles</string>
+    <string name="toast_subloader_login_failed">Incorrect OpenSubtitles credentials or service not available</string>
     <string name="toast_subloader_quota_exceeded">OpenSubtitles download quota exceeded</string>
     <string name="opensubtitles_quota_reset_time_remaining">Quota resets in %s</string>
 
@@ -494,8 +494,8 @@
     <string name="quotation_format">&#x201C;%s&#x201D;&#x2003;</string>
 
     <string name="error_permission">Not enough permissions</string>
-    <string name="error_permission_storage">Nova Video Player needs storage permission to read local videos, please, grant this permission.</string>
-    <string name="error_permission_all_file_access">Nova Video Player needs all external storage management permission to properly manage local videos/NFO files, please, grant this permission.</string>
+    <string name="error_permission_storage">LeeroyFlix needs storage permission to read local videos, please, grant this permission.</string>
+    <string name="error_permission_all_file_access">LeeroyFlix needs all external storage management permission to properly manage local videos/NFO files, please, grant this permission.</string>
     <string name="allow">Allow</string>
     <string name="exit">Exit</string>
     <!-- torrent -->
@@ -571,7 +571,7 @@
     <string name="preferences_force_software_decoding_summary">You may try this option if some videos are not playing correctly</string>
     <string name="preferences_force_audio_passthrough">Audio passthrough</string>
     <string name="preferences_force_audio_passthrough_disabled">Disabled (recommended)</string>
-    <string name="preferences_force_audio_passthrough_enable">Nova encapsulation (experimental)</string>
+    <string name="preferences_force_audio_passthrough_enable">LeeroyFlix encapsulation (experimental)</string>
     <string name="preferences_force_audio_passthrough_enable2">System encapsulation</string>
     <string name="preferences_force_audio_passthrough_ac3">Universal (AC3 recoding)</string>
     <string name="preferences_force_audio_passthrough_summary">Transmit compressed audio over HDMI or S/PDIF. ⚠ Experimental may result in A/V out of sync</string>
@@ -626,7 +626,7 @@
     <string name="favAudioLang_summary">Choose your favorite audio track language</string>
     <string name="ui_language_title">Choose user interface language</string>
     <string name="UiLang_title">User interface language</string>
-    <string name="UiLang_summary">Set nova user interface language, pick system to use system default</string>
+    <string name="UiLang_summary">Set LeeroyFlix user interface language, pick system to use system default</string>
     <string name="ui_mode_title">User interface mode</string>
     <string name="ui_mode_summary">Choose between TV and Tablet/Phone UI</string>
     <string name="preferences_video_about">About</string>
@@ -663,7 +663,7 @@
     <!--  Title of the video picker activity. -->
     <string name="video_picker_title">Select video</string>
 
-    <!-- Archos File Info -->
+    <!-- LeeroyFlix File Info -->
 
     <string name="video_info_custom_search_file_hint">"\"Moviename\" or \"Showname S01E01\""</string>
     <string name="video_info_custom_search_show_hint">Name of the TV show</string>
@@ -673,7 +673,7 @@
     <string name="video_info_backdrop_remove">Remove</string>
     <string name="video_info_backdrop_set_as">Set picture as</string>
 
-    <string name="video_info_share_message">"I\'ve been watching the video \"%1$s\" on my Nova %2$s"</string>
+    <string name="video_info_share_message">"I\'ve been watching the video \"%1$s\" on my LeeroyFlix %2$s"</string>
 
     <string name="notification_mode">Notifications</string>
     <string name="notifications_all">All notifications</string>
@@ -743,10 +743,10 @@
     <!--  Nfo File parsing -->
     <string name="network_nfo_parse">Process \'.nfo\' files</string>
     <string name="network_nfo_parse_summary">Read Kodi \'.nfo\' files during (re-)scanning to gather media information and posters.</string>
-    <string name="ask_to_mail_media_DB">Do you want to mail your Video database to Nova development team in order to help them check a bug?\n\nThe video files are (of course) not mailed, but the full list of file names is.</string>
+    <string name="ask_to_mail_media_DB">Do you want to mail your Video database to LeeroyFlix development team in order to help them check a bug?\n\nThe video files are (of course) not mailed, but the full list of file names is.</string>
     <string name="no_email_installed">No email application found</string>
     <string name="zipping_library_before_mailing">Zipping a copy of the library before mailing it…</string>
-    <string name="zipped_library_mail_subject">Nova Video Database Dump</string>
+    <string name="zipped_library_mail_subject">LeeroyFlix Video Database Dump</string>
     <string name="zipped_library_mail_text">Please describe the problem you\'re experiencing\n\n</string>
 
     <string name="sort_mode">Sort mode</string>
@@ -795,7 +795,13 @@
     <string name="preferences_display_resume_box">Display resume box</string>
     <string name="reset_brightness_on_start">Remember video brightness.</string>
     <string name="reset_brightness_on_start_summary">Remember last used brightness setting when opening application. Turn off to use system brightness.</string>
-
+    
+    <!--These are for the Tablet/Phone UI, leanback ones are below-->
+    <string name="preferences_display_recently_added">Display New on LeeroyFlix menu</string>
+    <string name="preferences_display_recently_added_summary">Show or Hide the Recently Added item in the Side Menu.</string>
+    <string name="preferences_display_recently_played">Display Watch History menu</string>
+    <string name="preferences_display_recently_played_summary">Show or Hide the Recently Played item in the Side Menu.</string>
+    
     <string name="preferences_leanback_user_interface">TV User Interface</string>
     <string name="preferences_separate_animation_from_movies_summary">Check to separate animation videos from movies and tv shows adding an animation row</string>
     <string name="preferences_separate_animation_from_movies">Separate animations from movies and TV shows</string>
@@ -893,7 +899,7 @@
     <string name="trakt_sync_collection_title">Synchronize TV show and movie collections</string>
     <string name="trakt_sync_trakt_resume_title">Sync trakt resume position</string>
     <string name="trakt_sync_trakt_resume">Use trakt resume position when more advanced than local</string>
-    <string name="trakt_sync_collection_summary">Automatically add all videos from your Nova library to your Trakt collection</string>
+    <string name="trakt_sync_collection_summary">Automatically add all videos from your LeeroyFlix library to your Trakt collection</string>
     <string name="trakt_toast_syncing">Syncing with Trakt&#8230;</string>
 
     <string name="show_all">All videos</string>
@@ -935,7 +941,7 @@
     <string name="leanback_unscrap">@string/scrap_remove</string>
     <string name="leanback_legacy_ui">Legacy interface</string>
     <string name="leanback_hint_long_press_on_back">HINT: long press on BACK key closes the file browser</string>
-    <string name="leanback_archos_video_webview">Nova Video WebView</string>
+    <string name="leanback_leeroyflix_video_webview">LeeroyFlix Video WebView</string>
     <string name="file_access_error">Did not manage to access the file</string>
     <string name="always_leanback_on_tv">Always start in TV user inferface</string>
     <string name="always_leanback_on_tv_summary">Always start the application in TV user inferface, turn off if you want to start in classic UI on your TV.</string>
@@ -969,7 +975,7 @@
     <string name="scheduled_rescan_time">Re-scan time</string>
     <string name="rescan_when_opening_application">Re-scan when opening the application</string>
     <string name="last_rescan_occured">Last re-scan occurred:</string>
-    <string name="error_permission_display_over_apps">Window mode needs special permissions to be displayed in front of other apps. Please, grant Nova Video Player this permission to switch to window mode.</string>
+    <string name="error_permission_display_over_apps">Window mode needs special permissions to be displayed in front of other apps. Please, grant LeeroyFlix this permission to switch to window mode.</string>
 
     <string name="intro_overlay_text">Touch to cast videos to your TV</string>
 
@@ -980,7 +986,7 @@
     <string name="rescrap_in_progress">Rescraping whole library</string>
     <string name="rescrap_movies_in_progress">Rescraping all movies</string>
     <string name="rescrap_collections_in_progress">Rescraping all collections</string>
-    <string name="acquire_external_usb_permission">Nova Video needs special permission to access external storage. Please select your storage on next screen</string>
+    <string name="acquire_external_usb_permission">LeeroyFlix Video needs special permission to access external storage. Please select your storage on next screen</string>
 
     <string name="rescrap_not_found">Rescrape videos without description</string>
     <string name="rescrap_all_title">Rescrape all</string>
@@ -991,20 +997,20 @@
     <string name="db_export_manual_title">Export media database</string>
     <string name="db_export_manual_summary">Export media.db file to /sdcard for debug purposes</string>
     <string name="db_export_in_progress">Database export in progress</string>
-    <string name="media_library_export_title">Export media library + credentials + shortcuts</string>
-    <string name="media_library_export_summary">Export media.db, network credentials (SMB/FTP/SFTP), network shortcuts, and all cached images as a zip file</string>
-    <string name="media_library_import_title">Import media library + credentials + shortcuts</string>
-    <string name="media_library_import_summary">Import media.db, network credentials, network shortcuts, and cached images from a previously exported zip file</string>
-    <string name="media_library_export_in_progress">Exporting media library, credentials, and shortcuts</string>
-    <string name="media_library_import_in_progress">Importing media library, credentials, and shortcuts</string>
-    <string name="media_library_export_success">Media library, credentials, and shortcuts exported successfully to:\n%s</string>
-    <string name="media_library_import_success">Media library, credentials, and shortcuts imported successfully. Restarting app...</string>
+    <string name="media_library_export_title">Export Media Library to Backup File</string>
+    <string name="media_library_export_summary">Export media.db, network credentials (SMB/FTP/SFTP), network shortcuts, and all cached images as a ZIP file</string>
+    <string name="media_library_import_title">Import Media Library from Backup File</string>
+    <string name="media_library_import_summary">Import media.db, network credentials, network shortcuts, and cached images from a previously exported ZIP file</string>
+    <string name="media_library_export_in_progress">Exporting Media Library to Backup File</string>
+    <string name="media_library_import_in_progress">Importing Media Library from Backup File</string>
+    <string name="media_library_export_success">Media Library exported successfully to:\n%s</string>
+    <string name="media_library_import_success">Media Library imported successfully. Restarting app...</string>
     <string name="media_library_import_error">Error importing media library</string>
     <string name="media_library_export_error">Error exporting media library</string>
     <string name="media_library_export_dir_not_found">Export directory not found</string>
     <string name="media_library_no_backup_found">No backup file found. Please export first.</string>
     <string name="media_library_backup_info">Backup file found: backup.zip\nSize: %d MB\n\n⚠️ Contains: metadata, credentials, shortcuts, images\n\nProceed to import?</string>
-    <string name="media_library_import_dialog_title">Import media library + credentials + shortcuts</string>
+    <string name="media_library_import_dialog_title">Import Media Library</string>
     <string name="media_library_import_confirm_title">⚠️ CONFIRM FULL REPLACEMENT</string>
     <string name="media_library_import_warning">⚠️ WARNING: FULL REPLACEMENT ⚠️\n\nThis will COMPLETELY DELETE your current media library and replace it with the backup.\n\nALL current data will be PERMANENTLY LOST:\n• All scraped movie/TV show metadata\n• All cached posters and backdrops\n• All watch progress and history\n• All network credentials (SMB/FTP/SFTP/WebDAV)\n• All network shortcuts/bookmarks\n• All custom edits and settings\n\nThis action CANNOT be undone!\n\nThe app will automatically restart after import.\n\nAre you absolutely sure you want to continue?</string>
     <string name="media_library_import_button_confirm">YES, DELETE AND REPLACE</string>
@@ -1014,17 +1020,17 @@
     <string name="switch_remote_empty_message">Switching to remote display mode might give more track options</string>
     <string name="cast_stream_mode">Stream mode</string>
     <string name="cast_remote_display_mode">Remote display</string>
-    <string name="cast_remote_display_mode_description">every format supported by nova video player can be played using remote display. However, quality can be deteriorated.</string>
+    <string name="cast_remote_display_mode_description">every format supported by LeeroyFlix can be played using remote display. However, quality can be deteriorated.</string>
     <string name="cast_stream_mode_description">Optimal quality but some format cannot be supported</string>
 
     <string name="sleep_timer_title">Sleep timer</string>
     <string name="sleep_timer_description">Stop video after: </string>
     <string name="cast_mode">Cast mode</string>
     <string name="cast_info">Info</string>
-    <string name="troubleshoot_streammode_msg">Nova video player is currently in stream cast mode.
+    <string name="troubleshoot_streammode_msg">LeeroyFlix is currently in stream cast mode.
         \nThis results to a good video quality but might rise issues with audiotracks and subtitles.
         Try switching to Remote display cast mode.</string>
-    <string name="troubleshoot_remotemode_msg">Nova video player is currently in remote display mode.
+    <string name="troubleshoot_remotemode_msg">LeeroyFlix is currently in remote display mode.
         \nDepending on your device and your network quality, you might experience some quality loss and performance issues. </string>
     <string name="picture_in_picture">Picture in picture</string>
     <string name="cast">Cast</string>
@@ -1033,11 +1039,11 @@
     <string name="cast_fallback_message">Error: fallback to screen cast</string>
     <string name="cast_introduction">New experimental feature : \nGoogle cast</string>
     <string name="cast_select_for_full_control">Touch to expand controller</string>
-    <string name="cast_audio_background">Sound won\'t work while Nova Video Player is in background</string>
+    <string name="cast_audio_background">Sound won\'t work while LeeroyFlix is in background</string>
     <string name="help_faq">Help / FAQ</string>
     <string name="provider_folders">Cloud</string>
     <string name="learn_more">Learn more</string>
-    <string name="learn_more_about_codecs">Nova Video Player can only play videos supported by your device. Due to license issues, some formats cannot be legally included, some other can be purchased on Google Play Store.</string>
+    <string name="learn_more_about_codecs">LeeroyFlix can only play videos supported by your device. Due to license issues, some formats cannot be legally included, some other can be purchased on Google Play Store.</string>
     <string name="base64_encoded_publicKey" />
     <string name="rate_us">If you like this app, please support us by rating us 5 stars</string>
     <string name="rate_us_title">☆ Support us</string>
@@ -1065,13 +1071,13 @@
     <string name="supported_refresh_rates">Supported refresh rates:</string>
 
     <string name="upgrade_info">Upgrade information</string>
-    <string name="v5_v6_upgrade_info">WARNING: this Nova major update requires to rescan all video collection for multimedia information re-aquisition.
+    <string name="v5_v6_upgrade_info">WARNING: this LeeroyFlix major update requires to rescan all video collection for multimedia information re-aquisition.
         It is strongly advised to restart from a clean install to avoid problems. Please check FAQ for details.</string>
     <string name="networks">Networks:</string>
     <string name="premiered">Premiered:</string>
 
     <string name="external_player_service_title">External player playback</string>
-    <string name="external_player_service_description">Nova Video Player provides content for an external player</string>
+    <string name="external_player_service_description">LeeroyFlix provides content for an external player</string>
     <string name="stop">Stop</string>
 
 </resources>

@@ -1,4 +1,4 @@
-// Copyright 2017 Archos SA
+// Copyright 2017 LeeroyFlix
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,8 +16,8 @@ package androidx.leanback.widget;
 
 import android.view.View;
 
-import com.archos.mediacenter.video.R;
-import com.archos.mediacenter.video.leanback.presenter.IconItemPresenter;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.leanback.presenter.IconItemPresenter;
 
 /**
  * Dedicated row presenter for a list row containing Icon/IconItemPresenter
