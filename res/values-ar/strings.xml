@@ -388,7 +388,7 @@
     <string name="video_info_backdrop_select">اختار ملصقة اخرى</string>
     <string name="video_info_backdrop_remove">حذف</string>
     <string name="video_info_backdrop_set_as">تعيين الصورة كـ</string>
-    <string name="video_info_share_message">"I've been watching the video \"%1$s\" on Nova %2$s"</string>
+    <string name="video_info_share_message">"I've been watching the video \"%1$s\" on LeeroyFlix %2$s"</string>
     <string name="notification_mode">التنبيهات</string>
     <string name="notifications_all">جميع الإشعارات</string>
     <string name="notifications_alerts">التنبيهات فقط</string>

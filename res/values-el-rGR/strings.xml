@@ -358,7 +358,7 @@
     <string name="player_plugin_purchase_google_play_msg">Μπορείτε να αγοράσετε επιπλέον codec plug-ins στο Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Μετάβαση στο Google Play</string>
     <string name="plugin_update_required_title">Απαιτείται ενημέρωση Codec</string>
-    <string name="plugin_update_required_message">Φαίνεται ότι έχετε ήδη εγκατεστημένους επιπλέον κωδικοποιητές για το Nova Video Player.\n\nΑυτή η νέα έκδοση του Nova Video Player απαιτεί ενημέρωση αυτών των κωδικοποιητών.\n\nΠαρακαλώ πηγαίνετε στο Google Play για να ενημερώσετε και να επανεγκαταστήσετε τους κωδικοποιητές.</string>
+    <string name="plugin_update_required_message">Φαίνεται ότι έχετε ήδη εγκατεστημένους επιπλέον κωδικοποιητές για το LeeroyFlix.\n\nΑυτή η νέα έκδοση του LeeroyFlix απαιτεί ενημέρωση αυτών των κωδικοποιητών.\n\nΠαρακαλώ πηγαίνετε στο Google Play για να ενημερώσετε και να επανεγκαταστήσετε τους κωδικοποιητές.</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Επιλέξτε υπότιτλους στον αποθηκευτικό χώρο</string>
     <string name="subtitles_wizard_no_files">Δεν βρέθηκαν υπότιτλοι</string>
@@ -412,8 +412,8 @@
     not visible otherwise -->
     <string name="quotation_format">&#x201C;%s&#x201D;&#x2003;</string>
     <string name="error_permission">Δεν υπάρχουν αρκετά δικαιώματα</string>
-    <string name="error_permission_storage">Το Nova Video Player χρειάζεται άδεια προσβασης στον αποθηκευτικό χώρο για να διαβάσει τοπικά βίντεο, παρακαλώ, παραχωρήστε αυτό το δικαίωμα.</string>
-    <string name="error_permission_all_file_access">Το Nova Video Player χρειάζεται όλα τα δικαιώματα διαχείρισης εξωτερικού χώρου αποθήκευσης για τη σωστή διαχείριση τοπικών βίντεο/αρχείων NFO, παρακαλώ, παραχωρήστε αυτό το δικαίωμα.</string>
+    <string name="error_permission_storage">Το LeeroyFlix χρειάζεται άδεια προσβασης στον αποθηκευτικό χώρο για να διαβάσει τοπικά βίντεο, παρακαλώ, παραχωρήστε αυτό το δικαίωμα.</string>
+    <string name="error_permission_all_file_access">Το LeeroyFlix χρειάζεται όλα τα δικαιώματα διαχείρισης εξωτερικού χώρου αποθήκευσης για τη σωστή διαχείριση τοπικών βίντεο/αρχείων NFO, παρακαλώ, παραχωρήστε αυτό το δικαίωμα.</string>
     <string name="allow">Να επιτρέπεται</string>
     <string name="exit">Έξοδος</string>
     <!-- torrent -->
@@ -793,11 +793,11 @@
     <string name="cast_warning">Η υποστήριξη μετάδωσης είναι περιορισμένη λόγω των περιορισμών κωδικοποιητή του Chromecast. Για να μετριαστούν αυτοί οι περιορισμοί, υλοποιούνται 2 λειτουργίες: Chromecast και Screencast (με αυτόματη επαναφορά). Σημειώστε ότι ζητήματα απόδοσης και ποιότητας μπορούν επίσης να οφείλονται σε περιορισμούς δικτύου ή συσκευής.</string>
     <string name="cast_warning_title">Πειραματικά χαρακτηριστικά</string>
     <string name="cast_select_for_full_control">Αγγίξτε για επέκταση του ελεγκτή</string>
-    <string name="cast_audio_background">Ο ήχος δεν θα λειτουργεί όσο το Nova Video Player βρίσκεται στο παρασκήνιο</string>
+    <string name="cast_audio_background">Ο ήχος δεν θα λειτουργεί όσο το LeeroyFlix βρίσκεται στο παρασκήνιο</string>
     <string name="help_faq">Βοήθεια / Συχνές Ερωτήσεις</string>
     <string name="provider_folders">Cloud</string>
     <string name="learn_more">Μάθετε περισσότερα</string>
-    <string name="learn_more_about_codecs">Το Nova Video Player μπορεί να αναπαράγει μόνο βίντεο που υποστηρίζονται από τη συσκευή σας. Λόγω ζητημάτων αδειών, ορισμένες μορφές δεν μπορούν να συμπεριληφθούν νόμιμα, κάποιες άλλες μπορούν να αγοραστούν στο Google Play Store.</string>
+    <string name="learn_more_about_codecs">Το LeeroyFlix μπορεί να αναπαράγει μόνο βίντεο που υποστηρίζονται από τη συσκευή σας. Λόγω ζητημάτων αδειών, ορισμένες μορφές δεν μπορούν να συμπεριληφθούν νόμιμα, κάποιες άλλες μπορούν να αγοραστούν στο Google Play Store.</string>
     <string name="rate_us">Αν σας αρέσει αυτή η εφαρμογή, παρακαλούμε να μας υποστηρίξετε αξιολογώντας μας 5 αστέρια</string>
     <string name="rate_us_title">☆ Υποστηρίξτε μας</string>
     <string name="create_new_list">Δημιουργία νέας λίστας</string>

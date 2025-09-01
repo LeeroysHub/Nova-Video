@@ -389,7 +389,7 @@
     <string name="player_plugin_purchase_google_play_msg">می توانید افزایه های کدک اضافی را در Google Play خریداری کنید.</string>
     <string name="player_plugin_purchase_google_play_button">به Google Play بروید</string>
     <string name="plugin_update_required_title">به روز رسانی کدک مورد نیاز است</string>
-    <string name="plugin_update_required_message">به نظر می رسد که شما قبلا کدک های اضافی برای Nova Video Player نصب کرده اید.\n\nاین نسخه جدید Nova Video Player نیاز به بروز رسانی این کدک ها دارد.\n\nلطفا برای به روز رسانی و نصب مجدد کدک ها به Google Play بروید.</string>
+    <string name="plugin_update_required_message">به نظر می رسد که شما قبلا کدک های اضافی برای LeeroyFlix نصب کرده اید.\n\nاین نسخه جدید LeeroyFlix نیاز به بروز رسانی این کدک ها دارد.\n\nلطفا برای به روز رسانی و نصب مجدد کدک ها به Google Play بروید.</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">انتخاب زیرنویس از حافظه</string>
     <string name="subtitles_wizard_no_files">فایل زیرنویس یافت نشد</string>
@@ -443,8 +443,8 @@
     not visible otherwise -->
     <string name="quotation_format">&#x201C;%s&#x201D;&#x2003;</string>
     <string name="error_permission">مجوزها کافی نیست</string>
-    <string name="error_permission_storage">Nova Video Player برای خواندن ویدیوهای محلی به مجوز ذخیره‌سازی نیاز دارد، لطفاً این اجازه را بدهید.</string>
-    <string name="error_permission_all_file_access">Nova Video Player برای مدیریت صحیح ویدیوها/فایل‌های NFO به تمام مجوزهای مدیریت حافظه خارجی نیاز دارد، لطفاً این مجوز را اعطا کنید.</string>
+    <string name="error_permission_storage">LeeroyFlix برای خواندن ویدیوهای محلی به مجوز ذخیره‌سازی نیاز دارد، لطفاً این اجازه را بدهید.</string>
+    <string name="error_permission_all_file_access">LeeroyFlix برای مدیریت صحیح ویدیوها/فایل‌های NFO به تمام مجوزهای مدیریت حافظه خارجی نیاز دارد، لطفاً این مجوز را اعطا کنید.</string>
     <string name="allow">اجازه دادن</string>
     <string name="exit">خروج</string>
     <!-- torrent -->

@@ -399,7 +399,7 @@
     <string name="player_plugin_purchase_google_play_msg">Ви можете придбати додаткові плагіни у Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Перейти до Google Play</string>
     <string name="plugin_update_required_title">Необхідне оновлення кодека</string>
-    <string name="plugin_update_required_message">Схоже, що вже встановлені додаткові кодеки для Nova Video Player.\n\nНова версія Nova Video Player потребує оновлення кодеків.\n\nБудь ласка, перейдіть до Google Play, щоб оновити та повторно встановити кодеки.</string>
+    <string name="plugin_update_required_message">Схоже, що вже встановлені додаткові кодеки для LeeroyFlix.\n\nНова версія LeeroyFlix потребує оновлення кодеків.\n\nБудь ласка, перейдіть до Google Play, щоб оновити та повторно встановити кодеки.</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Вибір субтитрів на накопичувачі</string>
     <string name="subtitles_wizard_no_files">Файли субтитрів не знайдено</string>
@@ -453,8 +453,8 @@
     not visible otherwise -->
     <string name="quotation_format">&#x201C;%s&#x201D;&#x2003;</string>
     <string name="error_permission">Недостатньо прав</string>
-    <string name="error_permission_storage">Nova Video Player потребує доступ до сховища для читання локальних відео, будь ласка, надайте цей дозвіл.</string>
-    <string name="error_permission_all_file_access">Nova Video Player потребує весь доступ до управління зовнішніми сховищами, щоб правильно керувати локальними відео/NFO файлами, будь ласка, надайте цей дозвіл.</string>
+    <string name="error_permission_storage">LeeroyFlix потребує доступ до сховища для читання локальних відео, будь ласка, надайте цей дозвіл.</string>
+    <string name="error_permission_all_file_access">LeeroyFlix потребує весь доступ до управління зовнішніми сховищами, щоб правильно керувати локальними відео/NFO файлами, будь ласка, надайте цей дозвіл.</string>
     <string name="allow">Дозволити</string>
     <string name="exit">Вийти</string>
     <!-- torrent -->
@@ -870,7 +870,7 @@
     <string name="scheduled_rescan_time">Час сканування</string>
     <string name="rescan_when_opening_application">Пересканувати під час відкриття додатка</string>
     <string name="last_rescan_occured">Останнє сканування:</string>
-    <string name="error_permission_display_over_apps">У віконному режимі потрібні спеціальні дозволи для відображення поверх інших додатків. Надайте Nova Video Player такий дозвіл для перемикання у віконний режим.</string>
+    <string name="error_permission_display_over_apps">У віконному режимі потрібні спеціальні дозволи для відображення поверх інших додатків. Надайте LeeroyFlix такий дозвіл для перемикання у віконний режим.</string>
     <string name="intro_overlay_text">Натисніть, щоб транслювати відео на ТВ</string>
     <string name="drawer_open">draweropen</string>
     <string name="drawer_close">drawer_close</string>
@@ -895,16 +895,16 @@
     <string name="switch_remote_empty_message">Перемикання в режим віддаленого дисплея може надати більше можливостей</string>
     <string name="cast_stream_mode">Режим потоку</string>
     <string name="cast_remote_display_mode">Віддалений дисплей</string>
-    <string name="cast_remote_display_mode_description">У режимі віддаленого дисплея всі формати, підтримувані Nova Video Player, можуть бути відтворені. Однак якість може погіршитися.</string>
+    <string name="cast_remote_display_mode_description">У режимі віддаленого дисплея всі формати, підтримувані LeeroyFlix, можуть бути відтворені. Однак якість може погіршитися.</string>
     <string name="cast_stream_mode_description">Оптимальна якість, але деякі формати можуть не підтримуватися</string>
     <string name="sleep_timer_title">Таймер сну</string>
     <string name="sleep_timer_description">Зупинити відео через: </string>
     <string name="cast_mode">Режим трансляції</string>
     <string name="cast_info">Інформація</string>
-    <string name="troubleshoot_streammode_msg">Nova Video Player перебуває в режимі трансляції.
+    <string name="troubleshoot_streammode_msg">LeeroyFlix перебуває в режимі трансляції.
         \nЦе призводить до хорошої якості відео, але може спричинити проблеми з перемиканням аудіо та субтитрами.
         Спробуйте перейти в режим віддаленого дисплея.</string>
-    <string name="troubleshoot_remotemode_msg">Nova Video Player перебуває в режимі віддаленого дисплея.
+    <string name="troubleshoot_remotemode_msg">LeeroyFlix перебуває в режимі віддаленого дисплея.
         \nЗалежно від пристрою та якості мережі, може виникати втрата якості та продуктивності. </string>
     <string name="picture_in_picture">Картинка в картинці</string>
     <string name="cast">Трансляція</string>
@@ -913,11 +913,11 @@
     <string name="cast_fallback_message">Помилка: fallback to screen cast</string>
     <string name="cast_introduction">Нова експериментальна функція: \nGoogle Cast</string>
     <string name="cast_select_for_full_control">Натисніть, щоб розширити контролер</string>
-    <string name="cast_audio_background">Звук не працюватиме у фоновому режимі Nova Video Player</string>
+    <string name="cast_audio_background">Звук не працюватиме у фоновому режимі LeeroyFlix</string>
     <string name="help_faq">Довідка/FAQ</string>
     <string name="provider_folders">Хмара</string>
     <string name="learn_more">Докладніше</string>
-    <string name="learn_more_about_codecs">Nova Video Player може відтворювати тільки відео, що підтримуються Вашим пристроєм. Через ліцензійні обмеження деякі формати не можуть бути включені, деякі інші можуть бути придбані в Google Play.</string>
+    <string name="learn_more_about_codecs">LeeroyFlix може відтворювати тільки відео, що підтримуються Вашим пристроєм. Через ліцензійні обмеження деякі формати не можуть бути включені, деякі інші можуть бути придбані в Google Play.</string>
     <string name="rate_us">Якщо Вам подобається цей додаток, будь ласка, підтримайте нас, оцінивши на 5 зірок</string>
     <string name="rate_us_title">☆ Підтримайте нас</string>
     <string name="create_new_list">Створити новий список</string>

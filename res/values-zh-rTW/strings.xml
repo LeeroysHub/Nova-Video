@@ -384,7 +384,7 @@
     <string name="player_plugin_purchase_google_play_msg">您可以在 Play 商店購買額外的解碼套件。</string>
     <string name="player_plugin_purchase_google_play_button">前往 Play 商店</string>
     <string name="plugin_update_required_title">需要更新解碼器</string>
-    <string name="plugin_update_required_message">您似乎已經為 Nova Video Player 安裝了額外的解碼套件。\n\n新版的 Nova Video Player 需要更新這些解碼套件，\n\n請至 Play 商店更新和重裝解碼套件。</string>
+    <string name="plugin_update_required_message">您似乎已經為 LeeroyFlix 安裝了額外的解碼套件。\n\n新版的 LeeroyFlix 需要更新這些解碼套件，\n\n請至 Play 商店更新和重裝解碼套件。</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">選擇儲存裝置上的字幕</string>
     <string name="subtitles_wizard_no_files">找不到字幕檔</string>
@@ -438,8 +438,8 @@
     not visible otherwise -->
     <string name="quotation_format">&#x201C;%s&#x201D;&#x2003;</string>
     <string name="error_permission">權限不足</string>
-    <string name="error_permission_storage">Nova Video Player 需要存取權限才能讀取本機的影片，請授予該權限。</string>
-    <string name="error_permission_all_file_access">Nova Video Player 需要外部裝置存取權限才能正確管理本機的影片及 nfo 檔案，請授予該權限。</string>
+    <string name="error_permission_storage">LeeroyFlix 需要存取權限才能讀取本機的影片，請授予該權限。</string>
+    <string name="error_permission_all_file_access">LeeroyFlix 需要外部裝置存取權限才能正確管理本機的影片及 nfo 檔案，請授予該權限。</string>
     <string name="allow">允許</string>
     <string name="exit">退出</string>
     <!-- torrent -->
@@ -855,7 +855,7 @@
     <string name="scheduled_rescan_time">重新掃描時間</string>
     <string name="rescan_when_opening_application">開啟應用程式時重新掃描</string>
     <string name="last_rescan_occured">上次重新掃描時間：</string>
-    <string name="error_permission_display_over_apps">視窗模式需要取得顯示在其他應用程式上層的特殊權限，請允許 Nova Video Player 該項權限以切換到視窗模式。</string>
+    <string name="error_permission_display_over_apps">視窗模式需要取得顯示在其他應用程式上層的特殊權限，請允許 LeeroyFlix 該項權限以切換到視窗模式。</string>
     <string name="intro_overlay_text">觸碰可將影片投放至電視</string>
     <string name="drawer_open">draweropen</string>
     <string name="drawer_close">drawer_close</string>
@@ -880,16 +880,16 @@
     <string name="switch_remote_empty_message">切換到遠端顯示模式或許可以提供更多的音軌選項</string>
     <string name="cast_stream_mode">串流模式</string>
     <string name="cast_remote_display_mode">遠端顯示模式</string>
-    <string name="cast_remote_display_mode_description">Nova Video Player 所支援的影片檔案格式都可使用遠端顯示模式撥放，但是播放品質可能會下降。</string>
+    <string name="cast_remote_display_mode_description">LeeroyFlix 所支援的影片檔案格式都可使用遠端顯示模式撥放，但是播放品質可能會下降。</string>
     <string name="cast_stream_mode_description">最佳品質可能不支援某些影片檔案格式</string>
     <string name="sleep_timer_title">睡眠定時器</string>
     <string name="sleep_timer_description">停止播放時間：</string>
     <string name="cast_mode">投放模式</string>
     <string name="cast_info">資訊</string>
-    <string name="troubleshoot_streammode_msg">Nova Video Player 目前為串流投放模式。
+    <string name="troubleshoot_streammode_msg">LeeroyFlix 目前為串流投放模式。
         \n這會增加播放品質，但可能會導致音軌和字幕的問題。
         可以嘗試切換到遠端顯示投放模式。</string>
-    <string name="troubleshoot_remotemode_msg">Nova Video Player 目前為遠端顯示模式。
+    <string name="troubleshoot_remotemode_msg">LeeroyFlix 目前為遠端顯示模式。
         \n根據裝置和網路的品質，您可能遭遇到播放品質和效能的問題。</string>
     <string name="picture_in_picture">畫中畫</string>
     <string name="cast">投放</string>
@@ -898,11 +898,11 @@
     <string name="cast_fallback_message">錯誤：後饋至螢幕投放</string>
     <string name="cast_introduction">新的實驗性功能：\nGoogle cast</string>
     <string name="cast_select_for_full_control">觸壓以延伸控制器</string>
-    <string name="cast_audio_background">Nova Video Player 於後台運行時，聲音將無法運作</string>
+    <string name="cast_audio_background">LeeroyFlix 於後台運行時，聲音將無法運作</string>
     <string name="help_faq">説明 / 常見問題</string>
     <string name="provider_folders">雲端</string>
     <string name="learn_more">了解更多</string>
-    <string name="learn_more_about_codecs">Nova Video Player 只能播放裝置支援的影片格式。由於授權的問題，部分格式無法內建支援，其他的解碼套件則可在 Play 商店購買。</string>
+    <string name="learn_more_about_codecs">LeeroyFlix 只能播放裝置支援的影片格式。由於授權的問題，部分格式無法內建支援，其他的解碼套件則可在 Play 商店購買。</string>
     <string name="rate_us">如果您喜歡這個應用程式，請用五顆星評分來支持我們</string>
     <string name="rate_us_title">☆ 支持我們</string>
     <string name="create_new_list">建立新的播放清單</string>

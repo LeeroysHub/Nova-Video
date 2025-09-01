@@ -399,7 +399,7 @@
     <string name="player_plugin_purchase_google_play_msg">Możesz kupić dodatkowe wtyczki kodeków w Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Przejdź do Sklep Play</string>
     <string name="plugin_update_required_title">Wymagana aktualizacja kodeka</string>
-    <string name="plugin_update_required_message">Wygląda na to, że już masz dodatkowe kodeki zainstalowane dla Nova Video Player.\n\nThis Nowa wersja Nova Video Player wymaga aktualizacji tych kodeków.\n\nPrzejdź proszę do Google Play, aby zaktualizować i ponownie zainstalować kodeki</string>
+    <string name="plugin_update_required_message">Wygląda na to, że już masz dodatkowe kodeki zainstalowane dla LeeroyFlix.\n\nThis Nowa wersja LeeroyFlix wymaga aktualizacji tych kodeków.\n\nPrzejdź proszę do Google Play, aby zaktualizować i ponownie zainstalować kodeki</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Wybierz napisy z dysku</string>
     <string name="subtitles_wizard_no_files">Nie znaleziono napisów</string>
@@ -453,8 +453,8 @@
     not visible otherwise -->
     <string name="quotation_format">&#x201C;%s&#x201D;&#x2003;</string>
     <string name="error_permission">Brak wymaganych uprawnień</string>
-    <string name="error_permission_storage">Nova Video Player wymaga uprawnień do odczytu z pamięci lokalnej plików wideo, proszę, udzielić tego uprawnienia</string>
-    <string name="error_permission_all_file_access">Nova Video Player potrzebuje wszystkich uprawnień do zarządzania zewnętrznym magazynem. Aby prawidłowo zarządzać lokalnymi plikami wideo/NFO prosimy o przyznanie tych uprawnień</string>
+    <string name="error_permission_storage">LeeroyFlix wymaga uprawnień do odczytu z pamięci lokalnej plików wideo, proszę, udzielić tego uprawnienia</string>
+    <string name="error_permission_all_file_access">LeeroyFlix potrzebuje wszystkich uprawnień do zarządzania zewnętrznym magazynem. Aby prawidłowo zarządzać lokalnymi plikami wideo/NFO prosimy o przyznanie tych uprawnień</string>
     <string name="allow">Zezwól</string>
     <string name="exit">Zakończ</string>
     <!-- torrent -->
@@ -870,7 +870,7 @@
     <string name="scheduled_rescan_time">Czas ponownego skanowania</string>
     <string name="rescan_when_opening_application">Przeskanuj ponownie po otwarciu aplikacji</string>
     <string name="last_rescan_occured">Ostatni skan:</string>
-    <string name="error_permission_display_over_apps">Tryb okna wymaga specjalnych uprawnień do wyświetlania nad innymi aplikacjami. Proszę przyznać Nova Video Player uprawnienia do wyświetlania nad innymi aplikacjami, aby przełączyć się na tryb okna.</string>
+    <string name="error_permission_display_over_apps">Tryb okna wymaga specjalnych uprawnień do wyświetlania nad innymi aplikacjami. Proszę przyznać LeeroyFlix uprawnienia do wyświetlania nad innymi aplikacjami, aby przełączyć się na tryb okna.</string>
     <string name="intro_overlay_text">Dotknij, aby przesyłać do telewizora</string>
     <string name="drawer_open">draweropen</string>
     <string name="drawer_close">drawer_close</string>

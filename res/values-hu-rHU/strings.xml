@@ -389,7 +389,7 @@
     <string name="player_plugin_purchase_google_play_msg">További codec bővítményeket vásárolhat a Google Play-en.</string>
     <string name="player_plugin_purchase_google_play_button">Ugrás a Google Play-re</string>
     <string name="plugin_update_required_title">Kodek frissítése szükséges</string>
-    <string name="plugin_update_required_message">Úgy tűnik, hogy a kiegészítő kodekek már telepítve vannak a Nova Video Player-hez.\n\nA Nova Video Player ezen új verziójához frissíteni kell ezeket a codec-eket.\n\nKérjük, nyissa meg a Google Play-t a codec-ek frissítéséhez és újratelepítéséhez.</string>
+    <string name="plugin_update_required_message">Úgy tűnik, hogy a kiegészítő kodekek már telepítve vannak a LeeroyFlix-hez.\n\nA LeeroyFlix ezen új verziójához frissíteni kell ezeket a codec-eket.\n\nKérjük, nyissa meg a Google Play-t a codec-ek frissítéséhez és újratelepítéséhez.</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Válassza ki a feliratokat a tárhelyen</string>
     <string name="subtitles_wizard_no_files">Nem található felirat fájl</string>
@@ -443,8 +443,8 @@
     not visible otherwise -->
     <string name="quotation_format">&#x201C;%s&#x201D;&#x2003;</string>
     <string name="error_permission">Nincsenek megfelelő engedélyek</string>
-    <string name="error_permission_storage">A Nova Video Player-nek fájl hozzáféréshez van szüksége a helyi videók olvasásához. Kérjük, ezt engedélyezze.</string>
-    <string name="error_permission_all_file_access">A Nova Video Player-nek hozzáférésre van szüksége minden fájlhoz ahhoz, hogy kezelni tudja a helyi video/NFO fájlokat. Kéjük, ezt engedélyezze.</string>
+    <string name="error_permission_storage">A LeeroyFlix-nek fájl hozzáféréshez van szüksége a helyi videók olvasásához. Kérjük, ezt engedélyezze.</string>
+    <string name="error_permission_all_file_access">A LeeroyFlix-nek hozzáférésre van szüksége minden fájlhoz ahhoz, hogy kezelni tudja a helyi video/NFO fájlokat. Kéjük, ezt engedélyezze.</string>
     <string name="allow">Engedélyezés</string>
     <string name="exit">Kilépés</string>
     <!-- torrent -->
@@ -853,7 +853,7 @@
     <string name="scheduled_rescan_time">Újrafeldolgozási idő</string>
     <string name="rescan_when_opening_application">Újrafeldolgozás az applikáció megnyitásakor</string>
     <string name="last_rescan_occured">Utolsó újrafeldolgozás:</string>
-    <string name="error_permission_display_over_apps">Az ablak módnak speciális engedélyekre van szüksége ahhoz, hogy más alkalmazások előtt megjelenjen. Kérjük, adja meg a Nova Video Playernek ezt az engedélyt, hogy ablak módba váltson.</string>
+    <string name="error_permission_display_over_apps">Az ablak módnak speciális engedélyekre van szüksége ahhoz, hogy más alkalmazások előtt megjelenjen. Kérjük, adja meg a LeeroyFlixnek ezt az engedélyt, hogy ablak módba váltson.</string>
     <string name="intro_overlay_text">Érintse meg a videók továbbításához a TV-re</string>
     <string name="drawer_open">draweropen</string>
     <string name="drawer_close">drawer_close</string>
@@ -900,7 +900,7 @@
     <string name="help_faq">Segítség / GYIK</string>
     <string name="provider_folders">Felhő</string>
     <string name="learn_more">Tudjon meg többet</string>
-    <string name="learn_more_about_codecs">A Nova Video Player csak olyan videókat tud lejátszani, melyeket a készüléke támogat. A licencek miatt, egyes formátumokat nem lehet legálisan hozzáadni, egyeseket pedig megvásárolhatja a Google Play Áruházban.</string>
+    <string name="learn_more_about_codecs">A LeeroyFlix csak olyan videókat tud lejátszani, melyeket a készüléke támogat. A licencek miatt, egyes formátumokat nem lehet legálisan hozzáadni, egyeseket pedig megvásárolhatja a Google Play Áruházban.</string>
     <string name="rate_us">Ha tetszik ez az alkalmazás, kérjük, támogasson minket 5 csillaggal</string>
     <string name="rate_us_title">☆ Támogasson minket</string>
     <string name="create_new_list">Új lista létrehozása</string>

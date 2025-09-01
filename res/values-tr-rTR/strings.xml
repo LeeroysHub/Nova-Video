@@ -402,7 +402,7 @@ desteklenmiyor.</string>
     <string name="player_plugin_purchase_google_play_msg">Google Play\'de ek kodek eklentileri satın alabilirsiniz.</string>
     <string name="player_plugin_purchase_google_play_button">Goggle Play\'e git</string>
     <string name="plugin_update_required_title">Kodek güncellemesi gerekli</string>
-    <string name="plugin_update_required_message">Nova Video Player için zaten ek kodek bileşenleri yüklü gibi görünüyor. \n\nNova Video Player\'ın bu yeni sürümü için bu kodek bileşenlerinin güncellenmesi gerekiyor. \n\nLütfen kodek bileşenlerini güncellemek ve yeniden yüklemek için Google Play\'e gidin.</string>
+    <string name="plugin_update_required_message">LeeroyFlix için zaten ek kodek bileşenleri yüklü gibi görünüyor. \n\nLeeroyFlix\'ın bu yeni sürümü için bu kodek bileşenlerinin güncellenmesi gerekiyor. \n\nLütfen kodek bileşenlerini güncellemek ve yeniden yüklemek için Google Play\'e gidin.</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Depolama da altyazı seçme</string>
     <string name="subtitles_wizard_no_files">Altyazı dosyası bulunamadı</string>
@@ -456,8 +456,8 @@ desteklenmiyor.</string>
     not visible otherwise -->
     <string name="quotation_format">&#x201C;%s&#x201D;&#x2003;</string>
     <string name="error_permission">Yeterli izin yok</string>
-    <string name="error_permission_storage">Nova Video Player\'ın yerel videoları okumak için depolama iznine ihtiyacı var, lütfen bu izni verin.</string>
-    <string name="error_permission_all_file_access">Nova Video Player\'ın yerel videoları/NFO dosyalarını düzgün bir şekilde yönetebilmesi için tüm harici depolama yönetimi izinlerine ihtiyacı vardır, lütfen bu izni verin.</string>
+    <string name="error_permission_storage">LeeroyFlix\'ın yerel videoları okumak için depolama iznine ihtiyacı var, lütfen bu izni verin.</string>
+    <string name="error_permission_all_file_access">LeeroyFlix\'ın yerel videoları/NFO dosyalarını düzgün bir şekilde yönetebilmesi için tüm harici depolama yönetimi izinlerine ihtiyacı vardır, lütfen bu izni verin.</string>
     <string name="allow">İzin ver</string>
     <string name="exit">Çıkış</string>
     <!-- torrent -->
@@ -843,7 +843,7 @@ desteklenmiyor.</string>
     <string name="scheduled_rescan_time">Yeniden tarama süresi</string>
     <string name="rescan_when_opening_application">Uygulamayı açarken yeniden tara</string>
     <string name="last_rescan_occured">Son yeniden tarama gerçekleşti:</string>
-    <string name="error_permission_display_over_apps">Pencere modu, diğer uygulamaların önünde görüntülenmek için özel izinlere ihtiyaç duyar. Lütfen Nova Video Player\'a pencere moduna geçmek için bu izni verin.</string>
+    <string name="error_permission_display_over_apps">Pencere modu, diğer uygulamaların önünde görüntülenmek için özel izinlere ihtiyaç duyar. Lütfen LeeroyFlix\'a pencere moduna geçmek için bu izni verin.</string>
     <string name="intro_overlay_text">Videoları TV\'niz de yayınlamak için dokunun</string>
     <string name="drawer_open">draweropen</string>
     <string name="drawer_close">drawer_close</string>
@@ -882,11 +882,11 @@ desteklenmiyor.</string>
     <string name="cast_fallback_message">Hata: ekran yayınına geri dönüş</string>
     <string name="cast_introduction">Yeni deneysel özellik : \nGoogle cast</string>
     <string name="cast_select_for_full_control">Denetleyiciyi genişletmek için dokunun</string>
-    <string name="cast_audio_background">Nova Video Player arka plandayken ses çalışmaz</string>
+    <string name="cast_audio_background">LeeroyFlix arka plandayken ses çalışmaz</string>
     <string name="help_faq">Yardım / SSS</string>
     <string name="provider_folders">Bulut</string>
     <string name="learn_more">Daha fazla bilgi edin</string>
-    <string name="learn_more_about_codecs">Nova Video Player yalnızca cihazınız tarafından desteklenen videoları oynatabilir. Lisans sorunları nedeniyle, bazı biçimler yasal olarak dahil edilemez, bazıları ise Google Play Store\'dan satın alınabilir.</string>
+    <string name="learn_more_about_codecs">LeeroyFlix yalnızca cihazınız tarafından desteklenen videoları oynatabilir. Lisans sorunları nedeniyle, bazı biçimler yasal olarak dahil edilemez, bazıları ise Google Play Store\'dan satın alınabilir.</string>
     <string name="rate_us">Bu uygulamayı beğendiyseniz, lütfen bize 5 yıldız derecelendirerek bizi destekleyin</string>
     <string name="rate_us_title">☆ Bizi destekle</string>
     <string name="create_new_list">Yeni liste oluştur</string>

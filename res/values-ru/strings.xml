@@ -399,7 +399,7 @@
     <string name="player_plugin_purchase_google_play_msg">Вы можете приобрести дополнительные плагины в Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Перейти в Google Play</string>
     <string name="plugin_update_required_title">Требуется обновление кодека</string>
-    <string name="plugin_update_required_message">Похоже, что у вас установлены дополнительные кодеки для Nova Video Player.\n\nНовая версия Nova Video Player требует обновления этих кодеков.\n\nПожалуйста, перейдите в Google Play для обновления и повторной установки кодеков.</string>
+    <string name="plugin_update_required_message">Похоже, что у вас установлены дополнительные кодеки для LeeroyFlix.\n\nНовая версия LeeroyFlix требует обновления этих кодеков.\n\nПожалуйста, перейдите в Google Play для обновления и повторной установки кодеков.</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Выберите субтитры на накопителе</string>
     <string name="subtitles_wizard_no_files">Файлы субтитров не найдены</string>
@@ -453,8 +453,8 @@
     not visible otherwise -->
     <string name="quotation_format">&#x201C;%s&#x201D;&#x2003;</string>
     <string name="error_permission">Недостаточно прав</string>
-    <string name="error_permission_storage">Nova Video Player требуется разрешение на чтение локальных видео, пожалуйста, предоставьте это разрешение.</string>
-    <string name="error_permission_all_file_access">Nova Video Player требуется доступ к внешнему хранилищу для корректной работы с локальными видео/NFO файлами. Пожалуйста, предоставьте это разрешение.</string>
+    <string name="error_permission_storage">LeeroyFlix требуется разрешение на чтение локальных видео, пожалуйста, предоставьте это разрешение.</string>
+    <string name="error_permission_all_file_access">LeeroyFlix требуется доступ к внешнему хранилищу для корректной работы с локальными видео/NFO файлами. Пожалуйста, предоставьте это разрешение.</string>
     <string name="allow">Разрешить</string>
     <string name="exit">Выйти</string>
     <!-- torrent -->
@@ -870,7 +870,7 @@
     <string name="scheduled_rescan_time">Время сканирования</string>
     <string name="rescan_when_opening_application">Пересканировать при открытии приложения</string>
     <string name="last_rescan_occured">Последнее сканирование:</string>
-    <string name="error_permission_display_over_apps">В оконном режиме требуются специальные разрешения для отображения поверх других приложений. Предоставьте Nova Video Player такое разрешение для переключения в оконный режим.</string>
+    <string name="error_permission_display_over_apps">В оконном режиме требуются специальные разрешения для отображения поверх других приложений. Предоставьте LeeroyFlix такое разрешение для переключения в оконный режим.</string>
     <string name="intro_overlay_text">Нажмите, чтобы транслировать видео на ТВ</string>
     <string name="drawer_open">draweropen</string>
     <string name="drawer_close">drawer_close</string>
@@ -895,16 +895,16 @@
     <string name="switch_remote_empty_message">Переключение в режим удаленного дисплея может дать больше возможностей</string>
     <string name="cast_stream_mode">Режим потока</string>
     <string name="cast_remote_display_mode">Удаленный дисплей</string>
-    <string name="cast_remote_display_mode_description">В режиме удаленного дисплея все форматы, поддерживаемые Nova Video Player, могут быть воспроизведены. Однако качество может ухудшиться.</string>
+    <string name="cast_remote_display_mode_description">В режиме удаленного дисплея все форматы, поддерживаемые LeeroyFlix, могут быть воспроизведены. Однако качество может ухудшиться.</string>
     <string name="cast_stream_mode_description">Оптимальное качество, но некоторые форматы могут не поддерживаться</string>
     <string name="sleep_timer_title">Таймер сна</string>
     <string name="sleep_timer_description">Остановить видео через: </string>
     <string name="cast_mode">Режим трансляции</string>
     <string name="cast_info">Информация</string>
-    <string name="troubleshoot_streammode_msg">Nova Video Player находится в режиме трансляции.
+    <string name="troubleshoot_streammode_msg">LeeroyFlix находится в режиме трансляции.
         \nЭто приводит к хорошему качеству видео, но может вызвать проблемы с переключением аудио и субтитрами.
         Попробуйте переключиться в режим удаленного дисплея.</string>
-    <string name="troubleshoot_remotemode_msg">Nova Video Player находится в режиме удаленного дисплея.
+    <string name="troubleshoot_remotemode_msg">LeeroyFlix находится в режиме удаленного дисплея.
         \nВ зависимости от Вашего устройства и качества сети, может возникать потеря качества и производительности. </string>
     <string name="picture_in_picture">Картинка в картинке</string>
     <string name="cast">Трансляция</string>
@@ -913,11 +913,11 @@
     <string name="cast_fallback_message">Ошибка: fallback to screen cast</string>
     <string name="cast_introduction">Новая экспериментальная функция: \nGoogle cast</string>
     <string name="cast_select_for_full_control">Нажмите, чтобы расширить контроллер</string>
-    <string name="cast_audio_background">Звук не будет работать, когда Nova Video Player находится в фоновом режиме</string>
+    <string name="cast_audio_background">Звук не будет работать, когда LeeroyFlix находится в фоновом режиме</string>
     <string name="help_faq">Справка/FAQ</string>
     <string name="provider_folders">Облако</string>
     <string name="learn_more">Подробнее</string>
-    <string name="learn_more_about_codecs">Nova Video Player может воспроизводить только видео, поддерживаемые Вашим устройством. Из-за лицензионных ограничений некоторые форматы не могут быть включены, некоторые другие могут быть приобретены в Google Play.</string>
+    <string name="learn_more_about_codecs">LeeroyFlix может воспроизводить только видео, поддерживаемые Вашим устройством. Из-за лицензионных ограничений некоторые форматы не могут быть включены, некоторые другие могут быть приобретены в Google Play.</string>
     <string name="rate_us">Если Вам нравится это приложение, пожалуйста, поддержите нас, оценив на 5 звезд</string>
     <string name="rate_us_title">☆ Поддержите нас</string>
     <string name="create_new_list">Создать новый список</string>

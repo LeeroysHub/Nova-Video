@@ -389,7 +389,7 @@
     <string name="player_plugin_purchase_google_play_msg">Vous pouvez acheter des plug-ins permettant de décoder plus de formats sur Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Aller sur Google Play</string>
     <string name="plugin_update_required_title">Mise-à-jour des codecs nécessaire</string>
-    <string name="plugin_update_required_message">Il semble que vous ayez déjà installé des codecs additionnels pour Nova Video Player.\n\nCette nouvelle version de Nova Video Player nécessite une mise-à-jour de ces codecs.\n\nVeuillez aller sur Google Play pour mettre à jour et ré-installer ces codecs.</string>
+    <string name="plugin_update_required_message">Il semble que vous ayez déjà installé des codecs additionnels pour LeeroyFlix.\n\nCette nouvelle version de LeeroyFlix nécessite une mise-à-jour de ces codecs.\n\nVeuillez aller sur Google Play pour mettre à jour et ré-installer ces codecs.</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Choisir des sous-titres</string>
     <string name="subtitles_wizard_no_files">Aucun fichier de sous-titres trouvé</string>
@@ -444,7 +444,7 @@
     <string name="quotation_format">&#x00AB;%s&#x00BB;&#x2003;</string>
     <string name="error_permission">Erreur de permission</string>
     <string name="error_permission_storage">Nova Vidéo Player requiert la permission \"Stockage\" pour accéder aux vidéos de votre appareil.</string>
-    <string name="error_permission_all_file_access">Nova Video Player a besoin de la permission de gestion des stockages externes afin de gérer correctement les fichiers vidéos/NFO locaux, veuillez accorder cette autorisation.</string>
+    <string name="error_permission_all_file_access">LeeroyFlix a besoin de la permission de gestion des stockages externes afin de gérer correctement les fichiers vidéos/NFO locaux, veuillez accorder cette autorisation.</string>
     <string name="allow">Autoriser</string>
     <string name="exit">Quitter</string>
     <!-- torrent -->
@@ -860,7 +860,7 @@
     <string name="scheduled_rescan_time">Heure de re-scan</string>
     <string name="rescan_when_opening_application">Re-scanner lors de l\'ouverture de l\'application</string>
     <string name="last_rescan_occured">Dernier scan:</string>
-    <string name="error_permission_display_over_apps">Le mode fenêtré requiert une permission spéciale pour s\'afficher par dessus d\'autres applications. Autorisez Nova Video Player pour continuer.</string>
+    <string name="error_permission_display_over_apps">Le mode fenêtré requiert une permission spéciale pour s\'afficher par dessus d\'autres applications. Autorisez LeeroyFlix pour continuer.</string>
     <string name="intro_overlay_text">Touchez pour diffuser des vidéos sur votre télé</string>
     <string name="drawer_open">draweropen</string>
     <string name="drawer_close">drawer_close</string>
@@ -891,10 +891,10 @@
     <string name="sleep_timer_description">Arrêt de la vidéo après : </string>
     <string name="cast_mode">Mode de diffusion</string>
     <string name="cast_info">Info</string>
-    <string name="troubleshoot_streammode_msg">Nova video player est en Mode Streaming.
+    <string name="troubleshoot_streammode_msg">LeeroyFlix est en Mode Streaming.
         \nLa qualité vidéo sera optimale mais vous pouvez rencontrer des soucis avec vos pistes de sous-titres et pistes audio.
         En ce cas, vous pouvez passer en mode \"Écran distant\".</string>
-    <string name="troubleshoot_remotemode_msg">Nova video player est en Écran distant.
+    <string name="troubleshoot_remotemode_msg">LeeroyFlix est en Écran distant.
 \nEn fonction de votre appareil et selon les performances de votre réseau, la qualité vidéo peut être détériorée. </string>
     <string name="picture_in_picture">Image incrustée</string>
     <string name="cast">Diffuser</string>
@@ -903,11 +903,11 @@
     <string name="cast_fallback_message">Erreur: repli sur la diffusion d\'écran</string>
     <string name="cast_introduction">Nouveauté expérimentale : \nGoogle cast</string>
     <string name="cast_select_for_full_control">Touchez pour étendre votre contrôleur</string>
-    <string name="cast_audio_background">Le son ne fonctionnera pas lorsque Nova Video Player est en arrière-plan</string>
+    <string name="cast_audio_background">Le son ne fonctionnera pas lorsque LeeroyFlix est en arrière-plan</string>
     <string name="help_faq">Aide/FAQ</string>
     <string name="provider_folders">Cloud</string>
     <string name="learn_more">En savoir plus</string>
-    <string name="learn_more_about_codecs">Nova Video Player ne peut lire que les vidéos supportées par votre appareil. Certains codecs ne peuvent être distribués légalement, d\'autres peuvent être achetés sur le Play Store.</string>
+    <string name="learn_more_about_codecs">LeeroyFlix ne peut lire que les vidéos supportées par votre appareil. Certains codecs ne peuvent être distribués légalement, d\'autres peuvent être achetés sur le Play Store.</string>
     <string name="rate_us">Si vous aimez cette application, pensez à nous soutenir en nous donnant 5 étoiles</string>
     <string name="rate_us_title">☆ Soutenez-nous</string>
     <string name="create_new_list">Créer une nouvelle liste</string>

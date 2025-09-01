@@ -370,7 +370,7 @@
     <string name="player_plugin_purchase_google_play_msg">Můžete dokoupit další pluginy s kodeky na Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Přejít na Google Play</string>
     <string name="plugin_update_required_title">Je vyžadována aktualizace kodeku</string>
-    <string name="plugin_update_required_message">Zdá se, že do aplikace Nova Video Player již máte nainstalovány dodatečné kodeky.\n\nTato nová verze aplikace vyžaduje aktualizaci těchto kodeků.\n\nProsím použijte Google Play pro aktualizaci a opětovnou instalaci kodeků.</string>
+    <string name="plugin_update_required_message">Zdá se, že do aplikace LeeroyFlix již máte nainstalovány dodatečné kodeky.\n\nTato nová verze aplikace vyžaduje aktualizaci těchto kodeků.\n\nProsím použijte Google Play pro aktualizaci a opětovnou instalaci kodeků.</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Vyberte titulky na úložišti</string>
     <string name="subtitles_wizard_no_files">Nebyly nalezeny žádné soubory s titulky</string>
@@ -424,8 +424,8 @@
     not visible otherwise -->
     <string name="quotation_format">&#x201C;%s&#x201D;&#x2003;</string>
     <string name="error_permission">Nedostatečná oprávnění</string>
-    <string name="error_permission_storage">Nova Video Player vyžaduje oprávnění k úložišti pro možnost načtení lokálních souborů. Prosím potvrďte toto oprávnění.</string>
-    <string name="error_permission_all_file_access">Nova Video Player vyžaduje všechna oprávnění k externím úložištím pro možnost správy lokálních video a NFO souborů, prosím udělte toto oprávnění.</string>
+    <string name="error_permission_storage">LeeroyFlix vyžaduje oprávnění k úložišti pro možnost načtení lokálních souborů. Prosím potvrďte toto oprávnění.</string>
+    <string name="error_permission_all_file_access">LeeroyFlix vyžaduje všechna oprávnění k externím úložištím pro možnost správy lokálních video a NFO souborů, prosím udělte toto oprávnění.</string>
     <string name="allow">Povolit</string>
     <string name="exit">Ukončit</string>
     <!-- torrent -->
@@ -825,7 +825,7 @@
     <string name="scheduled_rescan_time">Čas opětovného skenování</string>
     <string name="rescan_when_opening_application">Znovu naskenovat při otevření aplikace</string>
     <string name="last_rescan_occured">Poslední skenování proběhlo:</string>
-    <string name="error_permission_display_over_apps">Režim okna vyžaduje speciální oprávnění, aby bylo možné aplikaci zobrazit navrch před všemi ostatními aplikacemi. Prosím nastavte aplikaci Nova Video Player oprávnění pro přepnutí do režimu okna.</string>
+    <string name="error_permission_display_over_apps">Režim okna vyžaduje speciální oprávnění, aby bylo možné aplikaci zobrazit navrch před všemi ostatními aplikacemi. Prosím nastavte aplikaci LeeroyFlix oprávnění pro přepnutí do režimu okna.</string>
     <string name="intro_overlay_text">Stiskněte pro zahájení vysílání (castování) videí do vaší TV</string>
     <string name="drawer_open">draweropen</string>
     <string name="drawer_close">drawer_close</string>
@@ -868,11 +868,11 @@
     <string name="cast_fallback_message">Chyba: přepnutí na režim Screencast</string>
     <string name="cast_introduction">Nová experimentální funkce :\nGoogle cast</string>
     <string name="cast_select_for_full_control">Stiskněte pro zobrazení plného ovládání</string>
-    <string name="cast_audio_background">Zvuk nebude fungovat dokud je Nova Video Player spuštěn na pozadí</string>
+    <string name="cast_audio_background">Zvuk nebude fungovat dokud je LeeroyFlix spuštěn na pozadí</string>
     <string name="help_faq">Nápověda / FAQ</string>
     <string name="provider_folders">Cloud</string>
     <string name="learn_more">Dozvědět se více</string>
-    <string name="learn_more_about_codecs">Nova Video Player může přehrávat pouze videa podporovaná vaším zařízením. Některé formáty nemohou být zahrnuty z licenčních důvodů, podpora pro jiné může být zakoupena v obchodě Google Play.</string>
+    <string name="learn_more_about_codecs">LeeroyFlix může přehrávat pouze videa podporovaná vaším zařízením. Některé formáty nemohou být zahrnuty z licenčních důvodů, podpora pro jiné může být zakoupena v obchodě Google Play.</string>
     <string name="rate_us">Pokud se vám tato aplikace líbí, prosím podpořte nás a ohodnoťte jí 5 hvězdičkami</string>
     <string name="rate_us_title">☆ Podpořte nás</string>
     <string name="create_new_list">Vytvořit nový playlist</string>

@@ -353,7 +353,7 @@
     <string name="player_plugin_purchase_google_play_msg">U kunt aanvullende codec-plug-ins aanschaffen via Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Ga naar Google Play</string>
     <string name="plugin_update_required_title">Sorry, update is vereist</string>
-    <string name="plugin_update_required_message">Het lijkt erop dat u al aanvullende codecs heeft geïnstalleerd voor Nova Video Player.\n\nDeze nieuwe versie van Nova Video Player vereist een update van deze codecs.\n\nGa naar Google Play om de codecs bij te werken en opnieuw te installeren.</string>
+    <string name="plugin_update_required_message">Het lijkt erop dat u al aanvullende codecs heeft geïnstalleerd voor LeeroyFlix.\n\nDeze nieuwe versie van LeeroyFlix vereist een update van deze codecs.\n\nGa naar Google Play om de codecs bij te werken en opnieuw te installeren.</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Ondertiteling selecteren bij opslaan</string>
     <string name="subtitles_wizard_no_files">Geen ondertiteling gevonden</string>
@@ -398,7 +398,7 @@
     not visible otherwise -->
     <string name="quotation_format">&#x201C;%s&#x201D;&#x2003;</string>
     <string name="error_permission">Niet genoeg machtigingen</string>
-    <string name="error_permission_storage">Nova Video Player heeft opslagtoestemming nodig om lokale video\'s te lezen, verleen deze toestemming.</string>
+    <string name="error_permission_storage">LeeroyFlix heeft opslagtoestemming nodig om lokale video\'s te lezen, verleen deze toestemming.</string>
     <string name="allow">Toestaan</string>
     <string name="exit">Sluiten</string>
     <!-- torrent -->

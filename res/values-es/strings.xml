@@ -389,7 +389,7 @@
     <string name="player_plugin_purchase_google_play_msg">Puede comprar plug-ins de códec adicionales en Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Ir a Google Play</string>
     <string name="plugin_update_required_title">Se requiere una actualización de códec</string>
-    <string name="plugin_update_required_message">Parece que ya tienes codecs adicionales instalados para Nova Video Player. \n\nEsta nueva versión de Nova Video Player requiere una actualización de estos codecs. \n\nPor favor, ve a Google Play para actualizar e instalar los codecs.</string>
+    <string name="plugin_update_required_message">Parece que ya tienes codecs adicionales instalados para LeeroyFlix. \n\nEsta nueva versión de LeeroyFlix requiere una actualización de estos codecs. \n\nPor favor, ve a Google Play para actualizar e instalar los codecs.</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Seleccionar subtítulos en almacenamiento</string>
     <string name="subtitles_wizard_no_files">No se han encontrado archivos de subtítulos</string>
@@ -443,8 +443,8 @@
     not visible otherwise -->
     <string name="quotation_format">&#x201C;%s&#x201D;&#x2003;</string>
     <string name="error_permission">No hay suficientes permisos</string>
-    <string name="error_permission_storage">Nova Video Player necesita permiso de almacenamiento para leer vídeos locales. Por favor, conceda este permiso.</string>
-    <string name="error_permission_all_file_access">Nova Video Player necesita todos los permisos de gestión de almacenamiento externo para administrar correctamente los archivos locales de videos/NFO, por favor, conceda este permiso.</string>
+    <string name="error_permission_storage">LeeroyFlix necesita permiso de almacenamiento para leer vídeos locales. Por favor, conceda este permiso.</string>
+    <string name="error_permission_all_file_access">LeeroyFlix necesita todos los permisos de gestión de almacenamiento externo para administrar correctamente los archivos locales de videos/NFO, por favor, conceda este permiso.</string>
     <string name="allow">Permitir</string>
     <string name="exit">Salir</string>
     <!-- torrent -->
@@ -860,7 +860,7 @@
     <string name="scheduled_rescan_time">Tiempo para volver a escanear</string>
     <string name="rescan_when_opening_application">Re-escanear al abrir la aplicación</string>
     <string name="last_rescan_occured">Ocurrido en último re-escaneo:</string>
-    <string name="error_permission_display_over_apps">El modo ventana necesita permisos especiales para que Nova Video Player sea mostrado por delante de otras aplicaciones. Por favor, concede este permiso al reproductor de vídeo Nova para cambiar al modo ventana.</string>
+    <string name="error_permission_display_over_apps">El modo ventana necesita permisos especiales para que LeeroyFlix sea mostrado por delante de otras aplicaciones. Por favor, concede este permiso al reproductor de vídeo Nova para cambiar al modo ventana.</string>
     <string name="intro_overlay_text">Toca para enviar vídeos a tu TV</string>
     <string name="drawer_open">abrir panel de navegación</string>
     <string name="drawer_close">cerrar panel de navegación</string>
@@ -901,11 +901,11 @@
     <string name="cast_fallback_message">Error: vuelva a la pantalla de emisión</string>
     <string name="cast_introduction">Nueva característica experimental : \nGoogle cast</string>
     <string name="cast_select_for_full_control">Toque para expandir el controlador</string>
-    <string name="cast_audio_background">El sonido no funcionará mientras Nova Video Player esté en segundo plano</string>
+    <string name="cast_audio_background">El sonido no funcionará mientras LeeroyFlix esté en segundo plano</string>
     <string name="help_faq">Ayuda / FAQ</string>
     <string name="provider_folders">Nube</string>
     <string name="learn_more">Aprende más</string>
-    <string name="learn_more_about_codecs">Nova Video Player sólo puede reproducir vídeos soportados por su dispositivo. Debido a problemas de licencia, algunos formatos no pueden ser incluidos legalmente, algunos otros pueden ser comprados en Google Play Store.</string>
+    <string name="learn_more_about_codecs">LeeroyFlix sólo puede reproducir vídeos soportados por su dispositivo. Debido a problemas de licencia, algunos formatos no pueden ser incluidos legalmente, algunos otros pueden ser comprados en Google Play Store.</string>
     <string name="rate_us">Si te gusta esta aplicación, ayúdanos valorándola con 5 estrellas</string>
     <string name="rate_us_title">☆ Apóyenos</string>
     <string name="create_new_list">Crear nueva lista</string>

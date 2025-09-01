@@ -350,7 +350,7 @@ Copertina (rotolo di copertina)</string>
     <string name="player_plugin_purchase_google_play_msg">Puoi acquistare i coded plug-in addizionali su Google Play</string>
     <string name="player_plugin_purchase_google_play_button">Vai su Google Play</string>
     <string name="plugin_update_required_title">Richiesto aggiornamento del codec</string>
-    <string name="plugin_update_required_message">Sembra che tu abbia già installato i codec addizionali per Nova Video Player.\n\nQuesta nuova versione di Nova Video Player richiede un aggiornamento di questi codec.\n\nVai su Google Play per aggiornare e reinstallare i codec</string>
+    <string name="plugin_update_required_message">Sembra che tu abbia già installato i codec addizionali per LeeroyFlix.\n\nQuesta nuova versione di LeeroyFlix richiede un aggiornamento di questi codec.\n\nVai su Google Play per aggiornare e reinstallare i codec</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Seleziona i sottotitoli dall\'archivio</string>
     <string name="subtitles_wizard_no_files">Nessun file di sottotitoli trovati</string>
@@ -400,7 +400,7 @@ Copertina (rotolo di copertina)</string>
     not visible otherwise -->
     <string name="quotation_format">“%s” </string>
     <string name="error_permission">Non possiedi abbastanza permessi</string>
-    <string name="error_permission_storage">Nova Video Player ha bisogno dell\'autorizzazione sull\'archiviazione per leggere i video locali. Concedi questa autorizzazione</string>
+    <string name="error_permission_storage">LeeroyFlix ha bisogno dell\'autorizzazione sull\'archiviazione per leggere i video locali. Concedi questa autorizzazione</string>
     <string name="allow">Concedi</string>
     <string name="exit">Esci</string>
     <!-- torrent -->
@@ -743,7 +743,7 @@ Copertina (rotolo di copertina)</string>
     <string name="scheduled_rescan_time">Orario della scansione</string>
     <string name="rescan_when_opening_application">Scansiona ad ogni apertura dell\'applicazione</string>
     <string name="last_rescan_occured">Ultima scansione avvenuta:</string>
-    <string name="error_permission_display_over_apps">La Modalità a Finestra necessita di permessi speciali per sovrapporsi ad altre app. Concedi questo permesso ad Nova Video Player per passare alla Modalità a Finestra</string>
+    <string name="error_permission_display_over_apps">La Modalità a Finestra necessita di permessi speciali per sovrapporsi ad altre app. Concedi questo permesso ad LeeroyFlix per passare alla Modalità a Finestra</string>
     <string name="intro_overlay_text">Trasmetti i video alla tua TV</string>
     <string name="drawer_open">draweropen</string>
     <string name="drawer_close">drawer_close</string>
@@ -768,16 +768,16 @@ Copertina (rotolo di copertina)</string>
     <string name="switch_remote_empty_message">Il passaggio alla Modalità Display Remoto potrebbe dare una maggior scelta di tracce</string>
     <string name="cast_stream_mode">Modalità Streaming</string>
     <string name="cast_remote_display_mode">Display Remoto</string>
-    <string name="cast_remote_display_mode_description">Ogni formato supportato da Nova Video Player può essere riprodotto usando un display remoto. Potrebbero verificarsi cali di qualità</string>
+    <string name="cast_remote_display_mode_description">Ogni formato supportato da LeeroyFlix può essere riprodotto usando un display remoto. Potrebbero verificarsi cali di qualità</string>
     <string name="cast_stream_mode_description">Qualità ottimale, ma alcuni formati potrebbero non essere supportati</string>
     <string name="sleep_timer_title">Timer per lo spegnimento</string>
     <string name="sleep_timer_description">Interrompi il video dopo: </string>
     <string name="cast_mode">Modalità Cast</string>
     <string name="cast_info">Informazioni</string>
-    <string name="troubleshoot_streammode_msg">Nova Video Player sta riproducendo in Modalità Cast.
+    <string name="troubleshoot_streammode_msg">LeeroyFlix sta riproducendo in Modalità Cast.
         \nCiò comporta una buona qualità video, ma potrebbero verificarsi problemi con le tracce audio e i sottotitoli.
         Prova a passare alla Modalità Display Remoto</string>
-    <string name="troubleshoot_remotemode_msg">Nova Video Player sta riproducendo in Modalità Display Remoto.
+    <string name="troubleshoot_remotemode_msg">LeeroyFlix sta riproducendo in Modalità Display Remoto.
         \nA seconda del tuo dispositivo e dalla qualità della tua rete, potrebbero verificarsi problemi di perdità di qualità e prestazioni</string>
     <string name="picture_in_picture">Picture in picture</string>
     <string name="cast">Cast</string>
@@ -786,11 +786,11 @@ Copertina (rotolo di copertina)</string>
     <string name="cast_fallback_message">Errore: ritorno alla schermata cast</string>
     <string name="cast_introduction">Nuove funzioni sperimentali: \nGoogle Cast</string>
     <string name="cast_select_for_full_control">Espandi i controlli</string>
-    <string name="cast_audio_background">Il suono non funzionerà mettendo Nova Video Player in background</string>
+    <string name="cast_audio_background">Il suono non funzionerà mettendo LeeroyFlix in background</string>
     <string name="help_faq">Aiuto/FAQ</string>
     <string name="provider_folders">Cloud</string>
     <string name="learn_more">Informazioni</string>
-    <string name="learn_more_about_codecs">Nova Video Player riproduce solo i video supportati dal tuo dispositivo. A causa di problemi di licenze, alcuni formati non possono essere inclusi legalmente, ma altri possono essere acquistati sul Google Play Store</string>
+    <string name="learn_more_about_codecs">LeeroyFlix riproduce solo i video supportati dal tuo dispositivo. A causa di problemi di licenze, alcuni formati non possono essere inclusi legalmente, ma altri possono essere acquistati sul Google Play Store</string>
     <string name="rate_us">Se ti piace questa app, supportaci mettendo cinque stelle</string>
     <string name="rate_us_title">☆ Supportaci</string>
     <string name="create_new_list">Crea una nuova lista</string>

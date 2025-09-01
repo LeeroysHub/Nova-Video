@@ -431,7 +431,7 @@
     <string name="player_plugin_purchase_google_play_msg">You can purchase additional codec plug-ins on Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Go to Google Play</string>
     <string name="plugin_update_required_title">Codec update required</string>
-    <string name="plugin_update_required_message">It looks like you already have additional codecs installed for Nova Video Player.\n\nThis new version of Nova Video Player requires an update of these codecs.\n\nPlease go to Google Play to update and re-install the codecs.</string>
+    <string name="plugin_update_required_message">It looks like you already have additional codecs installed for LeeroyFlix.\n\nThis new version of LeeroyFlix requires an update of these codecs.\n\nPlease go to Google Play to update and re-install the codecs.</string>
 
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Select subtitles on storage</string>
@@ -490,8 +490,8 @@
     <string name="quotation_format">&#x201C;%s&#x201D;&#x2003;</string>
 
     <string name="error_permission">Not enough permissions</string>
-    <string name="error_permission_storage">Nova Video Player needs storage permission to read local videos, please, grant this permission.</string>
-    <string name="error_permission_all_file_access">Nova Video Player needs all external storage management permission to properly manage local videos/NFO files, please, grant this permission.</string>
+    <string name="error_permission_storage">LeeroyFlix needs storage permission to read local videos, please, grant this permission.</string>
+    <string name="error_permission_all_file_access">LeeroyFlix needs all external storage management permission to properly manage local videos/NFO files, please, grant this permission.</string>
     <string name="allow">Allow</string>
     <string name="exit">Exit</string>
     <!-- torrent -->
@@ -567,7 +567,7 @@
     <string name="preferences_force_software_decoding_summary">You may try this option if some videos are not playing correctly</string>
     <string name="preferences_force_audio_passthrough">Audio passthrough</string>
     <string name="preferences_force_audio_passthrough_disabled">Disabled (recommended)</string>
-    <string name="preferences_force_audio_passthrough_enable">Nova encapsulation (experimental)</string>
+    <string name="preferences_force_audio_passthrough_enable">LeeroyFlix encapsulation (experimental)</string>
     <string name="preferences_force_audio_passthrough_enable2">System encapsulation</string>
     <string name="preferences_force_audio_passthrough_summary">Transmit compressed audio over HDMI or S/PDIF. ⚠ Experimental may result in A/V out of sync</string>
     <string name="preferences_parser_sync_mode">Parser synchronisation mode</string>
@@ -615,7 +615,7 @@
     <string name="favAudioLang_summary">Choose your favorite audio track language</string>
     <string name="ui_language_title">Choose user interface language</string>
     <string name="UiLang_title">User interface language</string>
-    <string name="UiLang_summary">Set nova user interface language, pick system to use system default</string>
+    <string name="UiLang_summary">Set LeeroyFlix user interface language, pick system to use system default</string>
     <string name="ui_mode_title">User interface mode</string>
     <string name="ui_mode_summary">Choose between TV and Tablet/Phone UI</string>
     <string name="preferences_video_about">About</string>
@@ -662,7 +662,7 @@
     <string name="video_info_backdrop_remove">Remove</string>
     <string name="video_info_backdrop_set_as">Set picture as</string>
 
-    <string name="video_info_share_message">"I\'ve been watching the video \"%1$s\" on my Nova %2$s"</string>
+    <string name="video_info_share_message">"I\'ve been watching the video \"%1$s\" on my LeeroyFlix %2$s"</string>
 
     <string name="notification_mode">Notifications</string>
     <string name="notifications_all">All notifications</string>
@@ -729,10 +729,10 @@
     <!--  Nfo File parsing -->
     <string name="network_nfo_parse">Process \'.nfo\' files</string>
     <string name="network_nfo_parse_summary">Read Kodi \'.nfo\' files during (re-)scanning to gather media information and posters.</string>
-    <string name="ask_to_mail_media_DB">Do you want to mail your Video database to Nova development team in order to help them check a bug?\n\nThe video files are (of course) not mailed, but the full list of file names is.</string>
+    <string name="ask_to_mail_media_DB">Do you want to mail your Video database to LeeroyFlix development team in order to help them check a bug?\n\nThe video files are (of course) not mailed, but the full list of file names is.</string>
     <string name="no_email_installed">No email application found</string>
     <string name="zipping_library_before_mailing">Zipping a copy of the library before mailing it…</string>
-    <string name="zipped_library_mail_subject">Nova Video Database Dump</string>
+    <string name="zipped_library_mail_subject">LeeroyFlix Video Database Dump</string>
     <string name="zipped_library_mail_text">Please describe the problem you\'re experiencing\n\n</string>
 
     <string name="sort_mode">Sort mode</string>
@@ -874,7 +874,7 @@
     <string name="trakt_sync_collection_title">Synchronize TV show and movie collections</string>
     <string name="trakt_sync_trakt_resume_title">Sync trakt resume position</string>
     <string name="trakt_sync_trakt_resume">Use trakt resume position when more advanced than local</string>
-    <string name="trakt_sync_collection_summary">Automatically add all videos from your Nova library to your Trakt collection</string>
+    <string name="trakt_sync_collection_summary">Automatically add all videos from your LeeroyFlix library to your Trakt collection</string>
     <string name="trakt_toast_syncing">Syncing with Trakt&#8230;</string>
 
     <string name="show_all">All videos</string>
@@ -916,7 +916,7 @@
     <string name="leanback_unscrap">@string/scrap_remove</string>
     <string name="leanback_legacy_ui">Legacy interface</string>
     <string name="leanback_hint_long_press_on_back">HINT: long press on BACK key closes the file browser</string>
-    <string name="leanback_archos_video_webview">Nova Video WebView</string>
+    <string name="leanback_archos_video_webview">LeeroyFlix Video WebView</string>
     <string name="file_access_error">Did not manage to access the file</string>
 
     <string name="interface_size">Interface size</string>
@@ -948,7 +948,7 @@
     <string name="scheduled_rescan_time">Re-scan time</string>
     <string name="rescan_when_opening_application">Re-scan when opening the application</string>
     <string name="last_rescan_occured">Last re-scan occurred:</string>
-    <string name="error_permission_display_over_apps">Window mode needs special permissions to be displayed in front of other apps. Please, grant Nova Video Player this permission to switch to window mode.</string>
+    <string name="error_permission_display_over_apps">Window mode needs special permissions to be displayed in front of other apps. Please, grant LeeroyFlix this permission to switch to window mode.</string>
 
     <string name="intro_overlay_text">Touch to cast videos to your TV</string>
 
@@ -959,7 +959,7 @@
     <string name="rescrap_in_progress">Rescraping whole library</string>
     <string name="rescrap_movies_in_progress">Rescraping all movies</string>
     <string name="rescrap_collections_in_progress">Rescraping all collections</string>
-    <string name="acquire_external_usb_permission">Nova Video needs special permission to access external storage. Please select your storage on next screen</string>
+    <string name="acquire_external_usb_permission">LeeroyFlix Video needs special permission to access external storage. Please select your storage on next screen</string>
 
     <string name="rescrap_not_found">Rescrape videos without description</string>
     <string name="rescrap_all_title">Rescrape all</string>
@@ -993,17 +993,17 @@
     <string name="switch_remote_empty_message">Switching to remote display mode might give more track options</string>
     <string name="cast_stream_mode">Stream mode</string>
     <string name="cast_remote_display_mode">Remote display</string>
-    <string name="cast_remote_display_mode_description">every format supported by nova video player can be played using remote display. However, quality can be deteriorated.</string>
+    <string name="cast_remote_display_mode_description">every format supported by LeeroyFlix can be played using remote display. However, quality can be deteriorated.</string>
     <string name="cast_stream_mode_description">Optimal quality but some format cannot be supported</string>
 
     <string name="sleep_timer_title">Sleep timer</string>
     <string name="sleep_timer_description">Stop video after: </string>
     <string name="cast_mode">Cast mode</string>
     <string name="cast_info">Info</string>
-    <string name="troubleshoot_streammode_msg">Nova video player is currently in stream cast mode.
+    <string name="troubleshoot_streammode_msg">LeeroyFlix is currently in stream cast mode.
         \nThis results to a good video quality but might rise issues with audiotracks and subtitles.
         Try switching to Remote display cast mode.</string>
-    <string name="troubleshoot_remotemode_msg">Nova video player is currently in remote display mode.
+    <string name="troubleshoot_remotemode_msg">LeeroyFlix is currently in remote display mode.
         \nDepending on your device and your network quality, you might experience some quality loss and performance issues. </string>
     <string name="picture_in_picture">Picture in picture</string>
     <string name="cast">Cast</string>
@@ -1012,11 +1012,11 @@
     <string name="cast_fallback_message">Error: fallback to screen cast</string>
     <string name="cast_introduction">New experimental feature : \nGoogle cast</string>
     <string name="cast_select_for_full_control">Touch to expand controller</string>
-    <string name="cast_audio_background">Sound won\'t work while Nova Video Player is in background</string>
+    <string name="cast_audio_background">Sound won\'t work while LeeroyFlix is in background</string>
     <string name="help_faq">Help / FAQ</string>
     <string name="provider_folders">Cloud</string>
     <string name="learn_more">Learn more</string>
-    <string name="learn_more_about_codecs">Nova Video Player can only play videos supported by your device. Due to license issues, some formats cannot be legally included, some other can be purchased on Google Play Store.</string>
+    <string name="learn_more_about_codecs">LeeroyFlix can only play videos supported by your device. Due to license issues, some formats cannot be legally included, some other can be purchased on Google Play Store.</string>
     <string name="base64_encoded_publicKey" />
     <string name="rate_us">If you like this app, please support us by rating us 5 stars</string>
     <string name="rate_us_title">☆ Support us</string>
@@ -1034,8 +1034,8 @@
     <string name="connecting">Connecting…</string>
 
     <string name="refreshrate_failed">Failed to set desired refresh rate</string>
-    <string name="sponsor">Sponsor Nova</string>
-    <string name="enable_sponsor_title">Enable Nova sponsor link</string>
+    <string name="sponsor">Sponsor LeeroyFlix</string>
+    <string name="enable_sponsor_title">Enable LeeroyFlix sponsor link</string>
     <string name="enable_sponsor_summary">Enable sponsor link for donations: every contribution helps.</string>
 
     <string name="hdr_capability">HDR screen capabilities:</string>
@@ -1044,13 +1044,13 @@
     <string name="supported_refresh_rates">Supported refresh rates:</string>
 
     <string name="upgrade_info">Upgrade information</string>
-    <string name="v5_v6_upgrade_info">WARNING: this Nova major update requires to rescan all video collection for multimedia information re-aquisition.
+    <string name="v5_v6_upgrade_info">WARNING: this LeeroyFlix major update requires to rescan all video collection for multimedia information re-aquisition.
         It is strongly advised to restart from a clean install to avoid problems. Please check FAQ for details.</string>
     <string name="networks">Networks:</string>
     <string name="premiered">Premiered:</string>
 
     <string name="external_player_service_title">External player playback</string>
-    <string name="external_player_service_description">Nova Video Player provides content for an external player</string>
+    <string name="external_player_service_description">LeeroyFlix provides content for an external player</string>
     <string name="stop">Stop</string>
 
 </resources>
