@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<com.archos.customizedleanback.widget.MyTitleView xmlns:android="http://schemas.android.com/apk/res/android"
+<org.leeroy.customizedleanback.widget.MyTitleView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/browse_title_group"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

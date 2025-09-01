@@ -50,13 +50,15 @@
                 style="@style/VideoInfoButton"
                 android:layout_marginBottom="@dimen/video_info_margin_half"
                 android:layout_marginTop="@dimen/video_info_margin_half"
-                android:text="@string/scrap_remove" />
+                android:text="@string/scrap_remove"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/export"
                 style="@style/VideoInfoButton"
                 android:layout_marginBottom="@dimen/video_info_margin_half"
-                android:text="@string/nfo_export_button" />
+                android:text="@string/nfo_export_button" 
+                android:textAllCaps="false" />
 
         </LinearLayout>
     </LinearLayout>

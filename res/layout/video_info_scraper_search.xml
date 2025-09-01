@@ -44,12 +44,14 @@
             <Button
                 android:id="@+id/cancel"
                 style="@style/VideoInfoButton"
-                android:text="@android:string/cancel" />
+                android:text="@android:string/cancel"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/search"
                 style="@style/VideoInfoButton"
-                android:text="@android:string/search_go" />
+                android:text="@android:string/search_go" 
+                android:textAllCaps="false" />
         </LinearLayout>
     </RelativeLayout>
 

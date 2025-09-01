@@ -44,7 +44,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentStart="false"
                 android:background="@drawable/transparent_ripple"
-                android:visibility="visible" />
+                android:visibility="visible" 
+                android:textAllCaps="false" />
             <Button
 
                 android:layout_width="match_parent"
