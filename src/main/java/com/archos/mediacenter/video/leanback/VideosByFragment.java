@@ -51,7 +51,7 @@ public abstract class VideosByFragment extends BrowseSupportFragment implements 
 
     // attempts to not have refresh of categories/list while scanning but both causes crashes
     private static boolean STOP_LOADING = false;
-    // causes crashes AndroidRuntime: java.lang.RuntimeException: Unable to destroy activity {org.courville.nova/com.archos.mediacenter.video.leanback.tvshow.EpisodesByDateActivity}: java.lang.IllegalStateException: Observer androidx.leanback.app.ListRowDataAdapter$SimpleDataObserver@e52e40c was not registered.
+    // causes crashes AndroidRuntime: java.lang.RuntimeException: Unable to destroy activity {org.leeroy.media/com.archos.mediacenter.video.leanback.tvshow.EpisodesByDateActivity}: java.lang.IllegalStateException: Observer androidx.leanback.app.ListRowDataAdapter$SimpleDataObserver@e52e40c was not registered.
     private static boolean UNREGISTER_OBSERVERS = false;
 
     private ArrayObjectAdapter mRowsAdapter;

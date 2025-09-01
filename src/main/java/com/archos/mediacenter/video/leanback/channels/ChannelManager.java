@@ -220,7 +220,7 @@ public class ChannelManager {
                     values.put(VideoStore.Video.Thumbnails.DATA, path);
                     mContext.getContentResolver().insert(VideoStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, values);
                 }
-            } catch (Exception e) { // seen on sentry IllegalStateException Unable to create new file: /storage/emulated/0/Android/data/org.courville.nova/cache/empty_poster.png
+            } catch (Exception e) { // seen on sentry IllegalStateException Unable to create new file: /storage/emulated/0/Android/data/org.leeroy.media/cache/empty_poster.png
                 Log.e(TAG, "createEmptyPosterRow: caught Exception ", e);
             } finally {
                 if (cursor != null) cursor.close();

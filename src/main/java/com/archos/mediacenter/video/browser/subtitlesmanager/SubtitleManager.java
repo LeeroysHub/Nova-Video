@@ -478,7 +478,7 @@ public class SubtitleManager {
             log.error("listLocalAndRemotesSubtitles: caught JSchException", e);
         }
 
-        // addCache controls whether subs in /sdcard/Android/data/org.courville.nova/cache/subtitles (cache online sub download dir) are taken into account
+        // addCache controls whether subs in /sdcard/Android/data/org.leeroy.media/cache/subtitles (cache online sub download dir) are taken into account
         // this is for not clogging SubtitlesWizard listing since in theory all these files should already be associated to a video automatically
         if (addCache) {
             // List files in the local temporary folder

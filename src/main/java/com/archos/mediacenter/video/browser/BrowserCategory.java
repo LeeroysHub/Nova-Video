@@ -308,8 +308,8 @@ abstract public class BrowserCategory extends ListFragment {
                 if(getActivity() instanceof MainActivity)
                     ((MainActivity) getActivity()).startPreference();
                 setSelection(mSelectedItemId); //restore selection
-            } else if (item.text == R.string.help_faq){
-                WebUtils.openWebLink(getActivity(),getString(R.string.faq_url));
+            // } else if (item.text == R.string.help_faq){
+            //    WebUtils.openWebLink(getActivity(),getString(R.string.faq_url));
             } else if (item.text == R.string.sponsor){
                 WebUtils.openWebLink(getActivity(),getString(R.string.sponsor_url));
             } else if(item.text  == R.string.activate_private_mode || item.text  == R.string.deactivate_private_mode){
@@ -524,15 +524,15 @@ abstract public class BrowserCategory extends ListFragment {
     }
 
     private void addLastItems() {
-        mCategoryList.add("Nova" + " v" + getText(R.string.VERSION_NAME));
+        mCategoryList.add("LeeroyFlix" + " v" + getText(R.string.VERSION_NAME));
         ItemData itemData = new ItemData();
         itemData.icon = R.drawable.android29_ic_settings;
         itemData.text = R.string.preferences;
         mCategoryList.add(itemData);
-        itemData = new ItemData();
-        itemData.icon = R.drawable.android29_ic_menu_help;
-        itemData.text = R.string.help_faq;
-        mCategoryList.add(itemData);
+        //itemData = new ItemData();
+        //itemData.icon = R.drawable.android29_ic_menu_help;
+        //itemData.text = R.string.help_faq;
+        //mCategoryList.add(itemData);
         // Google Play is allergic to piggies... no donation button
         if (BuildConfig.ENABLE_SPONSOR) mEnableSponsor = mPreferences.getBoolean(VideoPreferencesCommon.KEY_ENABLE_SPONSOR, VideoPreferencesCommon.ENABLE_SPONSOR_DEFAULT);
         if (((! ArchosUtils.isInstalledfromPlayStore(getActivity().getApplicationContext())) || mEnableSponsor) && BuildConfig.ENABLE_SPONSOR) {

@@ -696,14 +696,14 @@ public class CustomApplication extends Application implements DefaultLifecycleOb
             novaVersionName = info.versionName;
             try {
                 novaVersionArray = splitVersion(novaVersionName);
-                novaLongVersion = "Nova v" + novaVersionArray[0] + "." + novaVersionArray[1] + "." + novaVersionArray[2] +
+                novaLongVersion = "LeeroyFlix v" + novaVersionArray[0] + "." + novaVersionArray[1] + "." + novaVersionArray[2] +
                         " (" + novaVersionArray[3] + String.format("%02d", novaVersionArray[4]) + String.format("%02d", novaVersionArray[5]) +
                         "." + String.format("%02d", novaVersionArray[6]) + String.format("%02d", novaVersionArray[7]) + ")";
                 novaShortVersion = "v" + novaVersionArray[0] + "." + novaVersionArray[1] + "." + novaVersionArray[2];
             } catch (IllegalArgumentException ie) {
                 novaVersionArray = new int[] { 0, 0, 0, 0, 0, 0, 0, 0};
                 log.error("updateVersionState: cannot split application version {}", novaVersionName);
-                novaLongVersion = "Nova v" + novaVersionName;
+                novaLongVersion = "LeeroyFlix v" + novaVersionName;
             }
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
             int previousVersion = sharedPreferences.getInt("current_versionCode", -1);

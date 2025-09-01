@@ -697,7 +697,7 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
         mPreferencesRowAdapter.add(new Icon(Icon.ID.PRIVATE_MODE, getString(R.string.private_mode_is_on), getString(R.string.private_mode_is_off),
                                             R.drawable.private_mode,  R.drawable.private_mode_off, PrivateMode.isActive()));
         mPreferencesRowAdapter.add(new Icon(Icon.ID.LEGACY_UI, getString(R.string.leanback_legacy_ui), R.drawable.legacy_ui_icon));
-        mPreferencesRowAdapter.add(new Icon(Icon.ID.HELP_FAQ, getString(R.string.help_faq), R.drawable.lollipop_help));
+        //mPreferencesRowAdapter.add(new Icon(Icon.ID.HELP_FAQ, getString(R.string.help_faq), R.drawable.lollipop_help));
 
         if (BuildConfig.ENABLE_SPONSOR) mEnableSponsor = mPrefs.getBoolean(VideoPreferencesCommon.KEY_ENABLE_SPONSOR, VideoPreferencesCommon.ENABLE_SPONSOR_DEFAULT) && BuildConfig.ENABLE_SPONSOR;
         if (((! ArchosUtils.isInstalledfromPlayStore(getActivity().getApplicationContext())) || mEnableSponsor) && BuildConfig.ENABLE_SPONSOR) {
@@ -1613,9 +1613,9 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
                                 .temporaryRestoreDefaultDensity();
                         vActivity.startActivity(new Intent(vActivity, MainActivity.class));
                         break;
-                    case HELP_FAQ:
-                        WebUtils.openWebLink(vActivity,getString(R.string.faq_url));
-                        break;
+                    //case HELP_FAQ:
+                    //    WebUtils.openWebLink(vActivity,getString(R.string.faq_url));
+                    //    break;
                     case SPONSOR:
                         WebUtils.openWebLink(vActivity,getString(R.string.sponsor_url));
                         break;

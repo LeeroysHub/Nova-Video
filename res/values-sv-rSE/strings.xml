@@ -260,7 +260,7 @@
     <string name="player_plugin_purchase_google_play_msg">Du kan köpa ytterligare codec plug-ins på Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Gå till Google Play</string>
     <string name="plugin_update_required_title">Kodekuppdatering krävs</string>
-    <string name="plugin_update_required_message">Det verkar som om du redan har ytterligare codecs installerat för Nova Video Player.\n\nDenna nya version av Nova Video Player kräver en uppdatering av dessa codecs.\n\nGå till Google Play för att uppdatera och installera om codecs.</string>
+    <string name="plugin_update_required_message">Det verkar som om du redan har ytterligare codecs installerat för LeeroyFlix.\n\nDenna nya version av LeeroyFlix kräver en uppdatering av dessa codecs.\n\nGå till Google Play för att uppdatera och installera om codecs.</string>
     <!-- Subtitles wizard -->
     <string name="get_subtitles_on_drive">Välj undertexter från lagring</string>
     <string name="subtitles_wizard_no_files">Inga undertextfiler hittades</string>

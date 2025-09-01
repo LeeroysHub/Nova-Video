@@ -178,7 +178,7 @@ public class PlayUtils implements IndexHelper.Listener {
         mPlaylistId = playlistId;
         if (allow3rdPartyPlayer(context)) {
             // prepare subs only for external player to provide list to 3rd party player
-            // subs are fetched in /storage/emulated/0/Android/data/org.courville.nova/cache/subtitles/ during preFetchHTTPSubtitlesAndPrepareUpnpSubs
+            // subs are fetched in /storage/emulated/0/Android/data/org.leeroy.media/cache/subtitles/ during preFetchHTTPSubtitlesAndPrepareUpnpSubs
             log.debug("startPlayer: prepareSubs");
             prepareSubs();
             /*
@@ -242,7 +242,7 @@ public class PlayUtils implements IndexHelper.Listener {
                         }
                     });
             log.debug("prepareSubs: launch preFetchHTTPSubtitlesAndPrepareUpnpSubs {} -> {}", mVideo.getFileUri(), mVideo.getFileUri());
-            // this copies subs locally to /storage/emulated/0/Android/data/org.courville.nova/cache/subtitles/
+            // this copies subs locally to /storage/emulated/0/Android/data/org.leeroy.media/cache/subtitles/
             subtitleManager.preFetchHTTPSubtitlesAndPrepareUpnpSubs(mVideo.getFileUri(), mVideo.getFileUri());
         }
     }
@@ -360,7 +360,7 @@ public class PlayUtils implements IndexHelper.Listener {
                     } else {
                         // TODO FIXME passing file to 3rd party player is not working
                         subFile = new File(subPath);
-                        subUri = FileProvider.getUriForFile(context, "org.courville.nova.provider", subFile);
+                        subUri = FileProvider.getUriForFile(context, "org.leeroy.media.provider", subFile);
                         MxSubPaths.add(subUri);
                     }
                     log.debug("onResumeReady: subPath {} -> subUri {}-> subLanguage {}", subPath, subUri, subLanguage);

@@ -23,7 +23,7 @@
 -keepattributes SourceFile,LineNumberTable
 -keepattributes Exceptions,InnerClasses
 
--keep public class org.courville.nova.CustomApplication { *; }
+-keep public class org.leeroy.media.CustomApplication { *; }
 -keep class com.archos.mediacenter.LibAvosReceiver
 -keep class com.archos.mediacenter.video.utils.CodecDiscovery {*;}
 
