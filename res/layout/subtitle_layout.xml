@@ -6,7 +6,7 @@
         android:layout_height="match_parent" >
 
     <!-- Subtitles -->
-    <com.archos.mediacenter.video.player.SubtitleGfxView android:id="@+id/subtitle_gfx_view"
+    <org.leeroy.mediaplayer.video.player.SubtitleGfxView android:id="@+id/subtitle_gfx_view"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:clickable="false"
@@ -17,7 +17,7 @@
         android:layout_above="@+id/subtitle_spacer"
         android:visibility="gone" />
 
-    <com.archos.mediacenter.video.player.Subtitle3DTextView android:id="@+id/subtitle_txt_view"
+    <org.leeroy.mediaplayer.video.player.Subtitle3DTextView android:id="@+id/subtitle_txt_view"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:clickable="false"
@@ -31,7 +31,7 @@
         android:gravity="center"
         android:visibility="gone" />
 
-    <com.archos.mediacenter.video.player.SubtitleSpacerView android:id="@+id/subtitle_spacer"
+    <org.leeroy.mediaplayer.video.player.SubtitleSpacerView android:id="@+id/subtitle_spacer"
         android:layout_width="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"

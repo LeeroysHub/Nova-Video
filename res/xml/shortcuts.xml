@@ -1,5 +1,5 @@
 <!--
-  Copyright 2017 Archos SA
+  Copyright 2017 LeeroyFlix
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -21,9 +21,9 @@
         android:shortcutShortLabel="@string/resume"
         >
         <intent
-            android:action="com.archos.mediacenter.video.action_resume"
-            android:targetPackage="com.archos.mediacenter.videocommunity"
-            android:targetClass="com.archos.mediacenter.video.browser.MainActivity" />
+            android:action="org.leeroy.mediaplayer.video.action_resume"
+            android:targetPackage="org.leeroy.mediaplayer.videocommunity"
+            android:targetClass="org.leeroy.mediaplayer.video.browser.LeeroyFlixActivity" />
     </shortcut>
     <shortcut
         android:shortcutId="movies"
@@ -32,9 +32,9 @@
         android:shortcutShortLabel="@string/recently_played"
         >
         <intent
-            android:action="com.archos.mediacenter.video.action_recently_played"
-            android:targetPackage="com.archos.mediacenter.videocommunity"
-            android:targetClass="com.archos.mediacenter.video.browser.MainActivity" />
+            android:action="org.leeroy.mediaplayer.video.action_recently_played"
+            android:targetPackage="org.leeroy.mediaplayer.videocommunity"
+            android:targetClass="org.leeroy.mediaplayer.video.browser.LeeroyFlixActivity" />
     </shortcut>
     <shortcut
         android:shortcutId="tvshows"
@@ -43,9 +43,9 @@
         android:shortcutShortLabel="@string/recently_added"
         >
         <intent
-            android:action="com.archos.mediacenter.video.action_recently_added"
-            android:targetPackage="com.archos.mediacenter.videocommunity"
-            android:targetClass="com.archos.mediacenter.video.browser.MainActivity" />
+            android:action="org.leeroy.mediaplayer.video.action_recently_added"
+            android:targetPackage="org.leeroy.mediaplayer.videocommunity"
+            android:targetClass="org.leeroy.mediaplayer.video.browser.LeeroyFlixActivity" />
     </shortcut>
 </shortcuts>
 

@@ -146,7 +146,8 @@
                 style="@style/VideoInfoButton"
                 android:layout_marginBottom="@dimen/video_info_margin_half"
                 android:layout_marginTop="@dimen/video_info_margin_half"
-                android:text="@string/scrap_change" />
+                android:text="@string/scrap_change"
+                android:textAllCaps="false" />
         </LinearLayout>
     </LinearLayout>
 
