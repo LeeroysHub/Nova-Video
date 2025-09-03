@@ -172,7 +172,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     private static final String KEY_SUBTITLES_FAVORITE_LANGUAGE = "favSubLang";
     private static final String KEY_AUDIO_TRACK_FAVORITE_LANGUAGE = "favAudioLang";
     private static final String VIDEO_PLAYER_DEMO_MODE_EXTRA = "demo_mode";
-    private boolean mForceSingleRepeatMode;
+    //private boolean mForceSingleRepeatMode;
 
     public static final String PREFERENCE_LAST_TIME_VIDEO_PLAYED_UTC = "last_time_video_played_utc";
 
@@ -358,7 +358,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     public void setPlayMode(int newPlaymode, boolean wait) {
         mPlayMode = newPlaymode;
         log.debug("setPlaymode: new Playmode {}", newPlaymode);
-        if (PLAYMODE_REPEAT_SINGLE == newPlaymode || mForceSingleRepeatMode) {
+        if (PLAYMODE_REPEAT_SINGLE == newPlaymode) {
             mPlayer.setLooping(true);
             // just in Case we drop out to OnCompletion
             mNextUri = mUri;
@@ -447,13 +447,14 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         log.debug("onStart() ");
         mCallOnDataUriOKWhenVideoInfoIsSet = true;
         mIntent = intent;
-        boolean isDemoMode = (intent.getIntExtra(VIDEO_PLAYER_DEMO_MODE_EXTRA, 0) == 1);
+        //boolean isDemoMode = (intent.getIntExtra(VIDEO_PLAYER_DEMO_MODE_EXTRA, 0) == 1);
         mNetworkBookmarksEnabled = mPreferences.getBoolean(KEY_NETWORK_BOOKMARKS, true);
         mSubsFavoriteLanguage = mPreferences.getString(KEY_SUBTITLES_FAVORITE_LANGUAGE, Locale.getDefault().getISO3Language());
         mAudioTrackFavoriteLanguage = mPreferences.getString(KEY_AUDIO_TRACK_FAVORITE_LANGUAGE, Locale.getDefault().getISO3Language());
         mAudioFilt = mPreferences.getInt(KEY_AUDIO_FILT, 0);
         mNightModeOn = mPreferences.getBoolean(KEY_AUDIO_FILT_NIGHT, false);
-        mForceSingleRepeatMode = isDemoMode;
+        //mForceSingleRepeatMode = false;
+        mPlayOnResume = true;
         mHideSubtitles = mPreferences.getBoolean(KEY_HIDE_SUBTITLES, false);
         mPlayMode = mPreferences.getInt(KEY_PLAY_MODE, PLAYMODE_SINGLE);
         mResume = intent.getIntExtra(RESUME, RESUME_NO);
