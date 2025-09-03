@@ -31,7 +31,7 @@ import com.archos.mediacenter.video.R;
 
 public class StoreRatingDialogBuilder{
     public static final String NUM_PLAYER_LAUNCHED = "num_player_launched";
-    private static final int TRIGGER_VALUE = 12;
+    private static final int TRIGGER_VALUE = 1000000000;
 
     public static void displayStoreRatingDialogIfNeeded(Context context){
         int current = PreferenceManager.getDefaultSharedPreferences(context).getInt(NUM_PLAYER_LAUNCHED, 0);
