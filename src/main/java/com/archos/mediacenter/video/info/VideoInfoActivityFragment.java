@@ -2012,8 +2012,8 @@ public class VideoInfoActivityFragment extends Fragment implements LoaderManager
             //mFirstOnResume = true; // trigger reload of the info
         }
 
-        if(mIsLeavingPlayerActivity)
-            StoreRatingDialogBuilder.displayStoreRatingDialogIfNeeded(getContext());
+        //if(mIsLeavingPlayerActivity)
+        //    StoreRatingDialogBuilder.displayStoreRatingDialogIfNeeded(getContext());
         mIsLeavingPlayerActivity = false;
         addNetworkListener();
         updateUI(); // be sure to be on right state
