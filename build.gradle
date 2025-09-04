@@ -170,11 +170,11 @@ android {
         println("defaultConfig versionName : " + versionName)
         println("defaultConfig versionCode : " + versionCode)
         if (keystorePropertiesFile.exists()) signingConfig = signingConfigs.release
-        if (project.hasProperty("sponsor")) {
-            buildConfigField "boolean", "ENABLE_SPONSOR", "true"
-        } else {
-            buildConfigField "boolean", "ENABLE_SPONSOR", "false"
-        }
+        //if (project.hasProperty("sponsor")) {
+        //    buildConfigField "boolean", "ENABLE_SPONSOR", "true"
+        //} else {
+        //    buildConfigField "boolean", "ENABLE_SPONSOR", "false"
+        //}
         if (project.hasProperty("adultScrape")) {
             buildConfigField "boolean", "ADULT_SCRAPE", "true"
         } else {
