@@ -596,13 +596,13 @@
     <PreferenceCategory android:title="@string/preferences_video_about"
         android:key="about_category"
         app:iconSpaceReserved="false" >
-        <CheckBoxPreference
+        <!--<CheckBoxPreference **** Commented rather than removed so upstream changes dont mess with me too much. ***
             android:defaultValue="false"
             android:key="enable_sponsor"
             android:persistent="true"
             android:summary="@string/enable_sponsor_summary"
             android:title="@string/enable_sponsor_title"
-            app:iconSpaceReserved="false"/>
+            app:iconSpaceReserved="false"/>-->
         <Preference
             android:key="preferences_video_os"
             android:title="@string/preferences_video_os_text"
@@ -618,10 +618,10 @@
             android:title="@string/preferences_video_trakt_text"
             android:widgetLayout="@layout/preferences_video_trakt_button"
             app:iconSpaceReserved="false"/>
-        <PreferenceScreen
+        <!--<PreferenceScreen
             android:key="preferences_video_licences"
             android:title="@string/preferences_video_licenses"
-            app:iconSpaceReserved="false"/>
+            app:iconSpaceReserved="false"/>-->
     </PreferenceCategory>
 
     <PreferenceCategory
