@@ -586,16 +586,19 @@
         <Preference
             android:key="preferences_video_os"
             android:title="@string/preferences_video_os_text"
+            android:selectable="false"
             android:widgetLayout="@layout/preferences_video_os_button"
             app:iconSpaceReserved="false"/>
         <Preference
             android:key="preferences_video_tmdb"
             android:title="@string/preferences_video_tmdb_text"
+            android:selectable="false"
             android:widgetLayout="@layout/preferences_video_tmdb_button"
             app:iconSpaceReserved="false"/>
         <Preference
             android:key="preferences_video_trakt"
             android:title="@string/preferences_video_trakt_text"
+            android:selectable="false"
             android:widgetLayout="@layout/preferences_video_trakt_button"
             app:iconSpaceReserved="false"/>
         <PreferenceScreen
