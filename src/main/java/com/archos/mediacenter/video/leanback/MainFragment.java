@@ -192,7 +192,6 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
     private String mMovieSortOrder;
     private boolean mShowTvshowsRow;
     private boolean mShowAnimesRow;
-    private boolean mEnableSponsor = false;
     private String mAnimesSortOrder;
     private String mTvShowSortOrder;
 
@@ -699,10 +698,6 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
         mPreferencesRowAdapter.add(new Icon(Icon.ID.LEGACY_UI, getString(R.string.leanback_legacy_ui), R.drawable.legacy_ui_icon));
         //mPreferencesRowAdapter.add(new Icon(Icon.ID.HELP_FAQ, getString(R.string.help_faq), R.drawable.lollipop_help));
 
-        if (BuildConfig.ENABLE_SPONSOR) mEnableSponsor = mPrefs.getBoolean(VideoPreferencesCommon.KEY_ENABLE_SPONSOR, VideoPreferencesCommon.ENABLE_SPONSOR_DEFAULT) && BuildConfig.ENABLE_SPONSOR;
-        if (((! ArchosUtils.isInstalledfromPlayStore(getActivity().getApplicationContext())) || mEnableSponsor) && BuildConfig.ENABLE_SPONSOR) {
-            mPreferencesRowAdapter.add(new Icon(Icon.ID.SPONSOR, getString(R.string.sponsor), R.drawable.piggy_bank_leanback_256));
-        }
         // Must use an IconListRow to have the dedicated presenter used (see ClassPresenterSelector above)
         mRowsAdapter.add(new IconListRow(ROW_ID_PREFERENCES,
                 new HeaderItem(getString(R.string.preferences)),
@@ -1616,9 +1611,9 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
                     //case HELP_FAQ:
                     //    WebUtils.openWebLink(vActivity,getString(R.string.faq_url));
                     //    break;
-                    case SPONSOR:
-                        WebUtils.openWebLink(vActivity,getString(R.string.sponsor_url));
-                        break;
+                    //case SPONSOR:
+                    //    WebUtils.openWebLink(vActivity,getString(R.string.sponsor_url));
+                    //    break;
                 }
             }
             else {

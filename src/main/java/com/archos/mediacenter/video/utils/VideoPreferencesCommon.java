@@ -189,7 +189,6 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
     public static final String KEY_TRAKT_SYNC_COLLECTION = "trakt_sync_collection";
     public static final String KEY_HIDE_WATCHED = "hide_watched";
     public static final String KEY_CREATE_REMOTE_THUMBS = VideoProvider.PREFERENCE_CREATE_REMOTE_THUMBS;
-    public static final String KEY_ENABLE_SPONSOR = "enable_sponsor";
     public static final String KEY_ABOUT_PREFERENCES = "preferences_about";
 
     public static final String KEY_SMB2 = "pref_smbv2";
@@ -248,7 +247,6 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
     private MultiSelectListPreference mSubtitlesDownloadLanguagePreferences = null;
     private ListPreference mTMDbScraperLanguagePreferences = null;
     private ListPreference mAudioTrackFavoriteLanguage = null;
-    private CheckBoxPreference mEnableSponsor = null;
     private CheckBoxPreference mWatchingUpNext = null;
     private PreferenceCategory mAboutPreferences = null;
     private CheckBoxPreference mAdultScrape = null;
@@ -382,14 +380,6 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             Editor editor = mSharedPreferences.edit();
             editor.remove(KEY_FORCE_SW);
             editor.apply();
-            // no need of the enable sponsor link if not installed from ggplay
-            if (! ArchosUtils.isInstalledfromPlayStore(getContext())) {
-                aboutCategory.removePreference(mEnableSponsor);
-            } else {
-                if (BuildConfig.ENABLE_SPONSOR)
-                    aboutCategory.addPreference(mEnableSponsor);
-                else aboutCategory.removePreference(mEnableSponsor);
-            }
             prefCategory.removePreference(mForceSwDecPreferences);
             prefCategory.addPreference(mStreamBufferSize);
             prefCategory.addPreference(mStreamMaxIFrameSize);
@@ -409,7 +399,6 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             editor.remove(KEY_DEC_CHOICE);
             editor.remove(KEY_AUDIO_INTERFACE_CHOICE);
             editor.apply();
-            aboutCategory.removePreference(mEnableSponsor);
             prefCategory.removePreference(mDecChoicePreferences);
             prefCategory.removePreference(mAudioInterfaceChoicePreferences);
             prefCategory.removePreference(mParserSyncMode);
@@ -447,34 +436,11 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
 
         mSharedPreferences = getPreferenceManager().getSharedPreferences();
         mSharedPreferences.registerOnSharedPreferenceChangeListener(this);
-        final Preference pref = (Preference) findPreference(KEY_VIDEO_OS);
-        pref.setEnabled(true);
-        pref.setOnPreferenceClickListener(preference -> {
-            videoPreferenceOsClick();
-            return false;
-        });
-
-        findPreference(KEY_TMDB).setOnPreferenceClickListener(preference -> {
-            videoPreferenceTmdbClick();
-            return false;
-        });
-        findPreference(KEY_TRAKT).setOnPreferenceClickListener(preference -> {
-            videoPreferenceTraktClick();
-            return false;
-        });
-        findPreference(KEY_LICENCES).setOnPreferenceClickListener(preference -> {
-            if (!UiChoiceDialog.applicationIsInLeanbackMode(getActivity()))
-                startActivity(new Intent(getActivity(), VideoPreferencesLicencesActivity.class));
-            else
-                startActivity(new Intent(getActivity(), VideoSettingsLicencesActivity.class));
-            return false;
-        });
-
+        
         mDecChoicePreferences = (ListPreference) findPreference(KEY_DEC_CHOICE);
         mAudioInterfaceChoicePreferences = (ListPreference) findPreference(KEY_AUDIO_INTERFACE_CHOICE);
         mParserSyncMode = (ListPreference) findPreference(KEY_PARSER_SYNC_MODE);
         mForceSwDecPreferences = (CheckBoxPreference) findPreference(KEY_FORCE_SW);
-        mEnableSponsor = (CheckBoxPreference) findPreference(KEY_ENABLE_SPONSOR);
         mWatchingUpNext = (CheckBoxPreference) findPreference(KEY_SHOW_WATCHING_UP_NEXT_ROW);
         mForceAudioPassthrough = (CheckBoxPreference) findPreference(KEY_FORCE_AUDIO_PASSTHROUGH);
         mPlaybackSpeed = (CheckBoxPreference) findPreference(KEY_PLAYBACK_SPEED);
