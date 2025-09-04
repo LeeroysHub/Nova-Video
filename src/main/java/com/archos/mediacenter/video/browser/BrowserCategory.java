@@ -90,7 +90,7 @@ abstract public class BrowserCategory extends ListFragment {
     private NetworkState networkState = null;
     private PropertyChangeListener propertyChangeListener = null;
     private boolean mNetworkStateListenerAdded = false;
-    private boolean mEnableSponsor = false;
+
 
     /**
      * This object is used to store basic info for the category list item.
@@ -308,10 +308,10 @@ abstract public class BrowserCategory extends ListFragment {
                 if(getActivity() instanceof MainActivity)
                     ((MainActivity) getActivity()).startPreference();
                 setSelection(mSelectedItemId); //restore selection
-            } else if (item.text == R.string.help_faq){
-                WebUtils.openWebLink(getActivity(),getString(R.string.faq_url));
-            } else if (item.text == R.string.sponsor){
-                WebUtils.openWebLink(getActivity(),getString(R.string.sponsor_url));
+            //} else if (item.text == R.string.help_faq){
+            //    WebUtils.openWebLink(getActivity(),getString(R.string.faq_url));
+            //} else if (item.text == R.string.sponsor){
+            //    WebUtils.openWebLink(getActivity(),getString(R.string.sponsor_url));
             } else if(item.text  == R.string.activate_private_mode || item.text  == R.string.deactivate_private_mode){
                 if (!PrivateMode.isActive() && PrivateMode.canShowDialog(getActivity())) {
                     PrivateMode.showDialog(getActivity());
@@ -534,13 +534,6 @@ abstract public class BrowserCategory extends ListFragment {
         itemData.text = R.string.help_faq;
         mCategoryList.add(itemData);
         // Google Play is allergic to piggies... no donation button
-        if (BuildConfig.ENABLE_SPONSOR) mEnableSponsor = mPreferences.getBoolean(VideoPreferencesCommon.KEY_ENABLE_SPONSOR, VideoPreferencesCommon.ENABLE_SPONSOR_DEFAULT);
-        if (((! ArchosUtils.isInstalledfromPlayStore(getActivity().getApplicationContext())) || mEnableSponsor) && BuildConfig.ENABLE_SPONSOR) {
-            itemData = new ItemData();
-            itemData.icon = R.drawable.piggy_bank;
-            itemData.text = R.string.sponsor;
-            mCategoryList.add(itemData);
-        }
     }
 
     public void clearCheckedItem() {
