@@ -1068,9 +1068,9 @@
     <string name="connecting">Connecting…</string>
 
     <string name="refreshrate_failed">Failed to set desired refresh rate</string>
-    <string name="sponsor">Sponsor Nova</string>
-    <string name="enable_sponsor_title">Enable Nova sponsor link</string>
-    <string name="enable_sponsor_summary">Enable sponsor link for donations: every contribution helps.</string>
+    <!-- <string name="sponsor">Sponsor LeeroyFlix</string>
+    <string name="enable_sponsor_title">Enable LeeroyFlix sponsor link</string>
+    //<string name="enable_sponsor_summary">Enable sponsor link for donations: every contribution helps.</string> -->
 
     <string name="hdr_capability">HDR screen capabilities:</string>
     <string name="hdmi_audio_capabilities">HDMI receiver audio capabilities:</string>
