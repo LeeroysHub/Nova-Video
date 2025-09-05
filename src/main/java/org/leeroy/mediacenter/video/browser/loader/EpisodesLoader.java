@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.loader;
+package org.leeroy.mediaplayer.video.browser.loader;
 
 import android.content.Context;
 import android.util.Log;

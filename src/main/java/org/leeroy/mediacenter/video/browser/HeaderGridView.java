@@ -1,4 +1,4 @@
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 /**
  * Created by alexandre on 05/02/16.

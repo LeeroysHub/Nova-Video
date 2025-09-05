@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.tvshow;
+package org.leeroy.mediaplayer.video.leanback.tvshow;
 
 import android.app.Activity;
 import android.content.Context;
@@ -42,18 +42,18 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 
 import org.leeroy.filecorelibrary.FileUtilsQ;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.Delete;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.SeasonCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.object.Season;
-import org.leeroy.mediacenter.video.browser.loader.SeasonsLoader;
-import org.leeroy.mediacenter.video.leanback.CompatibleCursorMapperConverter;
-import org.leeroy.mediacenter.video.leanback.adapter.PlaceholderCursorObjectAdapter;
-import org.leeroy.mediacenter.video.leanback.filebrowsing.ListingActivity;
-import org.leeroy.mediacenter.video.leanback.overlay.Overlay;
-import org.leeroy.mediacenter.video.leanback.presenter.SeasonPresenter;
-import org.leeroy.mediacenter.video.utils.DbUtils;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.Delete;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.SeasonCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Season;
+import org.leeroy.mediaplayer.video.browser.loader.SeasonsLoader;
+import org.leeroy.mediaplayer.video.leanback.CompatibleCursorMapperConverter;
+import org.leeroy.mediaplayer.video.leanback.adapter.PlaceholderCursorObjectAdapter;
+import org.leeroy.mediaplayer.video.leanback.filebrowsing.ListingActivity;
+import org.leeroy.mediaplayer.video.leanback.overlay.Overlay;
+import org.leeroy.mediaplayer.video.leanback.presenter.SeasonPresenter;
+import org.leeroy.mediaplayer.video.utils.DbUtils;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.search;
+package org.leeroy.mediaplayer.video.leanback.search;
 
 import androidx.fragment.app.Fragment;
 import android.content.Intent;
@@ -24,12 +24,12 @@ import androidx.fragment.app.FragmentActivity;
 import android.view.KeyEvent;
 
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.VideoCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.leanback.details.VideoDetailsActivity;
-import org.leeroy.mediacenter.video.leanback.details.VideoDetailsFragment;
-import org.leeroy.mediacenter.video.info.SingleVideoLoader;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.VideoCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.leanback.details.VideoDetailsActivity;
+import org.leeroy.mediaplayer.video.leanback.details.VideoDetailsFragment;
+import org.leeroy.mediaplayer.video.info.SingleVideoLoader;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

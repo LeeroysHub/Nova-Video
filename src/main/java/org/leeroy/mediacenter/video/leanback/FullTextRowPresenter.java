@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback;
+package org.leeroy.mediaplayer.video.leanback;
 
 import android.content.res.Resources;
 import androidx.leanback.widget.RowHeaderPresenter;
@@ -23,8 +23,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.leanback.details.FullWidthRowPresenter;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.leanback.details.FullWidthRowPresenter;
 
 /**
  * Created by vapillon on 16/04/15.

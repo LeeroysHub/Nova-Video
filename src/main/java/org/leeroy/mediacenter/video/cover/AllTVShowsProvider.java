@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.cover;
+package org.leeroy.mediaplayer.video.cover;
 
 
 import android.content.Context;
@@ -21,10 +21,10 @@ import android.database.Cursor;
 import android.provider.BaseColumns;
 import android.util.Log;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.cover.Cover;
-import org.leeroy.mediacenter.cover.SingleCursorCoverProvider;
-import org.leeroy.mediacenter.video.browser.loader.AllTvshowsLoader;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.cover.Cover;
+import org.leeroy.mediaplayer.cover.SingleCursorCoverProvider;
+import org.leeroy.mediaplayer.video.browser.loader.AllTvshowsLoader;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 import java.util.ArrayList;

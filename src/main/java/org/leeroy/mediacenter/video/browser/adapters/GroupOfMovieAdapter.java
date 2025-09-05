@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.adapters;
+package org.leeroy.mediaplayer.video.browser.adapters;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -25,15 +25,15 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.SectionIndexer;
 
-import org.leeroy.mediacenter.utils.ThumbnailEngine;
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserMoviesBy;
-import org.leeroy.mediacenter.video.browser.ThumbnailAdapterVideo;
-import org.leeroy.mediacenter.video.browser.ThumbnailRequestVideo;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.presenter.MovieByPresenter;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.utils.ThumbnailEngine;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserMoviesBy;
+import org.leeroy.mediaplayer.video.browser.ThumbnailAdapterVideo;
+import org.leeroy.mediaplayer.video.browser.ThumbnailRequestVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.presenter.MovieByPresenter;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 
 /**
  * Created by alexandre on 27/10/15.

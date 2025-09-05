@@ -1,5 +1,5 @@
 
-package org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos;
+package org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -12,11 +12,11 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import org.leeroy.environment.LeeroyFlixUtils;
-import org.leeroy.mediacenter.utils.trakt.TraktService;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.loader.VideosSelectionInPlaylistLoader;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.utils.trakt.TraktService;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.loader.VideosSelectionInPlaylistLoader;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediascraper.BaseTags;
 import org.leeroy.mediascraper.EpisodeTags;

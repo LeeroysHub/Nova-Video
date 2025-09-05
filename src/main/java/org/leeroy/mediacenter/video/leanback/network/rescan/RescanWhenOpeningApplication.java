@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.network.rescan;
+package org.leeroy.mediaplayer.video.leanback.network.rescan;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -22,7 +22,7 @@ import androidx.leanback.app.GuidedStepSupportFragment;
 import androidx.leanback.widget.GuidanceStylist;
 import androidx.leanback.widget.GuidedAction;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaprovider.video.NetworkAutoRefresh;
 
 import java.util.List;

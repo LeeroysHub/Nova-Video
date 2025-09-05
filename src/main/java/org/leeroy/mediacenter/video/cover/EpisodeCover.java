@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.cover;
+package org.leeroy.mediaplayer.video.cover;
 
-import org.leeroy.mediacenter.cover.ArtworkFactory;
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.utils.EpisodeInfo;
+import org.leeroy.mediaplayer.cover.ArtworkFactory;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.utils.EpisodeInfo;
 import org.leeroy.mediaprovider.video.VideoStore.Video;
 
 import android.graphics.Bitmap;

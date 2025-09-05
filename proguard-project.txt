@@ -24,8 +24,8 @@
 -keepattributes Exceptions,InnerClasses
 
 -keep public class org.leeroy.media.CustomApplication { *; }
--keep class org.leeroy.mediacenter.LibAvosReceiver
--keep class org.leeroy.mediacenter.video.utils.CodecDiscovery {*;}
+-keep class org.leeroy.mediaplayer.LibAvosReceiver
+-keep class org.leeroy.mediaplayer.video.utils.CodecDiscovery {*;}
 
 #### MediaLib ####
 -keep class org.leeroy.medialib.AvosMediaPlayer {
@@ -46,7 +46,7 @@
   public android.graphics.Bitmap createRGBBitmap(int[], int, int, int, int, int, int);
 }
 
--keep class org.leeroy.mediacenter.video.browser.Browser** { *; }
+-keep class org.leeroy.mediaplayer.video.browser.Browser** { *; }
 
 -dontwarn javax.**
 -dontwarn org.eclipse.jetty.jmx.ObjectMBean

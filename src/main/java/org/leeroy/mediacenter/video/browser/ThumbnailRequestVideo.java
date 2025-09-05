@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import android.net.Uri;
 
 import java.util.ArrayList;
 
-import org.leeroy.mediacenter.utils.ThumbnailRequest;
+import org.leeroy.mediaplayer.utils.ThumbnailRequest;
 
 public class ThumbnailRequestVideo extends ThumbnailRequest {
 

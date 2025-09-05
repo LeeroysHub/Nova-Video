@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos;
+package org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -28,12 +28,12 @@ import androidx.core.view.MenuItemCompat;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 
-import org.leeroy.mediacenter.utils.ActionBarSubmenu;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.Browser;
-import org.leeroy.mediacenter.video.browser.loader.AllVideosLoader;
-import org.leeroy.mediacenter.video.utils.SortOrder;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.utils.ActionBarSubmenu;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.Browser;
+import org.leeroy.mediaplayer.video.browser.loader.AllVideosLoader;
+import org.leeroy.mediaplayer.video.utils.SortOrder;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediaprovider.video.VideoStore.MediaColumns;
 import org.leeroy.mediaprovider.video.VideoStore.Video.VideoColumns;

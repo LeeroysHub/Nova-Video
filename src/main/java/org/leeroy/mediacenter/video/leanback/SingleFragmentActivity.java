@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback;
+package org.leeroy.mediaplayer.video.leanback;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 /**
  * An activity host a single fullscreen fragment

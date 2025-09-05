@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player.tvmenu;
+package org.leeroy.mediaplayer.video.player.tvmenu;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;

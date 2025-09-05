@@ -11,7 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -30,7 +30,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceViewHolder;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.leeroy.mediacenter.video.CustomApplication;
+import org.leeroy.mediaplayer.video.CustomApplication;
 
 public class VideoPreferencesFragment extends PreferenceFragmentCompat {
 

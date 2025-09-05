@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.presenter;
+package org.leeroy.mediaplayer.video.leanback.presenter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -29,8 +29,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.leanback.adapter.object.WebPageLink;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.WebPageLink;
 
 public class WebLinkPresenter extends Presenter {
 

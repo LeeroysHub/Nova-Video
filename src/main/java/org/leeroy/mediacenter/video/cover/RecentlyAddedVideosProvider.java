@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.cover;
+package org.leeroy.mediaplayer.video.cover;
 
-import org.leeroy.mediacenter.video.browser.loader.LastAddedLoader;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.browser.loader.LastAddedLoader;
+import org.leeroy.mediaplayer.video.R;
 
 import android.content.Context;
 import androidx.loader.content.CursorLoader;

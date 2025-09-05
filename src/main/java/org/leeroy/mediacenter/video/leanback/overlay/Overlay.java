@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.overlay;
+package org.leeroy.mediaplayer.video.leanback.overlay;
 
 import android.content.Context;
 import androidx.leanback.app.BrowseSupportFragment;
@@ -24,7 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.leeroy.customizedleanback.app.MyVerticalGridFragment;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

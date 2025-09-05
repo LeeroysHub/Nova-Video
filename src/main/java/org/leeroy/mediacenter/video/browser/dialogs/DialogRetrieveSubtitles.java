@@ -13,7 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.dialogs;
+package org.leeroy.mediaplayer.video.browser.dialogs;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -23,9 +23,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import android.util.Log;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.subtitlesmanager.SubtitleManager;
-import org.leeroy.mediacenter.video.ui.NovaProgressDialog;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.subtitlesmanager.SubtitleManager;
+import org.leeroy.mediaplayer.video.ui.NovaProgressDialog;
 
 /**
  * Created by alexandre on 17/06/15.

@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.subtitlesmanager;
+package org.leeroy.mediaplayer.video.browser.subtitlesmanager;
 
 import static org.leeroy.filecorelibrary.FileUtils.getName;
 import static org.leeroy.filecorelibrary.FileUtils.stripExtensionFromName;
-import static org.leeroy.mediacenter.video.browser.subtitlesmanager.ISO639codes.getLanguageNameForLetterCode;
+import static org.leeroy.mediaplayer.video.browser.subtitlesmanager.ISO639codes.getLanguageNameForLetterCode;
 
 import android.content.Context;
 import android.content.Intent;
@@ -31,11 +31,11 @@ import org.leeroy.filecorelibrary.FileEditorFactory;
 import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.MimeUtils;
 import org.leeroy.filecorelibrary.OperationEngineListener;
-import org.leeroy.mediacenter.filecoreextension.UriUtils;
-import org.leeroy.mediacenter.filecoreextension.upnp2.RawListerFactoryWithUpnp;
-import org.leeroy.mediacenter.utils.MediaUtils;
+import org.leeroy.mediaplayer.filecoreextension.UriUtils;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.RawListerFactoryWithUpnp;
+import org.leeroy.mediaplayer.utils.MediaUtils;
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 import org.leeroy.mediaprovider.LeeroyFlixMediaIntent;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;

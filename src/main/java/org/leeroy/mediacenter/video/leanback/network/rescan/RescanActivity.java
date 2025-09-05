@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.network.rescan;
+package org.leeroy.mediaplayer.video.leanback.network.rescan;
 
 import android.os.Bundle;
 import androidx.leanback.app.GuidedStepSupportFragment;
 
-import org.leeroy.mediacenter.video.leanback.LeanbackActivity;
+import org.leeroy.mediaplayer.video.leanback.LeanbackActivity;
 
 /**
  * Created by vapillon on 22/06/15.

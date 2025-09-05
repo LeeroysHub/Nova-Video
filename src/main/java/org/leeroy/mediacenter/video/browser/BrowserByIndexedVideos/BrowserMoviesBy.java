@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos;
+package org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos;
 
 import android.database.Cursor;
 import android.net.Uri;
@@ -32,15 +32,15 @@ import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
 
-import org.leeroy.mediacenter.utils.ActionBarSubmenu;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.Browser;
-import org.leeroy.mediacenter.video.browser.BrowserCategory;
-import org.leeroy.mediacenter.video.browser.MainActivity;
-import org.leeroy.mediacenter.video.browser.ThumbnailRequestVideo;
-import org.leeroy.mediacenter.video.browser.ThumbnailRequesterVideo;
-import org.leeroy.mediacenter.video.browser.adapters.GroupOfMovieAdapter;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.utils.ActionBarSubmenu;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.Browser;
+import org.leeroy.mediaplayer.video.browser.BrowserCategory;
+import org.leeroy.mediaplayer.video.browser.MainActivity;
+import org.leeroy.mediaplayer.video.browser.ThumbnailRequestVideo;
+import org.leeroy.mediaplayer.video.browser.ThumbnailRequesterVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.GroupOfMovieAdapter;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 
 import java.util.ArrayList;
 

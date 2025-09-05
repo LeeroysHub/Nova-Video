@@ -1,9 +1,9 @@
-package org.leeroy.mediacenter.video.leanback.wizard;
+package org.leeroy.mediaplayer.video.leanback.wizard;
 
 import android.os.Bundle;
 import androidx.leanback.app.GuidedStepSupportFragment;
 
-import org.leeroy.mediacenter.video.leanback.LeanbackActivity;
+import org.leeroy.mediaplayer.video.leanback.LeanbackActivity;
 
 public class SubtitlesWizardActivity extends LeanbackActivity {
 

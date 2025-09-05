@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.cover;
+package org.leeroy.mediaplayer.video.cover;
 
 
 import android.content.Context;
 import androidx.loader.content.CursorLoader;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.loader.MoviesLoader;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.loader.MoviesLoader;
 
 public class AllMoviesProvider extends VideoSingleCursorCoverProvider {
 

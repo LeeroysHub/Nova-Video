@@ -13,9 +13,9 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaprovider.video.ScraperStore;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediascraper.BaseTags;

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.autoscraper;
+package org.leeroy.mediaplayer.video.autoscraper;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -69,17 +69,17 @@ import org.leeroy.environment.LeeroyFlixSettings;
 import org.leeroy.environment.NetworkState;
 import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.localstorage.JavaFile2;
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.utils.imageview.ChainProcessor;
-import org.leeroy.mediacenter.utils.imageview.ImageProcessor;
-import org.leeroy.mediacenter.utils.imageview.ImageViewSetter;
-import org.leeroy.mediacenter.utils.imageview.ImageViewSetterConfiguration;
-import org.leeroy.mediacenter.utils.trakt.TraktService;
-import org.leeroy.mediacenter.video.CustomApplication;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.MainActivity;
-import org.leeroy.mediacenter.video.info.VideoInfoActivity;
-import org.leeroy.mediacenter.video.player.tvmenu.TVUtils;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.utils.imageview.ChainProcessor;
+import org.leeroy.mediaplayer.utils.imageview.ImageProcessor;
+import org.leeroy.mediaplayer.utils.imageview.ImageViewSetter;
+import org.leeroy.mediaplayer.utils.imageview.ImageViewSetterConfiguration;
+import org.leeroy.mediaplayer.utils.trakt.TraktService;
+import org.leeroy.mediaplayer.video.CustomApplication;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.MainActivity;
+import org.leeroy.mediaplayer.video.info.VideoInfoActivity;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVUtils;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediaprovider.video.VideoStore.MediaColumns;
 import org.leeroy.mediaprovider.video.VideoStore.Video.VideoColumns;
@@ -726,19 +726,19 @@ public class AutoScraperActivity extends AppCompatActivity implements AbsListVie
                 // => ask the user whether he wants to process them again
 
                 if (mFolderMode) {
-                    text = getString(org.leeroy.mediacenter.video.R.string.scraper_no_new_files_in_folder);
+                    text = getString(org.leeroy.mediaplayer.video.R.string.scraper_no_new_files_in_folder);
                 }
                 else {
-                    text = getString(org.leeroy.mediacenter.video.R.string.scraper_no_new_files);
+                    text = getString(org.leeroy.mediaplayer.video.R.string.scraper_no_new_files);
                 }
 
                 if (matchingVideosCount > 1) {
-                    text += ".\n\n" + getString(org.leeroy.mediacenter.video.R.string.scraper_folder_no_files, matchingVideosCount);
+                    text += ".\n\n" + getString(org.leeroy.mediaplayer.video.R.string.scraper_folder_no_files, matchingVideosCount);
                 }
                 else {
-                    text += ".\n\n" + getString(org.leeroy.mediacenter.video.R.string.scraper_folder_no_file);
+                    text += ".\n\n" + getString(org.leeroy.mediaplayer.video.R.string.scraper_folder_no_file);
                 }
-                text += " " + getString(org.leeroy.mediacenter.video.R.string.scraper_folder_try_again);
+                text += " " + getString(org.leeroy.mediaplayer.video.R.string.scraper_folder_try_again);
 
                 emptyViewYesButton.setVisibility(View.VISIBLE);
                 emptyViewYesButton.setOnClickListener(new View.OnClickListener() {
@@ -758,7 +758,7 @@ public class AutoScraperActivity extends AppCompatActivity implements AbsListVie
             }
             else {
                 // All the requested videos already have infos => just tell the user that there is nothing more to do
-                text = getString(org.leeroy.mediacenter.video.R.string.scraper_no_files);
+                text = getString(org.leeroy.mediaplayer.video.R.string.scraper_no_files);
                 // We only need the OK button here
                 emptyViewNoButton.setVisibility(View.GONE);
                 emptyViewYesButton.setOnClickListener(new View.OnClickListener() {
@@ -813,12 +813,12 @@ public class AutoScraperActivity extends AppCompatActivity implements AbsListVie
             // Make sure we are connected to a network
             if (!LeeroyFlixSettings.isDemoModeActive(this) && !NetworkState.isNetworkConnected(this)) {
                 // No connection => show an error dialog
-                String message = getResources().getString(org.leeroy.mediacenter.video.R.string.scrap_no_network);
-                message += " " + getResources().getString(org.leeroy.mediacenter.video.R.string.scrap_enable_network_first);
+                String message = getResources().getString(org.leeroy.mediaplayer.video.R.string.scrap_no_network);
+                message += " " + getResources().getString(org.leeroy.mediaplayer.video.R.string.scrap_enable_network_first);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setIcon(android.R.drawable.ic_dialog_alert)
-                       .setTitle(R.string.mediacenterlabel)
+                       .setTitle(R.string.mediaplayerlabel)
                        .setMessage(message)
                        .setCancelable(true)
                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

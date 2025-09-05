@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos;
+package org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.loader.SearchVideoLoader;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.loader.SearchVideoLoader;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 
 import android.database.Cursor;
 import android.os.Bundle;

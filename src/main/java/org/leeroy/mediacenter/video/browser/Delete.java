@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import static org.leeroy.filecorelibrary.FileUtils.isLocal;
 
@@ -34,20 +34,20 @@ import org.leeroy.filecorelibrary.RawLister;
 import org.leeroy.filecorelibrary.FileUtils;
 import org.leeroy.filecorelibrary.localstorage.ExternalSDFileWriter;
 import org.leeroy.filecorelibrary.localstorage.LocalStorageFileEditor;
-import org.leeroy.mediacenter.filecoreextension.UriUtils;
-import org.leeroy.mediacenter.filecoreextension.upnp2.MetaFileFactoryWithUpnp;
-import org.leeroy.mediacenter.filecoreextension.upnp2.RawListerFactoryWithUpnp;
-import org.leeroy.mediacenter.utils.videodb.XmlDb;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.SeasonCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.VideoCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.object.Episode;
-import org.leeroy.mediacenter.video.browser.adapters.object.Season;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.loader.EpisodesLoader;
-import org.leeroy.mediacenter.video.browser.loader.SeasonsLoader;
-import org.leeroy.mediacenter.video.browser.subtitlesmanager.SubtitleManager;
-import org.leeroy.mediacenter.video.info.SingleVideoLoader;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.filecoreextension.UriUtils;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.MetaFileFactoryWithUpnp;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.RawListerFactoryWithUpnp;
+import org.leeroy.mediaplayer.utils.videodb.XmlDb;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.SeasonCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.VideoCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Episode;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Season;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.loader.EpisodesLoader;
+import org.leeroy.mediaplayer.video.browser.loader.SeasonsLoader;
+import org.leeroy.mediaplayer.video.browser.subtitlesmanager.SubtitleManager;
+import org.leeroy.mediaplayer.video.info.SingleVideoLoader;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 import org.leeroy.mediaprovider.NetworkScanner;
 import org.leeroy.mediascraper.EpisodeTags;
 import org.leeroy.mediascraper.NfoParser;

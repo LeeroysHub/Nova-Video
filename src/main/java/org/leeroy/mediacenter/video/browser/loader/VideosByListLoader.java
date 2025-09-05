@@ -1,4 +1,4 @@
-package org.leeroy.mediacenter.video.browser.loader;
+package org.leeroy.mediaplayer.video.browser.loader;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -6,7 +6,7 @@ import android.database.Cursor;
 import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserMoviesBy;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserMoviesBy;
 import org.leeroy.mediaprovider.video.ListTables;
 import org.leeroy.mediaprovider.video.LoaderUtils;
 import org.leeroy.mediaprovider.video.VideoStore;

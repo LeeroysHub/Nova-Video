@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.presenter;
+package org.leeroy.mediaplayer.video.leanback.presenter;
 
 import android.content.Context;
 
@@ -23,7 +23,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 /**
  * Created by alexandre on 22/12/15.

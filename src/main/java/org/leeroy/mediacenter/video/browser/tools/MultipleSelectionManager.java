@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.tools;
+package org.leeroy.mediaplayer.video.browser.tools;
 
 
 import android.content.Intent;
@@ -30,19 +30,19 @@ import androidx.preference.PreferenceManager;
 
 import org.leeroy.filecorelibrary.FileUtils;
 import org.leeroy.filecorelibrary.MetaFile2;
-import org.leeroy.mediacenter.utils.trakt.Trakt;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.Browser;
-import org.leeroy.mediacenter.video.browser.HeaderGridView;
-import org.leeroy.mediacenter.video.browser.adapters.object.Episode;
-import org.leeroy.mediacenter.video.browser.adapters.object.Movie;
-import org.leeroy.mediacenter.video.browser.adapters.object.NonIndexedVideo;
-import org.leeroy.mediacenter.video.browser.adapters.object.Season;
-import org.leeroy.mediacenter.video.browser.adapters.object.Tvshow;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.BrowserByNetwork;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
-import org.leeroy.mediacenter.video.utils.DbUtils;
+import org.leeroy.mediaplayer.utils.trakt.Trakt;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.Browser;
+import org.leeroy.mediaplayer.video.browser.HeaderGridView;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Episode;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Movie;
+import org.leeroy.mediaplayer.video.browser.adapters.object.NonIndexedVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Season;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Tvshow;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.BrowserByNetwork;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.utils.DbUtils;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 import java.util.ArrayList;

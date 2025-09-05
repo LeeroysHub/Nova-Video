@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -28,9 +28,9 @@ import org.leeroy.filecorelibrary.FileEditorFactory;
 import org.leeroy.filecorelibrary.FileUtils;
 import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.MetaFile2Factory;
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.subtitlesmanager.SubtitleManager;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.subtitlesmanager.SubtitleManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

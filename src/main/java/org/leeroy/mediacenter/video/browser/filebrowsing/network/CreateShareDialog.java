@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -29,9 +29,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.filecoreextension.UriUtils;
-import org.leeroy.mediacenter.utils.ShortcutDbAdapter;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.filecoreextension.UriUtils;
+import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
+import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaprovider.NetworkScanner;
 
 /**

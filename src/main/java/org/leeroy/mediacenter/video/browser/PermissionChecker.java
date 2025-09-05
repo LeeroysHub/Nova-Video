@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -33,8 +33,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import org.leeroy.environment.LeeroyFlixUtils;
-import org.leeroy.mediacenter.video.CustomApplication;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.CustomApplication;
+import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaprovider.LeeroyFlixMediaIntent;
 import org.leeroy.mediaprovider.video.VideoStoreImportService;
 

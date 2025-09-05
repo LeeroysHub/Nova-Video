@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.presenter;
+package org.leeroy.mediaplayer.video.browser.presenter;
 
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.leeroy.mediacenter.utils.ThumbnailEngine;
+import org.leeroy.mediaplayer.utils.ThumbnailEngine;
 
 /**
  * Created by alexandre on 26/10/15.

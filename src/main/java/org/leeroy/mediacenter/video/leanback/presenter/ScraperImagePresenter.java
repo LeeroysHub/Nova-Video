@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.presenter;
+package org.leeroy.mediaplayer.video.leanback.presenter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -26,7 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediascraper.ScraperImage;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;

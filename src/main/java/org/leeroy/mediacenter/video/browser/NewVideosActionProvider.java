@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -47,10 +47,10 @@ import androidx.loader.content.Loader;
 import androidx.preference.PreferenceManager;
 
 import org.leeroy.environment.NetworkState;
-import org.leeroy.mediacenter.utils.HelpOverlayActivity;
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.autoscraper.AutoScraperActivity;
+import org.leeroy.mediaplayer.utils.HelpOverlayActivity;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.autoscraper.AutoScraperActivity;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediascraper.AutoScrapeService;
 

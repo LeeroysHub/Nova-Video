@@ -1,4 +1,4 @@
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import android.content.Context;
 import android.util.AttributeSet;

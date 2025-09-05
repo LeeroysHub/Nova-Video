@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.leeroy.mediacenter.video.widget;
+package org.leeroy.mediaplayer.video.widget;
 
-import static org.leeroy.mediacenter.video.utils.MiscUtils.dumpBundle;
+import static org.leeroy.mediaplayer.video.utils.MiscUtils.dumpBundle;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -35,9 +35,9 @@ import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.MainActivity;
-import org.leeroy.mediacenter.video.info.VideoInfoActivity;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.MainActivity;
+import org.leeroy.mediaplayer.video.info.VideoInfoActivity;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,17 +46,17 @@ public class WidgetProviderVideo extends AppWidgetProvider {
 
     private static final Logger log = LoggerFactory.getLogger(WidgetProviderVideo.class);
 
-    public static final String TAP_ACTION = "org.leeroy.mediacenter.video.widget.TAP_ACTION";
-    public static final String RELOAD_ACTION = "org.leeroy.mediacenter.video.widget.RELOAD_ACTION";
-    public static final String INITIAL_UPDATE_ACTION = "org.leeroy.mediacenter.video.widget.INITIAL_UPDATE_ACTION";
-    public static final String UPDATE_ACTION = "org.leeroy.mediacenter.video.widget.UPDATE_ACTION";
-    public static final String EMPTY_DATA_ACTION = "org.leeroy.mediacenter.video.widget.EMPTY_DATA_ACTION";
-    public static final String SHOW_UPDATE_SPINBAR_ACTION = "org.leeroy.mediacenter.video.widget.SHOW_UPDATE_SPINBAR";
+    public static final String TAP_ACTION = "org.leeroy.mediaplayer.video.widget.TAP_ACTION";
+    public static final String RELOAD_ACTION = "org.leeroy.mediaplayer.video.widget.RELOAD_ACTION";
+    public static final String INITIAL_UPDATE_ACTION = "org.leeroy.mediaplayer.video.widget.INITIAL_UPDATE_ACTION";
+    public static final String UPDATE_ACTION = "org.leeroy.mediaplayer.video.widget.UPDATE_ACTION";
+    public static final String EMPTY_DATA_ACTION = "org.leeroy.mediaplayer.video.widget.EMPTY_DATA_ACTION";
+    public static final String SHOW_UPDATE_SPINBAR_ACTION = "org.leeroy.mediaplayer.video.widget.SHOW_UPDATE_SPINBAR";
 
-    public static final String EXTRA_POSITION = "org.leeroy.mediacenter.video.widget.EXTRA_POSITION";
-    public static final String EXTRA_VIDEO_ID = "org.leeroy.mediacenter.video.widget.EXTRA_ID";
-    public static final String EXTRA_SHOW_ID = "org.leeroy.mediacenter.video.widget.EXTRA_SHOW_ID";
-    public static final String EXTRA_CONTENT_CHANGED = "org.leeroy.mediacenter.video.widget.EXTRA_CONTENT_CHANGED";
+    public static final String EXTRA_POSITION = "org.leeroy.mediaplayer.video.widget.EXTRA_POSITION";
+    public static final String EXTRA_VIDEO_ID = "org.leeroy.mediaplayer.video.widget.EXTRA_ID";
+    public static final String EXTRA_SHOW_ID = "org.leeroy.mediaplayer.video.widget.EXTRA_SHOW_ID";
+    public static final String EXTRA_CONTENT_CHANGED = "org.leeroy.mediaplayer.video.widget.EXTRA_CONTENT_CHANGED";
 
     private static String SHARED_PREFERENCES_KEY_MODE = "video_widget_mode";
 

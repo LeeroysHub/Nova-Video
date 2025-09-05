@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.details;
+package org.leeroy.mediaplayer.video.leanback.details;
 
-import static org.leeroy.mediacenter.video.browser.subtitlesmanager.ISO639codes.generateTrackName;
+import static org.leeroy.mediaplayer.video.browser.subtitlesmanager.ISO639codes.generateTrackName;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -26,10 +26,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.info.VideoInfoCommonClass;
-import org.leeroy.mediacenter.video.utils.VideoMetadata;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.info.VideoInfoCommonClass;
+import org.leeroy.mediaplayer.video.utils.VideoMetadata;
 import org.leeroy.mediascraper.StringUtils;
 
 import org.slf4j.Logger;

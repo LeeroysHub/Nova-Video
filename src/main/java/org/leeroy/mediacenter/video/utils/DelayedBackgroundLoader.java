@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
@@ -20,9 +20,9 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.widget.ImageView;
 
-import org.leeroy.mediacenter.utils.imageview.ImageProcessor;
-import org.leeroy.mediacenter.utils.imageview.LoadTaskItem;
-import org.leeroy.mediacenter.utils.imageview.LoadResult.Status;
+import org.leeroy.mediaplayer.utils.imageview.ImageProcessor;
+import org.leeroy.mediaplayer.utils.imageview.LoadTaskItem;
+import org.leeroy.mediaplayer.utils.imageview.LoadResult.Status;
 import org.leeroy.mediascraper.ScraperImage;
 
 public class DelayedBackgroundLoader extends ImageProcessor {

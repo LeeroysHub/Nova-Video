@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player.tvmenu;
+package org.leeroy.mediaplayer.video.player.tvmenu;
 
 import android.content.Context;
 import android.os.Handler;
@@ -29,9 +29,9 @@ import android.widget.TextView;
 
 import androidx.preference.PreferenceManager;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.player.AudioDelayPickerAbstract;
-import org.leeroy.mediacenter.video.player.PlayerService;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.player.AudioDelayPickerAbstract;
+import org.leeroy.mediaplayer.video.player.PlayerService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

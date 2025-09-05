@@ -1,9 +1,9 @@
-package org.leeroy.mediacenter.video.leanback.settings;
+package org.leeroy.mediaplayer.video.leanback.settings;
 
 import android.os.Bundle;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.leanback.LeanbackActivity;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.leanback.LeanbackActivity;
 
 public class VideoSettingsLicencesActivity extends LeanbackActivity {
 

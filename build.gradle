@@ -96,7 +96,7 @@ if (shouldApplyPlayPlugin) {
 //}
 
 android {
-    namespace = 'org.leeroy.mediacenter.video'
+    namespace = 'org.leeroy.mediaplayer.video'
     signingConfigs {
         release {
             if (keystorePropertiesFile.exists()) {

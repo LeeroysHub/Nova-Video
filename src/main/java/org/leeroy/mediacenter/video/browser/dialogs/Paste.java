@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.dialogs;
+package org.leeroy.mediaplayer.video.browser.dialogs;
 
 
 import android.content.Context;
@@ -28,8 +28,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.FileManagerService;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.FileManagerService;
 
 public class Paste extends AlertDialog implements FileManagerService.ServiceListener {
 

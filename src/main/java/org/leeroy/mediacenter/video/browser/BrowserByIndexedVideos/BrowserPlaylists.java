@@ -1,14 +1,14 @@
-package org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos;
+package org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos;
 
-import org.leeroy.mediacenter.utils.ActionBarSubmenu;
-import org.leeroy.mediacenter.utils.trakt.Trakt;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.MainActivity;
-import org.leeroy.mediacenter.video.browser.ThumbnailEngineVideo;
-import org.leeroy.mediacenter.video.browser.adapters.GroupOfMovieAdapter;
-import org.leeroy.mediacenter.video.browser.loader.VideosByListLoader;
-import org.leeroy.mediacenter.video.utils.TraktSigninDialogPreference;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.utils.ActionBarSubmenu;
+import org.leeroy.mediaplayer.utils.trakt.Trakt;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.MainActivity;
+import org.leeroy.mediaplayer.video.browser.ThumbnailEngineVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.GroupOfMovieAdapter;
+import org.leeroy.mediaplayer.video.browser.loader.VideosByListLoader;
+import org.leeroy.mediaplayer.video.utils.TraktSigninDialogPreference;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 import android.content.DialogInterface;

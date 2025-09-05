@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.search;
+package org.leeroy.mediaplayer.video.leanback.search;
 
 import android.app.SearchManager;
 import android.content.ContentProvider;
@@ -23,7 +23,7 @@ import android.database.MatrixCursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 

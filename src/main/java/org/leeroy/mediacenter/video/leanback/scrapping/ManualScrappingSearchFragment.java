@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.scrapping;
+package org.leeroy.mediaplayer.video.leanback.scrapping;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -35,13 +35,13 @@ import androidx.leanback.widget.RowPresenter;
 import androidx.leanback.widget.ShadowLessRowPresenter;
 import android.util.Log;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.leanback.ShadowLessListRow;
-import org.leeroy.mediacenter.video.leanback.adapter.object.EmptyView;
-import org.leeroy.mediacenter.video.leanback.presenter.EmptyViewPresenter;
-import org.leeroy.mediacenter.video.leanback.presenter.ScraperBaseTagsPresenter;
-import org.leeroy.mediacenter.video.leanback.presenter.ScraperSearchResultPresenter;
-import org.leeroy.mediacenter.video.utils.SerialExecutor;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.leanback.ShadowLessListRow;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.EmptyView;
+import org.leeroy.mediaplayer.video.leanback.presenter.EmptyViewPresenter;
+import org.leeroy.mediaplayer.video.leanback.presenter.ScraperBaseTagsPresenter;
+import org.leeroy.mediaplayer.video.leanback.presenter.ScraperSearchResultPresenter;
+import org.leeroy.mediaplayer.video.utils.SerialExecutor;
 import org.leeroy.mediascraper.BaseTags;
 import org.leeroy.mediascraper.ScrapeSearchResult;
 import org.leeroy.mediascraper.Scraper;

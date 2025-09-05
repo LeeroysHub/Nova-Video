@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -29,16 +29,16 @@ import org.leeroy.filecorelibrary.FileUtils;
 import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.MimeUtils;
 import org.leeroy.filecorelibrary.StreamOverHttp;
-import org.leeroy.mediacenter.filecoreextension.upnp2.StreamUriFinder;
-import org.leeroy.mediacenter.utils.videodb.IndexHelper;
-import org.leeroy.mediacenter.utils.videodb.VideoDbInfo;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.subtitlesmanager.SubtitleManager;
-import org.leeroy.mediacenter.video.player.ExternalPlayerService;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
-import org.leeroy.mediacenter.video.player.PlayerService;
-import org.leeroy.mediacenter.video.player.TorrentLoaderActivity;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.StreamUriFinder;
+import org.leeroy.mediaplayer.utils.videodb.IndexHelper;
+import org.leeroy.mediaplayer.utils.videodb.VideoDbInfo;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.subtitlesmanager.SubtitleManager;
+import org.leeroy.mediaplayer.video.player.ExternalPlayerService;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.player.PlayerService;
+import org.leeroy.mediaplayer.video.player.TorrentLoaderActivity;
 import org.leeroy.mediascraper.ScrapeDetailResult;
 
 import org.slf4j.Logger;
@@ -217,8 +217,8 @@ public class PlayUtils implements IndexHelper.Listener {
         log.debug("prepareSubs");
         if(!mIsPreparingSubs) {
             mIsPreparingSubs = true;
-            org.leeroy.mediacenter.video.browser.subtitlesmanager.SubtitleManager subtitleManager =
-                    new org.leeroy.mediacenter.video.browser.subtitlesmanager.SubtitleManager(mContext, new SubtitleManager.Listener() {
+            org.leeroy.mediaplayer.video.browser.subtitlesmanager.SubtitleManager subtitleManager =
+                    new org.leeroy.mediaplayer.video.browser.subtitlesmanager.SubtitleManager(mContext, new SubtitleManager.Listener() {
                         @Override
                         public void onAbort() {
                             mIsPreparingSubs = false;

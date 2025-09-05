@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.info;
+package org.leeroy.mediaplayer.video.info;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
@@ -32,12 +32,12 @@ import android.widget.ImageView.ScaleType;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import org.leeroy.mediacenter.utils.imageview.ImageProcessor;
-import org.leeroy.mediacenter.utils.imageview.ImageViewSetter;
-import org.leeroy.mediacenter.utils.imageview.LoadResult.Status;
-import org.leeroy.mediacenter.utils.imageview.LoadTaskItem;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Base;
+import org.leeroy.mediaplayer.utils.imageview.ImageProcessor;
+import org.leeroy.mediaplayer.utils.imageview.ImageViewSetter;
+import org.leeroy.mediaplayer.utils.imageview.LoadResult.Status;
+import org.leeroy.mediaplayer.utils.imageview.LoadTaskItem;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Base;
 import org.leeroy.mediascraper.BaseTags;
 import org.leeroy.mediascraper.ScraperImage;
 

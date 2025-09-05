@@ -25,7 +25,7 @@
      Warning: everything within the parent is removed and re-ordered depending
      on the date format selected by the user.
 -->
-<org.leeroy.mediacenter.video.player.tvmenu.SubtitleDelayTVPicker xmlns:android="http://schemas.android.com/apk/res/android"
+<org.leeroy.mediaplayer.video.player.tvmenu.SubtitleDelayTVPicker xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/subtitleDelayPicker"
     android:layout_width="wrap_content"
@@ -76,4 +76,4 @@
             app:srcCompat="@drawable/arrow_right" />
     </LinearLayout>
 
-</org.leeroy.mediacenter.video.player.tvmenu.SubtitleDelayTVPicker>
+</org.leeroy.mediaplayer.video.player.tvmenu.SubtitleDelayTVPicker>

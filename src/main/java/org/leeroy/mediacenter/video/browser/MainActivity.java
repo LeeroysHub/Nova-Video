@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import static org.leeroy.filecorelibrary.FileUtils.hasManageExternalStoragePermission;
 
@@ -73,30 +73,30 @@ import androidx.loader.app.LoaderManager;
 import androidx.preference.PreferenceManager;
 
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.utils.GlobalResumeView;
-import org.leeroy.mediacenter.utils.trakt.Trakt;
-import org.leeroy.mediacenter.video.CustomApplication;
-import org.leeroy.mediacenter.video.DensityTweak;
-import org.leeroy.mediacenter.video.EntryActivity;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.UiChoiceDialog;
-import org.leeroy.mediacenter.video.autoscraper.AutoScraperActivity;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserListOfSeasons;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.CursorBrowserByVideo;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.VideoCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.dialogs.Paste;
-import org.leeroy.mediacenter.video.browser.filebrowsing.BrowserByVideoFolder;
-import org.leeroy.mediacenter.video.info.SingleVideoLoader;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
-import org.leeroy.mediacenter.video.player.PrivateMode;
-import org.leeroy.mediacenter.video.utils.ExternalPlayerResultListener;
-import org.leeroy.mediacenter.video.utils.ExternalPlayerWithResultStarter;
-import org.leeroy.mediacenter.video.utils.MiscUtils;
-import org.leeroy.mediacenter.video.utils.PlayUtils;
-import org.leeroy.mediacenter.video.utils.TraktSigninDialogPreference;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesActivity;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.utils.GlobalResumeView;
+import org.leeroy.mediaplayer.utils.trakt.Trakt;
+import org.leeroy.mediaplayer.video.CustomApplication;
+import org.leeroy.mediaplayer.video.DensityTweak;
+import org.leeroy.mediaplayer.video.EntryActivity;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.UiChoiceDialog;
+import org.leeroy.mediaplayer.video.autoscraper.AutoScraperActivity;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserListOfSeasons;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.CursorBrowserByVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.VideoCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.dialogs.Paste;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.BrowserByVideoFolder;
+import org.leeroy.mediaplayer.video.info.SingleVideoLoader;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.player.PrivateMode;
+import org.leeroy.mediaplayer.video.utils.ExternalPlayerResultListener;
+import org.leeroy.mediaplayer.video.utils.ExternalPlayerWithResultStarter;
+import org.leeroy.mediaplayer.video.utils.MiscUtils;
+import org.leeroy.mediaplayer.video.utils.PlayUtils;
+import org.leeroy.mediaplayer.video.utils.TraktSigninDialogPreference;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesActivity;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 import org.leeroy.mediaprovider.video.LoaderUtils;
 import org.leeroy.mediaprovider.video.ScraperStore;
 import org.leeroy.mediaprovider.video.VideoStore;
@@ -163,7 +163,7 @@ public class MainActivity extends BrowserActivity implements ExternalPlayerWithR
             ScraperStore.AllVideos.EPISODE_NAME
     };
 
-    private final static String StereoActivity = "org.leeroy.mediacenter.video.browser.MainActivityStereo";
+    private final static String StereoActivity = "org.leeroy.mediaplayer.video.browser.MainActivityStereo";
 
     private NewVideosActionProvider mNewVideosActionProvider = null;
 

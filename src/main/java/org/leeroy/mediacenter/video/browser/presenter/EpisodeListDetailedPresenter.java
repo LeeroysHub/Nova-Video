@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.presenter;
+package org.leeroy.mediaplayer.video.browser.presenter;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -21,11 +21,11 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.utils.ThumbnailEngine;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterDefaultValuesDetails;
-import org.leeroy.mediacenter.video.browser.adapters.object.Episode;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.utils.ThumbnailEngine;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValuesDetails;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Episode;
 
 import java.text.DateFormat;
 import java.text.NumberFormat;

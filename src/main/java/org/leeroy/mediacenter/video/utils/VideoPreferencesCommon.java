@@ -11,7 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -51,26 +51,26 @@ import org.leeroy.environment.ArchosUtils;
 import org.leeroy.filecorelibrary.ExtStorageManager;
 import org.leeroy.filecorelibrary.jcifs.JcifsUtils;
 import org.leeroy.filecorelibrary.samba.SambaDiscovery;
-import org.leeroy.mediacenter.utils.trakt.Trakt;
-import org.leeroy.mediacenter.utils.trakt.TraktService;
-import org.leeroy.mediacenter.video.BuildConfig;
-import org.leeroy.mediacenter.video.CustomApplication;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.UiChoiceDialog;
-import org.leeroy.mediacenter.video.browser.loader.MoviesLoader;
-import org.leeroy.mediacenter.video.leanback.MainFragment;
-import org.leeroy.mediacenter.video.leanback.animes.AllAnimesGridFragment;
-import org.leeroy.mediacenter.video.leanback.animes.AnimesSortOrderEntry;
-import org.leeroy.mediacenter.video.leanback.movies.AllMoviesGridFragment;
-import org.leeroy.mediacenter.video.leanback.movies.MoviesSortOrderEntry;
-import org.leeroy.mediacenter.video.leanback.settings.VideoSettingsLicencesActivity;
-import org.leeroy.mediacenter.video.leanback.settings.VideoSettingsMoreLeanbackActivity;
-import org.leeroy.mediacenter.video.leanback.tvshow.AllTvshowsGridFragment;
-import org.leeroy.mediacenter.video.leanback.tvshow.TvshowsSortOrderEntry;
-import org.leeroy.mediacenter.video.tvshow.AnimeShowSortOrderEntries;
-import org.leeroy.mediacenter.video.tvshow.TvshowSortOrderEntries;
-import org.leeroy.mediacenter.video.utils.credentialsmanager.CredentialsManagerPreferenceActivity;
-import org.leeroy.mediacenter.video.utils.MediaLibraryBackupService;
+import org.leeroy.mediaplayer.utils.trakt.Trakt;
+import org.leeroy.mediaplayer.utils.trakt.TraktService;
+import org.leeroy.mediaplayer.video.BuildConfig;
+import org.leeroy.mediaplayer.video.CustomApplication;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.UiChoiceDialog;
+import org.leeroy.mediaplayer.video.browser.loader.MoviesLoader;
+import org.leeroy.mediaplayer.video.leanback.MainFragment;
+import org.leeroy.mediaplayer.video.leanback.animes.AllAnimesGridFragment;
+import org.leeroy.mediaplayer.video.leanback.animes.AnimesSortOrderEntry;
+import org.leeroy.mediaplayer.video.leanback.movies.AllMoviesGridFragment;
+import org.leeroy.mediaplayer.video.leanback.movies.MoviesSortOrderEntry;
+import org.leeroy.mediaplayer.video.leanback.settings.VideoSettingsLicencesActivity;
+import org.leeroy.mediaplayer.video.leanback.settings.VideoSettingsMoreLeanbackActivity;
+import org.leeroy.mediaplayer.video.leanback.tvshow.AllTvshowsGridFragment;
+import org.leeroy.mediaplayer.video.leanback.tvshow.TvshowsSortOrderEntry;
+import org.leeroy.mediaplayer.video.tvshow.AnimeShowSortOrderEntries;
+import org.leeroy.mediaplayer.video.tvshow.TvshowSortOrderEntries;
+import org.leeroy.mediaplayer.video.utils.credentialsmanager.CredentialsManagerPreferenceActivity;
+import org.leeroy.mediaplayer.video.utils.MediaLibraryBackupService;
 import org.leeroy.medialib.MediaFactory;
 import org.leeroy.mediaprovider.video.VideoProvider;
 import org.leeroy.mediascraper.AllCollectionScrapeService;
@@ -977,7 +977,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         TreeMap<String, String> sortedLanguages = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
         for (String s : languageCodeArray) {
-            String currentLocaleLanguage = org.leeroy.mediacenter.video.browser.subtitlesmanager.ISO639codes.getLanguageNameFor2LetterCode(getActivity(), s);
+            String currentLocaleLanguage = org.leeroy.mediaplayer.video.browser.subtitlesmanager.ISO639codes.getLanguageNameFor2LetterCode(getActivity(), s);
             if (currentLocaleLanguage.equalsIgnoreCase(defaultLocaleLanguage) || currentLocaleLanguage.equalsIgnoreCase(englishLocaleLanguage))
                 continue;
             sortedLanguages.put(currentLocaleLanguage, s);

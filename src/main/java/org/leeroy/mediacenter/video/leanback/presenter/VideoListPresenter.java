@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.presenter;
+package org.leeroy.mediaplayer.video.leanback.presenter;
 
 import android.net.Uri;
 import androidx.preference.PreferenceManager;
@@ -20,13 +20,13 @@ import android.view.View;
 
 import org.leeroy.environment.LeeroyFlixUtils;
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Collection;
-import org.leeroy.mediacenter.video.browser.adapters.object.Episode;
-import org.leeroy.mediacenter.video.browser.adapters.object.Movie;
-import org.leeroy.mediacenter.video.browser.adapters.object.Tvshow;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Collection;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Episode;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Movie;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Tvshow;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
 import org.leeroy.mediaprovider.video.VideoProvider;
 
 /**

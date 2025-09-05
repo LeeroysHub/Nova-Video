@@ -1,4 +1,4 @@
-package org.leeroy.mediacenter.video.browser.loader;
+package org.leeroy.mediaplayer.video.browser.loader;
 
 import android.content.Context;
 

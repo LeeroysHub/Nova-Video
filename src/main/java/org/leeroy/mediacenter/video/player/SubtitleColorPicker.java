@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player;
+package org.leeroy.mediaplayer.video.player;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -26,10 +26,10 @@ import android.view.View;
 import android.view.ViewParent;
 import android.widget.LinearLayout;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.player.tvmenu.TVCardDialog;
-import org.leeroy.mediacenter.video.player.tvmenu.TVCardView;
-import org.leeroy.mediacenter.video.player.tvmenu.TVUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVCardDialog;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVCardView;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVUtils;
 
 import java.util.ArrayList;
 

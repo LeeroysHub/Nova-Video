@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.adapters;
+package org.leeroy.mediaplayer.video.browser.adapters;
 
-import org.leeroy.mediacenter.video.browser.presenter.Presenter;
+import org.leeroy.mediaplayer.video.browser.presenter.Presenter;
 
 /**
  * Created by alexandre on 06/11/15.

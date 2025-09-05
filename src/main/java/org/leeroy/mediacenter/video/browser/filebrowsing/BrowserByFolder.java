@@ -14,7 +14,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.filebrowsing;
+package org.leeroy.mediaplayer.video.browser.filebrowsing;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -49,30 +49,30 @@ import org.leeroy.filecorelibrary.FileExtendedInfo;
 import org.leeroy.filecorelibrary.FileUtils;
 import org.leeroy.filecorelibrary.ListingEngine;
 import org.leeroy.filecorelibrary.MetaFile2;
-import org.leeroy.mediacenter.filecoreextension.upnp2.ListingEngineFactoryWithUpnp;
-import org.leeroy.mediacenter.filecoreextension.upnp2.UpnpFile2;
-import org.leeroy.mediacenter.utils.ActionBarSubmenu;
-import org.leeroy.mediacenter.utils.videodb.VideoDbInfo;
-import org.leeroy.mediacenter.utils.videodb.XmlDb;
-import org.leeroy.mediacenter.video.CustomApplication;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.Browser;
-import org.leeroy.mediacenter.video.browser.BrowserByVideoObjects;
-import org.leeroy.mediacenter.video.browser.BrowserCategory;
-import org.leeroy.mediacenter.video.browser.ThumbnailRequesterVideo;
-import org.leeroy.mediacenter.video.browser.adapters.PresenterAdapterInterface;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.VideoCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.object.NonIndexedVideo;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.loader.VideosInFolderLoader;
-import org.leeroy.mediacenter.video.browser.presenter.CommonPresenter;
-import org.leeroy.mediacenter.video.browser.presenter.Metafile2GridPresenter;
-import org.leeroy.mediacenter.video.browser.presenter.Metafile2ListPresenter;
-import org.leeroy.mediacenter.video.browser.presenter.VideoPresenter;
-import org.leeroy.mediacenter.video.ui.NovaProgressDialog;
-import org.leeroy.mediacenter.video.utils.PlayUtils;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.ListingEngineFactoryWithUpnp;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.UpnpFile2;
+import org.leeroy.mediaplayer.utils.ActionBarSubmenu;
+import org.leeroy.mediaplayer.utils.videodb.VideoDbInfo;
+import org.leeroy.mediaplayer.utils.videodb.XmlDb;
+import org.leeroy.mediaplayer.video.CustomApplication;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.Browser;
+import org.leeroy.mediaplayer.video.browser.BrowserByVideoObjects;
+import org.leeroy.mediaplayer.video.browser.BrowserCategory;
+import org.leeroy.mediaplayer.video.browser.ThumbnailRequesterVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.PresenterAdapterInterface;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.VideoCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.object.NonIndexedVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.loader.VideosInFolderLoader;
+import org.leeroy.mediaplayer.video.browser.presenter.CommonPresenter;
+import org.leeroy.mediaplayer.video.browser.presenter.Metafile2GridPresenter;
+import org.leeroy.mediaplayer.video.browser.presenter.Metafile2ListPresenter;
+import org.leeroy.mediaplayer.video.browser.presenter.VideoPresenter;
+import org.leeroy.mediaplayer.video.ui.NovaProgressDialog;
+import org.leeroy.mediaplayer.video.utils.PlayUtils;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

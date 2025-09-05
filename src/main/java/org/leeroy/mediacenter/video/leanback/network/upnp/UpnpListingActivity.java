@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.network.upnp;
+package org.leeroy.mediaplayer.video.leanback.network.upnp;
 
-import org.leeroy.mediacenter.video.leanback.filebrowsing.ListingActivity;
-import org.leeroy.mediacenter.video.leanback.filebrowsing.ListingFragment;
+import org.leeroy.mediaplayer.video.leanback.filebrowsing.ListingActivity;
+import org.leeroy.mediaplayer.video.leanback.filebrowsing.ListingFragment;
 
 public class UpnpListingActivity extends ListingActivity {
 

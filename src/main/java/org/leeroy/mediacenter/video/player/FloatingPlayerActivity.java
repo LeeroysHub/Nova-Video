@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player;
+package org.leeroy.mediaplayer.video.player;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -25,7 +25,7 @@ import androidx.loader.app.LoaderManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.leeroy.mediacenter.utils.videodb.IndexHelper;
+import org.leeroy.mediaplayer.utils.videodb.IndexHelper;
 
 public class FloatingPlayerActivity extends FragmentActivity {
 

@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.tvshow;
+package org.leeroy.mediaplayer.video.leanback.tvshow;
 
 import android.content.Context;
 import android.util.SparseArray;
 
-import org.leeroy.mediacenter.video.tvshow.AnimeShowSortOrderEntries;
+import org.leeroy.mediaplayer.video.tvshow.AnimeShowSortOrderEntries;
 
 import java.util.ArrayList;
 import java.util.List;

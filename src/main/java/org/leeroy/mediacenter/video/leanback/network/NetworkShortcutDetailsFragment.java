@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.network;
+package org.leeroy.mediaplayer.video.leanback.network;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -34,15 +34,15 @@ import androidx.leanback.widget.SparseArrayObjectAdapter;
 import android.view.View;
 import android.widget.Toast;
 
-import org.leeroy.mediacenter.utils.ShortcutDbAdapter;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.ShortcutDb;
-import org.leeroy.mediacenter.video.leanback.overlay.Overlay;
-import org.leeroy.mediacenter.video.leanback.adapter.object.Shortcut;
-import org.leeroy.mediacenter.video.leanback.details.LeeroyFlixDetailsOverviewRowPresenter;
-import org.leeroy.mediacenter.video.leanback.filebrowsing.ListingActivity;
-import org.leeroy.mediacenter.video.leanback.presenter.ShortcutDetailsPresenter;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.ShortcutDb;
+import org.leeroy.mediaplayer.video.leanback.overlay.Overlay;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.Shortcut;
+import org.leeroy.mediaplayer.video.leanback.details.LeeroyFlixDetailsOverviewRowPresenter;
+import org.leeroy.mediaplayer.video.leanback.filebrowsing.ListingActivity;
+import org.leeroy.mediaplayer.video.leanback.presenter.ShortcutDetailsPresenter;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 import org.leeroy.mediaprovider.NetworkScanner;
 
 import org.slf4j.Logger;

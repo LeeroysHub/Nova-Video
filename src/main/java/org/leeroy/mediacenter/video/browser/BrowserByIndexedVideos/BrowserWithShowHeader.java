@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos;
+package org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -38,23 +38,23 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.utils.ActionBarSubmenu;
-import org.leeroy.mediacenter.utils.imageview.ImageProcessor;
-import org.leeroy.mediacenter.utils.imageview.ImageViewSetter;
-import org.leeroy.mediacenter.utils.imageview.ImageViewSetterConfiguration;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.HeaderGridView;
-import org.leeroy.mediacenter.video.browser.MainActivity;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.TvshowCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.object.Tvshow;
-import org.leeroy.mediacenter.video.browser.loader.SeasonsLoader;
-import org.leeroy.mediacenter.video.browser.loader.TvshowLoader;
-import org.leeroy.mediacenter.video.info.VideoInfoPosterBackdropActivity;
-import org.leeroy.mediacenter.video.info.VideoInfoScraperActivity;
-import org.leeroy.mediacenter.video.info.VideoInfoShowScraperFragment;
-import org.leeroy.mediacenter.video.utils.DelayedBackgroundLoader;
-import org.leeroy.mediacenter.video.utils.SerialExecutor;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.utils.ActionBarSubmenu;
+import org.leeroy.mediaplayer.utils.imageview.ImageProcessor;
+import org.leeroy.mediaplayer.utils.imageview.ImageViewSetter;
+import org.leeroy.mediaplayer.utils.imageview.ImageViewSetterConfiguration;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.HeaderGridView;
+import org.leeroy.mediaplayer.video.browser.MainActivity;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.TvshowCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Tvshow;
+import org.leeroy.mediaplayer.video.browser.loader.SeasonsLoader;
+import org.leeroy.mediaplayer.video.browser.loader.TvshowLoader;
+import org.leeroy.mediaplayer.video.info.VideoInfoPosterBackdropActivity;
+import org.leeroy.mediaplayer.video.info.VideoInfoScraperActivity;
+import org.leeroy.mediaplayer.video.info.VideoInfoShowScraperFragment;
+import org.leeroy.mediaplayer.video.utils.DelayedBackgroundLoader;
+import org.leeroy.mediaplayer.video.utils.SerialExecutor;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediascraper.BaseTags;
 import org.leeroy.mediascraper.ShowTags;

@@ -1,4 +1,4 @@
-package org.leeroy.mediacenter.video.leanback.settings;
+package org.leeroy.mediaplayer.video.leanback.settings;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,8 +8,8 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.leanback.preference.LeanbackPreferenceFragmentCompat;
 import androidx.leanback.preference.LeanbackSettingsFragmentCompat;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.utils.WebUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.utils.WebUtils;
 
 public class VideoSettingsLicencesFragment extends LeanbackSettingsFragmentCompat {
 

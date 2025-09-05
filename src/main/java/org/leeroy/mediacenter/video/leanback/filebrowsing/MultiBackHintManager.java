@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.filebrowsing;
+package org.leeroy.mediaplayer.video.leanback.filebrowsing;
 
 import android.content.Context;
 import android.os.SystemClock;
 import androidx.preference.PreferenceManager;
 import android.widget.Toast;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 /**
  * Singleton handling the display of a toast when user quickly press several times on BACK key

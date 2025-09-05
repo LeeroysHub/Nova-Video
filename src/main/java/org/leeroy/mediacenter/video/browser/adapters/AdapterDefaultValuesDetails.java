@@ -13,9 +13,9 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.adapters;
+package org.leeroy.mediaplayer.video.browser.adapters;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 import android.content.Context;
 import android.content.res.Resources;

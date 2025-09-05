@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.adapter;
+package org.leeroy.mediaplayer.video.leanback.adapter;
 
 import android.database.Cursor;
 import android.provider.BaseColumns;
 
-import org.leeroy.mediacenter.video.browser.ShortcutDb;
-import org.leeroy.mediacenter.video.leanback.adapter.object.FtpShortcut;
+import org.leeroy.mediaplayer.video.browser.ShortcutDb;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.FtpShortcut;
 
 /**
  * Created by vapillon on 10/04/15.

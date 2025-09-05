@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network;
 
 import android.content.Context;
 
 import org.leeroy.filecorelibrary.MetaFile2;
-import org.leeroy.mediacenter.video.browser.filebrowsing.ListingAdapter;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.ListingAdapter;
 
 import java.util.List;
 

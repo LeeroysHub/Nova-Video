@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.search;
+package org.leeroy.mediaplayer.video.leanback.search;
 
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -26,7 +26,7 @@ import android.util.Log;
 import androidx.core.content.ContextCompat;
 import androidx.leanback.app.BackgroundManager;
 import androidx.leanback.app.SearchSupportFragment;
-import org.leeroy.mediacenter.video.leanback.scrapping.SafeSearchSupportFragment;
+import org.leeroy.mediaplayer.video.leanback.scrapping.SafeSearchSupportFragment;
 import androidx.leanback.widget.ArrayObjectAdapter;
 import androidx.leanback.widget.ClassPresenterSelector;
 import androidx.leanback.widget.CursorObjectAdapter;
@@ -35,19 +35,19 @@ import androidx.leanback.widget.ListRow;
 import androidx.leanback.widget.ListRowPresenter;
 import androidx.leanback.widget.ObjectAdapter;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.VideoCursorMapper;
-import org.leeroy.mediacenter.video.leanback.CompatibleCursorMapperConverter;
-import org.leeroy.mediacenter.video.leanback.ShadowLessListRow;
-import org.leeroy.mediacenter.video.leanback.VideoViewClickedListener;
-import org.leeroy.mediacenter.video.leanback.adapter.object.EmptyView;
-import org.leeroy.mediacenter.video.browser.loader.SearchEpisodeLoader;
-import org.leeroy.mediacenter.video.browser.loader.SearchMovieLoader;
-import org.leeroy.mediacenter.video.browser.loader.SearchNonScrapedVideoLoader;
-import org.leeroy.mediacenter.video.browser.loader.SearchVideoLoader;
-import org.leeroy.mediacenter.video.browser.loader.VideoLoader;
-import org.leeroy.mediacenter.video.leanback.presenter.EmptyViewPresenter;
-import org.leeroy.mediacenter.video.leanback.presenter.PosterImageCardPresenter;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.VideoCursorMapper;
+import org.leeroy.mediaplayer.video.leanback.CompatibleCursorMapperConverter;
+import org.leeroy.mediaplayer.video.leanback.ShadowLessListRow;
+import org.leeroy.mediaplayer.video.leanback.VideoViewClickedListener;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.EmptyView;
+import org.leeroy.mediaplayer.video.browser.loader.SearchEpisodeLoader;
+import org.leeroy.mediaplayer.video.browser.loader.SearchMovieLoader;
+import org.leeroy.mediaplayer.video.browser.loader.SearchNonScrapedVideoLoader;
+import org.leeroy.mediaplayer.video.browser.loader.SearchVideoLoader;
+import org.leeroy.mediaplayer.video.browser.loader.VideoLoader;
+import org.leeroy.mediaplayer.video.leanback.presenter.EmptyViewPresenter;
+import org.leeroy.mediaplayer.video.leanback.presenter.PosterImageCardPresenter;
 import androidx.leanback.widget.ShadowLessRowPresenter;
 
 public class VideoSearchFragment extends SafeSearchSupportFragment implements SearchSupportFragment.SearchResultProvider {

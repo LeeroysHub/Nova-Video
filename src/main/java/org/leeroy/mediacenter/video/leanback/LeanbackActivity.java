@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback;
+package org.leeroy.mediaplayer.video.leanback;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -26,10 +26,10 @@ import android.view.KeyEvent;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 
-import org.leeroy.mediacenter.utils.trakt.Trakt;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.leanback.search.VideoSearchActivity;
-import org.leeroy.mediacenter.video.utils.TraktSigninDialogPreference;
+import org.leeroy.mediaplayer.utils.trakt.Trakt;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.leanback.search.VideoSearchActivity;
+import org.leeroy.mediaplayer.video.utils.TraktSigninDialogPreference;
 
 public abstract class LeanbackActivity extends FragmentActivity {
 

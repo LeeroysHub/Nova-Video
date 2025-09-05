@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network.UpnpBrowser;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network.UpnpBrowser;
 
 import android.net.Uri;
 import android.widget.Toast;
 
-import org.leeroy.mediacenter.filecoreextension.upnp2.UpnpServiceManager;
-import org.leeroy.mediacenter.utils.ShortcutDbAdapter;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.BrowserByNetwork;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.UpnpServiceManager;
+import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.BrowserByNetwork;
 import org.leeroy.mediaprovider.NetworkScanner;
 
 import org.slf4j.Logger;

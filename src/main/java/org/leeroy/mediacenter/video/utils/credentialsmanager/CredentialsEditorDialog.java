@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.utils.credentialsmanager;
+package org.leeroy.mediaplayer.video.utils.credentialsmanager;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -27,7 +27,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 import org.leeroy.filecorelibrary.samba.NetworkCredentialsDatabase;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 public class CredentialsEditorDialog extends DialogFragment {
 

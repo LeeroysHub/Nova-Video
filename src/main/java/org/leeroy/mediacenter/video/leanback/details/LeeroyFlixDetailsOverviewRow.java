@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.details;
+package org.leeroy.mediaplayer.video.leanback.details;
 
 /**
  * Created by alexandre on 20/02/17.

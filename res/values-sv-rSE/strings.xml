@@ -187,7 +187,7 @@
         <item quantity="other"><xliff:g id="count">%d</xliff:g> filmer</item>
     </plurals>
     <!-- Media Center -->
-    <string name="mediacenterlabel">Media Center</string>
+    <string name="mediaplayerlabel">Media Center</string>
     <string name="view_mode">Visningsläge</string>
     <string name="view_mode_list">Lista</string>
     <string name="view_mode_grid">Affischer</string>

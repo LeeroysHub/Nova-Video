@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.adapters;
+package org.leeroy.mediaplayer.video.browser.adapters;
 
 import android.content.Context;
 import android.database.Cursor;
 
-import org.leeroy.mediacenter.utils.MediaUtils;
+import org.leeroy.mediaplayer.utils.MediaUtils;
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.VideoCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.VideoCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 
 import java.io.File;
 import java.util.ArrayList;

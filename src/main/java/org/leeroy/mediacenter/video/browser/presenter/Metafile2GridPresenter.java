@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.presenter;
+package org.leeroy.mediaplayer.video.browser.presenter;
 
 import android.content.Context;
 
-import org.leeroy.mediacenter.video.browser.adapters.AdapterDefaultValuesGrid;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValuesGrid;
 
 /**
  * Created by alexandre on 26/10/15.

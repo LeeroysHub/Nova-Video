@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.loader;
+package org.leeroy.mediaplayer.video.browser.loader;
 
 import android.content.Context;
 import android.provider.BaseColumns;
 import android.util.Log;
 
-import org.leeroy.mediacenter.video.player.PlayerActivity;
-import org.leeroy.mediacenter.video.tvshow.TvshowSortOrderEntries;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.tvshow.TvshowSortOrderEntries;
 import org.leeroy.mediaprovider.video.LoaderUtils;
 import org.leeroy.mediaprovider.video.VideoStore;
 

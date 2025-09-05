@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player.tvmenu;
+package org.leeroy.mediaplayer.video.player.tvmenu;
 
 import android.content.Context;
 import android.os.Handler;
@@ -25,8 +25,8 @@ import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.player.TimerPickerAbstract;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.player.TimerPickerAbstract;
 
 
 public class TimerDelayTVPicker extends TimerPickerAbstract implements TVSlaveView {

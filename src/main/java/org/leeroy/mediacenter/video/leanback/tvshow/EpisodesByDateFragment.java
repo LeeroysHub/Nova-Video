@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.tvshow;
+package org.leeroy.mediaplayer.video.leanback.tvshow;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -28,12 +28,12 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 import androidx.preference.PreferenceManager;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.loader.EpisodesByDateLoader;
-import org.leeroy.mediacenter.video.browser.loader.EpisodesNoAnimeByDateLoader;
-import org.leeroy.mediacenter.video.browser.loader.EpisodesSelectionLoader;
-import org.leeroy.mediacenter.video.leanback.VideosByFragment;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.loader.EpisodesByDateLoader;
+import org.leeroy.mediaplayer.video.browser.loader.EpisodesNoAnimeByDateLoader;
+import org.leeroy.mediaplayer.video.browser.loader.EpisodesSelectionLoader;
+import org.leeroy.mediaplayer.video.leanback.VideosByFragment;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 import org.slf4j.Logger;

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.filebrowsing;
+package org.leeroy.mediaplayer.video.browser.filebrowsing;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -32,10 +32,10 @@ import androidx.loader.app.LoaderManager;
 import org.leeroy.filecorelibrary.ExtStorageReceiver;
 import org.leeroy.filecorelibrary.ListingEngine;
 import org.leeroy.filecorelibrary.contentstorage.DocumentUriBuilder;
-import org.leeroy.mediacenter.filecoreextension.UriUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.BrowserActivity;
-import org.leeroy.mediacenter.video.browser.BrowserCategory;
+import org.leeroy.mediaplayer.filecoreextension.UriUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.BrowserActivity;
+import org.leeroy.mediaplayer.video.browser.BrowserCategory;
 
 import java.io.File;
 

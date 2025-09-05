@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.movies;
+package org.leeroy.mediaplayer.video.leanback.movies;
 
 import android.content.Context;
 import android.util.SparseArray;
 
-import org.leeroy.mediacenter.video.browser.loader.MoviesLoader;
+import org.leeroy.mediaplayer.video.browser.loader.MoviesLoader;
 
 import java.util.ArrayList;
 import java.util.List;

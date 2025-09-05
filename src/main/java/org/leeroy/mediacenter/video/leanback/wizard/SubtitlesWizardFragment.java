@@ -1,4 +1,4 @@
-package org.leeroy.mediacenter.video.leanback.wizard;
+package org.leeroy.mediaplayer.video.leanback.wizard;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,9 +10,9 @@ import androidx.leanback.widget.GuidedAction;
 import android.view.View;
 import android.util.SparseArray;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.leanback.overlay.Overlay;
-import org.leeroy.mediacenter.video.utils.SubtitlesWizardCommon;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.leanback.overlay.Overlay;
+import org.leeroy.mediaplayer.video.utils.SubtitlesWizardCommon;
 
 import java.util.ArrayList;
 import java.util.List;

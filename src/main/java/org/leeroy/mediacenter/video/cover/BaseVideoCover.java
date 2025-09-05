@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.cover;
+package org.leeroy.mediaplayer.video.cover;
 
 import android.content.ContentUris;
 import android.content.Context;
@@ -20,10 +20,10 @@ import android.net.Uri;
 import android.util.Log;
 
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.cover.Cover;
-import org.leeroy.mediacenter.utils.InfoDialog;
-import org.leeroy.mediacenter.video.info.VideoInfoActivity;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.cover.Cover;
+import org.leeroy.mediaplayer.utils.InfoDialog;
+import org.leeroy.mediaplayer.video.info.VideoInfoActivity;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 import java.io.File;

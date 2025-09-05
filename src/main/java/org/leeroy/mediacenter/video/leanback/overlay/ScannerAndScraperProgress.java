@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.overlay;
+package org.leeroy.mediaplayer.video.leanback.overlay;
 
 import android.content.Context;
 import android.os.Handler;
@@ -20,7 +20,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaprovider.ImportState;
 import org.leeroy.mediaprovider.video.NetworkScannerReceiver;
 import org.leeroy.mediascraper.AutoScrapeService;

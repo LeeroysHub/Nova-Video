@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.leeroy.mediacenter.video.player;
+package org.leeroy.mediaplayer.video.player;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -35,7 +35,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 
 public class BrightnessDialog extends AlertDialog implements SeekBar.OnSeekBarChangeListener, CompoundButton.OnCheckedChangeListener {

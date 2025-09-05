@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.presenter;
+package org.leeroy.mediaplayer.video.browser.presenter;
 
 import android.content.Context;
 import android.os.Build;
@@ -24,13 +24,13 @@ import android.view.View;
 
 import androidx.core.text.HtmlCompat;
 
-import org.leeroy.mediacenter.utils.ThumbnailEngine;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterDefaultValues;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterDefaultValuesList;
-import org.leeroy.mediacenter.video.browser.adapters.object.Episode;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
-import org.leeroy.mediacenter.video.player.TextShadowSpan;
+import org.leeroy.mediaplayer.utils.ThumbnailEngine;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValues;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValuesList;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Episode;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.player.TextShadowSpan;
 
 import httpimage.HttpImageManager;
 

@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.leeroy.mediacenter.video.leanback.details;
+package org.leeroy.mediaplayer.video.leanback.details;
 
 import android.animation.LayoutTransition;
 import android.graphics.Paint;
@@ -25,13 +25,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Episode;
-import org.leeroy.mediacenter.video.browser.adapters.object.Movie;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
-import org.leeroy.mediacenter.video.utils.VideoMetadata;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Episode;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Movie;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.utils.VideoMetadata;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 import org.slf4j.Logger;

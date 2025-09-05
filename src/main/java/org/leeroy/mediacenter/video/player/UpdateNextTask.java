@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player;
+package org.leeroy.mediaplayer.video.player;
 
 import android.content.ContentResolver;
 import android.database.Cursor;
@@ -29,10 +29,10 @@ import org.leeroy.filecorelibrary.FileUtils;
 import org.leeroy.filecorelibrary.ListingEngine;
 import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.RawLister;
-import org.leeroy.mediacenter.filecoreextension.UriUtils;
-import org.leeroy.mediacenter.filecoreextension.upnp2.RawListerFactoryWithUpnp;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.loader.NextEpisodeLoader;
+import org.leeroy.mediaplayer.filecoreextension.UriUtils;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.RawListerFactoryWithUpnp;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.loader.NextEpisodeLoader;
 import org.leeroy.mediaprovider.video.ListTables;
 import org.leeroy.mediaprovider.video.LoaderUtils;
 import org.leeroy.mediaprovider.video.VideoStore;

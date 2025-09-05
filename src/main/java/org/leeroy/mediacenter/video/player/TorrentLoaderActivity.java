@@ -13,7 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player;
+package org.leeroy.mediaplayer.video.player;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -38,14 +38,14 @@ import org.leeroy.filecorelibrary.FileUtils;
 import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.MimeUtils;
 import org.leeroy.filecorelibrary.OperationEngineListener;
-import org.leeroy.mediacenter.filecoreextension.UriUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.TorrentObserverService;
-import org.leeroy.mediacenter.video.browser.TorrentObserverService.TorrentServiceBinder;
-import org.leeroy.mediacenter.video.browser.TorrentObserverService.TorrentThreadObserver;
-import org.leeroy.mediacenter.video.ui.NovaProgressDialog;
-import org.leeroy.mediacenter.video.utils.TorrentPathDialogPreference;
-import org.leeroy.mediacenter.utils.MediaUtils;
+import org.leeroy.mediaplayer.filecoreextension.UriUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.TorrentObserverService;
+import org.leeroy.mediaplayer.video.browser.TorrentObserverService.TorrentServiceBinder;
+import org.leeroy.mediaplayer.video.browser.TorrentObserverService.TorrentThreadObserver;
+import org.leeroy.mediaplayer.video.ui.NovaProgressDialog;
+import org.leeroy.mediaplayer.video.utils.TorrentPathDialogPreference;
+import org.leeroy.mediaplayer.utils.MediaUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -24,7 +24,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 import java.io.Serializable;
 import java.util.ArrayList;

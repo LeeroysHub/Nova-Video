@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network.FtpBrowser;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network.FtpBrowser;
 
-import static org.leeroy.mediacenter.filecoreextension.UriUtils.getTypeUri;
+import static org.leeroy.mediaplayer.filecoreextension.UriUtils.getTypeUri;
 
 import android.net.Uri;
 
-import org.leeroy.mediacenter.video.browser.ServerCredentialsDialog;
+import org.leeroy.mediaplayer.video.browser.ServerCredentialsDialog;
 import org.leeroy.filecorelibrary.MetaFile2Factory;
 
 import org.slf4j.Logger;

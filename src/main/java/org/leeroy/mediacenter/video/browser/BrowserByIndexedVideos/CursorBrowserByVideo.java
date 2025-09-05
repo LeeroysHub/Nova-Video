@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos;
+package org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -31,16 +31,16 @@ import androidx.loader.content.Loader;
 import androidx.preference.PreferenceManager;
 
 import org.leeroy.filecorelibrary.FileExtendedInfo;
-import org.leeroy.mediacenter.utils.trakt.Trakt;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.BrowserAdapterCommon;
-import org.leeroy.mediacenter.video.browser.BrowserByVideoObjects;
-import org.leeroy.mediacenter.video.browser.ThumbnailEngineVideo;
-import org.leeroy.mediacenter.video.browser.ThumbnailRequesterVideo;
-import org.leeroy.mediacenter.video.browser.adapters.CursorAdapterByVideo;
-import org.leeroy.mediacenter.video.browser.adapters.PresenterAdapterByCursor;
-import org.leeroy.mediacenter.video.browser.adapters.PresenterAdapterInterface;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.utils.trakt.Trakt;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.BrowserAdapterCommon;
+import org.leeroy.mediaplayer.video.browser.BrowserByVideoObjects;
+import org.leeroy.mediaplayer.video.browser.ThumbnailEngineVideo;
+import org.leeroy.mediaplayer.video.browser.ThumbnailRequesterVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.CursorAdapterByVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.PresenterAdapterByCursor;
+import org.leeroy.mediaplayer.video.browser.adapters.PresenterAdapterInterface;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 
 import java.io.File;
 

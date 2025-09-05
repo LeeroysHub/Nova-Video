@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.network;
+package org.leeroy.mediaplayer.video.leanback.network;
 
 import android.os.SystemClock;
 import android.view.KeyEvent;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.leanback.SingleFragmentActivity;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.leanback.SingleFragmentActivity;
 
 public class NetworkRootActivity extends SingleFragmentActivity {
     @Override

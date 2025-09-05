@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.leeroy.mediacenter.video.player;
+package org.leeroy.mediaplayer.video.player;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -36,8 +36,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.info.VideoInfoCommonClass;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.info.VideoInfoCommonClass;
 
 public class SubtitleSettingsDialog extends AlertDialog implements
         SeekBar.OnSeekBarChangeListener, View.OnTouchListener, SubtitleColorPicker.ColorPickListener {

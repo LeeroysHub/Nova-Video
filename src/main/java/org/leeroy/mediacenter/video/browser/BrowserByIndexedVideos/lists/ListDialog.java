@@ -1,4 +1,4 @@
-package org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.lists;
+package org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.lists;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -15,10 +15,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 import org.leeroy.environment.LeeroyFlixUtils;
-import org.leeroy.mediacenter.utils.trakt.TraktService;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.loader.ListsLoader;
+import org.leeroy.mediaplayer.utils.trakt.TraktService;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.loader.ListsLoader;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediascraper.BaseTags;
 import org.leeroy.mediascraper.EpisodeTags;

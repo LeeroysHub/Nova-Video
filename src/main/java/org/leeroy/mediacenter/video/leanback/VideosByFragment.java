@@ -1,4 +1,4 @@
-package org.leeroy.mediacenter.video.leanback;
+package org.leeroy.mediaplayer.video.leanback;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -31,14 +31,14 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 import androidx.preference.PreferenceManager;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.VideoCursorMapper;
-import org.leeroy.mediacenter.video.browser.loader.MoviesByLoader;
-import org.leeroy.mediacenter.video.browser.loader.MoviesLoader;
-import org.leeroy.mediacenter.video.browser.loader.MoviesSelectionLoader;
-import org.leeroy.mediacenter.video.leanback.overlay.Overlay;
-import org.leeroy.mediacenter.video.leanback.presenter.PosterImageCardPresenter;
-import org.leeroy.mediacenter.video.player.PrivateMode;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.VideoCursorMapper;
+import org.leeroy.mediaplayer.video.browser.loader.MoviesByLoader;
+import org.leeroy.mediaplayer.video.browser.loader.MoviesLoader;
+import org.leeroy.mediaplayer.video.browser.loader.MoviesSelectionLoader;
+import org.leeroy.mediaplayer.video.leanback.overlay.Overlay;
+import org.leeroy.mediaplayer.video.leanback.presenter.PosterImageCardPresenter;
+import org.leeroy.mediaplayer.video.player.PrivateMode;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,7 +51,7 @@ public abstract class VideosByFragment extends BrowseSupportFragment implements 
 
     // attempts to not have refresh of categories/list while scanning but both causes crashes
     private static boolean STOP_LOADING = false;
-    // causes crashes AndroidRuntime: java.lang.RuntimeException: Unable to destroy activity {org.leeroy.media/org.leeroy.mediacenter.video.leanback.tvshow.EpisodesByDateActivity}: java.lang.IllegalStateException: Observer androidx.leanback.app.ListRowDataAdapter$SimpleDataObserver@e52e40c was not registered.
+    // causes crashes AndroidRuntime: java.lang.RuntimeException: Unable to destroy activity {org.leeroy.media/org.leeroy.mediaplayer.video.leanback.tvshow.EpisodesByDateActivity}: java.lang.IllegalStateException: Observer androidx.leanback.app.ListRowDataAdapter$SimpleDataObserver@e52e40c was not registered.
     private static boolean UNREGISTER_OBSERVERS = false;
 
     private ArrayObjectAdapter mRowsAdapter;

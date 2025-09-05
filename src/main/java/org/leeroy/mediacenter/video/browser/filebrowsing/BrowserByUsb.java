@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing;
+package org.leeroy.mediaplayer.video.browser.filebrowsing;
 
 import android.net.Uri;
 
-import org.leeroy.mediacenter.video.browser.BrowserCategory;
-import org.leeroy.mediacenter.video.browser.MetaFile2ItemData;
+import org.leeroy.mediaplayer.video.browser.BrowserCategory;
+import org.leeroy.mediaplayer.video.browser.MetaFile2ItemData;
 
 
 public class BrowserByUsb extends BrowserByFolder {

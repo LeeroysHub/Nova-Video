@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import android.app.SearchManager;
 import android.content.ContentProvider;
@@ -24,8 +24,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.loader.SearchViewVideoLoader;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.loader.SearchViewVideoLoader;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediaprovider.video.VideoStore.MediaColumns;
 import org.leeroy.mediaprovider.video.VideoStore.Video.VideoColumns;

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.presenter;
+package org.leeroy.mediaplayer.video.browser.presenter;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -21,11 +21,11 @@ import android.widget.ImageView;
 
 import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.localstorage.JavaFile2;
-import org.leeroy.mediacenter.utils.InfoDialog;
-import org.leeroy.mediacenter.utils.ShortcutDbAdapter;
-import org.leeroy.mediacenter.utils.ThumbnailEngine;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterDefaultValues;
+import org.leeroy.mediaplayer.utils.InfoDialog;
+import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
+import org.leeroy.mediaplayer.utils.ThumbnailEngine;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValues;
 
 /**
  * Created by alexandre on 26/10/15.

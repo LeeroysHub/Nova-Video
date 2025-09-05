@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing;
+package org.leeroy.mediaplayer.video.browser.filebrowsing;
 
 import android.content.Context;
 import android.net.Uri;
@@ -23,15 +23,15 @@ import android.widget.BaseAdapter;
 import android.widget.SectionIndexer;
 
 import org.leeroy.filecorelibrary.MetaFile2;
-import org.leeroy.mediacenter.utils.ThumbnailEngine;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterByVideoObjectsInterface;
-import org.leeroy.mediacenter.video.browser.ThumbnailAdapterVideo;
-import org.leeroy.mediacenter.video.browser.ThumbnailEngineVideo;
-import org.leeroy.mediacenter.video.browser.ThumbnailRequestVideo;
-import org.leeroy.mediacenter.video.browser.adapters.PresenterAdapterInterface;
-import org.leeroy.mediacenter.video.browser.presenter.Presenter;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.utils.ThumbnailEngine;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterByVideoObjectsInterface;
+import org.leeroy.mediaplayer.video.browser.ThumbnailAdapterVideo;
+import org.leeroy.mediaplayer.video.browser.ThumbnailEngineVideo;
+import org.leeroy.mediaplayer.video.browser.ThumbnailRequestVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.PresenterAdapterInterface;
+import org.leeroy.mediaplayer.video.browser.presenter.Presenter;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 
 import java.util.HashMap;
 import java.util.List;

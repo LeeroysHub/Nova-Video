@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,21 +25,21 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserAllMovies;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserAllTvShows;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserAllVideos;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserLastAdded;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserLastPlayed;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserMoviesByGenre2;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserMoviesByYear;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserNeverPlayed;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserPlaylists;
-import org.leeroy.mediacenter.video.browser.filebrowsing.BrowserByExtStorage;
-import org.leeroy.mediacenter.video.browser.filebrowsing.BrowserByVideoFolder;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.ShortcutRootFragment;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.SmbBrowser.SmbRootFragment;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.UpnpBrowser.UpnpRootFragment;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserAllMovies;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserAllTvShows;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserAllVideos;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserLastAdded;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserLastPlayed;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserMoviesByGenre2;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserMoviesByYear;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserNeverPlayed;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserPlaylists;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.BrowserByExtStorage;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.BrowserByVideoFolder;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.ShortcutRootFragment;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.SmbBrowser.SmbRootFragment;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.UpnpBrowser.UpnpRootFragment;
 
 import java.util.ArrayList;
 

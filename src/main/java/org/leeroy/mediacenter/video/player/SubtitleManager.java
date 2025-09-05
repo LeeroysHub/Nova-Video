@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player;
+package org.leeroy.mediaplayer.video.player;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.utils.MiscUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.utils.MiscUtils;
 import org.leeroy.medialib.Subtitle;
 import org.leeroy.medialib.Subtitle.SubtitleAlignment;
 
@@ -564,7 +564,7 @@ public class SubtitleManager {
         mWindow = window;
         mRes = context.getResources();
         mForbidWindow = forbidWindow;
-        mSubtitlePosHintDrawable = ContextCompat.getDrawable(context, org.leeroy.mediacenter.video.R.drawable.subtitle_baseline);
+        mSubtitlePosHintDrawable = ContextCompat.getDrawable(context, org.leeroy.mediaplayer.video.R.drawable.subtitle_baseline);
     }
 
     public void setScreenSize(int displayWidth, int displayHeight) {

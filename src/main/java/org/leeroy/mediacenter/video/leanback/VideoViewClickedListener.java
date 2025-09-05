@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback;
+package org.leeroy.mediaplayer.video.leanback;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -28,16 +28,16 @@ import androidx.leanback.widget.Presenter;
 import androidx.leanback.widget.Row;
 import androidx.leanback.widget.RowPresenter;
 
-import org.leeroy.mediacenter.video.browser.adapters.object.Collection;
-import org.leeroy.mediacenter.video.browser.adapters.object.Tvshow;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.leanback.collections.CollectionActivity;
-import org.leeroy.mediacenter.video.leanback.collections.CollectionFragment;
-import org.leeroy.mediacenter.video.leanback.details.VideoDetailsActivity;
-import org.leeroy.mediacenter.video.leanback.details.VideoDetailsFragment;
-import org.leeroy.mediacenter.video.leanback.presenter.ListPresenter;
-import org.leeroy.mediacenter.video.leanback.tvshow.TvshowActivity;
-import org.leeroy.mediacenter.video.leanback.tvshow.TvshowFragment;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Collection;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Tvshow;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.leanback.collections.CollectionActivity;
+import org.leeroy.mediaplayer.video.leanback.collections.CollectionFragment;
+import org.leeroy.mediaplayer.video.leanback.details.VideoDetailsActivity;
+import org.leeroy.mediaplayer.video.leanback.details.VideoDetailsFragment;
+import org.leeroy.mediaplayer.video.leanback.presenter.ListPresenter;
+import org.leeroy.mediaplayer.video.leanback.tvshow.TvshowActivity;
+import org.leeroy.mediaplayer.video.leanback.tvshow.TvshowFragment;
 
 /**
  * Created by vapillon on 13/04/15.

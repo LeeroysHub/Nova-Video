@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.tvshow;
+package org.leeroy.mediaplayer.video.leanback.tvshow;
 
 import android.os.Bundle;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.leanback.LeanbackActivity;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.leanback.LeanbackActivity;
 
 public class TvshowMoreDetailsActivity extends LeanbackActivity {
 

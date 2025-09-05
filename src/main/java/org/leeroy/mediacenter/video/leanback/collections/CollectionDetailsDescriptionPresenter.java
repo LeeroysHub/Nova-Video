@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.leeroy.mediacenter.video.leanback.collections;
+package org.leeroy.mediaplayer.video.leanback.collections;
 
 import android.graphics.Paint;
 import androidx.leanback.widget.Presenter;
@@ -25,8 +25,8 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Collection;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Collection;
 import org.leeroy.mediascraper.ShowTags;
 
 import java.text.SimpleDateFormat;

@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.presenter;
+package org.leeroy.mediaplayer.video.browser.presenter;
 
 import android.content.Context;
 import android.view.View;
 
-import org.leeroy.mediacenter.utils.ThumbnailEngine;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterDefaultValues;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterDefaultValuesGrid;
-import org.leeroy.mediacenter.video.browser.adapters.object.Tvshow;
+import org.leeroy.mediaplayer.utils.ThumbnailEngine;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValues;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValuesGrid;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Tvshow;
 
 /**
  * Created by alexandre on 27/10/15.

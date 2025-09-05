@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.animes;
+package org.leeroy.mediaplayer.video.leanback.animes;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -46,16 +46,16 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 import androidx.preference.PreferenceManager;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.VideoCursorMapper;
-import org.leeroy.mediacenter.video.browser.loader.AnimesByLoader;
-import org.leeroy.mediacenter.video.browser.loader.AnimesLoader;
-import org.leeroy.mediacenter.video.browser.loader.AnimesSelectionLoader;
-import org.leeroy.mediacenter.video.leanback.CompatibleCursorMapperConverter;
-import org.leeroy.mediacenter.video.leanback.VideoViewClickedListener;
-import org.leeroy.mediacenter.video.leanback.overlay.Overlay;
-import org.leeroy.mediacenter.video.leanback.presenter.PosterImageCardPresenter;
-import org.leeroy.mediacenter.video.player.PrivateMode;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.VideoCursorMapper;
+import org.leeroy.mediaplayer.video.browser.loader.AnimesByLoader;
+import org.leeroy.mediaplayer.video.browser.loader.AnimesLoader;
+import org.leeroy.mediaplayer.video.browser.loader.AnimesSelectionLoader;
+import org.leeroy.mediaplayer.video.leanback.CompatibleCursorMapperConverter;
+import org.leeroy.mediaplayer.video.leanback.VideoViewClickedListener;
+import org.leeroy.mediaplayer.video.leanback.overlay.Overlay;
+import org.leeroy.mediaplayer.video.leanback.presenter.PosterImageCardPresenter;
+import org.leeroy.mediaplayer.video.player.PrivateMode;
 
 import java.util.ArrayList;
 

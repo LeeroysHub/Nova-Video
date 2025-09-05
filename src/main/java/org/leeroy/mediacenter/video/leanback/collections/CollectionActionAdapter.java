@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.collections;
+package org.leeroy.mediaplayer.video.leanback.collections;
 
 import android.content.Context;
 import androidx.leanback.widget.Action;
 import androidx.leanback.widget.ObjectAdapter;
 import androidx.leanback.widget.SparseArrayObjectAdapter;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Collection;
-import org.leeroy.mediacenter.video.browser.adapters.object.Tvshow;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Collection;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Tvshow;
 
 import java.util.ArrayList;
 

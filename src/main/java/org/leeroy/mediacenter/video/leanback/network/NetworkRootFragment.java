@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.network;
+package org.leeroy.mediaplayer.video.leanback.network;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -42,27 +42,27 @@ import org.leeroy.filecorelibrary.FileUtils;
 import org.leeroy.filecorelibrary.samba.SambaDiscovery;
 import org.leeroy.filecorelibrary.samba.Share;
 import org.leeroy.filecorelibrary.samba.Workgroup;
-import org.leeroy.mediacenter.filecoreextension.upnp2.UpnpServiceManager;
-import org.leeroy.mediacenter.utils.ShortcutDbAdapter;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.ShortcutDb;
-import org.leeroy.mediacenter.video.leanback.adapter.GenericNetworkShortcutMapper;
-import org.leeroy.mediacenter.video.leanback.adapter.NetworkShortcutMapper;
-import org.leeroy.mediacenter.video.leanback.adapter.object.Box;
-import org.leeroy.mediacenter.video.leanback.adapter.object.GenericNetworkShortcut;
-import org.leeroy.mediacenter.video.leanback.adapter.object.NetworkBrowse;
-import org.leeroy.mediacenter.video.leanback.adapter.object.NetworkShortcut;
-import org.leeroy.mediacenter.video.leanback.adapter.object.NetworkSource;
-import org.leeroy.mediacenter.video.leanback.adapter.object.SmbShare;
-import org.leeroy.mediacenter.video.leanback.adapter.object.UpnpServer;
-import org.leeroy.mediacenter.video.leanback.filebrowsing.ListingActivity;
-import org.leeroy.mediacenter.video.leanback.network.NetworkShortcutDetailsActivity;
-import org.leeroy.mediacenter.video.leanback.network.rescan.RescanActivity;
-import org.leeroy.mediacenter.video.leanback.overlay.Overlay;
-import org.leeroy.mediacenter.video.leanback.presenter.NetworkShortcutPresenter;
-import org.leeroy.mediacenter.video.leanback.presenter.RescanBoxItemPresenter;
-import org.leeroy.mediacenter.video.leanback.presenter.SmbSharePresenter;
-import org.leeroy.mediacenter.video.player.PrivateMode;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.UpnpServiceManager;
+import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.ShortcutDb;
+import org.leeroy.mediaplayer.video.leanback.adapter.GenericNetworkShortcutMapper;
+import org.leeroy.mediaplayer.video.leanback.adapter.NetworkShortcutMapper;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.Box;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.GenericNetworkShortcut;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.NetworkBrowse;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.NetworkShortcut;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.NetworkSource;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.SmbShare;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.UpnpServer;
+import org.leeroy.mediaplayer.video.leanback.filebrowsing.ListingActivity;
+import org.leeroy.mediaplayer.video.leanback.network.NetworkShortcutDetailsActivity;
+import org.leeroy.mediaplayer.video.leanback.network.rescan.RescanActivity;
+import org.leeroy.mediaplayer.video.leanback.overlay.Overlay;
+import org.leeroy.mediaplayer.video.leanback.presenter.NetworkShortcutPresenter;
+import org.leeroy.mediaplayer.video.leanback.presenter.RescanBoxItemPresenter;
+import org.leeroy.mediaplayer.video.leanback.presenter.SmbSharePresenter;
+import org.leeroy.mediaplayer.video.player.PrivateMode;
 import org.leeroy.mediaprovider.video.NetworkScannerReceiver;
 
 import org.jupnp.model.meta.Device;

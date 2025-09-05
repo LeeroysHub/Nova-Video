@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video;
+package org.leeroy.mediaplayer.video;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -22,9 +22,9 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
-import org.leeroy.mediacenter.video.browser.MainActivity;
-import org.leeroy.mediacenter.video.leanback.MainActivityLeanback;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.browser.MainActivity;
+import org.leeroy.mediaplayer.video.leanback.MainActivityLeanback;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

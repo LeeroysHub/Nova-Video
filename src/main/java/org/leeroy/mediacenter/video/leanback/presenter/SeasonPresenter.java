@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.presenter;
+package org.leeroy.mediaplayer.video.leanback.presenter;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -33,9 +33,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Season;
-import org.leeroy.mediacenter.video.leanback.tvshow.TvshowActionAdapter;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Season;
+import org.leeroy.mediaplayer.video.leanback.tvshow.TvshowActionAdapter;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 

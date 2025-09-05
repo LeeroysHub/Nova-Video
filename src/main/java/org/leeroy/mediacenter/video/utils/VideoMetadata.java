@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -21,7 +21,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.filecoreextension.UriUtils;
+import org.leeroy.mediaplayer.filecoreextension.UriUtils;
 import org.leeroy.medialib.IMediaMetadataRetriever;
 import org.leeroy.medialib.IMediaPlayer;
 import org.leeroy.medialib.LibAvos;

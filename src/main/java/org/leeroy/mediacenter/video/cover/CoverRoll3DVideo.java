@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.cover;
+package org.leeroy.mediaplayer.video.cover;
 
 import android.app.Activity;
 import android.content.Context;
@@ -34,20 +34,20 @@ import androidx.fragment.app.FragmentActivity;
 import org.leeroy.environment.LeeroyFlixIntents;
 import org.leeroy.environment.LeeroyFlixSettings;
 import org.leeroy.filecorelibrary.localstorage.JavaFile2;
-import org.leeroy.mediacenter.cover.ArtworkFactory;
-import org.leeroy.mediacenter.cover.Cover;
-import org.leeroy.mediacenter.cover.CoverProvider;
-import org.leeroy.mediacenter.cover.CoverRoll3D;
-import org.leeroy.mediacenter.cover.CoverRollLayout;
-import org.leeroy.mediacenter.cover.LibraryUtils;
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.Delete;
-import org.leeroy.mediacenter.video.browser.dialogs.DeleteDialog;
-import org.leeroy.mediacenter.video.info.VideoInfoActivity;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
-import org.leeroy.mediacenter.video.utils.SubtitlesDownloaderActivity2;
-import org.leeroy.mediacenter.video.utils.SubtitlesWizardActivity;
+import org.leeroy.mediaplayer.cover.ArtworkFactory;
+import org.leeroy.mediaplayer.cover.Cover;
+import org.leeroy.mediaplayer.cover.CoverProvider;
+import org.leeroy.mediaplayer.cover.CoverRoll3D;
+import org.leeroy.mediaplayer.cover.CoverRollLayout;
+import org.leeroy.mediaplayer.cover.LibraryUtils;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.Delete;
+import org.leeroy.mediaplayer.video.browser.dialogs.DeleteDialog;
+import org.leeroy.mediaplayer.video.info.VideoInfoActivity;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.utils.SubtitlesDownloaderActivity2;
+import org.leeroy.mediaplayer.video.utils.SubtitlesWizardActivity;
 
 import java.io.File;
 import java.util.ArrayList;

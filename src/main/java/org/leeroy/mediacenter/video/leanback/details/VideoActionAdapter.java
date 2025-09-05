@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.details;
+package org.leeroy.mediaplayer.video.leanback.details;
 
 import android.content.Context;
 import androidx.leanback.widget.Action;
 import androidx.leanback.widget.SparseArrayObjectAdapter;
 
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Episode;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Episode;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

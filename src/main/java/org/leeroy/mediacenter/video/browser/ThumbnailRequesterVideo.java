@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
-import org.leeroy.mediacenter.utils.ThumbnailEngine;
-import org.leeroy.mediacenter.utils.ThumbnailRequest;
-import org.leeroy.mediacenter.utils.ThumbnailRequester;
+import org.leeroy.mediaplayer.utils.ThumbnailEngine;
+import org.leeroy.mediaplayer.utils.ThumbnailRequest;
+import org.leeroy.mediaplayer.utils.ThumbnailRequester;
 
 /**
  * As it is now it should be called ThumbnailRequesterVideo...

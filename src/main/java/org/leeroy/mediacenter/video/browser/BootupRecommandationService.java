@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 
 import org.leeroy.environment.LeeroyFlixFeatures;
@@ -35,7 +35,7 @@ public class BootupRecommandationService extends BroadcastReceiver implements De
 	private static volatile boolean isForeground = true;
 	private static Application mApplication;
 
-	public static final String UPDATE_ACTION = "org.leeroy.mediacenter.video.browser.BootupRecommandationService.UPDATE_ACTION";
+	public static final String UPDATE_ACTION = "org.leeroy.mediaplayer.video.browser.BootupRecommandationService.UPDATE_ACTION";
 
 	@Override
 	public void onReceive(Context context, Intent intent) {

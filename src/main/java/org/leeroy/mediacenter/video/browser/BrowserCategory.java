@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -40,13 +40,13 @@ import android.widget.TextView;
 import org.leeroy.environment.LeeroyFlixUtils;
 import org.leeroy.filecorelibrary.ExtStorageManager;
 import org.leeroy.filecorelibrary.ExtStorageReceiver;
-import org.leeroy.mediacenter.video.BuildConfig;
-import org.leeroy.mediacenter.video.CustomApplication;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.info.VideoInfoActivity;
-import org.leeroy.mediacenter.video.player.PrivateMode;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
-import org.leeroy.mediacenter.video.utils.WebUtils;
+import org.leeroy.mediaplayer.video.BuildConfig;
+import org.leeroy.mediaplayer.video.CustomApplication;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.info.VideoInfoActivity;
+import org.leeroy.mediaplayer.video.player.PrivateMode;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.utils.WebUtils;
 import org.leeroy.environment.NetworkState;
 
 import java.beans.PropertyChangeListener;

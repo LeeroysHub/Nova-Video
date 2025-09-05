@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 
 import android.annotation.SuppressLint;
@@ -71,27 +71,27 @@ import androidx.preference.PreferenceManager;
 
 import org.leeroy.filecorelibrary.FileExtendedInfo;
 import org.leeroy.filecorelibrary.FileUtilsQ;
-import org.leeroy.mediacenter.utils.ActionBarSubmenu;
-import org.leeroy.mediacenter.utils.ActionBarSubmenu.ActionBarSubmenuListener;
-import org.leeroy.mediacenter.utils.ThumbnailEngine;
-import org.leeroy.mediacenter.utils.ThumbnailRequest;
-import org.leeroy.mediacenter.utils.ThumbnailRequester;
-import org.leeroy.mediacenter.utils.trakt.Trakt;
-import org.leeroy.mediacenter.video.CustomApplication;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.autoscraper.AutoScraperActivity;
-import org.leeroy.mediacenter.video.browser.dialogs.DeleteDialog;
-import org.leeroy.mediacenter.video.browser.dialogs.DialogRetrieveSubtitles;
-import org.leeroy.mediacenter.video.browser.dialogs.Paste;
-import org.leeroy.mediacenter.video.browser.subtitlesmanager.SubtitleManager;
-import org.leeroy.mediacenter.video.browser.tools.MultipleSelectionManager;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
-import org.leeroy.mediacenter.video.player.tvmenu.TVUtils;
-import org.leeroy.mediacenter.video.utils.ExternalPlayerResultListener;
-import org.leeroy.mediacenter.video.utils.ExternalPlayerWithResultStarter;
-import org.leeroy.mediacenter.video.utils.SubtitlesWizardActivity;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.utils.ActionBarSubmenu;
+import org.leeroy.mediaplayer.utils.ActionBarSubmenu.ActionBarSubmenuListener;
+import org.leeroy.mediaplayer.utils.ThumbnailEngine;
+import org.leeroy.mediaplayer.utils.ThumbnailRequest;
+import org.leeroy.mediaplayer.utils.ThumbnailRequester;
+import org.leeroy.mediaplayer.utils.trakt.Trakt;
+import org.leeroy.mediaplayer.video.CustomApplication;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.autoscraper.AutoScraperActivity;
+import org.leeroy.mediaplayer.video.browser.dialogs.DeleteDialog;
+import org.leeroy.mediaplayer.video.browser.dialogs.DialogRetrieveSubtitles;
+import org.leeroy.mediaplayer.video.browser.dialogs.Paste;
+import org.leeroy.mediaplayer.video.browser.subtitlesmanager.SubtitleManager;
+import org.leeroy.mediaplayer.video.browser.tools.MultipleSelectionManager;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVUtils;
+import org.leeroy.mediaplayer.video.utils.ExternalPlayerResultListener;
+import org.leeroy.mediaplayer.video.utils.ExternalPlayerWithResultStarter;
+import org.leeroy.mediaplayer.video.utils.SubtitlesWizardActivity;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 import org.leeroy.mediaprovider.ImportState;
 
 import org.slf4j.Logger;

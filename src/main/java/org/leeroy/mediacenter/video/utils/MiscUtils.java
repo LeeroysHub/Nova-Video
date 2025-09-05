@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -43,9 +43,9 @@ import static android.view.RoundedCorner.POSITION_BOTTOM_RIGHT;
 import static android.view.RoundedCorner.POSITION_TOP_LEFT;
 import static android.view.RoundedCorner.POSITION_TOP_RIGHT;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.player.Player;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.player.Player;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -96,11 +96,11 @@
     </RelativeLayout>
     <!-- simple listDivider, should be using current Theme -->
 
-    <org.leeroy.mediacenter.video.player.SubtitleColorPicker
+    <org.leeroy.mediaplayer.video.player.SubtitleColorPicker
         android:id="@+id/color_layout"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></org.leeroy.mediacenter.video.player.SubtitleColorPicker>
+        android:layout_height="wrap_content"></org.leeroy.mediaplayer.video.player.SubtitleColorPicker>
 
     <ImageView
         android:layout_width="fill_parent"

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.details;
+package org.leeroy.mediaplayer.video.leanback.details;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -22,9 +22,9 @@ import android.view.KeyEvent;
 import android.view.Window;
 import androidx.fragment.app.Fragment;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.TorrentObserverService;
-import org.leeroy.mediacenter.video.leanback.LeanbackActivity;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.TorrentObserverService;
+import org.leeroy.mediaplayer.video.leanback.LeanbackActivity;
 
 public class VideoDetailsActivity extends LeanbackActivity {
 

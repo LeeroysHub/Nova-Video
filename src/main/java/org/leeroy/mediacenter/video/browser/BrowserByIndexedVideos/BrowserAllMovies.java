@@ -13,17 +13,17 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos;
+package org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos;
 
 import android.database.Cursor;
 import android.os.Bundle;
 import androidx.loader.content.Loader;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.loader.MoviesLoader;
-import org.leeroy.mediacenter.video.browser.loader.MoviesSelectionLoader;
-import org.leeroy.mediacenter.video.browser.loader.VideoLoader;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.loader.MoviesLoader;
+import org.leeroy.mediaplayer.video.browser.loader.MoviesSelectionLoader;
+import org.leeroy.mediaplayer.video.browser.loader.VideoLoader;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 public class BrowserAllMovies extends BrowserByVideoSelection {

@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.leeroy.mediacenter.video.leanback;
+package org.leeroy.mediaplayer.video.leanback;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

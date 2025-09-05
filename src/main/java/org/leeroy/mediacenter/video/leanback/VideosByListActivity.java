@@ -1,4 +1,4 @@
-package org.leeroy.mediacenter.video.leanback;
+package org.leeroy.mediaplayer.video.leanback;
 
 import androidx.fragment.app.Fragment;
 

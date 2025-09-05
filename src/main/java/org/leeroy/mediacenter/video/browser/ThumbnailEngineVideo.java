@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.utils.BitmapUtils;
-import org.leeroy.mediacenter.utils.ThumbnailEngine;
-import org.leeroy.mediacenter.utils.ThumbnailRequest;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.utils.BitmapUtils;
+import org.leeroy.mediaplayer.utils.ThumbnailEngine;
+import org.leeroy.mediaplayer.utils.ThumbnailRequest;
+import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediaprovider.video.VideoStore.Video;
 import org.leeroy.mediascraper.LocalImages;

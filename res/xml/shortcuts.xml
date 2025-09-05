@@ -21,9 +21,9 @@
         android:shortcutShortLabel="@string/resume"
         >
         <intent
-            android:action="org.leeroy.mediacenter.video.action_resume"
-            android:targetPackage="org.leeroy.mediacenter.videocommunity"
-            android:targetClass="org.leeroy.mediacenter.video.browser.MainActivity" />
+            android:action="org.leeroy.mediaplayer.video.action_resume"
+            android:targetPackage="org.leeroy.mediaplayer.videocommunity"
+            android:targetClass="org.leeroy.mediaplayer.video.browser.MainActivity" />
     </shortcut>
     <shortcut
         android:shortcutId="movies"
@@ -32,9 +32,9 @@
         android:shortcutShortLabel="@string/recently_played"
         >
         <intent
-            android:action="org.leeroy.mediacenter.video.action_recently_played"
-            android:targetPackage="org.leeroy.mediacenter.videocommunity"
-            android:targetClass="org.leeroy.mediacenter.video.browser.MainActivity" />
+            android:action="org.leeroy.mediaplayer.video.action_recently_played"
+            android:targetPackage="org.leeroy.mediaplayer.videocommunity"
+            android:targetClass="org.leeroy.mediaplayer.video.browser.MainActivity" />
     </shortcut>
     <shortcut
         android:shortcutId="tvshows"
@@ -43,9 +43,9 @@
         android:shortcutShortLabel="@string/recently_added"
         >
         <intent
-            android:action="org.leeroy.mediacenter.video.action_recently_added"
-            android:targetPackage="org.leeroy.mediacenter.videocommunity"
-            android:targetClass="org.leeroy.mediacenter.video.browser.MainActivity" />
+            android:action="org.leeroy.mediaplayer.video.action_recently_added"
+            android:targetPackage="org.leeroy.mediaplayer.videocommunity"
+            android:targetClass="org.leeroy.mediaplayer.video.browser.MainActivity" />
     </shortcut>
 </shortcuts>
 

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -34,11 +34,11 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuItem;
 import android.view.View;
 
-import org.leeroy.mediacenter.cover.Cover;
-import org.leeroy.mediacenter.cover.CoverRoll3D;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserListOfSeasons;
-import org.leeroy.mediacenter.video.browser.dialogs.Paste;
+import org.leeroy.mediaplayer.cover.Cover;
+import org.leeroy.mediaplayer.cover.CoverRoll3D;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserListOfSeasons;
+import org.leeroy.mediaplayer.video.browser.dialogs.Paste;
 
 
 /**

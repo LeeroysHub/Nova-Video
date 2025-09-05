@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player.tvmenu;
+package org.leeroy.mediaplayer.video.player.tvmenu;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -24,8 +24,8 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 
 import org.leeroy.environment.LeeroyFlixFeatures;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.player.FocusableTVCardView;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.player.FocusableTVCardView;
 
 import android.view.KeyEvent;
 import android.view.LayoutInflater;

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player;
+package org.leeroy.mediaplayer.video.player;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -49,11 +49,11 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.leeroy.mediacenter.utils.RepeatingImageButton;
-import org.leeroy.mediacenter.utils.seekbar.LeeroyFlixProgressSlider;
-import org.leeroy.mediacenter.utils.videodb.VideoDbInfo;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.utils.VideoMetadata;
+import org.leeroy.mediaplayer.utils.RepeatingImageButton;
+import org.leeroy.mediaplayer.utils.seekbar.LeeroyFlixProgressSlider;
+import org.leeroy.mediaplayer.utils.videodb.VideoDbInfo;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.utils.VideoMetadata;
 import org.leeroy.medialib.Subtitle;
 
 /**

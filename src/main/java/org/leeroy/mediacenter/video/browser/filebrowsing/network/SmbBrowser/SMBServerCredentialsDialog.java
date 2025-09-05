@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network.SmbBrowser;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network.SmbBrowser;
 
 import android.app.Dialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
-import org.leeroy.mediacenter.video.browser.ServerCredentialsDialog;
+import org.leeroy.mediaplayer.video.browser.ServerCredentialsDialog;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

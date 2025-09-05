@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.nonscraped;
+package org.leeroy.mediaplayer.video.leanback.nonscraped;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -38,17 +38,17 @@ import androidx.loader.content.Loader;
 import androidx.preference.PreferenceManager;
 
 import org.leeroy.customizedleanback.app.MyVerticalGridFragment;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.VideoCursorMapper;
-import org.leeroy.mediacenter.video.browser.loader.NonScrapedVideosLoader;
-import org.leeroy.mediacenter.video.leanback.CompatibleCursorMapperConverter;
-import org.leeroy.mediacenter.video.leanback.DisplayMode;
-import org.leeroy.mediacenter.video.leanback.VideoViewClickedListener;
-import org.leeroy.mediacenter.video.leanback.overlay.Overlay;
-import org.leeroy.mediacenter.video.leanback.presenter.PosterImageCardPresenter;
-import org.leeroy.mediacenter.video.leanback.presenter.VideoListPresenter;
-import org.leeroy.mediacenter.video.leanback.search.VideoSearchActivity;
-import org.leeroy.mediacenter.video.utils.SortOrder;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.VideoCursorMapper;
+import org.leeroy.mediaplayer.video.browser.loader.NonScrapedVideosLoader;
+import org.leeroy.mediaplayer.video.leanback.CompatibleCursorMapperConverter;
+import org.leeroy.mediaplayer.video.leanback.DisplayMode;
+import org.leeroy.mediaplayer.video.leanback.VideoViewClickedListener;
+import org.leeroy.mediaplayer.video.leanback.overlay.Overlay;
+import org.leeroy.mediaplayer.video.leanback.presenter.PosterImageCardPresenter;
+import org.leeroy.mediaplayer.video.leanback.presenter.VideoListPresenter;
+import org.leeroy.mediaplayer.video.leanback.search.VideoSearchActivity;
+import org.leeroy.mediaplayer.video.utils.SortOrder;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediascraper.AutoScrapeService;
 

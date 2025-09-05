@@ -13,9 +13,9 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos;
+package org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos;
 
-import static org.leeroy.mediacenter.video.utils.VideoUtils.isColorDark;
+import static org.leeroy.mediaplayer.video.utils.VideoUtils.isColorDark;
 
 import android.database.Cursor;
 import android.graphics.Color;
@@ -36,19 +36,19 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.utils.ActionBarSubmenu;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.MainActivity;
-import org.leeroy.mediacenter.video.browser.ThumbnailRequesterVideo;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterByShow;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterDefaultValuesList;
-import org.leeroy.mediacenter.video.browser.adapters.object.Episode;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.loader.EpisodesLoader;
-import org.leeroy.mediacenter.video.browser.presenter.EpisodeListDetailedPresenter;
-import org.leeroy.mediacenter.video.browser.presenter.EpisodePresenter;
-import org.leeroy.mediacenter.video.info.VideoInfoCommonClass;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.utils.ActionBarSubmenu;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.MainActivity;
+import org.leeroy.mediaplayer.video.browser.ThumbnailRequesterVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterByShow;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValuesList;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Episode;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.loader.EpisodesLoader;
+import org.leeroy.mediaplayer.video.browser.presenter.EpisodeListDetailedPresenter;
+import org.leeroy.mediaplayer.video.browser.presenter.EpisodePresenter;
+import org.leeroy.mediaplayer.video.info.VideoInfoCommonClass;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 

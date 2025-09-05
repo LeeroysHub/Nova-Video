@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos;
+package org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos;
 
 import android.database.Cursor;
 import android.net.Uri;
@@ -32,22 +32,22 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.utils.ActionBarSubmenu;
-import org.leeroy.mediacenter.utils.trakt.Trakt;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.Browser;
-import org.leeroy.mediacenter.video.browser.BrowserCategory;
-import org.leeroy.mediacenter.video.browser.adapters.AllTvShowsAdapter;
-import org.leeroy.mediacenter.video.browser.adapters.PresenterAdapterByCursor;
-import org.leeroy.mediacenter.video.browser.adapters.object.Tvshow;
-import org.leeroy.mediacenter.video.browser.loader.AllTvshowsLoader;
-import org.leeroy.mediacenter.video.browser.loader.VideoLoader;
-import org.leeroy.mediacenter.video.browser.presenter.TvshowDetailedPresenter;
-import org.leeroy.mediacenter.video.browser.presenter.TvshowGridPresenter;
-import org.leeroy.mediacenter.video.browser.presenter.TvshowGridShortPresenter;
-import org.leeroy.mediacenter.video.browser.presenter.TvshowListPresenter;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.utils.ActionBarSubmenu;
+import org.leeroy.mediaplayer.utils.trakt.Trakt;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.Browser;
+import org.leeroy.mediaplayer.video.browser.BrowserCategory;
+import org.leeroy.mediaplayer.video.browser.adapters.AllTvShowsAdapter;
+import org.leeroy.mediaplayer.video.browser.adapters.PresenterAdapterByCursor;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Tvshow;
+import org.leeroy.mediaplayer.video.browser.loader.AllTvshowsLoader;
+import org.leeroy.mediaplayer.video.browser.loader.VideoLoader;
+import org.leeroy.mediaplayer.video.browser.presenter.TvshowDetailedPresenter;
+import org.leeroy.mediaplayer.video.browser.presenter.TvshowGridPresenter;
+import org.leeroy.mediaplayer.video.browser.presenter.TvshowGridShortPresenter;
+import org.leeroy.mediaplayer.video.browser.presenter.TvshowListPresenter;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 import org.leeroy.mediaprovider.video.LoaderUtils;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediaprovider.video.VideoStore.Video.VideoColumns;

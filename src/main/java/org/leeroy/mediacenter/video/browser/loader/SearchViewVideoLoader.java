@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.loader;
+package org.leeroy.mediaplayer.video.browser.loader;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -20,8 +20,8 @@ import android.content.res.Configuration;
 import android.provider.BaseColumns;
 import android.util.Log;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.Browser;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.Browser;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 public class SearchViewVideoLoader extends SearchVideoLoader {

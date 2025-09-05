@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.movies;
+package org.leeroy.mediaplayer.video.leanback.movies;
 
 import android.content.Context;
 import androidx.loader.content.Loader;
@@ -22,12 +22,12 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.SparseArray;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.loader.FilmsByGenreLoader;
-import org.leeroy.mediacenter.video.browser.loader.MoviesByGenreLoader;
-import org.leeroy.mediacenter.video.leanback.VideosByFragment;
-import org.leeroy.mediacenter.video.utils.SortOrder;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.loader.FilmsByGenreLoader;
+import org.leeroy.mediaplayer.video.browser.loader.MoviesByGenreLoader;
+import org.leeroy.mediaplayer.video.leanback.VideosByFragment;
+import org.leeroy.mediaplayer.video.utils.SortOrder;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 public class MoviesByGenreFragment extends VideosByFragment {

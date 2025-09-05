@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.adapters.mappers;
+package org.leeroy.mediaplayer.video.browser.adapters.mappers;
 
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-import org.leeroy.mediacenter.video.browser.adapters.object.Tvshow;
-import org.leeroy.mediacenter.video.browser.loader.AllTvshowsLoader;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Tvshow;
+import org.leeroy.mediaplayer.video.browser.loader.AllTvshowsLoader;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 /**

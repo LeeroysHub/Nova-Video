@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.adapters.object;
+package org.leeroy.mediaplayer.video.browser.adapters.object;
 
 import android.content.ContentUris;
 import android.net.Uri;
 import android.util.Log;
 
 import org.leeroy.filecorelibrary.MimeUtils;
-import org.leeroy.mediacenter.video.utils.VideoMetadata;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.video.utils.VideoMetadata;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 import java.io.Serializable;

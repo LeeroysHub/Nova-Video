@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.utils.imageview.ImageViewSetter;
-import org.leeroy.mediacenter.utils.imageview.ImageViewSetterConfiguration;
-import org.leeroy.mediacenter.utils.imageview.SimpleFileProcessor;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.utils.imageview.ImageViewSetter;
+import org.leeroy.mediaplayer.utils.imageview.ImageViewSetterConfiguration;
+import org.leeroy.mediaplayer.utils.imageview.SimpleFileProcessor;
 import org.leeroy.mediascraper.BaseTags;
 import org.leeroy.mediascraper.EpisodeTags;
 import org.leeroy.mediascraper.MovieTags;

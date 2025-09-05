@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player.tvmenu;
+package org.leeroy.mediaplayer.video.player.tvmenu;
 
 import android.content.Context;
 import android.os.Build;
@@ -28,7 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

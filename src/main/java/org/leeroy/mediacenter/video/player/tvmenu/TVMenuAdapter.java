@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player.tvmenu;
+package org.leeroy.mediaplayer.video.player.tvmenu;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -27,8 +27,8 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.FrameLayout;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.player.tvmenu.TVCardView.onFocusOutListener;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVCardView.onFocusOutListener;
 
 import java.util.ArrayList;
 

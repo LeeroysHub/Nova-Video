@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package org.leeroy.mediacenter.video.widget;
+package org.leeroy.mediaplayer.video.widget;
 
-import static org.leeroy.mediacenter.video.utils.MiscUtils.dumpBundle;
+import static org.leeroy.mediaplayer.video.utils.MiscUtils.dumpBundle;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -40,8 +40,8 @@ import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import org.leeroy.environment.LeeroyFlixUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.loader.VideoLoader;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.loader.VideoLoader;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediaprovider.video.VideoStore.Video.VideoColumns;
 

@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback;
+package org.leeroy.mediaplayer.video.leanback;
 
 import android.database.Cursor;
 import androidx.leanback.database.CursorMapper;
 
-import org.leeroy.mediacenter.video.browser.adapters.mappers.CompatibleCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.CompatibleCursorMapper;
 
 /**
  * Created by alexandre on 02/11/15.

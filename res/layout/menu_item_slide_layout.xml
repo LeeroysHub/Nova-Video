@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.leeroy.mediacenter.video.player.tvmenu.TVMenuItem xmlns:android="http://schemas.android.com/apk/res/android"
+<org.leeroy.mediaplayer.video.player.tvmenu.TVMenuItem xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/test"
     android:layout_width="match_parent"
@@ -58,4 +58,4 @@
 
     </LinearLayout>
 
-</org.leeroy.mediacenter.video.player.tvmenu.TVMenuItem>
+</org.leeroy.mediaplayer.video.player.tvmenu.TVMenuItem>

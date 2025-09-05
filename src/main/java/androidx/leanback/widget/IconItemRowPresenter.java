@@ -16,8 +16,8 @@ package androidx.leanback.widget;
 
 import android.view.View;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.leanback.presenter.IconItemPresenter;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.leanback.presenter.IconItemPresenter;
 
 /**
  * Dedicated row presenter for a list row containing Icon/IconItemPresenter

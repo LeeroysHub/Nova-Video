@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.filebrowsing;
+package org.leeroy.mediaplayer.video.leanback.filebrowsing;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
@@ -53,25 +53,25 @@ import org.leeroy.filecorelibrary.ListingEngine;
 import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.MimeUtils;
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.filecoreextension.upnp2.ListingEngineFactoryWithUpnp;
-import org.leeroy.mediacenter.filecoreextension.upnp2.UpnpFile2;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.VideoCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.object.NonIndexedVideo;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.loader.VideosInFolderLoader;
-import org.leeroy.mediacenter.video.leanback.DisplayMode;
-import org.leeroy.mediacenter.video.leanback.details.VideoDetailsActivity;
-import org.leeroy.mediacenter.video.leanback.details.VideoDetailsFragment;
-import org.leeroy.mediacenter.video.leanback.overlay.Overlay;
-import org.leeroy.mediacenter.video.leanback.presenter.ListPresenter;
-import org.leeroy.mediacenter.video.leanback.presenter.MetaFileListPresenter;
-import org.leeroy.mediacenter.video.leanback.presenter.PosterImageCardPresenter;
-import org.leeroy.mediacenter.video.leanback.presenter.VideoListPresenter;
-import org.leeroy.mediacenter.video.player.PrivateMode;
-import org.leeroy.mediacenter.video.utils.PlayUtils;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.ListingEngineFactoryWithUpnp;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.UpnpFile2;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.VideoCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.object.NonIndexedVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.loader.VideosInFolderLoader;
+import org.leeroy.mediaplayer.video.leanback.DisplayMode;
+import org.leeroy.mediaplayer.video.leanback.details.VideoDetailsActivity;
+import org.leeroy.mediaplayer.video.leanback.details.VideoDetailsFragment;
+import org.leeroy.mediaplayer.video.leanback.overlay.Overlay;
+import org.leeroy.mediaplayer.video.leanback.presenter.ListPresenter;
+import org.leeroy.mediaplayer.video.leanback.presenter.MetaFileListPresenter;
+import org.leeroy.mediaplayer.video.leanback.presenter.PosterImageCardPresenter;
+import org.leeroy.mediaplayer.video.leanback.presenter.VideoListPresenter;
+import org.leeroy.mediaplayer.video.player.PrivateMode;
+import org.leeroy.mediaplayer.video.utils.PlayUtils;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

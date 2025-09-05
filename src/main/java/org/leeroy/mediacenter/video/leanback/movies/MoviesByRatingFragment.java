@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.movies;
+package org.leeroy.mediaplayer.video.leanback.movies;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -22,12 +22,12 @@ import androidx.preference.PreferenceManager;
 
 import android.util.SparseArray;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.loader.FilmsByRatingLoader;
-import org.leeroy.mediacenter.video.browser.loader.MoviesByRatingLoader;
-import org.leeroy.mediacenter.video.leanback.VideosByFragment;
-import org.leeroy.mediacenter.video.utils.SortOrder;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.loader.FilmsByRatingLoader;
+import org.leeroy.mediaplayer.video.browser.loader.MoviesByRatingLoader;
+import org.leeroy.mediaplayer.video.leanback.VideosByFragment;
+import org.leeroy.mediaplayer.video.utils.SortOrder;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 

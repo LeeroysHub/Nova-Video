@@ -1,4 +1,4 @@
-package org.leeroy.mediacenter.video.player;
+package org.leeroy.mediaplayer.video.player;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -74,40 +74,40 @@ import org.leeroy.environment.LeeroyFlixIntents;
 import org.leeroy.environment.LeeroyFlixUtils;
 import org.leeroy.environment.NetworkState;
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.utils.videodb.IndexHelper;
-import org.leeroy.mediacenter.utils.videodb.VideoDbInfo;
-import org.leeroy.mediacenter.video.CustomApplication;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.UiChoiceDialog;
-import org.leeroy.mediacenter.video.browser.MainActivity;
-import org.leeroy.mediacenter.video.browser.PermissionChecker;
-import org.leeroy.mediacenter.video.browser.TorrentObserverService;
-import org.leeroy.mediacenter.video.info.VideoInfoActivity;
-import org.leeroy.mediacenter.video.info.VideoInfoCommonClass;
-import org.leeroy.mediacenter.video.leanback.settings.VideoSettingsActivity;
-import org.leeroy.mediacenter.video.leanback.wizard.SubtitlesWizardActivity;
-import org.leeroy.mediacenter.video.player.TrackInfoController.TrackInfoListener;
-import org.leeroy.mediacenter.video.player.tvmenu.AudioDelayTVPicker;
-import org.leeroy.mediacenter.video.player.tvmenu.AudioSpeedTVPicker;
-import org.leeroy.mediacenter.video.player.tvmenu.SubtitleDelayTVPicker;
-import org.leeroy.mediacenter.video.player.tvmenu.TVCardDialog;
-import org.leeroy.mediacenter.video.player.tvmenu.TVCardView;
-import org.leeroy.mediacenter.video.player.tvmenu.TVMenu;
-import org.leeroy.mediacenter.video.player.tvmenu.TVMenuAdapter;
-import org.leeroy.mediacenter.video.player.tvmenu.TVMenuItem;
-import org.leeroy.mediacenter.video.player.tvmenu.TVUtils;
-import org.leeroy.mediacenter.video.player.tvmenu.TimerDelayTVPicker;
-import org.leeroy.mediacenter.video.utils.CodecDiscovery;
-import org.leeroy.mediacenter.video.utils.MiscUtils;
-import org.leeroy.mediacenter.video.utils.SubtitlesDownloaderActivity2;
-import org.leeroy.mediacenter.video.utils.VideoMetadata;
-import org.leeroy.mediacenter.video.utils.VideoMetadata.AudioTrack;
-import org.leeroy.mediacenter.video.utils.VideoMetadata.SubtitleTrack;
-import org.leeroy.mediacenter.video.utils.VideoMetadata.VideoTrack;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesActivity;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.utils.videodb.IndexHelper;
+import org.leeroy.mediaplayer.utils.videodb.VideoDbInfo;
+import org.leeroy.mediaplayer.video.CustomApplication;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.UiChoiceDialog;
+import org.leeroy.mediaplayer.video.browser.MainActivity;
+import org.leeroy.mediaplayer.video.browser.PermissionChecker;
+import org.leeroy.mediaplayer.video.browser.TorrentObserverService;
+import org.leeroy.mediaplayer.video.info.VideoInfoActivity;
+import org.leeroy.mediaplayer.video.info.VideoInfoCommonClass;
+import org.leeroy.mediaplayer.video.leanback.settings.VideoSettingsActivity;
+import org.leeroy.mediaplayer.video.leanback.wizard.SubtitlesWizardActivity;
+import org.leeroy.mediaplayer.video.player.TrackInfoController.TrackInfoListener;
+import org.leeroy.mediaplayer.video.player.tvmenu.AudioDelayTVPicker;
+import org.leeroy.mediaplayer.video.player.tvmenu.AudioSpeedTVPicker;
+import org.leeroy.mediaplayer.video.player.tvmenu.SubtitleDelayTVPicker;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVCardDialog;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVCardView;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVMenu;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVMenuAdapter;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVMenuItem;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVUtils;
+import org.leeroy.mediaplayer.video.player.tvmenu.TimerDelayTVPicker;
+import org.leeroy.mediaplayer.video.utils.CodecDiscovery;
+import org.leeroy.mediaplayer.video.utils.MiscUtils;
+import org.leeroy.mediaplayer.video.utils.SubtitlesDownloaderActivity2;
+import org.leeroy.mediaplayer.video.utils.VideoMetadata;
+import org.leeroy.mediaplayer.video.utils.VideoMetadata.AudioTrack;
+import org.leeroy.mediaplayer.video.utils.VideoMetadata.SubtitleTrack;
+import org.leeroy.mediaplayer.video.utils.VideoMetadata.VideoTrack;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesActivity;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 import org.leeroy.medialib.IMediaPlayer;
 import org.leeroy.medialib.LibAvos;
 import org.leeroy.medialib.Subtitle;
@@ -127,15 +127,15 @@ import java.util.Objects;
 
 import static org.leeroy.environment.LeeroyFlixFeatures.isChromeOS;
 import static org.leeroy.filecorelibrary.FileUtils.hasManageExternalStoragePermission;
-import static org.leeroy.mediacenter.video.browser.subtitlesmanager.ISO639codes.generateTrackName;
-import static org.leeroy.mediacenter.video.browser.subtitlesmanager.SubtitleManager.getSubLanguageFromSubPathAndVideoPath;
-import static org.leeroy.mediacenter.video.utils.MiscUtils.isEmulator;
-import static org.leeroy.mediacenter.video.utils.VideoPreferencesCommon.DEFAULT_MAX_IFRAME_SIZE;
-import static org.leeroy.mediacenter.video.utils.VideoPreferencesCommon.DEFAULT_STREAM_BUFFER_SIZE;
-import static org.leeroy.mediacenter.video.utils.VideoPreferencesCommon.KEY_PARSER_SYNC_MODE;
-import static org.leeroy.mediacenter.video.utils.VideoPreferencesCommon.KEY_PLAYBACK_SPEED;
-import static org.leeroy.mediacenter.video.utils.VideoPreferencesCommon.KEY_STREAM_BUFFER_SIZE;
-import static org.leeroy.mediacenter.video.utils.VideoPreferencesCommon.KEY_STREAM_MAX_IFRAME_SIZE;
+import static org.leeroy.mediaplayer.video.browser.subtitlesmanager.ISO639codes.generateTrackName;
+import static org.leeroy.mediaplayer.video.browser.subtitlesmanager.SubtitleManager.getSubLanguageFromSubPathAndVideoPath;
+import static org.leeroy.mediaplayer.video.utils.MiscUtils.isEmulator;
+import static org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon.DEFAULT_MAX_IFRAME_SIZE;
+import static org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon.DEFAULT_STREAM_BUFFER_SIZE;
+import static org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon.KEY_PARSER_SYNC_MODE;
+import static org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon.KEY_PLAYBACK_SPEED;
+import static org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon.KEY_STREAM_BUFFER_SIZE;
+import static org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon.KEY_STREAM_MAX_IFRAME_SIZE;
 
 public class PlayerActivity extends AppCompatActivity implements PlayerController.Settings,
         SubtitleDelayPickerDialog.OnDelayChangeListener, AudioDelayPickerDialog.OnAudioDelayChangeListener,
@@ -2424,7 +2424,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         try {
             // When on an actual leanback device (Android TV, etc.) we give no choice -> Leanback!
             if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_LEANBACK) || isChromeOS(mContext)) {
-                infoActivity = getClassLoader().loadClass("org.leeroy.mediacenter.video.leanback.details.VideoDetailsOverlayActivity");
+                infoActivity = getClassLoader().loadClass("org.leeroy.mediaplayer.video.leanback.details.VideoDetailsOverlayActivity");
             }
             else {
                 // string definitions are in preference_video.xml and in @array/ui_mode_leanback_entryvalues
@@ -2433,7 +2433,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
                 if (uiMode.equals(UiChoiceDialog.UI_CHOICE_LEANBACK_TV_VALUE)) {
                     // User explicitly choose TV mode
-                    infoActivity = getClassLoader().loadClass("org.leeroy.mediacenter.video.leanback.details.VideoDetailsOverlayActivity");
+                    infoActivity = getClassLoader().loadClass("org.leeroy.mediaplayer.video.leanback.details.VideoDetailsOverlayActivity");
                 } else { // user did not choose or user explicitly choose tablet mode
                     infoActivity = VideoInfoActivity.class;
                 }
@@ -2782,10 +2782,10 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
         /*
          * check if kindle apk (without lvl) run on amazon device
-         * we need to org.leeroy.mediacenter.videoki in 2 strings because of
-         * the mighty sed that s/org.leeroy.mediacenter.video/org.leeroy.mediacenter.videoki/
+         * we need to org.leeroy.mediaplayer.videoki in 2 strings because of
+         * the mighty sed that s/org.leeroy.mediaplayer.video/org.leeroy.mediaplayer.videoki/
          */
-        if (getPackageName().equals("org.leeroy.mediacenter"+"."+"video"+"ki")) {
+        if (getPackageName().equals("org.leeroy.mediaplayer"+"."+"video"+"ki")) {
             log.info("amazon?");
             if (Build.BRAND == null || !Build.BRAND.equalsIgnoreCase("a"+"m"+"a"+"z"+"o"+"n")) {
                 myShowDialog(DIALOG_WRONG_DEVICE_KINDLE);

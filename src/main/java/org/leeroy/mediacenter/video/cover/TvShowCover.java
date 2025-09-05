@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.cover;
+package org.leeroy.mediaplayer.video.cover;
 
-import org.leeroy.mediacenter.cover.ArtworkFactory;
-import org.leeroy.mediacenter.cover.Cover;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserListOfSeasons;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
-import org.leeroy.mediacenter.video.browser.BrowserActivity;
-import org.leeroy.mediacenter.utils.InfoDialog;
+import org.leeroy.mediaplayer.cover.ArtworkFactory;
+import org.leeroy.mediaplayer.cover.Cover;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserListOfSeasons;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.browser.BrowserActivity;
+import org.leeroy.mediaplayer.utils.InfoDialog;
 import org.leeroy.mediaprovider.video.ScraperStore;
 import org.leeroy.mediaprovider.video.VideoStore;
 

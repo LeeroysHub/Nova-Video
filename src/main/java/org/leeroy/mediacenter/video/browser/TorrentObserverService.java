@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -23,7 +23,7 @@ import java.io.InterruptedIOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-import org.leeroy.mediacenter.video.utils.TorrentPathDialogPreference;
+import org.leeroy.mediaplayer.video.utils.TorrentPathDialogPreference;
 
 
 import android.app.Service;

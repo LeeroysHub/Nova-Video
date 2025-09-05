@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
-import org.leeroy.mediacenter.utils.MusicAlphabetIndexer;
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.utils.MusicAlphabetIndexer;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 import android.app.ListActivity;

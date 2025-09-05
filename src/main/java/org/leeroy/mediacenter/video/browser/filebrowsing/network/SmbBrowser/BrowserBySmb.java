@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network.SmbBrowser;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network.SmbBrowser;
 
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -28,8 +28,8 @@ import android.widget.TextView;
 import androidx.core.widget.TextViewCompat;
 
 import org.leeroy.filecorelibrary.samba.NetworkCredentialsDatabase;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.BrowserByNetwork;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.BrowserByNetwork;
 
 /**
  * Created by alexandre on 29/10/15.

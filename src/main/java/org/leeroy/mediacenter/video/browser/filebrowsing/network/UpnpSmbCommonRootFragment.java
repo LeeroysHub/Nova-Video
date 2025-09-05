@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network;
 
 import android.content.Context;
 import android.net.Uri;
@@ -20,10 +20,10 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.video.browser.BrowserCategory;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.SmbBrowser.BrowserBySmb;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.UpnpBrowser.BrowserByUpnp;
+import org.leeroy.mediaplayer.video.browser.BrowserCategory;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.SmbBrowser.BrowserBySmb;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.UpnpBrowser.BrowserByUpnp;
 
 /**
  * Created by alexandre on 08/06/15.

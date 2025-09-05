@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.collections;
+package org.leeroy.mediaplayer.video.leanback.collections;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
@@ -71,31 +71,31 @@ import androidx.leanback.transition.TransitionListener;
 import androidx.loader.content.CursorLoader;
 
 import org.leeroy.filecorelibrary.FileUtilsQ;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.Delete;
-import org.leeroy.mediacenter.video.browser.adapters.MovieCollectionAdapter;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.CollectionCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.VideoCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.object.Collection;
-import org.leeroy.mediacenter.video.browser.adapters.object.Movie;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.loader.AllCollectionsLoader;
-import org.leeroy.mediacenter.video.browser.loader.CollectionLoader;
-import org.leeroy.mediacenter.video.browser.loader.MovieCollectionLoader;
-import org.leeroy.mediacenter.video.collections.CollectionsSortOrderEntries;
-import org.leeroy.mediacenter.video.info.VideoInfoCommonClass;
-import org.leeroy.mediacenter.video.leanback.BackdropTask;
-import org.leeroy.mediacenter.video.leanback.CompatibleCursorMapperConverter;
-import org.leeroy.mediacenter.video.leanback.VideoViewClickedListener;
-import org.leeroy.mediacenter.video.leanback.details.LeeroyFlixDetailsOverviewRowPresenter;
-import org.leeroy.mediacenter.video.leanback.filebrowsing.ListingActivity;
-import org.leeroy.mediacenter.video.leanback.overlay.Overlay;
-import org.leeroy.mediacenter.video.leanback.presenter.PosterImageCardPresenter;
-import org.leeroy.mediacenter.video.leanback.presenter.PresenterUtils;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
-import org.leeroy.mediacenter.video.utils.DbUtils;
-import org.leeroy.mediacenter.video.utils.PlayUtils;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.Delete;
+import org.leeroy.mediaplayer.video.browser.adapters.MovieCollectionAdapter;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.CollectionCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.VideoCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Collection;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Movie;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.loader.AllCollectionsLoader;
+import org.leeroy.mediaplayer.video.browser.loader.CollectionLoader;
+import org.leeroy.mediaplayer.video.browser.loader.MovieCollectionLoader;
+import org.leeroy.mediaplayer.video.collections.CollectionsSortOrderEntries;
+import org.leeroy.mediaplayer.video.info.VideoInfoCommonClass;
+import org.leeroy.mediaplayer.video.leanback.BackdropTask;
+import org.leeroy.mediaplayer.video.leanback.CompatibleCursorMapperConverter;
+import org.leeroy.mediaplayer.video.leanback.VideoViewClickedListener;
+import org.leeroy.mediaplayer.video.leanback.details.LeeroyFlixDetailsOverviewRowPresenter;
+import org.leeroy.mediaplayer.video.leanback.filebrowsing.ListingActivity;
+import org.leeroy.mediaplayer.video.leanback.overlay.Overlay;
+import org.leeroy.mediaplayer.video.leanback.presenter.PosterImageCardPresenter;
+import org.leeroy.mediaplayer.video.leanback.presenter.PresenterUtils;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.utils.DbUtils;
+import org.leeroy.mediaplayer.video.utils.PlayUtils;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 import com.squareup.picasso.Picasso;
 
 import org.slf4j.Logger;

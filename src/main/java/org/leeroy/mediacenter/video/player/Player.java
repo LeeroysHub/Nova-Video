@@ -13,13 +13,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player;
+package org.leeroy.mediaplayer.video.player;
 
-import static org.leeroy.mediacenter.video.utils.CodecDiscovery.displaySupportsDoVi;
-import static org.leeroy.mediacenter.video.utils.CodecDiscovery.displaySupportsHdr10;
-import static org.leeroy.mediacenter.video.utils.CodecDiscovery.displaySupportsHdr10Plus;
-import static org.leeroy.mediacenter.video.utils.CodecDiscovery.displaySupportsHdrHLG;
-import static org.leeroy.mediacenter.video.utils.CodecDiscovery.getHdrScreenCapabilities;
+import static org.leeroy.mediaplayer.video.utils.CodecDiscovery.displaySupportsDoVi;
+import static org.leeroy.mediaplayer.video.utils.CodecDiscovery.displaySupportsHdr10;
+import static org.leeroy.mediaplayer.video.utils.CodecDiscovery.displaySupportsHdr10Plus;
+import static org.leeroy.mediaplayer.video.utils.CodecDiscovery.displaySupportsHdrHLG;
+import static org.leeroy.mediaplayer.video.utils.CodecDiscovery.getHdrScreenCapabilities;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -42,11 +42,11 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.video.CustomApplication;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.utils.CodecDiscovery;
-import org.leeroy.mediacenter.video.utils.VideoMetadata;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.CustomApplication;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.utils.CodecDiscovery;
+import org.leeroy.mediaplayer.video.utils.VideoMetadata;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 import org.leeroy.medialib.IMediaPlayer;
 import org.leeroy.medialib.MediaFactory;
 import org.leeroy.medialib.MediaMetadata;

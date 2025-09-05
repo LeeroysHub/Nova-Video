@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.scrapping;
+package org.leeroy.mediaplayer.video.leanback.scrapping;
 
 import androidx.fragment.app.Fragment;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ import androidx.leanback.app.SearchSupportFragment;
 import androidx.fragment.app.FragmentActivity;
 import android.view.KeyEvent;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 public class ManualVideoScrappingActivity extends FragmentActivity {
 

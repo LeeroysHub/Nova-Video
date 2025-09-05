@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.presenter;
+package org.leeroy.mediaplayer.video.leanback.presenter;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -22,8 +22,8 @@ import android.view.ViewGroup;
 
 import androidx.core.content.ContextCompat;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.leanback.adapter.object.Box;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.Box;
 import org.leeroy.mediaprovider.video.NetworkScannerServiceVideo;
 
 import java.util.LinkedList;

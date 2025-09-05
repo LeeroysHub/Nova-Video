@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.adapters;
+package org.leeroy.mediaplayer.video.browser.adapters;
 
 import android.content.Context;
 

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -28,8 +28,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.utils.ShortcutDbAdapter;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
+import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaprovider.video.NetworkScannerServiceVideo;
 
 import java.io.Serializable;

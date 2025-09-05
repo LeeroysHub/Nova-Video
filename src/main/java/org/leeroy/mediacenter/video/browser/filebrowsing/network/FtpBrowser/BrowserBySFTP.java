@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network.FtpBrowser;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network.FtpBrowser;
 
 import android.database.Cursor;
 import android.net.Uri;
@@ -35,11 +35,11 @@ import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.ftp.Session;
 import org.leeroy.filecorelibrary.samba.NetworkCredentialsDatabase;
 import org.leeroy.filecorelibrary.sftp.SFTPSession;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.ShortcutDb;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.AdapterByNetwork;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.BrowserByNetwork;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.ShortcutDb;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.AdapterByNetwork;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.BrowserByNetwork;
 
 import java.util.ArrayList;
 import java.util.List;

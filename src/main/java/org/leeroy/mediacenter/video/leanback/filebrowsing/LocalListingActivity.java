@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.filebrowsing;
+package org.leeroy.mediaplayer.video.leanback.filebrowsing;
 
 import android.net.Uri;
 import android.os.Environment;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 public class LocalListingActivity extends ListingActivity {
 

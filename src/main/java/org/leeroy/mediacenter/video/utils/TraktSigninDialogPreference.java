@@ -13,9 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
-import static org.leeroy.mediacenter.utils.trakt.Trakt.getAuthorizationRequest;
+import static org.leeroy.mediaplayer.utils.trakt.Trakt.getAuthorizationRequest;
 
 import android.app.Activity;
 import android.content.Context;
@@ -28,12 +28,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
 
-import org.leeroy.mediacenter.utils.trakt.Trakt;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.ui.NovaProgressDialog;
-import org.leeroy.mediacenter.video.utils.oauth.OAuthCallback;
-import org.leeroy.mediacenter.video.utils.oauth.OAuthData;
-import org.leeroy.mediacenter.video.utils.oauth.OAuthDialog;
+import org.leeroy.mediaplayer.utils.trakt.Trakt;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.ui.NovaProgressDialog;
+import org.leeroy.mediaplayer.video.utils.oauth.OAuthCallback;
+import org.leeroy.mediaplayer.video.utils.oauth.OAuthData;
+import org.leeroy.mediaplayer.video.utils.oauth.OAuthDialog;
 
 import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;

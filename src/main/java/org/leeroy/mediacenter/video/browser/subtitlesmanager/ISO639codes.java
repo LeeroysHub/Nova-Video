@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.subtitlesmanager;
+package org.leeroy.mediaplayer.video.browser.subtitlesmanager;
 
 import android.content.Context;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +31,7 @@ public class ISO639codes {
 
     static public String generateTrackName(Context context, String string, String lang, String format, boolean titleFirst) {
         // generate track name as "title (language)" from lang XYZ or XY letter code
-        String result = org.leeroy.mediacenter.utils.ISO639codes.generateTrackName(string, lang, format, titleFirst);
+        String result = org.leeroy.mediaplayer.utils.ISO639codes.generateTrackName(string, lang, format, titleFirst);
         if (result.startsWith("s_"))
             result =  VideoUtils.getLanguageString(context, result).toString();
         log.debug("generateTrackName: exception string={} result={}", string, result);
@@ -42,7 +42,7 @@ public class ISO639codes {
     }
 
     static public String replaceLanguageCodeInString(Context context, String string) {
-        String result = org.leeroy.mediacenter.utils.ISO639codes.replaceLanguageCodeInString(string);
+        String result = org.leeroy.mediaplayer.utils.ISO639codes.replaceLanguageCodeInString(string);
         if (result.startsWith("s_"))
             result =  VideoUtils.getLanguageString(context, result).toString();
         log.debug("replaceLanguageCodeInString: exception string={} result={}", string, result);
@@ -50,25 +50,25 @@ public class ISO639codes {
     }
 
     static public String getLanguageNameForLetterCode(Context context, String code) {
-        String result = org.leeroy.mediacenter.utils.ISO639codes.getLanguageNameForLetterCode(code);
+        String result = org.leeroy.mediaplayer.utils.ISO639codes.getLanguageNameForLetterCode(code);
         if (result.startsWith("s_"))
             return VideoUtils.getLanguageString(context, result).toString();
         else return result;
     }
 
     static public String getLanguageNameFor2LetterCode(Context context, String code) {
-        String result = org.leeroy.mediacenter.utils.ISO639codes.getLanguageNameFor2LetterCode(code);
+        String result = org.leeroy.mediaplayer.utils.ISO639codes.getLanguageNameFor2LetterCode(code);
         if (result.startsWith("s_"))
             return VideoUtils.getLanguageString(context, result).toString();
         else return result;
     }
 
     static public String getLanguageNameOrStringFor2LetterCode(Context context, String code) {
-        return org.leeroy.mediacenter.utils.ISO639codes.getLanguageNameFor2LetterCode(code);
+        return org.leeroy.mediaplayer.utils.ISO639codes.getLanguageNameFor2LetterCode(code);
     }
 
     static public String getLanguageNameFor3LetterCode(Context context, String code) {
-        String result = org.leeroy.mediacenter.utils.ISO639codes.getLanguageNameFor3LetterCode(code);
+        String result = org.leeroy.mediaplayer.utils.ISO639codes.getLanguageNameFor3LetterCode(code);
         if (result.startsWith("s_"))
             return VideoUtils.getLanguageString(context, result).toString();
         else return result;

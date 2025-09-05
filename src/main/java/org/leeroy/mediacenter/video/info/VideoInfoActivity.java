@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.info;
+package org.leeroy.mediaplayer.video.info;
 
-import static org.leeroy.mediacenter.video.utils.VideoUtils.isColorDark;
+import static org.leeroy.mediaplayer.video.utils.VideoUtils.isColorDark;
 
 import android.content.Context;
 import android.content.Intent;
@@ -35,8 +35,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
 
 import java.util.ArrayList;
 

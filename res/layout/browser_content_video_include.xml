@@ -28,7 +28,7 @@
         android:focusable="true"
         android:visibility="gone" />
 
-    <org.leeroy.mediacenter.video.browser.HeaderGridView
+    <org.leeroy.mediaplayer.video.browser.HeaderGridView
         android:id="@+id/leeroyflix_grid_view"
         style="@style/LeeroyFlixGridView"
         android:layout_below="@id/connection_button"

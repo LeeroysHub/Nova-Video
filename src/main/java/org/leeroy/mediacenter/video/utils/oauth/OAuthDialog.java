@@ -16,7 +16,7 @@
 /**
  * 
  */
-package org.leeroy.mediacenter.video.utils.oauth;
+package org.leeroy.mediaplayer.video.utils.oauth;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -47,10 +47,10 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.ui.NovaProgressDialog;
-import org.leeroy.mediacenter.video.utils.MiscUtils;
-import org.leeroy.mediacenter.video.utils.NovaWebView;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.ui.NovaProgressDialog;
+import org.leeroy.mediaplayer.video.utils.MiscUtils;
+import org.leeroy.mediaplayer.video.utils.NovaWebView;
 
 /**
  * A full screen OAuth dialog which contains a webview. This takes an authorize url

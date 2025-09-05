@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.animes;
+package org.leeroy.mediaplayer.video.leanback.animes;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -20,10 +20,10 @@ import android.os.Bundle;
 import androidx.loader.content.Loader;
 import android.util.SparseArray;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.loader.AnimesByAlphaLoader;
-import org.leeroy.mediacenter.video.leanback.VideosByFragment;
-import org.leeroy.mediacenter.video.utils.SortOrder;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.loader.AnimesByAlphaLoader;
+import org.leeroy.mediaplayer.video.leanback.VideosByFragment;
+import org.leeroy.mediaplayer.video.utils.SortOrder;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 

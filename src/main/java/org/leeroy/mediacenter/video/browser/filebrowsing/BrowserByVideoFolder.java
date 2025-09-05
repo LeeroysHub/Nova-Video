@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.filebrowsing;
+package org.leeroy.mediaplayer.video.browser.filebrowsing;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -29,10 +29,10 @@ import android.view.MenuItem;
 import androidx.core.view.MenuItemCompat;
 import androidx.preference.PreferenceManager;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.MainActivity;
-import org.leeroy.mediacenter.video.utils.FolderPicker;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesActivity;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.MainActivity;
+import org.leeroy.mediaplayer.video.utils.FolderPicker;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesActivity;
 
 import java.io.File;
 

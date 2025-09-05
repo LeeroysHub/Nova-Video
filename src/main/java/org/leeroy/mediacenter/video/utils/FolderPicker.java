@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ import org.leeroy.filecorelibrary.ListingEngine;
 import org.leeroy.filecorelibrary.ListingEngineFactory;
 import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 
 import android.app.Dialog;

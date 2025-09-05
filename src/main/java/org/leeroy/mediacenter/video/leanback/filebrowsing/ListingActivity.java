@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.filebrowsing;
+package org.leeroy.mediaplayer.video.leanback.filebrowsing;
 
 import static org.leeroy.filecorelibrary.smbj.SmbjUtils.isSMBjEnabled;
 import static org.leeroy.filecorelibrary.sshj.SshjUtils.isSSHjEnabled;
@@ -24,13 +24,13 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.KeyEvent;
 
-import org.leeroy.mediacenter.video.leanback.SingleFragmentActivity;
-import org.leeroy.mediacenter.video.leanback.network.ftp.FtpListingActivity;
-import org.leeroy.mediacenter.video.leanback.network.smb.SmbListingActivity;
-import org.leeroy.mediacenter.video.leanback.network.smbj.SmbjListingActivity;
-import org.leeroy.mediacenter.video.leanback.network.sshj.SshjListingActivity;
-import org.leeroy.mediacenter.video.leanback.network.upnp.UpnpListingActivity;
-import org.leeroy.mediacenter.video.leanback.network.webdav.WebdavListingActivity;
+import org.leeroy.mediaplayer.video.leanback.SingleFragmentActivity;
+import org.leeroy.mediaplayer.video.leanback.network.ftp.FtpListingActivity;
+import org.leeroy.mediaplayer.video.leanback.network.smb.SmbListingActivity;
+import org.leeroy.mediaplayer.video.leanback.network.smbj.SmbjListingActivity;
+import org.leeroy.mediaplayer.video.leanback.network.sshj.SshjListingActivity;
+import org.leeroy.mediaplayer.video.leanback.network.upnp.UpnpListingActivity;
+import org.leeroy.mediaplayer.video.leanback.network.webdav.WebdavListingActivity;
 
 public abstract  class ListingActivity extends SingleFragmentActivity {
 

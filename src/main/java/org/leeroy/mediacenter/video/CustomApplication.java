@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video;
+package org.leeroy.mediaplayer.video;
 
 
 import static org.leeroy.filecorelibrary.FileUtils.getPermissions;
@@ -56,15 +56,15 @@ import org.leeroy.filecorelibrary.samba.SambaDiscovery;
 import org.leeroy.filecorelibrary.smbj.SmbjUtils;
 import org.leeroy.filecorelibrary.sshj.SshjUtils;
 import org.leeroy.filecorelibrary.webdav.WebdavUtils;
-import org.leeroy.mediacenter.utils.trakt.Trakt;
-import org.leeroy.mediacenter.video.browser.BootupRecommandationService;
-import org.leeroy.mediacenter.video.picasso.SmbRequestHandler;
-import org.leeroy.mediacenter.video.picasso.ThumbnailRequestHandler;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
-import org.leeroy.mediacenter.video.utils.LocaleConfigParser;
-import org.leeroy.mediacenter.video.utils.OpenSubtitlesApiHelper;
-import org.leeroy.mediacenter.video.utils.TrustingOkHttp3Downloader;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.utils.trakt.Trakt;
+import org.leeroy.mediaplayer.video.browser.BootupRecommandationService;
+import org.leeroy.mediaplayer.video.picasso.SmbRequestHandler;
+import org.leeroy.mediaplayer.video.picasso.ThumbnailRequestHandler;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.utils.LocaleConfigParser;
+import org.leeroy.mediaplayer.video.utils.OpenSubtitlesApiHelper;
+import org.leeroy.mediaplayer.video.utils.TrustingOkHttp3Downloader;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 import org.leeroy.medialib.LibAvos;
 import org.leeroy.mediaprovider.video.NetworkAutoRefresh;
 import org.leeroy.mediaprovider.video.VideoStoreImportReceiver;

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network;
 
 import android.content.ComponentName;
 import android.content.DialogInterface;
@@ -38,14 +38,14 @@ import androidx.appcompat.app.AlertDialog;
 
 import org.leeroy.filecorelibrary.FileUtils;
 import org.leeroy.filecorelibrary.MetaFile2;
-import org.leeroy.mediacenter.filecoreextension.UriUtils;
-import org.leeroy.mediacenter.utils.HelpOverlayActivity;
-import org.leeroy.mediacenter.utils.ShortcutDbAdapter;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.ShortcutDb;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.filebrowsing.BrowserByFolder;
-import org.leeroy.mediacenter.video.browser.filebrowsing.ListingAdapter;
+import org.leeroy.mediaplayer.filecoreextension.UriUtils;
+import org.leeroy.mediaplayer.utils.HelpOverlayActivity;
+import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.ShortcutDb;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.BrowserByFolder;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.ListingAdapter;
 import org.leeroy.mediaprovider.NetworkScanner;
 
 import org.slf4j.Logger;

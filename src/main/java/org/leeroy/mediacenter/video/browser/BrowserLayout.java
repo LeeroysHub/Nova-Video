@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import android.animation.TimeInterpolator;
 import android.content.Context;
@@ -26,7 +26,7 @@ import android.view.View;
 import android.view.ViewStub;
 import android.view.animation.DecelerateInterpolator;
 
-import org.leeroy.mediacenter.utils.GlobalResumeView;
+import org.leeroy.mediaplayer.utils.GlobalResumeView;
 import org.leeroy.medialib.R;
 
 import androidx.drawerlayout.widget.DrawerLayout;

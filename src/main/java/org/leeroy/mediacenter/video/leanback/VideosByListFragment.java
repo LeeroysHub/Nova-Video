@@ -1,4 +1,4 @@
-package org.leeroy.mediacenter.video.leanback;
+package org.leeroy.mediaplayer.video.leanback;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,10 +12,10 @@ import androidx.leanback.widget.Row;
 import androidx.leanback.widget.SearchOrbView;
 import androidx.loader.content.Loader;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.loader.VideoLoader;
-import org.leeroy.mediacenter.video.browser.loader.VideosByListLoader;
-import org.leeroy.mediacenter.video.browser.loader.VideosSelectionLoader;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.loader.VideoLoader;
+import org.leeroy.mediaplayer.video.browser.loader.VideosByListLoader;
+import org.leeroy.mediaplayer.video.browser.loader.VideosSelectionLoader;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 import java.util.ArrayList;

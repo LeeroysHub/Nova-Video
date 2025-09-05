@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player.tvmenu;
+package org.leeroy.mediaplayer.video.player.tvmenu;
 
 import android.content.Context;
 import android.os.Build;
@@ -30,8 +30,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.player.FocusableTVCardView;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.player.FocusableTVCardView;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

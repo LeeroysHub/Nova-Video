@@ -6,6 +6,6 @@
         android:id="@+id/preferencesFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        class="org.leeroy.mediacenter.video.utils.VideoPreferencesLicencesFragment" />
+        class="org.leeroy.mediaplayer.video.utils.VideoPreferencesLicencesFragment" />
 
 </RelativeLayout>

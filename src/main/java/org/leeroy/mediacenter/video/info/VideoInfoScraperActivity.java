@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.info;
+package org.leeroy.mediaplayer.video.info;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -21,7 +21,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 public class VideoInfoScraperActivity extends FragmentActivity {
 

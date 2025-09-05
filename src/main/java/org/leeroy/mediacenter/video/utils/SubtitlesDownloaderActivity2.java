@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -48,13 +48,13 @@ import org.leeroy.filecorelibrary.FileEditorFactory;
 import org.leeroy.filecorelibrary.FileUtils;
 import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.MetaFile2Factory;
-import org.leeroy.mediacenter.filecoreextension.UriUtils;
-import org.leeroy.mediacenter.filecoreextension.upnp2.MetaFileFactoryWithUpnp;
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.utils.videodb.VideoDbInfo;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.TorrentObserverService;
-import org.leeroy.mediacenter.video.ui.NovaProgressDialog;
+import org.leeroy.mediaplayer.filecoreextension.UriUtils;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.MetaFileFactoryWithUpnp;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.utils.videodb.VideoDbInfo;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.TorrentObserverService;
+import org.leeroy.mediaplayer.video.ui.NovaProgressDialog;
 import org.leeroy.mediaprovider.LeeroyFlixMediaIntent;
 import org.leeroy.mediaprovider.video.VideoStore;
 

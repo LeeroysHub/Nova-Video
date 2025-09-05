@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.presenter;
+package org.leeroy.mediaplayer.video.browser.presenter;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -20,15 +20,15 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.View;
 
-import org.leeroy.mediacenter.utils.ThumbnailEngine;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterDefaultValues;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterDefaultValuesGrid;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterDefaultValuesGridShort;
-import org.leeroy.mediacenter.video.browser.adapters.object.Episode;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
-import org.leeroy.mediacenter.video.player.TextShadowSpan;
-import org.leeroy.mediacenter.video.player.tvmenu.TVUtils;
+import org.leeroy.mediaplayer.utils.ThumbnailEngine;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValues;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValuesGrid;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValuesGridShort;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Episode;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.player.TextShadowSpan;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVUtils;
 
 import httpimage.HttpImageManager;
 

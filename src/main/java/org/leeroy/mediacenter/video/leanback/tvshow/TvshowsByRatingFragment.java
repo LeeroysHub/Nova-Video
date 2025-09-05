@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.tvshow;
+package org.leeroy.mediaplayer.video.leanback.tvshow;
 
 import android.content.Context;
 import androidx.loader.content.Loader;
@@ -21,9 +21,9 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.SparseArray;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.loader.TvshowsByRatingLoader;
-import org.leeroy.mediacenter.video.browser.loader.TvshowsNoAnimeByRatingLoader;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.loader.TvshowsByRatingLoader;
+import org.leeroy.mediaplayer.video.browser.loader.TvshowsNoAnimeByRatingLoader;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 public class TvshowsByRatingFragment extends TvshowsByFragment {

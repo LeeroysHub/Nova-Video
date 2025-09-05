@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.widget;
+package org.leeroy.mediaplayer.video.widget;
 
 
 import android.content.ContentResolver;
@@ -20,7 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserByVideoSelection;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserByVideoSelection;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

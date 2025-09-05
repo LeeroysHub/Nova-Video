@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.utils.credentialsmanager;
+package org.leeroy.mediaplayer.video.utils.credentialsmanager;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 
 public class CredentialsManagerPreferenceActivity extends AppCompatActivity {

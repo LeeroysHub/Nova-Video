@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network.FtpBrowser;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network.FtpBrowser;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -25,14 +25,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupWindow;
 
-import org.leeroy.mediacenter.utils.ActionItem;
-import org.leeroy.mediacenter.video.browser.BrowserCategory;
-import org.leeroy.mediacenter.utils.QuickAction;
-import org.leeroy.mediacenter.utils.ShortcutDbAdapter;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.NewRootFragment;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.RootFragmentAdapter;
-import org.leeroy.mediacenter.video.browser.ShortcutDb;
+import org.leeroy.mediaplayer.utils.ActionItem;
+import org.leeroy.mediaplayer.video.browser.BrowserCategory;
+import org.leeroy.mediaplayer.utils.QuickAction;
+import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.NewRootFragment;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.RootFragmentAdapter;
+import org.leeroy.mediaplayer.video.browser.ShortcutDb;
 import org.leeroy.mediaprovider.NetworkScanner;
 
 /**

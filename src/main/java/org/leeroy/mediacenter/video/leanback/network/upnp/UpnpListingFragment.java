@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.network.upnp;
+package org.leeroy.mediaplayer.video.leanback.network.upnp;
 
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.filecoreextension.upnp2.UpnpServiceManager;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.leanback.filebrowsing.ListingFragment;
-import org.leeroy.mediacenter.video.leanback.network.NetworkListingFragment;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.UpnpServiceManager;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.leanback.filebrowsing.ListingFragment;
+import org.leeroy.mediaplayer.video.leanback.network.NetworkListingFragment;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

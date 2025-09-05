@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -23,13 +23,13 @@ import android.os.Bundle;
 
 import androidx.preference.PreferenceManager;
 
-import org.leeroy.mediacenter.utils.trakt.Trakt;
-import org.leeroy.mediacenter.utils.trakt.TraktService;
-import org.leeroy.mediacenter.utils.videodb.IndexHelper;
-import org.leeroy.mediacenter.utils.videodb.VideoDbInfo;
-import org.leeroy.mediacenter.video.browser.TorrentObserverService;
-import org.leeroy.mediacenter.video.player.ExternalPlayerService;
-import org.leeroy.mediacenter.video.player.PrivateMode;
+import org.leeroy.mediaplayer.utils.trakt.Trakt;
+import org.leeroy.mediaplayer.utils.trakt.TraktService;
+import org.leeroy.mediaplayer.utils.videodb.IndexHelper;
+import org.leeroy.mediaplayer.utils.videodb.VideoDbInfo;
+import org.leeroy.mediaplayer.video.browser.TorrentObserverService;
+import org.leeroy.mediaplayer.video.player.ExternalPlayerService;
+import org.leeroy.mediaplayer.video.player.PrivateMode;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediascraper.ScrapeDetailResult;
 

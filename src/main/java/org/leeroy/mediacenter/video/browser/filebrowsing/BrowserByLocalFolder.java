@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.filebrowsing;
+package org.leeroy.mediaplayer.video.browser.filebrowsing;
 
 import android.net.Uri;
 import android.view.ContextMenu;
@@ -24,8 +24,8 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 
 import org.leeroy.filecorelibrary.FileExtendedInfo;
 import org.leeroy.filecorelibrary.MetaFile2;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
 import org.leeroy.mediascraper.NfoExportService;
 
 public abstract class BrowserByLocalFolder extends BrowserByFolder {

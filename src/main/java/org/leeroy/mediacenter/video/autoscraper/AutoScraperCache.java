@@ -26,10 +26,10 @@
  * - THUMBNAIL mode => full thumbnail
  */
 
-package org.leeroy.mediacenter.video.autoscraper;
+package org.leeroy.mediaplayer.video.autoscraper;
 
-import org.leeroy.mediacenter.utils.BitmapUtils;
-import org.leeroy.mediacenter.video.autoscraper.AutoScraperActivity.FileProperties;
+import org.leeroy.mediaplayer.utils.BitmapUtils;
+import org.leeroy.mediaplayer.video.autoscraper.AutoScraperActivity.FileProperties;
 import org.leeroy.mediaprovider.video.VideoStore.Video;
 
 import android.content.Context;

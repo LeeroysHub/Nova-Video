@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <fragment
-        android:name="org.leeroy.mediacenter.video.leanback.network.NetworkRootFragment"
+        android:name="org.leeroy.mediaplayer.video.leanback.network.NetworkRootFragment"
         android:id="@+id/main_browse_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

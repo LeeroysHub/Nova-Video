@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.presenter;
+package org.leeroy.mediaplayer.video.leanback.presenter;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -39,16 +39,16 @@ import android.widget.TextView;
 
 import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.utils.trakt.Trakt;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Collection;
-import org.leeroy.mediacenter.video.browser.adapters.object.Episode;
-import org.leeroy.mediacenter.video.browser.adapters.object.Movie;
-import org.leeroy.mediacenter.video.browser.adapters.object.Tvshow;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.leanback.UnavailablePosterBroadcastReceiver;
-import org.leeroy.mediacenter.video.picasso.ThumbnailRequestHandler;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.utils.trakt.Trakt;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Collection;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Episode;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Movie;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Tvshow;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.leanback.UnavailablePosterBroadcastReceiver;
+import org.leeroy.mediaplayer.video.picasso.ThumbnailRequestHandler;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
 import org.leeroy.mediaprovider.video.VideoProvider;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;

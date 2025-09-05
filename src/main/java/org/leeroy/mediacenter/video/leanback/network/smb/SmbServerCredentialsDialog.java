@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.network.smb;
+package org.leeroy.mediaplayer.video.leanback.network.smb;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -34,7 +34,7 @@ import androidx.preference.PreferenceManager;
 
 import org.leeroy.filecorelibrary.samba.NetworkCredentialsDatabase;
 import org.leeroy.filecorelibrary.samba.NetworkCredentialsDatabase.Credential;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 public class SmbServerCredentialsDialog extends DialogFragment {
 

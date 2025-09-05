@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player.tvmenu;
+package org.leeroy.mediaplayer.video.player.tvmenu;
 
 import android.content.Context;
 import android.os.Handler;
@@ -26,9 +26,9 @@ import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.player.SubtitleDelayPickerAbstract;
-import org.leeroy.mediacenter.video.player.SubtitleDelayPickerDialog;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.player.SubtitleDelayPickerAbstract;
+import org.leeroy.mediaplayer.video.player.SubtitleDelayPickerDialog;
 
 
 public class SubtitleDelayTVPicker extends SubtitleDelayPickerAbstract implements TVSlaveView {

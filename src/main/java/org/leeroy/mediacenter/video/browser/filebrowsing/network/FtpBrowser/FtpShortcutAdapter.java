@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network.FtpBrowser;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network.FtpBrowser;
 
 import android.content.Context;
 import android.net.Uri;
@@ -24,10 +24,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.utils.ShortcutDbAdapter;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.RootFragmentAdapter;
-import org.leeroy.mediacenter.video.browser.ShortcutDb;
+import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.RootFragmentAdapter;
+import org.leeroy.mediaplayer.video.browser.ShortcutDb;
 
 import java.util.List;
 

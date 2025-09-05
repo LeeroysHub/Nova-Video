@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.collections;
+package org.leeroy.mediaplayer.video.leanback.collections;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -43,23 +43,23 @@ import androidx.loader.content.Loader;
 import androidx.preference.PreferenceManager;
 
 import org.leeroy.customizedleanback.app.MyVerticalGridFragment;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.CollectionCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.object.Collection;
-import org.leeroy.mediacenter.video.browser.loader.AllCollectionsLoader;
-import org.leeroy.mediacenter.video.browser.loader.AllCollectionsNoAnimeLoader;
-import org.leeroy.mediacenter.video.browser.loader.TvshowsByAlphaLoader;
-import org.leeroy.mediacenter.video.browser.loader.TvshowsNoAnimeByAlphaLoader;
-import org.leeroy.mediacenter.video.leanback.CompatibleCursorMapperConverter;
-import org.leeroy.mediacenter.video.leanback.DisplayMode;
-import org.leeroy.mediacenter.video.leanback.VideoViewClickedListener;
-import org.leeroy.mediacenter.video.leanback.overlay.Overlay;
-import org.leeroy.mediacenter.video.leanback.presenter.PosterImageCardPresenter;
-import org.leeroy.mediacenter.video.leanback.presenter.VideoListPresenter;
-import org.leeroy.mediacenter.video.leanback.search.VideoSearchActivity;
-import org.leeroy.mediacenter.video.player.PrivateMode;
-import org.leeroy.mediacenter.video.utils.DbUtils;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.CollectionCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Collection;
+import org.leeroy.mediaplayer.video.browser.loader.AllCollectionsLoader;
+import org.leeroy.mediaplayer.video.browser.loader.AllCollectionsNoAnimeLoader;
+import org.leeroy.mediaplayer.video.browser.loader.TvshowsByAlphaLoader;
+import org.leeroy.mediaplayer.video.browser.loader.TvshowsNoAnimeByAlphaLoader;
+import org.leeroy.mediaplayer.video.leanback.CompatibleCursorMapperConverter;
+import org.leeroy.mediaplayer.video.leanback.DisplayMode;
+import org.leeroy.mediaplayer.video.leanback.VideoViewClickedListener;
+import org.leeroy.mediaplayer.video.leanback.overlay.Overlay;
+import org.leeroy.mediaplayer.video.leanback.presenter.PosterImageCardPresenter;
+import org.leeroy.mediaplayer.video.leanback.presenter.VideoListPresenter;
+import org.leeroy.mediaplayer.video.leanback.search.VideoSearchActivity;
+import org.leeroy.mediaplayer.video.player.PrivateMode;
+import org.leeroy.mediaplayer.video.utils.DbUtils;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 public class AllCollectionsGridFragment extends MyVerticalGridFragment implements LoaderManager.LoaderCallbacks<Cursor> {

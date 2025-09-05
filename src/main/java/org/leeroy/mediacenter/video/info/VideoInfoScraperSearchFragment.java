@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.info;
+package org.leeroy.mediaplayer.video.info;
 
 import android.app.Activity;
 import android.content.Context;
@@ -37,10 +37,10 @@ import androidx.fragment.app.Fragment;
 
 import org.leeroy.environment.LeeroyFlixSettings;
 import org.leeroy.environment.NetworkState;
-import org.leeroy.mediacenter.utils.trakt.TraktService;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.utils.ScraperResultsAdapter;
+import org.leeroy.mediaplayer.utils.trakt.TraktService;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.utils.ScraperResultsAdapter;
 import org.leeroy.mediascraper.BaseTags;
 import org.leeroy.mediascraper.EpisodeTags;
 import org.leeroy.mediascraper.MovieTags;
@@ -332,7 +332,7 @@ public class VideoInfoScraperSearchFragment extends Fragment implements  Handler
 
     		AlertDialog.Builder builder = new AlertDialog.Builder(context);
     		builder.setIcon(android.R.drawable.ic_dialog_alert)
-    		.setTitle(R.string.mediacenterlabel)
+    		.setTitle(R.string.mediaplayerlabel)
     		.setMessage(message)
     		.setCancelable(false)
     		.setPositiveButton(android.R.string.ok, null);   // just let the dialog be closed by the system when clicking on the button

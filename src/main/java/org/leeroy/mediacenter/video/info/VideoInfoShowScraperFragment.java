@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.info;
+package org.leeroy.mediaplayer.video.info;
 
 import android.app.Activity;
 import android.content.ContentProviderOperation;
@@ -44,10 +44,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-import org.leeroy.mediacenter.utils.trakt.TraktService;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Base;
-import org.leeroy.mediacenter.video.utils.ScraperResultsAdapter;
+import org.leeroy.mediaplayer.utils.trakt.TraktService;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Base;
+import org.leeroy.mediaplayer.video.utils.ScraperResultsAdapter;
 import org.leeroy.mediaprovider.video.ScraperStore;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediascraper.BaseTags;

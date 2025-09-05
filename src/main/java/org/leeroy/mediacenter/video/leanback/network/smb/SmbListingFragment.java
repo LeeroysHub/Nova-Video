@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.network.smb;
+package org.leeroy.mediaplayer.video.leanback.network.smb;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,15 +21,15 @@ import android.view.View;
 import org.leeroy.filecorelibrary.ListingEngine;
 import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.samba.NetworkCredentialsDatabase;
-import org.leeroy.mediacenter.utils.videodb.VideoDbInfo;
-import org.leeroy.mediacenter.utils.videodb.XmlDb;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.NonIndexedVideo;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.leanback.filebrowsing.ListingFragment;
-import org.leeroy.mediacenter.video.leanback.network.NetworkListingFragment;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.utils.videodb.VideoDbInfo;
+import org.leeroy.mediaplayer.utils.videodb.XmlDb;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.NonIndexedVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.leanback.filebrowsing.ListingFragment;
+import org.leeroy.mediaplayer.video.leanback.network.NetworkListingFragment;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

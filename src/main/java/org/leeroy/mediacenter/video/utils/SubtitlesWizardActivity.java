@@ -20,7 +20,7 @@
 **    - [mWizardCommon.getAvailableFilesCount()] FILES, or a MESSAGE ("list is empty") if mWizardCommon.getAvailableFilesCount() = 0
 ***************************************************************************************************/
 
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import android.content.Context;
 import android.database.DataSetObserver;
@@ -43,7 +43,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 public class SubtitlesWizardActivity extends AppCompatActivity implements OnItemClickListener, View.OnCreateContextMenuListener {
     private final static String TAG = "SubtitlesWizardActivity";

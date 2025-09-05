@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import org.leeroy.filecorelibrary.SmbItemData;
 import org.leeroy.filecorelibrary.samba.SambaConfiguration;
-import org.leeroy.mediacenter.utils.UpnpItemData;
-import org.leeroy.mediacenter.utils.videodb.VideoDbInfo;
+import org.leeroy.mediaplayer.utils.UpnpItemData;
+import org.leeroy.mediaplayer.utils.videodb.VideoDbInfo;
 
 public class ItemData implements Comparable<ItemData> {
 

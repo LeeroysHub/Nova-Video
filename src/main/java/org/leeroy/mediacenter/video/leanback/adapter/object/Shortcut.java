@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.adapter.object;
+package org.leeroy.mediaplayer.video.leanback.adapter.object;
 
 import android.net.Uri;
 

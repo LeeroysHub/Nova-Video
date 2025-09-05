@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.network.rescan;
+package org.leeroy.mediaplayer.video.leanback.network.rescan;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -29,8 +29,8 @@ import androidx.leanback.widget.GuidedAction;
 import android.text.format.DateFormat;
 import android.util.Log;
 
-import org.leeroy.mediacenter.utils.ShortcutDbAdapter;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
+import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaprovider.video.NetworkAutoRefresh;
 
 import java.text.SimpleDateFormat;

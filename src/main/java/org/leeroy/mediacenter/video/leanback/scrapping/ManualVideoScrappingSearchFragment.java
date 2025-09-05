@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.scrapping;
+package org.leeroy.mediaplayer.video.leanback.scrapping;
 
 import android.net.Uri;
 import android.os.Bundle;
 
-import org.leeroy.mediacenter.utils.trakt.TraktService;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.ui.NovaProgressDialog;
+import org.leeroy.mediaplayer.utils.trakt.TraktService;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.ui.NovaProgressDialog;
 import org.leeroy.mediascraper.BaseTags;
 import org.leeroy.mediascraper.EpisodeTags;
 import org.leeroy.mediascraper.MovieTags;

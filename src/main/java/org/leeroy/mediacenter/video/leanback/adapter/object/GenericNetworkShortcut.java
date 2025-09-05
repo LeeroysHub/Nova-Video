@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.adapter.object;
+package org.leeroy.mediaplayer.video.leanback.adapter.object;
 
 import android.net.Uri;
 
@@ -23,8 +23,8 @@ import org.leeroy.filecorelibrary.jcifs.JcifsFileEditor;
 import org.leeroy.filecorelibrary.localstorage.LocalStorageFileEditor;
 import org.leeroy.filecorelibrary.sftp.SftpFileEditor;
 import org.leeroy.filecorelibrary.zip.ZipFileEditor;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 
 import java.io.Serializable;
 

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.leeroy.mediacenter.video.ui;
+package org.leeroy.mediaplayer.video.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -34,8 +34,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.utils.oauth.OAuthDialog;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.utils.oauth.OAuthDialog;
 
 import java.text.NumberFormat;
 

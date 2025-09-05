@@ -53,7 +53,7 @@ category, and contents.
                 android:layout_width="@dimen/categories_list_width"
                 android:layout_height="0dip"
                 android:layout_weight="1"
-                class="org.leeroy.mediacenter.video.browser.BrowserCategoryVideo" />
+                class="org.leeroy.mediaplayer.video.browser.BrowserCategoryVideo" />
 
             <!-- Global resume at the middle and below the category view -->
 

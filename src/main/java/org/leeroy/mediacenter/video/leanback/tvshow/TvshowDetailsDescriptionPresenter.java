@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.leeroy.mediacenter.video.leanback.tvshow;
+package org.leeroy.mediaplayer.video.leanback.tvshow;
 
 import android.graphics.Paint;
 import androidx.leanback.widget.Presenter;
@@ -23,9 +23,9 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Tvshow;
-import org.leeroy.mediacenter.video.leanback.details.VideoDetailsFragment;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Tvshow;
+import org.leeroy.mediaplayer.video.leanback.details.VideoDetailsFragment;
 import org.leeroy.mediascraper.ShowTags;
 
 import java.text.SimpleDateFormat;

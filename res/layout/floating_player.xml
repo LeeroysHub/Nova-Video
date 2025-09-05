@@ -151,7 +151,7 @@
 
 
 
-        <org.leeroy.mediacenter.utils.seekbar.LeeroyFlixProgressSlider
+        <org.leeroy.mediaplayer.utils.seekbar.LeeroyFlixProgressSlider
             android:id="@+id/seek_progress"
             style="@style/PlayerSliderHorizontal"
             android:layout_width="fill_parent"

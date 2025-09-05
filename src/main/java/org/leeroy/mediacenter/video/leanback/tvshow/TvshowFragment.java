@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.tvshow;
+package org.leeroy.mediaplayer.video.leanback.tvshow;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
@@ -62,29 +62,29 @@ import androidx.leanback.transition.TransitionHelper;
 import androidx.leanback.transition.TransitionListener;
 import androidx.loader.content.CursorLoader;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.TvshowCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.mappers.VideoCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.object.Episode;
-import org.leeroy.mediacenter.video.browser.adapters.object.Tvshow;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.browser.loader.AllTvshowsLoader;
-import org.leeroy.mediacenter.video.browser.loader.EpisodesLoader;
-import org.leeroy.mediacenter.video.browser.loader.SeasonsLoader;
-import org.leeroy.mediacenter.video.browser.loader.TvshowLoader;
-import org.leeroy.mediacenter.video.browser.loader.VideoLoader;
-import org.leeroy.mediacenter.video.info.VideoInfoCommonClass;
-import org.leeroy.mediacenter.video.leanback.BackdropTask;
-import org.leeroy.mediacenter.video.leanback.CompatibleCursorMapperConverter;
-import org.leeroy.mediacenter.video.leanback.VideoViewClickedListener;
-import org.leeroy.mediacenter.video.leanback.details.LeeroyFlixDetailsOverviewRowPresenter;
-import org.leeroy.mediacenter.video.leanback.overlay.Overlay;
-import org.leeroy.mediacenter.video.leanback.presenter.PosterImageCardPresenter;
-import org.leeroy.mediacenter.video.leanback.presenter.PresenterUtils;
-import org.leeroy.mediacenter.video.leanback.scrapping.ManualShowScrappingActivity;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
-import org.leeroy.mediacenter.video.tvshow.TvshowSortOrderEntries;
-import org.leeroy.mediacenter.video.utils.PlayUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.TvshowCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.VideoCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Episode;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Tvshow;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.loader.AllTvshowsLoader;
+import org.leeroy.mediaplayer.video.browser.loader.EpisodesLoader;
+import org.leeroy.mediaplayer.video.browser.loader.SeasonsLoader;
+import org.leeroy.mediaplayer.video.browser.loader.TvshowLoader;
+import org.leeroy.mediaplayer.video.browser.loader.VideoLoader;
+import org.leeroy.mediaplayer.video.info.VideoInfoCommonClass;
+import org.leeroy.mediaplayer.video.leanback.BackdropTask;
+import org.leeroy.mediaplayer.video.leanback.CompatibleCursorMapperConverter;
+import org.leeroy.mediaplayer.video.leanback.VideoViewClickedListener;
+import org.leeroy.mediaplayer.video.leanback.details.LeeroyFlixDetailsOverviewRowPresenter;
+import org.leeroy.mediaplayer.video.leanback.overlay.Overlay;
+import org.leeroy.mediaplayer.video.leanback.presenter.PosterImageCardPresenter;
+import org.leeroy.mediaplayer.video.leanback.presenter.PresenterUtils;
+import org.leeroy.mediaplayer.video.leanback.scrapping.ManualShowScrappingActivity;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.video.tvshow.TvshowSortOrderEntries;
+import org.leeroy.mediaplayer.video.utils.PlayUtils;
 import org.leeroy.environment.NetworkState;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediascraper.ShowTags;

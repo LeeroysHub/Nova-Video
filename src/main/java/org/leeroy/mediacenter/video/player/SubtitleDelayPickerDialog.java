@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player;
+package org.leeroy.mediaplayer.video.player;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -32,8 +32,8 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.info.VideoInfoCommonClass;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.info.VideoInfoCommonClass;
 
 
 /**

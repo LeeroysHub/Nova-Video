@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.presenter;
+package org.leeroy.mediaplayer.video.leanback.presenter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -28,9 +28,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.leanback.UnavailablePosterBroadcastReceiver;
-import org.leeroy.mediacenter.video.picasso.ThumbnailRequestHandler;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.leanback.UnavailablePosterBroadcastReceiver;
+import org.leeroy.mediaplayer.video.picasso.ThumbnailRequestHandler;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 

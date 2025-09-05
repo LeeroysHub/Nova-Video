@@ -12,18 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.presenter;
+package org.leeroy.mediaplayer.video.browser.presenter;
 
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 
-import org.leeroy.mediacenter.utils.ThumbnailEngine;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterDefaultValuesList;
-import org.leeroy.mediacenter.video.browser.adapters.ItemViewType;
-import org.leeroy.mediacenter.video.browser.adapters.object.Season;
+import org.leeroy.mediaplayer.utils.ThumbnailEngine;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValuesList;
+import org.leeroy.mediaplayer.video.browser.adapters.ItemViewType;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Season;
 
 /**
  * Created by alexandre on 28/10/15.

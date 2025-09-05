@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.widget;
+package org.leeroy.mediaplayer.video.widget;
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -32,7 +32,7 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 public class VideoWidgetConfigure extends AppCompatActivity {
     private static final String TAG = "VideoWidgetConfigure";

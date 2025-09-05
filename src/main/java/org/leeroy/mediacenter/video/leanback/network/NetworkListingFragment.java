@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.network;
+package org.leeroy.mediaplayer.video.leanback.network;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -23,10 +23,10 @@ import androidx.appcompat.app.AlertDialog;
 
 import org.leeroy.customizedleanback.widget.MyTitleView;
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.utils.ShortcutDbAdapter;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.ShortcutDb;
-import org.leeroy.mediacenter.video.leanback.filebrowsing.ListingFragment;
+import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.ShortcutDb;
+import org.leeroy.mediaplayer.video.leanback.filebrowsing.ListingFragment;
 import org.leeroy.mediaprovider.NetworkScanner;
 
 import org.slf4j.Logger;

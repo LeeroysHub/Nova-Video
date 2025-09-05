@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos;
+package org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos;
 
 import android.database.Cursor;
 import android.net.Uri;
@@ -28,19 +28,19 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
-import org.leeroy.mediacenter.utils.ActionBarSubmenu;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.BrowserCategory;
-import org.leeroy.mediacenter.video.browser.ThumbnailEngineVideo;
-import org.leeroy.mediacenter.video.browser.adapters.PresenterAdapterByCursor;
-import org.leeroy.mediacenter.video.browser.adapters.SeasonsAdapter;
-import org.leeroy.mediacenter.video.browser.adapters.object.Episode;
-import org.leeroy.mediacenter.video.browser.adapters.object.Season;
-import org.leeroy.mediacenter.video.browser.loader.SeasonsLoader;
-import org.leeroy.mediacenter.video.browser.presenter.SeasonGridPresenter;
-import org.leeroy.mediacenter.video.browser.presenter.SeasonGridShortPresenter;
-import org.leeroy.mediacenter.video.browser.presenter.SeasonListPresenter;
-import org.leeroy.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.utils.ActionBarSubmenu;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.BrowserCategory;
+import org.leeroy.mediaplayer.video.browser.ThumbnailEngineVideo;
+import org.leeroy.mediaplayer.video.browser.adapters.PresenterAdapterByCursor;
+import org.leeroy.mediaplayer.video.browser.adapters.SeasonsAdapter;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Episode;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Season;
+import org.leeroy.mediaplayer.video.browser.loader.SeasonsLoader;
+import org.leeroy.mediaplayer.video.browser.presenter.SeasonGridPresenter;
+import org.leeroy.mediaplayer.video.browser.presenter.SeasonGridShortPresenter;
+import org.leeroy.mediaplayer.video.browser.presenter.SeasonListPresenter;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 public class BrowserListOfSeasons extends BrowserWithShowHeader  {

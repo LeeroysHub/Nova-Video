@@ -12,11 +12,11 @@
  * the License.
  */
 
-package org.leeroy.mediacenter.video.leanback.presenter;
+package org.leeroy.mediaplayer.video.leanback.presenter;
 
 import androidx.leanback.widget.AbstractDetailsDescriptionPresenter;
 
-import org.leeroy.mediacenter.video.leanback.adapter.object.Shortcut;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.Shortcut;
 
 public class ShortcutDetailsPresenter extends AbstractDetailsDescriptionPresenter {
 

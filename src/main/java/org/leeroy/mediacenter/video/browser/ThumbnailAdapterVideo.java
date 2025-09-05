@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
-import org.leeroy.mediacenter.utils.ThumbnailAdapter;
+import org.leeroy.mediaplayer.utils.ThumbnailAdapter;
 
 /**
  * This interface must be implemented by the adapter to be interfaced with a ThumbnailEngineVideo/ThumbnailRequester

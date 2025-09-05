@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser;
+package org.leeroy.mediaplayer.video.browser;
 
 import android.app.SearchManager;
 import android.content.Intent;
@@ -23,8 +23,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 
-import org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.BrowserByQuery;
-import org.leeroy.mediacenter.video.info.VideoInfoActivity;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserByQuery;
+import org.leeroy.mediaplayer.video.info.VideoInfoActivity;
 
 
 public class QueryBrowserActivityVideo extends AppCompatActivity {

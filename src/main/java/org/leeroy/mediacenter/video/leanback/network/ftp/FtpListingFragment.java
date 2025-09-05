@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.network.ftp;
+package org.leeroy.mediaplayer.video.leanback.network.ftp;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,10 +25,10 @@ import org.leeroy.filecorelibrary.MetaFile2;
 import org.leeroy.filecorelibrary.ftp.Session;
 import org.leeroy.filecorelibrary.samba.NetworkCredentialsDatabase;
 import org.leeroy.filecorelibrary.sftp.SFTPSession;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.FtpBrowser.BrowserBySFTP;
-import org.leeroy.mediacenter.video.leanback.filebrowsing.ListingFragment;
-import org.leeroy.mediacenter.video.leanback.network.NetworkListingFragment;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.FtpBrowser.BrowserBySFTP;
+import org.leeroy.mediaplayer.video.leanback.filebrowsing.ListingFragment;
+import org.leeroy.mediaplayer.video.leanback.network.NetworkListingFragment;
 
 import java.util.List;
 

@@ -36,7 +36,7 @@
         <!-- ************** WIDGET ************** -->
 
         <activity
-            android:name="org.leeroy.mediacenter.video.widget.VideoWidgetConfigure"
+            android:name="org.leeroy.mediaplayer.video.widget.VideoWidgetConfigure"
             android:exported="false"
             android:theme="@style/Theme.DialogMinWidth" >
             <intent-filter>
@@ -45,7 +45,7 @@
         </activity>
 
         <receiver
-            android:name="org.leeroy.mediacenter.video.widget.WidgetProviderVideo"
+            android:name="org.leeroy.mediaplayer.video.widget.WidgetProviderVideo"
             android:label="@string/nova"
             android:exported="false">
             <intent-filter>
@@ -63,23 +63,23 @@
         </receiver>
 
         <service
-            android:name="org.leeroy.mediacenter.video.widget.RemoteViewsServiceMovies"
+            android:name="org.leeroy.mediaplayer.video.widget.RemoteViewsServiceMovies"
             android:exported="false"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
         <service
-            android:name="org.leeroy.mediacenter.video.widget.RemoteViewsServiceTVShows"
+            android:name="org.leeroy.mediaplayer.video.widget.RemoteViewsServiceTVShows"
             android:exported="false"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
         <service
-            android:name="org.leeroy.mediacenter.video.widget.RemoteViewsServiceAllVideos"
+            android:name="org.leeroy.mediaplayer.video.widget.RemoteViewsServiceAllVideos"
             android:exported="false"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
         <service
-            android:name="org.leeroy.mediacenter.video.widget.RemoteViewsServiceRecentlyAdded"
+            android:name="org.leeroy.mediaplayer.video.widget.RemoteViewsServiceRecentlyAdded"
             android:exported="false"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
         <service
-            android:name="org.leeroy.mediacenter.video.widget.RemoteViewsServiceRecentlyPlayed"
+            android:name="org.leeroy.mediaplayer.video.widget.RemoteViewsServiceRecentlyPlayed"
             android:exported="false"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>

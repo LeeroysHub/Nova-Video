@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.network.webdav;
+package org.leeroy.mediaplayer.video.leanback.network.webdav;
 
-import org.leeroy.mediacenter.video.leanback.filebrowsing.ListingActivity;
-import org.leeroy.mediacenter.video.leanback.filebrowsing.ListingFragment;
+import org.leeroy.mediaplayer.video.leanback.filebrowsing.ListingActivity;
+import org.leeroy.mediaplayer.video.leanback.filebrowsing.ListingFragment;
 
-import org.leeroy.mediacenter.video.leanback.network.NetworkListingFragment;
+import org.leeroy.mediaplayer.video.leanback.network.NetworkListingFragment;
 
 public class WebdavListingActivity extends ListingActivity {
 

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.presenter;
+package org.leeroy.mediaplayer.video.browser.presenter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -23,11 +23,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.utils.ThumbnailEngine;
-import org.leeroy.mediacenter.video.browser.adapters.AdapterDefaultValues;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.player.PlayerActivity;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.utils.ThumbnailEngine;
+import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValues;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.player.PlayerActivity;
 
 import httpimage.HttpImageManager;
 

@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.info;
+package org.leeroy.mediaplayer.video.info;
 
-import static org.leeroy.mediacenter.utils.ISO639codes.generateTrackName;
+import static org.leeroy.mediaplayer.utils.ISO639codes.generateTrackName;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -23,12 +23,12 @@ import android.net.Uri;
 
 import org.leeroy.filecorelibrary.FileEditor;
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.filecoreextension.upnp2.FileEditorFactoryWithUpnp;
-import org.leeroy.mediacenter.filecoreextension.upnp2.StreamUriFinder;
-import org.leeroy.mediacenter.filecoreextension.upnp2.UpnpServiceManager;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
-import org.leeroy.mediacenter.video.utils.VideoMetadata;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.FileEditorFactoryWithUpnp;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.StreamUriFinder;
+import org.leeroy.mediaplayer.filecoreextension.upnp2.UpnpServiceManager;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.utils.VideoMetadata;
 import org.leeroy.medialib.IMediaPlayer;
 import org.leeroy.medialib.LibAvos;
 import org.leeroy.mediaprovider.video.VideoStore;

@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback;
+package org.leeroy.mediaplayer.video.leanback;
 
 import androidx.leanback.widget.HeaderItem;
 import androidx.leanback.widget.ListRow;
 import androidx.leanback.widget.ObjectAdapter;
 
-import org.leeroy.mediacenter.video.leanback.adapter.object.Icon;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.Icon;
 
 /**
  * This class is only to be able to make the difference between regular ListRow for which the

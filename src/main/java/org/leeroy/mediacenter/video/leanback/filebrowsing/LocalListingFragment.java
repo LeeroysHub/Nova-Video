@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.filebrowsing;
+package org.leeroy.mediaplayer.video.leanback.filebrowsing;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -23,8 +23,8 @@ import android.widget.Toast;
 import org.leeroy.customizedleanback.widget.MyTitleView;
 import org.leeroy.environment.LeeroyFlixUtils;
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.utils.BlacklistedDbAdapter;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.utils.BlacklistedDbAdapter;
+import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaprovider.LeeroyFlixMediaIntent;
 import org.leeroy.mediaprovider.video.Blacklist;
 import org.leeroy.mediaprovider.video.VideoStoreImportService;

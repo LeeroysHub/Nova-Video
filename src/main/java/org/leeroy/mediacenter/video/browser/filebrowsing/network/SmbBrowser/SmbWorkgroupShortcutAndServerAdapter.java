@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network.SmbBrowser;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network.SmbBrowser;
 
 import android.content.Context;
 import android.net.Uri;
@@ -24,9 +24,9 @@ import android.view.ViewGroup;
 
 import org.leeroy.filecorelibrary.samba.Share;
 import org.leeroy.filecorelibrary.samba.Workgroup;
-import org.leeroy.mediacenter.utils.ShortcutDbAdapter;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.WorkgroupShortcutAndServerAdapter;
+import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.WorkgroupShortcutAndServerAdapter;
 
 import java.util.List;
 

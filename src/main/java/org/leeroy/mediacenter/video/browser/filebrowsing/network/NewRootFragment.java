@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.filebrowsing.network;
+package org.leeroy.mediaplayer.video.browser.filebrowsing.network;
 
 import android.content.Context;
 import android.net.Uri;
@@ -33,16 +33,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.leeroy.filecorelibrary.FileUtils;
-import org.leeroy.mediacenter.utils.ActionItem;
-import org.leeroy.mediacenter.utils.QuickAction;
-import org.leeroy.mediacenter.utils.ShortcutDbAdapter;
-import org.leeroy.mediacenter.video.CustomApplication;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.browser.BrowserCategory;
-import org.leeroy.mediacenter.video.browser.ShortcutDb;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.FtpBrowser.BrowserBySFTP;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.SmbBrowser.BrowserBySmb;
-import org.leeroy.mediacenter.video.browser.filebrowsing.network.UpnpBrowser.BrowserByUpnp;
+import org.leeroy.mediaplayer.utils.ActionItem;
+import org.leeroy.mediaplayer.utils.QuickAction;
+import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
+import org.leeroy.mediaplayer.video.CustomApplication;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.browser.BrowserCategory;
+import org.leeroy.mediaplayer.video.browser.ShortcutDb;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.FtpBrowser.BrowserBySFTP;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.SmbBrowser.BrowserBySmb;
+import org.leeroy.mediaplayer.video.browser.filebrowsing.network.UpnpBrowser.BrowserByUpnp;
 import org.leeroy.mediaprovider.NetworkScanner;
 import org.leeroy.mediaprovider.video.NetworkScannerServiceVideo;
 

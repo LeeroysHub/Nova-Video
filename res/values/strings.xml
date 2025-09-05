@@ -306,7 +306,7 @@
     </plurals>
 
     <!-- Media Center -->
-    <string name="mediacenterlabel">Media Center</string>
+    <string name="mediaplayerlabel">Media Center</string>
 
     <string name="view_mode">Display mode</string>
     <string name="view_mode_list">List</string>

@@ -13,13 +13,13 @@
 // limitations under the License.
 
 
-package org.leeroy.mediacenter.video.browser.adapters;
+package org.leeroy.mediaplayer.video.browser.adapters;
 
 import android.content.Context;
 import android.database.Cursor;
 
-import org.leeroy.mediacenter.video.browser.adapters.mappers.TvshowCursorMapper;
-import org.leeroy.mediacenter.video.browser.adapters.object.Video;
+import org.leeroy.mediaplayer.video.browser.adapters.mappers.TvshowCursorMapper;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 public class AllTvShowsAdapter extends PresenterAdapterByCursor  implements AdapterByVideoObjectsInterface{

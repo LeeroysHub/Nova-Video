@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
@@ -29,8 +29,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 import org.leeroy.filecorelibrary.zip.ZipUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.ui.NovaProgressDialog;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.ui.NovaProgressDialog;
 import org.leeroy.mediaprovider.video.VideoOpenHelper;
 
 import java.io.File;

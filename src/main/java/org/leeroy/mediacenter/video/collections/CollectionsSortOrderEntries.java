@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.collections;
+package org.leeroy.mediaplayer.video.collections;
 
 import android.content.Context;
 import android.util.SparseArray;
 
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 import java.util.ArrayList;

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback.tvshow;
+package org.leeroy.mediaplayer.video.leanback.tvshow;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -40,20 +40,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.info.VideoInfoCommonClass;
-import org.leeroy.mediacenter.video.leanback.BackdropTask;
-import org.leeroy.mediacenter.video.leanback.adapter.object.WebPageLink;
-import org.leeroy.mediacenter.video.leanback.details.LeeroyFlixDetailsOverviewRowPresenter;
-import org.leeroy.mediacenter.video.leanback.details.BackgroundColorPresenter;
-import org.leeroy.mediacenter.video.leanback.details.CastRow;
-import org.leeroy.mediacenter.video.leanback.details.CastRowPresenter;
-import org.leeroy.mediacenter.video.leanback.details.PlotAndGenresRow;
-import org.leeroy.mediacenter.video.leanback.details.PlotAndGenresRowPresenter;
-import org.leeroy.mediacenter.video.leanback.overlay.Overlay;
-import org.leeroy.mediacenter.video.leanback.presenter.ScraperImageBackdropPresenter;
-import org.leeroy.mediacenter.video.leanback.presenter.ScraperImagePosterPresenter;
-import org.leeroy.mediacenter.video.utils.WebUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.info.VideoInfoCommonClass;
+import org.leeroy.mediaplayer.video.leanback.BackdropTask;
+import org.leeroy.mediaplayer.video.leanback.adapter.object.WebPageLink;
+import org.leeroy.mediaplayer.video.leanback.details.LeeroyFlixDetailsOverviewRowPresenter;
+import org.leeroy.mediaplayer.video.leanback.details.BackgroundColorPresenter;
+import org.leeroy.mediaplayer.video.leanback.details.CastRow;
+import org.leeroy.mediaplayer.video.leanback.details.CastRowPresenter;
+import org.leeroy.mediaplayer.video.leanback.details.PlotAndGenresRow;
+import org.leeroy.mediaplayer.video.leanback.details.PlotAndGenresRowPresenter;
+import org.leeroy.mediaplayer.video.leanback.overlay.Overlay;
+import org.leeroy.mediaplayer.video.leanback.presenter.ScraperImageBackdropPresenter;
+import org.leeroy.mediaplayer.video.leanback.presenter.ScraperImagePosterPresenter;
+import org.leeroy.mediaplayer.video.utils.WebUtils;
 import org.leeroy.mediascraper.ScraperImage;
 import org.leeroy.mediascraper.ShowTags;
 import org.leeroy.mediascraper.TagsFactory;

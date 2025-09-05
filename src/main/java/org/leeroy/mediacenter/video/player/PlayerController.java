@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.player;
+package org.leeroy.mediaplayer.video.player;
 
 import static androidx.core.content.ContextCompat.getDrawable;
 
@@ -56,15 +56,15 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.leeroy.mediacenter.utils.RepeatingImageButton;
-import org.leeroy.mediacenter.utils.MediaUtils;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.player.tvmenu.TVCardDialog;
-import org.leeroy.mediacenter.video.player.tvmenu.TVCardView;
-import org.leeroy.mediacenter.video.player.tvmenu.TVMenuAdapter;
-import org.leeroy.mediacenter.video.player.tvmenu.TVUtils;
-import org.leeroy.mediacenter.video.utils.MiscUtils;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.utils.RepeatingImageButton;
+import org.leeroy.mediaplayer.utils.MediaUtils;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVCardDialog;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVCardView;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVMenuAdapter;
+import org.leeroy.mediaplayer.video.player.tvmenu.TVUtils;
+import org.leeroy.mediaplayer.video.utils.MiscUtils;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -72,7 +72,7 @@ import java.util.Formatter;
 import java.util.Locale;
 
 import static org.leeroy.environment.LeeroyFlixFeatures.isChromeOS;
-import static org.leeroy.mediacenter.video.utils.VideoPreferencesCommon.KEY_PLAYBACK_SPEED;
+import static org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon.KEY_PLAYBACK_SPEED;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

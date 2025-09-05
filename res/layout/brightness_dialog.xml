@@ -48,7 +48,7 @@
 
 
     </LinearLayout>
-    <org.leeroy.mediacenter.video.player.LeeroyFlixSeekBar android:id="@+id/brightness_seekbar"
+    <org.leeroy.mediaplayer.video.player.LeeroyFlixSeekBar android:id="@+id/brightness_seekbar"
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_weight="1"

@@ -13,14 +13,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.browser.dialogs;
+package org.leeroy.mediaplayer.video.browser.dialogs;
 
 import android.app.Dialog;
 import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
 
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.ui.NovaProgressDialog;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.ui.NovaProgressDialog;
 
 /**
  * Created by alexandre on 18/05/15.

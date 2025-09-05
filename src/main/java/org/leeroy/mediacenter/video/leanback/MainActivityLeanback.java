@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback;
+package org.leeroy.mediaplayer.video.leanback;
 
 import static org.leeroy.filecorelibrary.FileUtils.hasManageExternalStoragePermission;
 
@@ -26,16 +26,16 @@ import androidx.annotation.NonNull;
 
 import android.view.KeyEvent;
 
-import org.leeroy.mediacenter.video.CustomApplication;
-import org.leeroy.mediacenter.video.DensityTweak;
-import org.leeroy.mediacenter.video.EntryActivity;
-import org.leeroy.mediacenter.video.R;
-import org.leeroy.mediacenter.video.UiChoiceDialog;
-import org.leeroy.mediacenter.video.browser.BootupRecommandationService;
-import org.leeroy.mediacenter.video.browser.PermissionChecker;
-import org.leeroy.mediacenter.video.leanback.settings.VideoSettingsActivity;
-import org.leeroy.mediacenter.video.utils.VideoPreferencesCommon;
-import org.leeroy.mediacenter.video.leanback.channels.ChannelManager;
+import org.leeroy.mediaplayer.video.CustomApplication;
+import org.leeroy.mediaplayer.video.DensityTweak;
+import org.leeroy.mediaplayer.video.EntryActivity;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediaplayer.video.UiChoiceDialog;
+import org.leeroy.mediaplayer.video.browser.BootupRecommandationService;
+import org.leeroy.mediaplayer.video.browser.PermissionChecker;
+import org.leeroy.mediaplayer.video.leanback.settings.VideoSettingsActivity;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
+import org.leeroy.mediaplayer.video.leanback.channels.ChannelManager;
 
 
 import org.leeroy.mediascraper.AutoScrapeService;

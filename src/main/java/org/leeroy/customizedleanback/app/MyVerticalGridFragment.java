@@ -32,7 +32,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.leeroy.customizedleanback.widget.MyTitleView;
-import org.leeroy.mediacenter.video.R;
+import org.leeroy.mediaplayer.video.R;
 
 /**
  * A fragment for creating leanback vertical grids.

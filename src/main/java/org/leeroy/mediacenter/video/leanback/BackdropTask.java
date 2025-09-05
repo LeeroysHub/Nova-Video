@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.leeroy.mediacenter.video.leanback;
+package org.leeroy.mediaplayer.video.leanback;
 
 import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
@@ -23,8 +23,8 @@ import android.util.Log;
 
 import androidx.leanback.app.BackgroundManager;
 
-import org.leeroy.mediacenter.video.browser.adapters.object.Base;
-import org.leeroy.mediacenter.video.browser.adapters.object.Collection;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Base;
+import org.leeroy.mediaplayer.video.browser.adapters.object.Collection;
 import org.leeroy.mediascraper.BaseTags;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
