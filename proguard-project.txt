@@ -23,30 +23,30 @@
 -keepattributes SourceFile,LineNumberTable
 -keepattributes Exceptions,InnerClasses
 
--keep public class org.leeroy.media.CustomApplication { *; }
--keep class com.archos.mediacenter.LibAvosReceiver
--keep class com.archos.mediacenter.video.utils.CodecDiscovery {*;}
+-keep public class org.leeroy.media.LeeroyFlixApp { *; }
+-keep class org.leeroy.mediaplayer.LibAvosReceiver
+-keep class org.leeroy.mediaplayer.video.utils.CodecDiscovery {*;}
 
 #### MediaLib ####
--keep class com.archos.medialib.AvosMediaPlayer {
+-keep class org.leeroy.medialib.AvosMediaPlayer {
   private void postEventFromNative(java.lang.Object, int, int, int, java.lang.Object);
 }
--keep class com.archos.medialib.Subtitle {
+-keep class org.leeroy.medialib.Subtitle {
   public java.lang.Object createTimedTextSubtitle(int, int, java.lang.String);
   public java.lang.Object createTimedBitmapSubtitle(int, int, int, int, int, int, android.graphics.Bitmap);
 }
--keep class com.archos.medialib.AvosMediaMetadataRetriever {
+-keep class org.leeroy.medialib.AvosMediaMetadataRetriever {
   private long mMediaMetadataRetrieverHandle;
 }
--keep class com.archos.medialib.AvosMediaPlayer {
+-keep class org.leeroy.medialib.AvosMediaPlayer {
   private long mMediaPlayerHandle;
   private long mNativeWindowHandle;
 }
--keep class com.archos.medialib.AvosBitmapHelper {
+-keep class org.leeroy.medialib.AvosBitmapHelper {
   public android.graphics.Bitmap createRGBBitmap(int[], int, int, int, int, int, int);
 }
 
--keep class com.archos.mediacenter.video.browser.Browser** { *; }
+-keep class org.leeroy.mediaplayer.video.browser.Browser** { *; }
 
 -dontwarn javax.**
 -dontwarn org.eclipse.jetty.jmx.ObjectMBean

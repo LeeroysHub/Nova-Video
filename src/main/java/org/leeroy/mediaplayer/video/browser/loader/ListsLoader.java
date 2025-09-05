@@ -1,0 +1,16 @@
+package org.leeroy.mediaplayer.video.browser.loader;
+
+import android.content.Context;
+import androidx.loader.content.CursorLoader;
+
+import org.leeroy.mediaprovider.video.VideoStore;
+
+/**
+ * Created by alexandre on 16/05/17.
+ */
+
+public class ListsLoader extends CursorLoader {
+    public ListsLoader(Context context) {
+        super(context, VideoStore.List.LIST_CONTENT_URI, VideoStore.List.Columns.COLUMNS, null, null, null);
+    }
+}

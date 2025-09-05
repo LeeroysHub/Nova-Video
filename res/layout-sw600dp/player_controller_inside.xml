@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.archos.mediacenter.video.player.PlayerControlsRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<org.leeroy.mediaplayer.video.player.PlayerControlsRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/playerControllers"
     android:layout_width="fill_parent"
@@ -86,7 +86,7 @@
             android:paddingLeft="@dimen/player_button_padding_half"
             android:paddingRight="@dimen/player_button_padding_half">
 
-            <com.archos.mediacenter.utils.seekbar.ArchosProgressSlider
+            <org.leeroy.mediaplayer.utils.seekbar.LeeroyFlixProgressSlider
                 android:id="@+id/seek_progress"
                 style="@style/PlayerSliderHorizontal"
                 android:layout_width="fill_parent"
@@ -209,4 +209,4 @@
         android:visibility="gone"
         android:elevation="10dp" />
 
-</com.archos.mediacenter.video.player.PlayerControlsRelativeLayout>
+</org.leeroy.mediaplayer.video.player.PlayerControlsRelativeLayout>
