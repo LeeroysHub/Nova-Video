@@ -427,7 +427,7 @@
     <string name="player_plugin_video_audio_msg">This file contains an <xliff:g id="video">%1$s</xliff:g> video format and an <xliff:g id="audio">%2$s</xliff:g> audio format.</string>
     <string name="player_plugin_purchase_msg">You need to purchase the <xliff:g id="plugin">%1$s</xliff:g></string>
     <string name="player_plugin_purchase">Go to the Store</string>
-    <string name="player_plugin_purchase_archos_msg">You can purchase additional codec plug-ins on www.archos.com.</string>
+    <string name="player_plugin_purchase_leeroyflix_msg">You can purchase additional codec plug-ins on www.leeroyflix.com.</string>
     <string name="player_plugin_purchase_google_play_msg">You can purchase additional codec plug-ins on Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Go to Google Play</string>
     <string name="plugin_update_required_title">Codec update required</string>
@@ -652,7 +652,7 @@
     <!--  Title of the video picker activity. -->
     <string name="video_picker_title">Select video</string>
 
-    <!-- Archos File Info -->
+    <!-- LeeroyFlix File Info -->
 
     <string name="video_info_custom_search_file_hint">"\"Moviename\" or \"Showname S01E01\""</string>
     <string name="video_info_custom_search_show_hint">Name of the TV show</string>
@@ -916,7 +916,7 @@
     <string name="leanback_unscrap">@string/scrap_remove</string>
     <string name="leanback_legacy_ui">Legacy interface</string>
     <string name="leanback_hint_long_press_on_back">HINT: long press on BACK key closes the file browser</string>
-    <string name="leanback_archos_video_webview">LeeroyFlix Video WebView</string>
+    <string name="leanback_leeroyflix_video_webview">LeeroyFlix Video WebView</string>
     <string name="file_access_error">Did not manage to access the file</string>
 
     <string name="interface_size">Interface size</string>

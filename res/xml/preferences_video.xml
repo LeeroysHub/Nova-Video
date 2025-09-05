@@ -352,7 +352,7 @@
             android:title="@string/upgrade_to_add_free_version"
             app:iconSpaceReserved="false"/>
 
-        <com.archos.mediacenter.video.utils.TraktSigninDialogPreference
+        <org.leeroy.mediacenter.video.utils.TraktSigninDialogPreference
             android:dialogTitle="@string/trakt_signin_dialog_title"
             android:key="trakt_signin"
             android:title="@string/trakt_signin_title"
@@ -378,7 +378,7 @@
             android:title="@string/trakt_sync_trakt_resume_title"
             app:iconSpaceReserved="false"/>
 
-        <com.archos.mediacenter.video.utils.TraktWipeDialogPreference
+        <org.leeroy.mediacenter.video.utils.TraktWipeDialogPreference
             android:key="trakt_wipe"
             android:title="@string/trakt_wipe_title"
             app:iconSpaceReserved="false"/>
@@ -559,13 +559,13 @@
 
     <PreferenceCategory android:title="@string/torrent_category"
         app:iconSpaceReserved="false">
-        <com.archos.mediacenter.video.utils.TorrentPathDialogPreference
+        <org.leeroy.mediacenter.video.utils.TorrentPathDialogPreference
             android:dialogTitle="@string/torrent_path"
             android:key="preferences_torrent_path"
             android:title="@string/torrent_path"
             app:iconSpaceReserved="false" />
     
-        <com.archos.mediacenter.video.utils.TorrentBlocklistDialogPreference
+        <org.leeroy.mediacenter.video.utils.TorrentBlocklistDialogPreference
             android:dialogTitle="@string/torrent_blocklist"
             android:key="preferences_torrent_blocklist"
             android:title="@string/torrent_blocklist" 

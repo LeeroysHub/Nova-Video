@@ -84,7 +84,7 @@
         android:layout_toRightOf="@id/thumbnail"
         android:singleLine="true"
         android:layout_width="match_parent" />
-    <com.archos.mediacenter.video.browser.BrowserByIndexedVideos.ArchosFadeView
+    <org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.LeeroyFlixFadeView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:requiresFadingEdge="vertical"
@@ -106,7 +106,7 @@
 
 
 
-    </com.archos.mediacenter.video.browser.BrowserByIndexedVideos.ArchosFadeView>
+    </org.leeroy.mediacenter.video.browser.BrowserByIndexedVideos.LeeroyFlixFadeView>
 
     <TextView
         android:id="@+id/view_more"

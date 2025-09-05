@@ -151,7 +151,7 @@
 
 
 
-        <com.archos.mediacenter.utils.seekbar.ArchosProgressSlider
+        <org.leeroy.mediacenter.utils.seekbar.LeeroyFlixProgressSlider
             android:id="@+id/seek_progress"
             style="@style/PlayerSliderHorizontal"
             android:layout_width="fill_parent"

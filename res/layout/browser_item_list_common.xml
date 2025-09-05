@@ -58,7 +58,7 @@
 
         <!-- resume_notif is only used in case we don't know the duration of the video -->
 
-        <com.archos.mediacenter.utils.ImageLabel
+        <org.leeroy.mediacenter.utils.ImageLabel
             android:id="@+id/resume_notif_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
             android:src="@drawable/label_resume"
             android:visibility="gone" />
 
-        <com.archos.mediacenter.utils.ImageLabel
+        <org.leeroy.mediacenter.utils.ImageLabel
             android:id="@+id/bookmark_notif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
             android:visibility="gone"
             android:src="@drawable/label_bookmark" />
 
-        <com.archos.mediacenter.utils.ImageLabel
+        <org.leeroy.mediacenter.utils.ImageLabel
             android:id="@+id/subtitle_notif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             android:clickable="false"
             android:src="@drawable/label_subtitles" />
 
-        <com.archos.mediacenter.utils.ImageLabel
+        <org.leeroy.mediacenter.utils.ImageLabel
             android:id="@+id/network_notif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

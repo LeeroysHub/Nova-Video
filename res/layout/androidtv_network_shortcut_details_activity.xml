@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright 2017 Archos SA
+  Copyright 2017 LeeroyFlix
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_browse_fragment"
-    android:name="com.archos.mediacenter.video.leanback.network.NetworkShortcutDetailsFragment"
+    android:name="org.leeroy.mediacenter.video.leanback.network.NetworkShortcutDetailsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:deviceIds="tv"

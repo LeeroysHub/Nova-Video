@@ -256,7 +256,7 @@
     <string name="player_plugin_video_audio_msg">Den här filen innehåller ett <xliff:g id="video">%1$s</xliff:g> videoformat och ett <xliff:g id="audio">%2$s</xliff:g> ljudformat.</string>
     <string name="player_plugin_purchase_msg">Du måste köpa <xliff:g id="plugin">%1$s</xliff:g></string>
     <string name="player_plugin_purchase">Gå till butiken</string>
-    <string name="player_plugin_purchase_archos_msg">Du kan köpa ytterligare codec plug-ins på www.archos.com.</string>
+    <string name="player_plugin_purchase_leeroyflix_msg">Du kan köpa ytterligare codec plug-ins på www.leeroyflix.com.</string>
     <string name="player_plugin_purchase_google_play_msg">Du kan köpa ytterligare codec plug-ins på Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Gå till Google Play</string>
     <string name="plugin_update_required_title">Kodekuppdatering krävs</string>
@@ -328,7 +328,7 @@
     <string name="preferences_force_audio_passthrough_summary">Överför komprimerat ljud över HDMI eller S/PDIF. ⚠ Experimentell: kan resultera i A/V ur synk</string>
     <string name="preferences_disable_downmix_title">Inaktivera nedmixning av stereoljud</string>
     <!--  Title of the video picker activity. -->
-    <!-- Archos File Info -->
+    <!-- LeeroyFlix File Info -->
     <!-- Help overlay -->
     <!-- Info dialog, not indexed file -->
     <!-- Brightness -->

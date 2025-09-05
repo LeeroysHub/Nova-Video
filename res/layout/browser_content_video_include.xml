@@ -28,17 +28,17 @@
         android:focusable="true"
         android:visibility="gone" />
 
-    <com.archos.mediacenter.video.browser.HeaderGridView
-        android:id="@+id/archos_grid_view"
-        style="@style/ArchosGridView"
+    <org.leeroy.mediacenter.video.browser.HeaderGridView
+        android:id="@+id/leeroyflix_grid_view"
+        style="@style/LeeroyFlixGridView"
         android:layout_below="@id/connection_button"
         android:layout_alignWithParentIfMissing="true"
         android:drawSelectorOnTop="true"
         android:visibility="gone" />
 
     <ListView
-        android:id="@+id/archos_list_view"
-        style="@style/ArchosGridView"
+        android:id="@+id/leeroyflix_list_view"
+        style="@style/LeeroyFlixGridView"
         android:layout_below="@id/connection_button"
         android:layout_alignWithParentIfMissing="true"
         android:divider="@null"

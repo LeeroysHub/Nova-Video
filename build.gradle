@@ -96,7 +96,7 @@ if (shouldApplyPlayPlugin) {
 //}
 
 android {
-    namespace = 'com.archos.mediacenter.video'
+    namespace = 'org.leeroy.mediacenter.video'
     signingConfigs {
         release {
             if (keystorePropertiesFile.exists()) {
