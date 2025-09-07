@@ -1,8 +1,6 @@
-### Video
+### LeeroyFlix - Video Player
 
-This git repo is part of NOVA opeN sOurce Video plAyer, a video player software for Android.
-Please see the entry point repo: https://github.com/nova-video-player/aos-AVP
+Please see the main repo:
+https://github.com/LeeroysHub/LeeroyFLix.git
 
 This repo contains the player front-end and the main UI.
-
-NOVA is a fork of the open source project LeeroyFlix Video Player Community Edition available here https://github.org/leeroy-sa/aos-AVP
