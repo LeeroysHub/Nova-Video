@@ -510,7 +510,8 @@ public class Player implements IPlayerControl,
         }
         new Thread(() -> {
             try {
-                mMediaPlayer = MediaFactory.createPlayer(mContext, mForceSoftwareDecoding, (mUri.toString().toLowerCase().endsWith(".mp4")));
+                // I tried forcing Android fallback, make shit worse: (mUri.toString().toLowerCase().endsWith(".mp4")
+                mMediaPlayer = MediaFactory.createPlayer(mContext, mForceSoftwareDecoding);
                 mMediaPlayer.setOnPreparedListener(this);
                 mMediaPlayer.setOnCompletionListener(this);
                 mMediaPlayer.setOnInfoListener(this);
