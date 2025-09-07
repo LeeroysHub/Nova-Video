@@ -238,7 +238,7 @@ public class Player implements IPlayerControl,
 
     private boolean hasBeenSet;
     private SurfaceController mOldSurfaceController;
-    private boolean mForceSoftwareDecoding;
+    private boolean mForceNoAndroidDecoding;
     private int mLastExistState = -1;
 
 
@@ -339,13 +339,13 @@ public class Player implements IPlayerControl,
         mDuration = -1;
     }
 
-    public Player(Context context, Window window, SurfaceController surfaceController, boolean forceSoftwareDecoding) { //force software decoding is specific for floating player
+    public Player(Context context, Window window, SurfaceController surfaceController, boolean forceNoAndroidDecoding) { //force software decoding is specific for floating player
         sPlayer = this;
         log.debug("Player");
         reset();
         mSurfaceHolder = null;
         mVideoTexture = null;
-        mForceSoftwareDecoding =forceSoftwareDecoding;
+        mForceNoAndroidDecoding =forceNoAndroidDecoding;
         mMediaPlayer = null;
         mUri = null;
         mIsTorrent = false;
@@ -510,7 +510,11 @@ public class Player implements IPlayerControl,
         }
         new Thread(() -> {
             try {
-                mMediaPlayer = MediaFactory.createPlayer(mContext, mForceSoftwareDecoding);
+                //Android plays H.264 well, but fails some of my media. until I can solve, we have a minual override so fam can be happy!
+                //boolean leeroysOverride = ((org.leeroy.mediaplayer.video.player.PlayerActivity) mContext).mMovieOrShowName.toLowerCase().startsWith("alf");                
+
+                // I tried forcing Android fallback, make shit worse: (mUri.toString().toLowerCase().endsWith(".mp4")
+                mMediaPlayer = MediaFactory.createPlayer(mContext, false);
                 mMediaPlayer.setOnPreparedListener(this);
                 mMediaPlayer.setOnCompletionListener(this);
                 mMediaPlayer.setOnInfoListener(this);
