@@ -510,7 +510,7 @@ public class Player implements IPlayerControl,
         }
         new Thread(() -> {
             try {
-                mMediaPlayer = MediaFactory.createPlayer(mContext, mForceSoftwareDecoding);
+                mMediaPlayer = MediaFactory.createPlayer(mContext, mForceSoftwareDecoding, (mUri.toString().toLowerCase().endsWith(".mp4")));
                 mMediaPlayer.setOnPreparedListener(this);
                 mMediaPlayer.setOnCompletionListener(this);
                 mMediaPlayer.setOnInfoListener(this);
