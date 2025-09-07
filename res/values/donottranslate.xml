@@ -28,6 +28,7 @@
     <string name="preferences_hide_external_menus_key">hide_external_menus</string>
     <string name="preferences_display_recently_played_key">display_recently_played</string>
     <string name="preferences_display_recently_added_key">display_recently_added</string>
+    <!-- <string name="preferences_leeroys_override_key">leeroys_override</string> -->
 
     <string name="nfo_export_manual_prefkey">export_manual_prefkey</string>
     <string name="rescrap_all_prefkey">rescrap_all_prefkey</string>
