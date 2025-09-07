@@ -208,7 +208,7 @@
             app:iconSpaceReserved="false"/>
 
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="display_resume_box"
             android:summary="@string/preferences_display_resume_box_summary"
             android:title="@string/preferences_display_resume_box"
@@ -307,7 +307,7 @@
         </Preference>
 
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="subtitles_hide_default"
             android:summary="@string/subtitles_hide_default_summary"
             android:title="@string/subtitles_hide_default"
@@ -451,7 +451,7 @@
             app:iconSpaceReserved="false"/>
 
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="network_bookmarks"
             android:summary="@string/network_bookmarks_summary"
             android:title="@string/network_bookmarks"
