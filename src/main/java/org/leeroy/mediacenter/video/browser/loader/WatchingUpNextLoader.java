@@ -36,49 +36,49 @@ public class WatchingUpNextLoader extends VideoLoader {
         if (builder.length() > 0)
             builder.append(" AND ");
 
-        // display first episodes or movies being watched (bookmark>0 and LeeroyFlix_traktSeen=0) ordered by LeeroyFlix_lastTimePlayed with more recent first
-        // then next episodes in tvshow or movie in collection based on LeeroyFlix_traktSeen=1 viewed ones ordered by LeeroyFlix_lastTimePlayed of the former episode watched that was LeeroyFlix_traktSeen=1.
+        // display first episodes or movies being watched (bookmark>0 and lfx_traktSeen=0) ordered by lfx_lastTimePlayed with more recent first
+        // then next episodes in tvshow or movie in collection based on lfx_traktSeen=1 viewed ones ordered by lfx_lastTimePlayed of the former episode watched that was lfx_traktSeen=1.
         // /!\ note that it assumes that there is no more than 1000 episodes in a season
 
         // Index-optimized query: Restructured to leverage new performance indexes
         builder.append(
                 "(" +
                 // Part 1: Next episodes in TV series
-                "(s_id IS NOT NULL AND LeeroyFlix_traktSeen = 0 AND leeroyflix_hiddenbyuser = 0 AND (bookmark IS NULL OR bookmark <= 0) AND " +
-                "_id IN (SELECT _id FROM (SELECT v._id, ROW_NUMBER() OVER(PARTITION BY v.s_id ORDER BY v.e_season, v.e_episode) as rn FROM video v JOIN ( SELECT s_id, MAX(e_season * 1000 + e_episode) AS max_watched_episode FROM video WHERE LeeroyFlix_traktSeen = 1 AND leeroyflix_hiddenbyuser = 0 GROUP BY s_id ) AS lw ON v.s_id = lw.s_id WHERE v.LeeroyFlix_traktSeen = 0 AND v.leeroyflix_hiddenbyuser = 0 AND (v.e_season * 1000 + v.e_episode) > lw.max_watched_episode ) WHERE rn = 1))" +
+                "(s_id IS NOT NULL AND lfx_traktSeen = 0 AND lfx_hiddenbyuser = 0 AND (bookmark IS NULL OR bookmark <= 0) AND " +
+                "_id IN (SELECT _id FROM (SELECT v._id, ROW_NUMBER() OVER(PARTITION BY v.s_id ORDER BY v.e_season, v.e_episode) as rn FROM video v JOIN ( SELECT s_id, MAX(e_season * 1000 + e_episode) AS max_watched_episode FROM video WHERE lfx_traktSeen = 1 AND lfx_hiddenbyuser = 0 GROUP BY s_id ) AS lw ON v.s_id = lw.s_id WHERE v.lfx_traktSeen = 0 AND v.lfx_hiddenbyuser = 0 AND (v.e_season * 1000 + v.e_episode) > lw.max_watched_episode ) WHERE rn = 1))" +
                 " OR " +
                 // Part 2: Next movies in collections
-                "(m_coll_id IS NOT NULL AND LeeroyFlix_traktSeen = 0 AND leeroyflix_hiddenbyuser = 0 AND (bookmark IS NULL OR bookmark <= 0) AND " +
-                "_id IN (SELECT _id FROM (SELECT v._id, ROW_NUMBER() OVER(PARTITION BY v.m_coll_id ORDER BY v.m_year) as rn FROM video v JOIN ( SELECT m_coll_id, MAX(m_year) AS max_watched_year FROM video WHERE LeeroyFlix_traktSeen = 1 AND leeroyflix_hiddenbyuser = 0 GROUP BY m_coll_id ) AS lw ON v.m_coll_id = lw.m_coll_id WHERE v.LeeroyFlix_traktSeen = 0 AND v.leeroyflix_hiddenbyuser = 0 AND v.m_year > lw.max_watched_year ) WHERE rn = 1))" +
+                "(m_coll_id IS NOT NULL AND lfx_traktSeen = 0 AND lfx_hiddenbyuser = 0 AND (bookmark IS NULL OR bookmark <= 0) AND " +
+                "_id IN (SELECT _id FROM (SELECT v._id, ROW_NUMBER() OVER(PARTITION BY v.m_coll_id ORDER BY v.m_year) as rn FROM video v JOIN ( SELECT m_coll_id, MAX(m_year) AS max_watched_year FROM video WHERE lfx_traktSeen = 1 AND lfx_hiddenbyuser = 0 GROUP BY m_coll_id ) AS lw ON v.m_coll_id = lw.m_coll_id WHERE v.lfx_traktSeen = 0 AND v.lfx_hiddenbyuser = 0 AND v.m_year > lw.max_watched_year ) WHERE rn = 1))" +
                 " OR " +
                 // Part 3: Currently watching videos (partially watched, not completed)
-                "(bookmark > 0 AND LeeroyFlix_traktSeen = 0 AND leeroyflix_hiddenbyuser = 0)" +
+                "(bookmark > 0 AND lfx_traktSeen = 0 AND lfx_hiddenbyuser = 0)" +
                 ")"
         );
 
         return builder.toString();
     }
 
-    // display first the currently in progress (not LeeroyFlix_traktSeen and bookmark>0) with LeeroyFlix_lastTimePlayed more recent first, and the
-    // next to watch movie and episodes ordered by LeeroyFlix_lastTimePlayed of the former episode watched that was LeeroyFlix_traktSeen=1.
+    // display first the currently in progress (not lfx_traktSeen and bookmark>0) with lfx_lastTimePlayed more recent first, and the
+    // next to watch movie and episodes ordered by lfx_lastTimePlayed of the former episode watched that was lfx_traktSeen=1.
 
     @Override
     public String getSortOrder() {
         // Priority 1: Currently watching videos (bookmark > 0), sorted by most recent play time.
         // Priority 2: Next episodes/movies, sorted by the play time of the *last watched* item in the series/collection.
         return "CASE " +
-            "WHEN bookmark > 0 AND LeeroyFlix_traktSeen = 0 THEN 1 " + // Group 1: In progress
+            "WHEN bookmark > 0 AND lfx_traktSeen = 0 THEN 1 " + // Group 1: In progress
             "ELSE 2 " + // Group 2: Up next
         "END, " +
         "CASE " +
             // Sort for Group 1: Currently watching videos by most recent play time
-            "WHEN bookmark > 0 AND LeeroyFlix_traktSeen = 0 THEN LeeroyFlix_lastTimePlayed " +
+            "WHEN bookmark > 0 AND lfx_traktSeen = 0 THEN lfx_lastTimePlayed " +
             // Sort for Group 2: Up next items by last watched item's play time
             "ELSE COALESCE(" +
                 // For series: get the play time of the most recently *watched* episode
-                "(SELECT lw.LeeroyFlix_lastTimePlayed FROM video lw WHERE lw.s_id = video.s_id AND lw.LeeroyFlix_traktSeen = 1 ORDER BY lw.e_season DESC, lw.e_episode DESC LIMIT 1), " +
+                "(SELECT lw.lfx_lastTimePlayed FROM video lw WHERE lw.s_id = video.s_id AND lw.lfx_traktSeen = 1 ORDER BY lw.e_season DESC, lw.e_episode DESC LIMIT 1), " +
                 // For collections: get the play time of the most recently *watched* movie
-                "(SELECT lw.LeeroyFlix_lastTimePlayed FROM video lw WHERE lw.m_coll_id = video.m_coll_id AND lw.LeeroyFlix_traktSeen = 1 ORDER BY lw.m_year DESC LIMIT 1), " +
+                "(SELECT lw.lfx_lastTimePlayed FROM video lw WHERE lw.m_coll_id = video.m_coll_id AND lw.lfx_traktSeen = 1 ORDER BY lw.m_year DESC LIMIT 1), " +
                 "0" + // Fallback value if no watched item is found
             ") " +
         "END DESC, " +

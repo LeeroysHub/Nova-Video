@@ -42,12 +42,12 @@ public class UpNextLoader extends VideoLoader {
         builder.append(
                 "(" +
                 // Part 1: Next episodes in TV series (excluding in-progress)
-                "(s_id IS NOT NULL AND " + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 0 AND leeroyflix_hiddenbyuser = 0 AND (bookmark IS NULL OR bookmark <= 0) AND " +
-                "_id IN (SELECT _id FROM (SELECT v._id, ROW_NUMBER() OVER(PARTITION BY v.s_id ORDER BY v.e_season, v.e_episode) as rn FROM video v JOIN ( SELECT s_id, MAX(e_season * 1000 + e_episode) AS max_watched_episode FROM video WHERE " + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 1 AND leeroyflix_hiddenbyuser = 0 GROUP BY s_id ) AS lw ON v.s_id = lw.s_id WHERE v." + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 0 AND v.leeroyflix_hiddenbyuser = 0 AND (v.e_season * 1000 + v.e_episode) > lw.max_watched_episode ) WHERE rn = 1))" +
+                "(s_id IS NOT NULL AND " + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 0 AND lfx_hiddenbyuser = 0 AND (bookmark IS NULL OR bookmark <= 0) AND " +
+                "_id IN (SELECT _id FROM (SELECT v._id, ROW_NUMBER() OVER(PARTITION BY v.s_id ORDER BY v.e_season, v.e_episode) as rn FROM video v JOIN ( SELECT s_id, MAX(e_season * 1000 + e_episode) AS max_watched_episode FROM video WHERE " + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 1 AND lfx_hiddenbyuser = 0 GROUP BY s_id ) AS lw ON v.s_id = lw.s_id WHERE v." + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 0 AND v.lfx_hiddenbyuser = 0 AND (v.e_season * 1000 + v.e_episode) > lw.max_watched_episode ) WHERE rn = 1))" +
                 " OR " +
                 // Part 2: Next movies in collections (excluding in-progress)
-                "(m_coll_id IS NOT NULL AND " + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 0 AND leeroyflix_hiddenbyuser = 0 AND (bookmark IS NULL OR bookmark <= 0) AND " +
-                "_id IN (SELECT _id FROM (SELECT v._id, ROW_NUMBER() OVER(PARTITION BY v.m_coll_id ORDER BY v.m_year) as rn FROM video v JOIN ( SELECT m_coll_id, MAX(m_year) AS max_watched_year FROM video WHERE " + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 1 AND leeroyflix_hiddenbyuser = 0 GROUP BY m_coll_id ) AS lw ON v.m_coll_id = lw.m_coll_id WHERE v." + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 0 AND v.leeroyflix_hiddenbyuser = 0 AND v.m_year > lw.max_watched_year ) WHERE rn = 1))" +
+                "(m_coll_id IS NOT NULL AND " + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 0 AND lfx_hiddenbyuser = 0 AND (bookmark IS NULL OR bookmark <= 0) AND " +
+                "_id IN (SELECT _id FROM (SELECT v._id, ROW_NUMBER() OVER(PARTITION BY v.m_coll_id ORDER BY v.m_year) as rn FROM video v JOIN ( SELECT m_coll_id, MAX(m_year) AS max_watched_year FROM video WHERE " + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 1 AND lfx_hiddenbyuser = 0 GROUP BY m_coll_id ) AS lw ON v.m_coll_id = lw.m_coll_id WHERE v." + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 0 AND v.lfx_hiddenbyuser = 0 AND v.m_year > lw.max_watched_year ) WHERE rn = 1))" +
                 ")"
         );
 
@@ -59,9 +59,9 @@ public class UpNextLoader extends VideoLoader {
         // Sort by the play time of the *last watched* item in the series/collection.
         return "COALESCE(" +
                 // For series: get the play time of the most recently *watched* episode
-                "(SELECT lw.LeeroyFlix_lastTimePlayed FROM video lw WHERE lw.s_id = video.s_id AND lw." + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 1 ORDER BY lw.e_season DESC, lw.e_episode DESC LIMIT 1), " +
+                "(SELECT lw.lfx_lastTimePlayed FROM video lw WHERE lw.s_id = video.s_id AND lw." + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 1 ORDER BY lw.e_season DESC, lw.e_episode DESC LIMIT 1), " +
                 // For collections: get the play time of the most recently *watched* movie
-                "(SELECT lw.LeeroyFlix_lastTimePlayed FROM video lw WHERE lw.m_coll_id = video.m_coll_id AND lw." + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 1 ORDER BY lw.m_year DESC LIMIT 1), " +
+                "(SELECT lw.lfx_lastTimePlayed FROM video lw WHERE lw.m_coll_id = video.m_coll_id AND lw." + VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN + " = 1 ORDER BY lw.m_year DESC LIMIT 1), " +
                 "0" + // Fallback value if no watched item is found
             ") DESC, " +
         // Add secondary sort for stability and logical ordering within the same play time

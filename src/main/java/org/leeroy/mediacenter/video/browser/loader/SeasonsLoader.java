@@ -65,7 +65,7 @@ public class SeasonsLoader extends VideoLoader {
                 "COUNT(CASE "+VideoStore.Video.VideoColumns.BOOKMARK+" WHEN "+PlayerActivity.LAST_POSITION_END+" THEN 1 ELSE NULL END) AS " + COLUMN_EPISODE_WATCHED_COUNT
         };
 
-        // count() - count(CASE LeeroyFlix_traktSeen WHEN 0 THEN 0 ELSE NULL END) AS watched,
+        // count() - count(CASE lfx_traktSeen WHEN 0 THEN 0 ELSE NULL END) AS watched,
     }
 
     @Override
