@@ -28,6 +28,13 @@
             android:summary="@string/preferences_hide_external_menus_summary"
             android:title="@string/preferences_hide_external_menus_title"
             app:iconSpaceReserved="false"/>
+        <!-- <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/preferences_leeroys_override_key"
+            android:persistent="true"
+            android:summary="@string/preferences_leeroys_override_summary"
+            android:title="@string/preferences_leeroys_override_title"
+            app:iconSpaceReserved="false" />-->  
     </PreferenceCategory>
     <PreferenceCategory
         android:key="preferences_category_video"
