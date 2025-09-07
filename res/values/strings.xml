@@ -639,6 +639,9 @@
     <string name="preferences_hide_external_menus_title">Show Basic Interface</string>
     <string name="preferences_hide_external_menus_summary">Hide the Network and Storage Rows for a clean interface.</string>
 
+    <!-- <string name="preferences_leeroys_override_title">Special Video Override</string> -->
+    <!-- <string name="preferences_leeroys_override_summary">Send Episodes of A.L.F to AndroidMediaPlayer to fix broken playback.</string> -->
+
     <string name="preferences_video_advanced">Advanced</string>
     <string name="preferences_video_advanced_quit_title">Regular preferences</string>
     <string name="preferences_video_advanced_quit_summary">Get back to regular preferences</string>
