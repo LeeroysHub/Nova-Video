@@ -15,9 +15,11 @@
 
     android:singleLine="true"
     android:text="Workgroup"
-    android:textAllCaps="true"
+    android:textAllCaps="false"
     android:textAppearance="?android:attr/textAppearanceSmall"
-    android:textStyle="bold" />
+    android:textStyle="bold" 
+    android:textColor="@color/lightblue400"
+    />
 
     <ProgressBar
         style="?android:attr/progressBarStyleSmall"

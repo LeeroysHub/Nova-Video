@@ -65,7 +65,8 @@
             android:gravity="center"
             android:maxLines="2"
             android:singleLine="false"
-            android:text="WORKGROUP"
+            android:text="Workgroup"
+            android:textAllCaps="false"
             android:textColor="@color/lb_basic_card_title_text_color"
             android:textSize="@dimen/lb_basic_card_content_text_size"
             android:visibility="visible" />

@@ -32,13 +32,15 @@
             android:id="@+id/search"
             style="@style/VideoInfoButton"
             android:layout_alignParentRight="true"
-            android:text="@android:string/search_go" />
+            android:text="@android:string/search_go"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/cancel"
             style="@style/VideoInfoButton"
             android:layout_toLeftOf="@id/search"
-            android:text="@android:string/cancel" />
+            android:text="@android:string/cancel"
+            android:textAllCaps="false" />
 
         <EditText
             android:id="@+id/custom_search_edittext"

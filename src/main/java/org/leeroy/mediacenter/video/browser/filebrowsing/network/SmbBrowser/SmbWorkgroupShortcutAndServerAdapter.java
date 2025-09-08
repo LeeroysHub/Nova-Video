@@ -99,8 +99,8 @@ public class SmbWorkgroupShortcutAndServerAdapter extends WorkgroupShortcutAndSe
         mTypes.clear();
         String lastWorgroup = null;
         mData.add(Integer.valueOf(R.string.network_shared_folders));
-
         mTypes.add(TYPE_TITLE);
+        
         for (GenericShare s : mShares) {
             if (mDisplayWorkgroupSeparator && s.getWorkgroup()!=null && !s.getWorkgroup().equals(lastWorgroup)) {
                 mData.add(s.getWorkgroup());

@@ -45,7 +45,7 @@
     <!-- Context menu item -->
     <string name="multiple_selection">Multiple selection</string>
     <!-- Context menu item -->
-    <string name="play_from_beginning">Play from beginning</string>
+    <string name="play_from_beginning">Play</string>
     <!-- Dialog box button -->
 
     <!--The fast scroll thumb will show one character from this string depending on the position in the list -->
@@ -67,8 +67,8 @@
     <string name="info_tab_share">Share</string>
     <string name="info_menu_backdrop_select">Backdrop</string>
     <string name="info_menu_series_backdrop_select">Series Backdrop</string>
-    <string name="info_menu_poster_select">Select another poster</string>
-    <string name="info_menu_series_poster_select">Select another poster</string>
+    <string name="info_menu_poster_select">Choose a poster</string>
+    <string name="info_menu_series_poster_select">Choose a poster</string>
 
     <!-- COVER ROLL -->
     <string name="watching_up_next">Watching/Up next</string>
@@ -85,9 +85,9 @@
     <string name="sd_card_storage">SD card</string>
     <string name="usb_host_storage">External drive</string>
     <string name="other_storage">Drive</string>
-    <string name="network_media_servers">Media servers (UPnP)</string>
-    <string name="network_shared_folders">Shared folders (SMB)</string>
-    <string name="network_connected_as">Connected as %s</string>
+    <string name="network_media_servers">DLNA servers</string>
+    <string name="network_shared_folders">SMB folders</string>
+    <string name="network_connected_as">User: %s</string>
     <string name="network_guest">guest</string>
     <string name="sftp_folders">FTP</string>
     <string name="network_jcifs">Samba (Experimental)</string>
