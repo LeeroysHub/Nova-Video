@@ -46,8 +46,8 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 
-import org.leeroy.environment.ArchosFeatures;
-import org.leeroy.environment.ArchosUtils;
+import org.leeroy.environment.LeeroyFlixFeatures;
+import org.leeroy.environment.LeeroyFlixUtils;
 import org.leeroy.filecorelibrary.ExtStorageManager;
 import org.leeroy.filecorelibrary.jcifs.JcifsUtils;
 import org.leeroy.filecorelibrary.samba.SambaDiscovery;
@@ -85,6 +85,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import static org.leeroy.filecorelibrary.FileUtils.backupDatabase;
+import static org.leeroy.filecorelibrary.FileUtils.importDatabase;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -285,6 +286,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
     final public static int ACTIVITY_RESULT_UI_ZOOM_CHANGED = 667;
     private Preference mExportManualPreference;
     private Preference mDbExportManualPreference = null;
+    private Preference mDbImportManualPreference = null;
 
     private PreferenceFragmentCompat mPreferencesFragment;
 
@@ -391,6 +393,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             prefCategory.addPreference(mAudioInterfaceChoicePreferences);
             prefCategory.addPreference(mParserSyncMode);
             prefScraperCategory.addPreference(mDbExportManualPreference);
+            prefScraperCategory.addPreference(mDbImportManualPreference);
             // more smb discovery disabling options in advanced mode
             netShareCategory.addPreference(mSmbDisableTcpDiscovery);
             netShareCategory.addPreference(mSmbDisableMdnsDiscovery);
@@ -408,6 +411,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             prefCategory.removePreference(mParserSyncMode);
             prefCategory.addPreference(mForceSwDecPreferences);
             prefScraperCategory.removePreference(mDbExportManualPreference);
+            prefScraperCategory.removePreference(mDbImportManualPreference);
             getPreferenceScreen().removePreference(mAdvancedPreferences);
             prefScraperCategory.removePreference(mAdultScrape);
             prefCategory.removePreference(mStreamBufferSize);
@@ -613,6 +617,13 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         mDbExportManualPreference.setOnPreferenceClickListener(preference -> {
             backupDatabase(getContext(),"media.db");
             Toast.makeText(getActivity(), R.string.db_export_in_progress, Toast.LENGTH_SHORT).show();
+            return true;
+        });
+
+        mDbImportManualPreference = findPreference(getString(R.string.db_import_manual_prefkey));
+        mDbImportManualPreference.setOnPreferenceClickListener(preference -> {
+            importDatabase(getContext(),"media.db");
+            Toast.makeText(getActivity(), R.string.db_import_in_progress, Toast.LENGTH_SHORT).show();
             return true;
         });
 
