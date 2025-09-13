@@ -603,6 +603,11 @@
             android:title="@string/db_export_manual_title"
             app:iconSpaceReserved="false"/>
         <Preference
+            android:key="@string/db_import_manual_prefkey"
+            android:summary="@string/db_import_manual_summary"
+            android:title="@string/db_import_manual_title"
+            app:iconSpaceReserved="false"/>
+        <Preference
             android:key="@string/media_library_export_prefkey"
             android:summary="@string/media_library_export_summary"
             android:title="@string/media_library_export_title"
@@ -612,6 +617,7 @@
             android:summary="@string/media_library_import_summary"
             android:title="@string/media_library_import_title"
             app:iconSpaceReserved="false"/>
+        
         <CheckBoxPreference
             android:defaultValue="false"
             android:title="@string/enable_adult_scrap_title"
