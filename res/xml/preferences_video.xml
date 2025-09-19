@@ -396,7 +396,7 @@
         app:iconSpaceReserved="false" >
 
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="pref_smbj"
             android:title="@string/share_folders_smbj"
             android:summary="@string/share_folders_smbj_summary"
