@@ -48,6 +48,7 @@ import org.leeroy.mediaplayer.video.player.PrivateMode;
 import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 import org.leeroy.mediaplayer.video.utils.WebUtils;
 import org.leeroy.environment.NetworkState;
+import org.leeroy.mediaprovider.video.NetworkAutoRefresh;
 
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -308,11 +309,14 @@ abstract public class BrowserCategory extends ListFragment {
                 if(getActivity() instanceof MainActivity)
                     ((MainActivity) getActivity()).startPreference();
                 setSelection(mSelectedItemId); //restore selection
+            } else if (item.text == R.string.rescrape_title) {
+                rescanAvailableShortcuts();
+            }
             // } else if (item.text == R.string.help_faq){
             //    WebUtils.openWebLink(getActivity(),getString(R.string.faq_url));
             //} else if (item.text == R.string.sponsor){
             //    WebUtils.openWebLink(getActivity(),getString(R.string.sponsor_url));
-            } //else if(item.text  == R.string.activate_private_mode || item.text  == R.string.deactivate_private_mode){
+            //} else if(item.text  == R.string.activate_private_mode || item.text  == R.string.deactivate_private_mode){
             //    if (!PrivateMode.isActive() && PrivateMode.canShowDialog(getActivity())) {
             //        PrivateMode.showDialog(getActivity());
             //    }
@@ -334,6 +338,10 @@ abstract public class BrowserCategory extends ListFragment {
             }
 
         }
+    }
+
+    protected void rescanAvailableShortcuts() {
+        NetworkAutoRefresh.forceRescan(getActivity());
     }
 
     protected void updateListSelection(View v, ItemData item) {
@@ -540,10 +548,19 @@ abstract public class BrowserCategory extends ListFragment {
 
     private void addLastItems() {
         mCategoryList.add("LeeroyFlix" + " v" + getText(R.string.VERSION_NAME));
+        
+        //Preferences Menu Phone/Tablet UI
         ItemData itemData = new ItemData();
         itemData.icon = R.drawable.android29_ic_settings;
         itemData.text = R.string.preferences;
         mCategoryList.add(itemData);
+        
+        //Re-scan menu Phone/Tablet UI
+        itemData = new ItemData();
+        itemData.icon = R.drawable.android29_ic_rescan;
+        itemData.text = R.string.rescrape_title;
+        mCategoryList.add(itemData);
+        
         //itemData = new ItemData();
         //itemData.icon = R.drawable.android29_ic_menu_help;
         //itemData.text = R.string.help_faq;

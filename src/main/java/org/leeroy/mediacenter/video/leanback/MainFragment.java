@@ -116,6 +116,7 @@ import org.leeroy.mediaprovider.LeeroyFlixMediaIntent;
 import org.leeroy.mediaprovider.ImportState;
 import org.leeroy.mediaprovider.video.NetworkScannerReceiver;
 import org.leeroy.mediascraper.AutoScrapeService;
+import org.leeroy.mediaprovider.video.NetworkAutoRefresh;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -1539,6 +1540,10 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
     //        }
     //    }
     //}
+    
+    protected void rescanAvailableShortcuts() {
+        NetworkAutoRefresh.forceRescan(getActivity());
+    }
 
     public class MainViewClickedListener extends VideoViewClickedListener {
 
@@ -1613,12 +1618,7 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
                             throw new IllegalStateException("Sorry developer, this ugly code can work with a MainActivityLeanback only for now!");
                         break;
                     case RESCRAPE:
-                        Intent intent = new Intent(vActivity,AutoScrapeService.class);
-                        intent.putExtra(AutoScrapeService.RESCAN_EVERYTHING, true);
-                        intent.putExtra(AutoScrapeService.RESCAN_ONLY_DESC_NOT_FOUND, true);
-                        vActivity.startService(intent);
-                        Toast.makeText(vActivity, R.string.rescrap_in_progress, Toast.LENGTH_SHORT).show();
-
+                        rescanAvailableShortcuts();
                     //case PRIVATE_MODE:
                     //    if (!PrivateMode.isActive() && PrivateMode.canShowDialog(vActivity))
                     //        PrivateMode.showDialog(vActivity);
