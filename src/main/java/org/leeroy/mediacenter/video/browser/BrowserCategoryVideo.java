@@ -105,7 +105,7 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
 
 
     @Override
-    public void setLibraryList(ArrayList<Object> categoryList) {
+    public void setLibraryList(ArrayList<Object> categoryList, boolean IsBasicInterface) {
         ItemData itemData;
 
         itemData = new ItemData();
@@ -120,17 +120,20 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
         itemData.id = ITEM_ID_TV_SHOWS;
         categoryList.add(itemData);
 
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_all;
-        itemData.text = R.string.all_videos;
-        itemData.id = ITEM_ID_ALL_VIDEOS;
-        categoryList.add(itemData);
+        if (!IsBasicInterface) {
+            itemData = new ItemData();
+            itemData.icon = R.drawable.category_video_all;
+            itemData.text = R.string.all_videos;
+            itemData.id = ITEM_ID_ALL_VIDEOS;
+            categoryList.add(itemData);
 
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_added;
-        itemData.text = R.string.recently_added_videos;
-        itemData.id = ITEM_ID_RECENTLY_ADDED;
-        categoryList.add(itemData);
+            //HIDE RECENTLY ADDED FOR NOW UNTIL ITS FIXED
+            itemData = new ItemData();
+            itemData.icon = R.drawable.category_video_added;
+            itemData.text = R.string.recently_added_videos;
+            itemData.id = ITEM_ID_RECENTLY_ADDED;
+            categoryList.add(itemData);
+        }
 
         itemData = new ItemData();
         itemData.icon = R.drawable.category_video_played;

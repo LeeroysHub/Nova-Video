@@ -191,7 +191,7 @@ abstract public class BrowserCategory extends ListFragment {
         }
         mLayoutCallback = new LayoutCallback();
 
-        updateLibrary();
+        updateLibrary(mPreferences.getBoolean(getString(R.string.preferences_hide_external_menus_key), false));
         mCategoryAdapter = new CategoryAdapter(getActivity().getApplicationContext());
         setListAdapter(mCategoryAdapter);
 
@@ -392,21 +392,21 @@ abstract public class BrowserCategory extends ListFragment {
     /**
      * Update the library category's items
      */
-    private void updateLibrary() {
+    private void updateLibrary(boolean IsBasicInterface) {
         if (mCategoryList == null)
             mCategoryList = new ArrayList<Object>();
         else
             mCategoryList.clear();
 
         mCategoryList.add(getText(R.string.goto_start));
-        setLibraryList(mCategoryList);
+        setLibraryList(mCategoryList, IsBasicInterface);
         mLibrarySize = mCategoryList.size();
     }
 
     /**
      * Add the library category items.
      */
-    abstract public void setLibraryList(ArrayList<Object> categoryList);
+    abstract public void setLibraryList(ArrayList<Object> categoryList, boolean IsBasicInterface);
 
 
     /**
