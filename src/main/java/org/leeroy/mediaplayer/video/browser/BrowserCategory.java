@@ -48,6 +48,7 @@ import org.leeroy.mediaplayer.video.player.PrivateMode;
 import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 import org.leeroy.mediaplayer.video.utils.WebUtils;
 import org.leeroy.environment.NetworkState;
+import org.leeroy.mediaprovider.video.NetworkAutoRefresh;
 
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -76,7 +77,7 @@ abstract public class BrowserCategory extends ListFragment {
     protected static final int ITEM_ID_PROVIDER = 6;
     protected static final int ITEM_ID_NETWORK = 5;
     protected static final int FILE_CHOOSER_ACTIVITY_REQUEST_CODE = 788;
-
+    protected static final int ITEM_ID_VIDEO_FOLDER = ITEM_ID_OFFSET + 0;
 
     private int mLibrarySize;
     protected int mSelectedItemId;
@@ -191,7 +192,7 @@ abstract public class BrowserCategory extends ListFragment {
         }
         mLayoutCallback = new LayoutCallback();
 
-        updateLibrary();
+        updateLibrary(mPreferences.getBoolean(getString(R.string.preferences_hide_external_menus_key), false));
         mCategoryAdapter = new CategoryAdapter(getActivity().getApplicationContext());
         setListAdapter(mCategoryAdapter);
 
@@ -308,6 +309,8 @@ abstract public class BrowserCategory extends ListFragment {
                 if(getActivity() instanceof LeeroyFlixActivity)
                     ((LeeroyFlixActivity) getActivity()).startPreference();
                 setSelection(mSelectedItemId); //restore selection
+            } else if (item.text == R.string.rescrape_title) {
+                rescanAvailableShortcuts();
             //} else if (item.text == R.string.help_faq){
             //    WebUtils.openWebLink(getActivity(),getString(R.string.faq_url));
             //} else if (item.text == R.string.sponsor){
@@ -320,10 +323,10 @@ abstract public class BrowserCategory extends ListFragment {
             //    setSelection(mSelectedItemId); //restore selection
             //    ((LeeroyFlixActivity) getActivity()).setBackground();
             //    updateExternalStorage();
-            //}
-            else {
+            } else {
                 updateListSelection(v, item);
                 setFragment(item.path);
+                setSelection(mSelectedItemId); //restore selection
                 if(item.id!=ITEM_ID_PROVIDER) { //don't save when provider to avoid restarting with android browser view
                     PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putInt(PREFERENCE_LAST_FRAGMENT, mSelectedItemId).apply();
                     PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putString(PREFERENCE_LAST_PATH, item.path).apply();
@@ -331,8 +334,11 @@ abstract public class BrowserCategory extends ListFragment {
                 if (getActivity() instanceof LeeroyFlixActivity)
                     ((LeeroyFlixActivity) getActivity()).closeDrawer();
             }
-
         }
+    }
+
+    protected void rescanAvailableShortcuts() {
+        NetworkAutoRefresh.forceRescan(getActivity());
     }
 
     protected void updateListSelection(View v, ItemData item) {
@@ -391,21 +397,21 @@ abstract public class BrowserCategory extends ListFragment {
     /**
      * Update the library category's items
      */
-    private void updateLibrary() {
+    private void updateLibrary(boolean IsBasicInterface) {
         if (mCategoryList == null)
             mCategoryList = new ArrayList<Object>();
         else
             mCategoryList.clear();
 
         mCategoryList.add(getText(R.string.goto_start));
-        setLibraryList(mCategoryList);
+        setLibraryList(mCategoryList, IsBasicInterface);
         mLibrarySize = mCategoryList.size();
     }
 
     /**
      * Add the library category items.
      */
-    abstract public void setLibraryList(ArrayList<Object> categoryList);
+    abstract public void setLibraryList(ArrayList<Object> categoryList, boolean IsBasicInterface);
 
 
     /**
@@ -440,11 +446,22 @@ abstract public class BrowserCategory extends ListFragment {
             }
         }
         */
+        
         ExtStorageManager storageManager = ExtStorageManager.getExtStorageManager();
         final boolean hasExternal = storageManager.hasExtStorage();
         final boolean isConnected = isConnected();
-        if (hasExternal|| isConnected || NetworkState.isNetworkConnected(getActivity())) {
+        final boolean isHidingExternal = mPreferences.getBoolean(getString(R.string.preferences_hide_external_menus_key), false);
+
+        if (!isHidingExternal && (hasExternal|| isConnected || NetworkState.isNetworkConnected(getActivity()))) {
             mCategoryList.add(getText(R.string.external_storage));
+
+            {   //Scope local so the variables don't clash, rest are in conditionals and this is an edge case...
+                ItemData itemData = new ItemData();
+                itemData.icon = R.drawable.category_common_folder;
+                itemData.text = R.string.video_folder;
+                itemData.id = ITEM_ID_VIDEO_FOLDER;
+                mCategoryList.add(itemData);
+            }
 
             if (hasExternal) {
                 for(String s : storageManager.getExtSdcards()) {
@@ -499,11 +516,14 @@ abstract public class BrowserCategory extends ListFragment {
         // one could argue that "cloud" should be made available only if connected
         // but offline capability is present in drive and provider is more generic
         // than cloud in reality. Perhaps think of better name
-        ItemData itemData = new ItemData();
-        itemData.icon = R.drawable.category_common_network;
-        itemData.text = R.string.provider_folders;
-        itemData.id = ITEM_ID_PROVIDER;
-        mCategoryList.add(itemData);
+        if (!isHidingExternal) {
+            ItemData itemData = new ItemData();
+            itemData.icon = R.drawable.category_common_network;
+            itemData.text = R.string.provider_folders;
+            itemData.id = ITEM_ID_PROVIDER;
+            mCategoryList.add(itemData);
+        }
+        
         addLastItems();
         mCategoryAdapter.notifyDataSetChanged();
         // Set the selection when rotating.
@@ -532,6 +552,13 @@ abstract public class BrowserCategory extends ListFragment {
         itemData.icon = R.drawable.android29_ic_settings;
         itemData.text = R.string.preferences;
         mCategoryList.add(itemData);
+        
+        //Re-scan menu Phone/Tablet UI
+        itemData = new ItemData();
+        itemData.icon = R.drawable.android29_ic_rescan;
+        itemData.text = R.string.rescrape_title;
+        mCategoryList.add(itemData);
+        
         //itemData = new ItemData();
         //itemData.icon = R.drawable.android29_ic_menu_help;
         //itemData.text = R.string.help_faq;
@@ -549,10 +576,11 @@ abstract public class BrowserCategory extends ListFragment {
     }
 
     private boolean isConnected(){
-        if (mPreferences.getBoolean(getString(R.string.preferences_network_mobile_vpn_key), false))
-            return NetworkState.isNetworkConnected(getActivity());
-        else
-            return NetworkState.isLocalNetworkConnected(getActivity());
+        return true;
+        //if (mPreferences.getBoolean(getString(R.string.preferences_network_mobile_vpn_key), false))
+        //    return NetworkState.isNetworkConnected(getActivity());
+        //else
+        //    return NetworkState.isLocalNetworkConnected(getActivity());
     }
 
     /**

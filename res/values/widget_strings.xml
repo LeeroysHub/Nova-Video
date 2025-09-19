@@ -20,7 +20,7 @@
     
     <string name="content_title">Content type:</string>
     <string name="content_all_videos">All videos</string>
-    <string name="content_recently_added">Recently added</string>
-    <string name="content_recently_played">Recently played</string>
+    <string name="content_recently_added">New on LeeroyFlix</string>
+    <string name="content_recently_played">History</string>
     <string name="validate_configuration">OK</string>
 </resources>

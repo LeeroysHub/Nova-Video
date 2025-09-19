@@ -2139,6 +2139,8 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             //------------------------------------------------------------------
 
             menu.add(MENU_GLOBAL_ACTIONS_GROUP, MENU_LOCK_ID, Menu.NONE, R.string.menu_lock_player);
+            menu.add(MENU_OTHER_GROUP, MENU_WINDOW_MODE, Menu.NONE, R.string.player_window_mode);
+            
             if (!isPluggedOnTv()) {
 
                 mBrightnessMenuItem = menu.add(MENU_GLOBAL_ACTIONS_GROUP, MENU_BRIGHTNESS_ID, Menu.NONE, R.string.menu_brightness_settings);
@@ -2204,7 +2206,6 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 }
                 mBrightnessMenuItem.setVisible(brightnessMode == 0);
             }*/
-            menu.add(MENU_OTHER_GROUP, MENU_WINDOW_MODE, Menu.NONE, R.string.player_window_mode);
             // Always add a link to the general application preferences
             menu.add(MENU_OTHER_GROUP, MENU_PREFERENCES, Menu.NONE, R.string.preferences)
                     .setIcon(R.drawable.ic_menu_settings).setShowAsAction(!isPluggedOnTv()? MenuItem.SHOW_AS_ACTION_NEVER:MenuItem.SHOW_AS_ACTION_ALWAYS);

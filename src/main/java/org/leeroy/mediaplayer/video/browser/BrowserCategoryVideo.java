@@ -105,7 +105,7 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
 
 
     @Override
-    public void setLibraryList(ArrayList<Object> categoryList) {
+    public void setLibraryList(ArrayList<Object> categoryList, boolean IsBasicInterface) {
         ItemData itemData;
 
         //MOVIES COLLECTION TABLET/PHONE UI
@@ -122,41 +122,43 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
         itemData.id = ITEM_ID_TV_SHOWS;
         categoryList.add(itemData);
 
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_all;
-        itemData.text = R.string.all_videos;
-        itemData.id = ITEM_ID_ALL_VIDEOS;
-        categoryList.add(itemData);
-
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_added;
-        itemData.text = R.string.recently_added_videos;
-        itemData.id = ITEM_ID_RECENTLY_ADDED;
-        categoryList.add(itemData);
-
+        if (!IsBasicInterface) {
+            //ALL VIDEO COLLECTION TABLET/PHONE UI
+            itemData = new ItemData();
+            itemData.icon = R.drawable.category_video_all;
+            itemData.text = R.string.all_videos;
+            itemData.id = ITEM_ID_ALL_VIDEOS;
+            categoryList.add(itemData);
+        }
+        
+        //RECENTLY ADDED COLLECTION TABLET/PHONE UI
+        if (mPreferences.getBoolean(getString(R.string.preferences_display_recently_added_key), true)) {
+            itemData = new ItemData();
+            itemData.icon = R.drawable.category_video_added;
+            itemData.text = R.string.recently_added_videos;
+            itemData.id = ITEM_ID_RECENTLY_ADDED;
+            categoryList.add(itemData);
+        }
+        
         //RECENTLY PLAYED COLLECTION TABLET/PHONE UI        
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_played;
-        itemData.text = R.string.recently_played_videos;
-        itemData.id = ITEM_ID_RECENTLY_PLAYED;
-        categoryList.add(itemData);
+        if (mPreferences.getBoolean(getString(R.string.preferences_display_recently_played_key), true)) {
+            itemData = new ItemData();
+            itemData.icon = R.drawable.category_video_played;
+            itemData.text = R.string.recently_played_videos;
+            itemData.id = ITEM_ID_RECENTLY_PLAYED;
+            categoryList.add(itemData);
+        }
 
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_played;
-        itemData.text = R.string.video_lists;
-        itemData.id = ITEM_ID_LISTS;
-        categoryList.add(itemData);
+        //itemData = new ItemData();
+        //itemData.icon = R.drawable.category_video_played;
+        //itemData.text = R.string.video_lists;
+        //itemData.id = ITEM_ID_LISTS;
+        //categoryList.add(itemData);
 
         /*itemData = new ItemData();
         itemData.icon = R.drawable.category_video_not_played;
         itemData.text = R.string.not_played_yet_videos;
         categoryList.add(itemData);*/
-
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_common_folder;
-        itemData.text = R.string.video_folder;
-        itemData.id = ITEM_ID_VIDEO_FOLDER;
-        categoryList.add(itemData);
     }
 
 
