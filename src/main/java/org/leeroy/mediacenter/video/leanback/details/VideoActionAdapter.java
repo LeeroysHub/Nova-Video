@@ -153,7 +153,7 @@ public class VideoActionAdapter extends SparseArrayObjectAdapter {
                     set(ACTION_REMOVE_FROM_LIST, new Action(ACTION_REMOVE_FROM_LIST, mContext.getString(R.string.remove_from_list)));
                 else
                     clear(ACTION_REMOVE_FROM_LIST);
-                set(ACTION_ADD_TO_LIST, new Action(ACTION_ADD_TO_LIST, mContext.getString(R.string.add_to_list)));
+                //set(ACTION_ADD_TO_LIST, new Action(ACTION_ADD_TO_LIST, mContext.getString(R.string.add_to_list)));
                 set(ACTION_UNSCRAP, new Action(ACTION_UNSCRAP, mContext.getString(R.string.leanback_unscrap)));
             } else {
                 clear(ACTION_UNSCRAP);
