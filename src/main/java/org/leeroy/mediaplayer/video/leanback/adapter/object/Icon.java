@@ -24,7 +24,8 @@ public class Icon {
         PRIVATE_MODE,
         LEGACY_UI,
         HELP_FAQ,
-        SPONSOR
+        SPONSOR,
+        RESCRAPE
     }
 
     final private ID mId;

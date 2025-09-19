@@ -39,7 +39,7 @@ public class BrowserLastAdded extends CursorBrowserByVideo {
 
     @Override
     protected String getActionBarTitle() {
-        return getString(R.string.recently_added_videos);
+        return getString(R.string.recently_added_videos_title);
     }
 
     @Override
