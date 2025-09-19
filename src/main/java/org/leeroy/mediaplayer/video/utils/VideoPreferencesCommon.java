@@ -151,6 +151,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
     public static final String KEY_ACTIVATE_REFRESHRATE_SWITCH = "enable_tv_refreshrate_switch_mode";
     public static final String KEY_ACTIVATE_3D_SWITCH = "activate_tv_switch";
     public static final String KEY_ADULT_SCRAPE = "enable_adult_scrap_key";
+    public static final String KEY_HIDE_EXTERNAL = "hide_external_menus";
 
     public static final String KEY_SEPARATE_ANIME_MOVIE_SHOW = "separate_anime_movie_show";
     public static final String KEY_SHOW_WATCHING_UP_NEXT_ROW = "show_watching_up_next_row";
@@ -498,7 +499,8 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         mSmbDisableUdpDiscovery = (CheckBoxPreference) findPreference(KEY_SMB_DISABLE_UDP_DISCOVERY);
         mSmbDisableMdnsDiscovery = (CheckBoxPreference) findPreference(KEY_SMB_DISABLE_MDNS_DISCOVERY);
         mSmbj = (CheckBoxPreference) findPreference(KEY_SMBJ);
-
+        mSmb2.setEnabled(!mSmbj.isChecked());   //Disable checkbox on startup
+           
         mScraperCategory = (PreferenceCategory) findPreference(KEY_SCRAPER_CATEGORY);
         mExportManualPreference = findPreference(getString(R.string.nfo_export_manual_prefkey));
         mExportManualPreference.setOnPreferenceClickListener(preference -> {
@@ -507,6 +509,13 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             Toast.makeText(getActivity(), R.string.nfo_export_in_progress, Toast.LENGTH_SHORT).show();
             return true;
         });
+        
+        findPreference(getString(R.string.preferences_hide_external_menus_key)).setOnPreferenceClickListener(preference -> {       
+            getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED); // way to tell the LeeroyFlixActivity that an important preference has been changed
+            getActivity().finish(); // close the preference activity right away
+            return true;
+        });
+        
         findPreference(getString(R.string.rescrap_all_prefkey)).setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(AutoScrapeService.RESCAN_EVERYTHING, null, getActivity(), AutoScrapeService.class);
             intent.putExtra(AutoScrapeService.RESCAN_EVERYTHING, true);

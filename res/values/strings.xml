@@ -72,21 +72,22 @@
 
     <!-- COVER ROLL -->
     <string name="watching_up_next">Watching/Up next</string>
-    <string name="recently_added">Recently added</string>
-    <string name="recently_added_videos">Recently added</string>
-    <string name="recently_played">Recently played</string>
-    <string name="recently_played_videos">Recently played</string>
+    <string name="recently_added">New on LeeroyFlix</string>
+    <string name="recently_added_videos">New on LeeroyFlix</string>
+    <string name="recently_added_videos_title">New Media</string>
+    <string name="recently_played">History</string>
+    <string name="recently_played_videos">History</string>
     <string name="video_lists">Playlists</string>
 
     <!-- The string used in main storage list -->
-    <string name="external_storage">External</string>
+    <string name="external_storage">Storage and Servers</string>
     <string name="internal_storage">Internal</string>
     <string name="network_storage">Network</string>
     <string name="sd_card_storage">SD card</string>
     <string name="usb_host_storage">External drive</string>
     <string name="other_storage">Drive</string>
     <string name="network_media_servers">DLNA servers</string>
-    <string name="network_shared_folders">SMB folders</string>
+    <string name="network_shared_folders">SMB servers</string>
     <string name="network_connected_as">User: %s</string>
     <string name="network_guest">guest</string>
     <string name="sftp_folders">FTP</string>
@@ -101,7 +102,7 @@
     <string name="videos">Videos</string>
     <string name="all_videos">All videos</string>
     <string name="not_played_yet_videos">Not played yet</string>
-    <string name="video_folder">Folders</string>
+    <string name="video_folder">Internal Storage</string>
     <string name="movies">Movies</string>
     <string name="animes">Animations</string>
     <string name="all_movies">All movies</string>
@@ -276,8 +277,8 @@
     <string name="info_file">File info</string>
     <string name="use_remote_resume">Use network resume position?</string>
     <!-- VIDEO COVER ROLL -->
-    <string name="you_have_no_recently_added_video">No recently added video</string>
-    <string name="you_have_no_recently_played_video">No recently played video</string>
+    <string name="you_have_no_recently_added_video">Nothing to see here!</string>
+    <string name="you_have_no_recently_played_video">No history to show</string>
     <string name="you_have_no_video">No videos</string>
     <string name="you_have_no_video_yet">Searching for videos&#8230;</string>
     <string name="you_have_no_movies">No movies</string>
@@ -631,6 +632,9 @@
     <string name="preferences_network_prefer_vpn_summary">Use VPN over local network interfaces.</string>
     <string name="preferences_network_prefer_vpn_title">Prefer VPN network</string>
 
+    <string name="preferences_hide_external_menus_title">Show Basic Interface</string>
+    <string name="preferences_hide_external_menus_summary">Hide the Network and Storage Rows for a clean interface.</string>
+
     <string name="preferences_video_advanced">Advanced</string>
     <string name="preferences_video_advanced_quit_title">Regular preferences</string>
     <string name="preferences_video_advanced_quit_summary">Get back to regular preferences</string>
@@ -777,8 +781,14 @@
     <string name="audio_interface_any">Default logic</string>
 
     <string name="preferences_user_interface">User Interface</string>
-    <string name="preferences_display_resume_box_summary">Display or hide the button resuming the latest video in the main screen</string>
+    <string name="preferences_display_resume_box_summary">Show or Hide the button resuming the latest video in the main screen</string>
     <string name="preferences_display_resume_box">Display resume box</string>
+    
+    <!--These are for the Tablet/Phone UI, leanback ones are below-->
+    <string name="preferences_display_recently_added">Display New on LeeroyFlix menu</string>
+    <string name="preferences_display_recently_added_summary">Show or Hide the Recently Added item in the Side Menu.</string>
+    <string name="preferences_display_recently_played">Display Watch History menu</string>
+    <string name="preferences_display_recently_played_summary">Show or Hide the Recently Played item in the Side Menu.</string>
 
     <string name="preferences_leanback_user_interface">TV User Interface</string>
     <string name="preferences_separate_animation_from_movies_summary">Check to separate animation videos from movies and tv shows adding an animation row</string>
@@ -786,9 +796,9 @@
     <string name="preferences_show_watching_up_next_row_summary">Check to show a row with your currently watching and up next videos</string>
     <string name="preferences_show_watching_up_next_row">Show watching/up next row</string>
     <string name="preferences_show_last_added_row_summary">Check to show a row with your last added media</string>
-    <string name="preferences_show_last_added_row">Show last added row</string>
+    <string name="preferences_show_last_added_row">Show New on LeeroyFlix row</string>
     <string name="preferences_show_last_played_row_summary">Check to show a row with your last played media</string>
-    <string name="preferences_show_last_played_row">Show last played row</string>
+    <string name="preferences_show_last_played_row">Show Watch History row</string>
     <string name="preferences_reset_last_played_row">Reset last played row</string>
     <string name="reset_last_played_row_in_progress">Resetting last played row</string>
     <string name="preferences_show_all_movies_row_summary">Check to show a row with all your movies instead of the movie categories row</string>
@@ -892,7 +902,7 @@
     <string name="private_mode">Private mode</string>
     <string name="private_mode_description">While in private mode, the following features are disabled:\n
         - Auto-indexing and auto-scrapping of played videos\n
-        - Recently played\n
+        - Watch History\n
         - Resume point\n
         - Trakt synchronisation</string>
     <string name="dont_show_again">Don\'t show again</string>
@@ -964,6 +974,7 @@
 
     <string name="rescrap_not_found">Rescrape videos without description</string>
     <string name="rescrap_all_title">Rescrape all</string>
+    <string name="rescrape_title">Re-scan</string>
     <string name="rescrap_all_movies_title">Rescrape all movies</string>
     <string name="rescrap_all_collections_title">Rescrape all collections</string>
     <string name="nfo_export_manual_title">Export already scraped videos</string>
