@@ -492,7 +492,8 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         mSmbDisableUdpDiscovery = (CheckBoxPreference) findPreference(KEY_SMB_DISABLE_UDP_DISCOVERY);
         mSmbDisableMdnsDiscovery = (CheckBoxPreference) findPreference(KEY_SMB_DISABLE_MDNS_DISCOVERY);
         mSmbj = (CheckBoxPreference) findPreference(KEY_SMBJ);
-
+        mSmb2.setEnabled(!mSmbj.isChecked());   //Disable checkbox on startup
+           
         mScraperCategory = (PreferenceCategory) findPreference(KEY_SCRAPER_CATEGORY);
         mExportManualPreference = findPreference(getString(R.string.nfo_export_manual_prefkey));
         mExportManualPreference.setOnPreferenceClickListener(preference -> {
