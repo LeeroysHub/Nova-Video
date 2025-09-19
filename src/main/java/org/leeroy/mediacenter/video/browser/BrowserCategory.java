@@ -312,18 +312,19 @@ abstract public class BrowserCategory extends ListFragment {
             //    WebUtils.openWebLink(getActivity(),getString(R.string.faq_url));
             //} else if (item.text == R.string.sponsor){
             //    WebUtils.openWebLink(getActivity(),getString(R.string.sponsor_url));
-            } else if(item.text  == R.string.activate_private_mode || item.text  == R.string.deactivate_private_mode){
-                if (!PrivateMode.isActive() && PrivateMode.canShowDialog(getActivity())) {
-                    PrivateMode.showDialog(getActivity());
-                }
-                PrivateMode.toggle();
-                setSelection(mSelectedItemId); //restore selection
-                ((MainActivity) getActivity()).setBackground();
-                updateExternalStorage();
-            } else {
-
+            } //else if(item.text  == R.string.activate_private_mode || item.text  == R.string.deactivate_private_mode){
+            //    if (!PrivateMode.isActive() && PrivateMode.canShowDialog(getActivity())) {
+            //        PrivateMode.showDialog(getActivity());
+            //    }
+            //    PrivateMode.toggle();
+            //    setSelection(mSelectedItemId); //restore selection
+            //    ((MainActivity) getActivity()).setBackground();
+            //    updateExternalStorage();
+            //}
+            else {
                 updateListSelection(v, item);
                 setFragment(item.path);
+                setSelection(mSelectedItemId); //restore selection
                 if(item.id!=ITEM_ID_PROVIDER) { //don't save when provider to avoid restarting with android browser view
                     PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putInt(PREFERENCE_LAST_FRAGMENT, mSelectedItemId).apply();
                     PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putString(PREFERENCE_LAST_PATH, item.path).apply();

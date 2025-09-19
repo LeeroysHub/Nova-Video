@@ -630,8 +630,8 @@
     <string name="preferences_network_prefer_vpn_summary">Use VPN over local network interfaces.</string>
     <string name="preferences_network_prefer_vpn_title">Prefer VPN network</string>
 
-    <string name="preferences_hide_external_menus_title">Hide External Menu</string>
-    <string name="preferences_hide_external_menus_summary">Hide the External Storage menu for a cleaner interface.</string>
+    <string name="preferences_hide_external_menus_title">Show Basic Interface</string>
+    <string name="preferences_hide_external_menus_summary">Hide the Network and Storage Rows for a clean interface.</string>
 
     <string name="preferences_video_advanced">Advanced</string>
     <string name="preferences_video_advanced_quit_title">Regular preferences</string>
@@ -966,6 +966,7 @@
 
     <string name="rescrap_not_found">Rescrape videos without description</string>
     <string name="rescrap_all_title">Rescrape all</string>
+    <string name="rescrape_title">Re-Scan</string>
     <string name="rescrap_all_movies_title">Rescrape all movies</string>
     <string name="rescrap_all_collections_title">Rescrape all collections</string>
     <string name="nfo_export_manual_title">Export already scraped videos</string>
