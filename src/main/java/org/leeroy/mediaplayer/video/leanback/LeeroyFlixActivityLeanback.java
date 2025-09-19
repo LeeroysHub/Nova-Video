@@ -154,12 +154,12 @@ public class LeeroyFlixActivityLeanback extends LeanbackActivity {
         if (requestCode == ACTIVITY_REQUEST_CODE_PREFERENCES) {
             if (resultCode == VideoPreferencesCommon.ACTIVITY_RESULT_UI_MODE_CHANGED) {
                 // Check if the UI mode changed
-                String newUiModeLeanback = PreferenceManager.getDefaultSharedPreferences(this).getString(UiChoiceDialog.UI_CHOICE_LEANBACK_KEY, "-");
-                if (!newUiModeLeanback.equals(mCurrentUiModeLeanback)) {
+                //String newUiModeLeanback = PreferenceManager.getDefaultSharedPreferences(this).getString(UiChoiceDialog.UI_CHOICE_LEANBACK_KEY, "-");
+                //if (!newUiModeLeanback.equals(mCurrentUiModeLeanback)) {
                     // ui mode changed -> quit the current activity and restart
-                    finish();
-                    startActivity(new Intent(this, EntryActivity.class));
-                }
+                finish();
+                startActivity(new Intent(this, EntryActivity.class));
+                //}
                 mCurrentUiModeLeanback = null; // reset
             } else if (resultCode == VideoPreferencesCommon.ACTIVITY_RESULT_UI_ZOOM_CHANGED) {
                 new DensityTweak(this)

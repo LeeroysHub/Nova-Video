@@ -28,6 +28,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.leanback.app.BackgroundManager;
@@ -117,6 +118,7 @@ import org.leeroy.mediaprovider.ImportState;
 import org.leeroy.mediaprovider.video.NetworkScannerReceiver;
 import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediascraper.AutoScrapeService;
+import org.leeroy.mediaprovider.video.NetworkAutoRefresh;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -271,10 +273,10 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
         mHideExternal = mPrefs.getBoolean(VideoPreferencesCommon.KEY_HIDE_EXTERNAL, false);
         mShowLegacyUI = !mPrefs.getBoolean("always_leanback_on_tv_key", true);
 
-        if (mPrefs.getBoolean(PREF_PRIVATE_MODE, false) !=  PrivateMode.isActive()) {
-            PrivateMode.toggle();
-            findAndUpdatePrivateModeIcon();
-        }
+        //if (mPrefs.getBoolean(PREF_PRIVATE_MODE, false) !=  PrivateMode.isActive()) {
+       //     PrivateMode.toggle();
+       //     findAndUpdatePrivateModeIcon();
+        //}
 
         updateBackground();
 
@@ -481,8 +483,8 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
             LoaderUtils.mSmartRecentlyRows = newSmartRecentlyRows;
 
             // Recreate rows with new titles
-            String lastAddedTitle = LoaderUtils.isSmartRecentlyRows() ? getString(R.string.new_and_unwatched) : getString(R.string.recently_added);
-            String lastPlayedTitle = LoaderUtils.isSmartRecentlyRows() ? getString(R.string.keep_watching) : getString(R.string.recently_played);
+            String lastAddedTitle = getString(R.string.recently_added);
+            String lastPlayedTitle = getString(R.string.recently_played);
 
             // Update last added row title
             if (mShowLastAddedRow) {
@@ -581,7 +583,7 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
 
         firstTimeLoad = false;
 
-        findAndUpdatePrivateModeIcon();
+        //findAndUpdatePrivateModeIcon();
     }
 
     @Override
@@ -665,12 +667,12 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
 
         mLastAddedAdapter = new CursorObjectAdapter(new PosterImageCardPresenter(mActivity));
         mLastAddedAdapter.setMapper(new CompatibleCursorMapperConverter(new VideoCursorMapper()));
-        String lastAddedTitle = LoaderUtils.isSmartRecentlyRows() ? getString(R.string.new_and_unwatched) : getString(R.string.recently_added);
+        String lastAddedTitle = getString(R.string.recently_added);
         mLastAddedRow = new ListRow(ROW_ID_LAST_ADDED, new HeaderItem(lastAddedTitle), mLastAddedAdapter);
 
         mLastPlayedAdapter = new CursorObjectAdapter(new PosterImageCardPresenter(mActivity));
         mLastPlayedAdapter.setMapper(new CompatibleCursorMapperConverter(new VideoCursorMapper()));
-        String lastPlayedTitle = LoaderUtils.isSmartRecentlyRows() ? getString(R.string.keep_watching) : getString(R.string.recently_played);
+        String lastPlayedTitle = getString(R.string.recently_played);
         mLastPlayedRow = new ListRow(ROW_ID_LAST_PLAYED, new HeaderItem(lastPlayedTitle), mLastPlayedAdapter);
 
         boolean showByRating = mPrefs.getBoolean(VideoPreferencesCommon.KEY_SHOW_BY_RATING, VideoPreferencesCommon.SHOW_BY_RATING_DEFAULT);
@@ -729,18 +731,22 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
         mAnimesAdapter.setMapper(new CompatibleCursorMapperConverter(new AnimesNShowsMapper()));
         mAnimesRow = new ListRow(ROW_ID_ALL_ANIMES, new HeaderItem(getString(R.string.all_animes_row)), mAnimesAdapter);
 
-        mFileBrowsingRowAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
-        mFileBrowsingRowAdapter.add(new Box(Box.ID.NETWORK, getString(R.string.network_storage), R.drawable.filetype_new_server));
-        mFileBrowsingRowAdapter.add(new Box(Box.ID.FOLDERS, getString(R.string.internal_storage), R.drawable.filetype_new_folder));
-        mFileBrowsingRowAdapter.add(new Box(Box.ID.VIDEOS_BY_LISTS, getString(R.string.video_lists), R.drawable.filetype_new_playlist));
+        if (!mHideExternal ) {
+            mFileBrowsingRowAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
+            mFileBrowsingRowAdapter.add(new Box(Box.ID.NETWORK, getString(R.string.network_storage), R.drawable.filetype_new_server));
+        
+            mFileBrowsingRowAdapter.add(new Box(Box.ID.FOLDERS, getString(R.string.internal_storage), R.drawable.filetype_new_folder));
+            //mFileBrowsingRowAdapter.add(new Box(Box.ID.VIDEOS_BY_LISTS, getString(R.string.video_lists), R.drawable.filetype_new_playlist));
 
-        mNonScrapedVideosItem = new Box(Box.ID.NON_SCRAPED_VIDEOS, getString(R.string.non_scraped_videos), R.drawable.filetype_new_unscraped_video);
-        // Add USB and SDcard items at init ?depending of their availability
-        updateUsbAndSdcardVisibility();
+            mNonScrapedVideosItem = new Box(Box.ID.NON_SCRAPED_VIDEOS, getString(R.string.non_scraped_videos), R.drawable.filetype_new_unscraped_video);
+            
+            mRowsAdapter.add(new ListRow(ROW_ID_FILES,
+                    new HeaderItem(getString(R.string.leanback_browsing)),
+                    mFileBrowsingRowAdapter));
 
-        mRowsAdapter.add(new ListRow(ROW_ID_FILES,
-                new HeaderItem(getString(R.string.leanback_browsing)),
-                mFileBrowsingRowAdapter));
+            // Add USB and SDcard items at init ?depending of their availability
+            updateUsbAndSdcardVisibility();
+        }
 
         mPreferencesRowAdapter = new ArrayObjectAdapter(new IconItemPresenter());
         mPreferencesRowAdapter.add(new Icon(Icon.ID.PREFERENCES, getString(R.string.preferences), R.drawable.lollipop_settings));
@@ -1213,18 +1219,24 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
 
     private void updateNonScrapedVideosVisibility(Cursor cursor) {
         int count = NonScrapedVideosCountLoader.getNonScrapedVideoCount(cursor);
-        int currentIndex = mFileBrowsingRowAdapter.indexOf(mNonScrapedVideosItem);
-        log.debug("updateNonScrapedVideosVisibility: count={}, currentIndex={}", count, currentIndex);
-        if (count > 0) {
-            if (currentIndex < 0) {
-                log.debug("updateNonScrapedVideosVisibility: adding non-scraped box");
-                mFileBrowsingRowAdapter.add(mNonScrapedVideosItem);
-            } else {
-                log.debug("updateNonScrapedVideosVisibility: non-scraped box already present at index {}", currentIndex);
-            }
+
+        //I have basic mode, so we may not even have mNonScrapedVideosItem!
+        if (mNonScrapedVideosItem == null) {
+            log.debug("updateNonScrapedVideosVisibility: mNonScrapedVideosItem is null.");
         } else {
-            log.debug("updateNonScrapedVideosVisibility: removing non-scraped box");
-            mFileBrowsingRowAdapter.remove(mNonScrapedVideosItem);
+            int currentIndex = mFileBrowsingRowAdapter.indexOf(mNonScrapedVideosItem);
+            log.debug("updateNonScrapedVideosVisibility: count={}, currentIndex={}", count, currentIndex);
+            if (count > 0) {
+                if (currentIndex < 0) {
+                    log.debug("updateNonScrapedVideosVisibility: adding non-scraped box");
+                    mFileBrowsingRowAdapter.add(mNonScrapedVideosItem);
+                } else {
+                    log.debug("updateNonScrapedVideosVisibility: non-scraped box already present at index {}", currentIndex);
+                }
+            } else {
+                log.debug("updateNonScrapedVideosVisibility: removing non-scraped box");
+                mFileBrowsingRowAdapter.remove(mNonScrapedVideosItem);
+            }
         }
     }
 
@@ -1545,6 +1557,7 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
 
     private void updateUsbAndSdcardVisibility() {
         log.debug("updateUsbAndSdcardVisibility");
+        if (mHideExternal ) return;     //DONT DO ANY OF IT IF WE ARE HIDING EXTERNAL 
         ExtStorageManager storageManager = ExtStorageManager.getExtStorageManager();
         final boolean hasExternal = storageManager.hasExtStorage();
 
@@ -1594,14 +1607,14 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
 
     //private void updatePrivateMode(Icon icon) {
     //    icon.setActive(PrivateMode.isActive());
-    //    preferencesRowAdapter.replace(preferencesRowAdapter.indexOf(icon), icon);
+    //    mPreferencesRowAdapter.replace(mPreferencesRowAdapter.indexOf(icon), icon);
     //    updateBackground();
     //}
 
     //private void findAndUpdatePrivateModeIcon() {
-    //    if (preferencesRowAdapter != null) {
-    //        for(int i=0 ; i<preferencesRowAdapter.size() ; i++) {
-    //            Object item = preferencesRowAdapter.get(i);
+    //    if (mPreferencesRowAdapter != null) {
+    //        for(int i=0 ; i<mPreferencesRowAdapter.size() ; i++) {
+    //            Object item = mPreferencesRowAdapter.get(i);
     //            if (item instanceof Icon) {
     //                Icon icon = (Icon) item;
     //                if (icon.getId() == Icon.ID.PRIVATE_MODE) {
@@ -1689,7 +1702,7 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
                         if (vActivity instanceof LeeroyFlixActivityLeanback)
                             ((LeeroyFlixActivityLeanback)vActivity).startPreferencesActivity(); // I know this is ugly (and i'm ashamed...)
                         else
-                            throw new IllegalStateException("Sorry developer, this ugly code can work with a LeeroyFlixActivityLeanback only for now!");
+                            throw new IllegalStateException("Sorry developer, this ugly code can work with a MainActivityLeanback only for now!");
                         break;
                     case RESCRAPE:
                         rescanAvailableShortcuts();

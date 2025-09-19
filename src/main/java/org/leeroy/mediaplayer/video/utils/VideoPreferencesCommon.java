@@ -31,7 +31,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.widget.Toast;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -153,6 +153,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
     public static final String KEY_ACTIVATE_REFRESHRATE_SWITCH = "enable_tv_refreshrate_switch_mode";
     public static final String KEY_ACTIVATE_3D_SWITCH = "activate_tv_switch";
     public static final String KEY_ADULT_SCRAPE = "enable_adult_scrap_key";
+    public static final String KEY_HIDE_EXTERNAL = "hide_external_menus";
 
     public static final String KEY_SEPARATE_ANIME_MOVIE_SHOW = "separate_anime_movie_show";
     public static final String KEY_SHOW_WATCHING_UP_NEXT_ROW = "show_watching_up_next_row";
@@ -580,7 +581,8 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         mSmbDisableUdpDiscovery = (CheckBoxPreference) findPreference(KEY_SMB_DISABLE_UDP_DISCOVERY);
         mSmbDisableMdnsDiscovery = (CheckBoxPreference) findPreference(KEY_SMB_DISABLE_MDNS_DISCOVERY);
         mSmbj = (CheckBoxPreference) findPreference(KEY_SMBJ);
-
+        mSmb2.setEnabled(!mSmbj.isChecked());   //Disable checkbox on startup
+           
         mScraperCategory = (PreferenceCategory) findPreference(KEY_SCRAPER_CATEGORY);
         mExportManualPreference = findPreference(getString(R.string.nfo_export_manual_prefkey));
         mExportManualPreference.setOnPreferenceClickListener(preference -> {
@@ -592,10 +594,26 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
 
         findPreference("hide_watched").setOnPreferenceChangeListener((preference, newValue) -> {
             LoaderUtils.mMustHideWatchedVideo =  (boolean) newValue;
-            getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED); // way to tell the MainActivity that an important preference has been changed
+            getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED); // way to tell the LeeroyFlixActivity that an important preference has been changed
             getActivity().finish();
             return true;
         });
+
+        //Save the UI changed Listener, re-use it for the prefs that need it.
+        Preference.OnPreferenceClickListener prefClickListenerUIChanged = new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(@NonNull Preference preference) {
+                getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED); // way to tell the LeeroyFlixActivity that an important preference has been changed
+                getActivity().finish();
+                return true;
+            }
+        };
+
+        //We want the prefs changes to change the UI, so we have to set them all up.
+        findPreference(getString(R.string.preferences_hide_external_menus_key)).setOnPreferenceClickListener(prefClickListenerUIChanged);
+        findPreference("smart_recently_rows").setOnPreferenceClickListener(prefClickListenerUIChanged);
+        findPreference(getString(R.string.preferences_display_recently_added_key)).setOnPreferenceClickListener(prefClickListenerUIChanged);
+        findPreference(getString(R.string.preferences_display_recently_played_key)).setOnPreferenceClickListener(prefClickListenerUIChanged);
 
         findPreference(getString(R.string.rescrap_all_prefkey)).setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(AutoScrapeService.RESCAN_EVERYTHING, null, getActivity(), AutoScrapeService.class);
@@ -670,16 +688,16 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
 
         mDbExportManualPreference = findPreference(getString(R.string.db_export_manual_prefkey));
         mDbExportManualPreference.setOnPreferenceClickListener(preference -> {
-            backupDatabase(getContext(),"media.db");
             Toast.makeText(getActivity(), R.string.db_export_in_progress, Toast.LENGTH_SHORT).show();
+            backupDatabase(getContext(),"media.db");
             return true;
         });
 
         Preference exportLibraryPreference = findPreference(getString(R.string.media_library_export_prefkey));
         exportLibraryPreference.setOnPreferenceClickListener(preference -> {
+            Toast.makeText(getActivity(), R.string.media_library_export_in_progress, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MediaLibraryBackupService.ACTION_EXPORT, null, getActivity(), MediaLibraryBackupService.class);
             ContextCompat.startForegroundService(getContext(), intent);
-            Toast.makeText(getActivity(), R.string.media_library_export_in_progress, Toast.LENGTH_SHORT).show();
             return true;
         });
 
@@ -1062,6 +1080,10 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
                     DbUtils.markAsNotRead(getActivity());
                     return true;
                 });
+                
+                //We don't want the New and History options for Phone Interface In Leanback
+                findPreference(getString(R.string.preferences_display_recently_added_key)).setVisible(false);
+                findPreference(getString(R.string.preferences_display_recently_played_key)).setVisible(false);
 
                 // FIXME: for now feature watch up next is disabled because makes the interface crash
                 if (! LeeroyFlixFragment.FEATURE_WATCH_UP_NEXT)
