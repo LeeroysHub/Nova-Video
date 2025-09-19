@@ -138,22 +138,16 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
         itemData.id = ITEM_ID_RECENTLY_PLAYED;
         categoryList.add(itemData);
 
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_played;
-        itemData.text = R.string.video_lists;
-        itemData.id = ITEM_ID_LISTS;
-        categoryList.add(itemData);
+        //itemData = new ItemData();
+        //itemData.icon = R.drawable.category_video_played;
+        //itemData.text = R.string.video_lists;
+        //itemData.id = ITEM_ID_LISTS;
+        //categoryList.add(itemData);
 
         /*itemData = new ItemData();
         itemData.icon = R.drawable.category_video_not_played;
         itemData.text = R.string.not_played_yet_videos;
         categoryList.add(itemData);*/
-
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_common_folder;
-        itemData.text = R.string.video_folder;
-        itemData.id = ITEM_ID_VIDEO_FOLDER;
-        categoryList.add(itemData);
     }
 
 

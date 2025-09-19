@@ -76,7 +76,7 @@ abstract public class BrowserCategory extends ListFragment {
     protected static final int ITEM_ID_PROVIDER = 6;
     protected static final int ITEM_ID_NETWORK = 5;
     protected static final int FILE_CHOOSER_ACTIVITY_REQUEST_CODE = 788;
-
+    protected static final int ITEM_ID_VIDEO_FOLDER = ITEM_ID_OFFSET + 0;
 
     private int mLibrarySize;
     protected int mSelectedItemId;
@@ -440,11 +440,22 @@ abstract public class BrowserCategory extends ListFragment {
             }
         }
         */
+        
         ExtStorageManager storageManager = ExtStorageManager.getExtStorageManager();
         final boolean hasExternal = storageManager.hasExtStorage();
         final boolean isConnected = isConnected();
-        if (hasExternal|| isConnected || NetworkState.isNetworkConnected(getActivity())) {
+        final boolean isHidingExternal = mPreferences.getBoolean(getString(R.string.preferences_hide_external_menus_key), false);
+
+        if (!isHidingExternal && (hasExternal|| isConnected || NetworkState.isNetworkConnected(getActivity()))) {
             mCategoryList.add(getText(R.string.external_storage));
+
+            {   //Scope local so the variables don't clash, rest are in conditionals and this is an edge case...
+                ItemData itemData = new ItemData();
+                itemData.icon = R.drawable.category_common_folder;
+                itemData.text = R.string.video_folder;
+                itemData.id = ITEM_ID_VIDEO_FOLDER;
+                mCategoryList.add(itemData);
+            }
 
             if (hasExternal) {
                 for(String s : storageManager.getExtSdcards()) {
@@ -499,11 +510,14 @@ abstract public class BrowserCategory extends ListFragment {
         // one could argue that "cloud" should be made available only if connected
         // but offline capability is present in drive and provider is more generic
         // than cloud in reality. Perhaps think of better name
-        ItemData itemData = new ItemData();
-        itemData.icon = R.drawable.category_common_network;
-        itemData.text = R.string.provider_folders;
-        itemData.id = ITEM_ID_PROVIDER;
-        mCategoryList.add(itemData);
+        if (!isHidingExternal) {
+            ItemData itemData = new ItemData();
+            itemData.icon = R.drawable.category_common_network;
+            itemData.text = R.string.provider_folders;
+            itemData.id = ITEM_ID_PROVIDER;
+            mCategoryList.add(itemData);
+        }
+        
         addLastItems();
         mCategoryAdapter.notifyDataSetChanged();
         // Set the selection when rotating.
@@ -546,10 +560,11 @@ abstract public class BrowserCategory extends ListFragment {
     }
 
     private boolean isConnected(){
-        if (mPreferences.getBoolean(getString(R.string.preferences_network_mobile_vpn_key), false))
-            return NetworkState.isNetworkConnected(getActivity());
-        else
-            return NetworkState.isLocalNetworkConnected(getActivity());
+        return true;
+        //if (mPreferences.getBoolean(getString(R.string.preferences_network_mobile_vpn_key), false))
+        //    return NetworkState.isNetworkConnected(getActivity());
+        //else
+        //    return NetworkState.isLocalNetworkConnected(getActivity());
     }
 
     /**
