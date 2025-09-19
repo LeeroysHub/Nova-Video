@@ -20,6 +20,14 @@
             android:summary="@string/UiLang_summary"
             android:title="@string/UiLang_title"
             app:iconSpaceReserved="false"/>
+        
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/preferences_hide_external_menus_key"
+            android:persistent="true"
+            android:summary="@string/preferences_hide_external_menus_summary"
+            android:title="@string/preferences_hide_external_menus_title"
+            app:iconSpaceReserved="false"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:key="preferences_category_video"
@@ -220,6 +228,20 @@
             android:summary="@string/preferences_display_resume_box_summary"
             android:title="@string/preferences_display_resume_box"
             app:iconSpaceReserved="false"/>
+        
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/preferences_display_recently_added_key"
+            android:summary="@string/preferences_display_recently_added_summary"
+            android:title="@string/preferences_display_recently_added"
+            app:iconSpaceReserved="false"/>
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/preferences_display_recently_played_key"
+            android:summary="@string/preferences_display_recently_played_summary"
+            android:title="@string/preferences_display_recently_played"
+            app:iconSpaceReserved="false"/>
 
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_leanback_user_interface" android:key="category_leanback_user_interface"
@@ -233,14 +255,14 @@
             app:iconSpaceReserved="false"/>
         
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="show_last_added_row"
             android:summary="@string/preferences_show_last_added_row_summary"
             android:title="@string/preferences_show_last_added_row"
             app:iconSpaceReserved="false"/>
 
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="show_last_played_row"
             android:summary="@string/preferences_show_last_played_row_summary"
             android:title="@string/preferences_show_last_played_row"
@@ -593,16 +615,19 @@
         <Preference
             android:key="preferences_video_os"
             android:title="@string/preferences_video_os_text"
+            android:selectable="false"
             android:widgetLayout="@layout/preferences_video_os_button"
             app:iconSpaceReserved="false"/>
         <Preference
             android:key="preferences_video_tmdb"
             android:title="@string/preferences_video_tmdb_text"
+            android:selectable="false"
             android:widgetLayout="@layout/preferences_video_tmdb_button"
             app:iconSpaceReserved="false"/>
         <Preference
             android:key="preferences_video_trakt"
             android:title="@string/preferences_video_trakt_text"
+            android:selectable="false"
             android:widgetLayout="@layout/preferences_video_trakt_button"
             app:iconSpaceReserved="false"/>
         <PreferenceScreen
