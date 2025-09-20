@@ -108,12 +108,14 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
     public void setLibraryList(ArrayList<Object> categoryList, boolean IsBasicInterface) {
         ItemData itemData;
 
+        //MOVIES COLLECTION TABLET/PHONE UI
         itemData = new ItemData();
         itemData.icon = R.drawable.category_video_movie;
         itemData.text = R.string.movies;
         itemData.id = ITEM_ID_MOVIES;
         categoryList.add(itemData);
 
+        //TV SHOWS COLLECTION TABLET/PHONE UI
         itemData = new ItemData();
         itemData.icon = R.drawable.category_video_tvshow;
         itemData.text = R.string.all_tv_shows;
@@ -121,6 +123,7 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
         categoryList.add(itemData);
 
         if (!IsBasicInterface) {
+            //ALL VIDEO COLLECTION TABLET/PHONE UI
             itemData = new ItemData();
             itemData.icon = R.drawable.category_video_all;
             itemData.text = R.string.all_videos;
@@ -135,6 +138,7 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
             categoryList.add(itemData);
         }
 
+        //RECENTLY PLAYED COLLECTION TABLET/PHONE UI        
         itemData = new ItemData();
         itemData.icon = R.drawable.category_video_played;
         itemData.text = R.string.recently_played_videos;
