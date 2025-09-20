@@ -26,6 +26,8 @@
     <string name="save_audio_speed_setting_pref_key">save_audio_speed_setting_pref_key</string>
     <string name="preferences_network_mobile_vpn_key">vpn_mobile</string>
     <string name="preferences_hide_external_menus_key">hide_external_menus</string>
+    <string name="preferences_display_recently_played_key">display_recently_played</string>
+    <string name="preferences_display_recently_added_key">display_recently_added</string>
 
     <string name="nfo_export_manual_prefkey">export_manual_prefkey</string>
     <string name="rescrap_all_prefkey">rescrap_all_prefkey</string>

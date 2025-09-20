@@ -129,21 +129,24 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
             itemData.text = R.string.all_videos;
             itemData.id = ITEM_ID_ALL_VIDEOS;
             categoryList.add(itemData);
-
-            //HIDE RECENTLY ADDED FOR NOW UNTIL ITS FIXED
+        }
+        
+        //RECENTLY ADDED COLLECTION TABLET/PHONE UI
+        if (mPreferences.getBoolean(getString(R.string.preferences_display_recently_added_key), false)) {
             itemData = new ItemData();
             itemData.icon = R.drawable.category_video_added;
             itemData.text = R.string.recently_added_videos;
             itemData.id = ITEM_ID_RECENTLY_ADDED;
             categoryList.add(itemData);
         }
-
         //RECENTLY PLAYED COLLECTION TABLET/PHONE UI        
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_played;
-        itemData.text = R.string.recently_played_videos;
-        itemData.id = ITEM_ID_RECENTLY_PLAYED;
-        categoryList.add(itemData);
+        if (mPreferences.getBoolean(getString(R.string.preferences_display_recently_played_key), false)) {
+            itemData = new ItemData();
+            itemData.icon = R.drawable.category_video_played;
+            itemData.text = R.string.recently_played_videos;
+            itemData.id = ITEM_ID_RECENTLY_PLAYED;
+            categoryList.add(itemData);
+        }
 
         //itemData = new ItemData();
         //itemData.icon = R.drawable.category_video_played;

@@ -221,6 +221,20 @@
             android:summary="@string/preferences_display_resume_box_summary"
             android:title="@string/preferences_display_resume_box"
             app:iconSpaceReserved="false"/>
+        
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/preferences_display_recently_added_key"
+            android:summary="@string/preferences_display_recently_added_summary"
+            android:title="@string/preferences_display_recently_added"
+            app:iconSpaceReserved="false"/>
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/preferences_display_recently_added_key"
+            android:summary="@string/preferences_display_recently_played_summary"
+            android:title="@string/preferences_display_recently_played"
+            app:iconSpaceReserved="false"/>
 
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_leanback_user_interface" android:key="category_leanback_user_interface"

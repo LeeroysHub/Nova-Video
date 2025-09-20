@@ -779,8 +779,14 @@
     <string name="audio_interface_any">Default logic</string>
 
     <string name="preferences_user_interface">User Interface</string>
-    <string name="preferences_display_resume_box_summary">Display or hide the button resuming the latest video in the main screen</string>
+    <string name="preferences_display_resume_box_summary">Show or Hide the button resuming the latest video in the main screen</string>
     <string name="preferences_display_resume_box">Display resume box</string>
+    
+    <!--These are for the Tablet/Phone UI, leanback ones are below-->
+    <string name="preferences_display_recently_added">Display Recently Added menu</string>
+    <string name="preferences_display_recently_added_summary">Show or Hide the Recently Added item in the Side Menu.</string>
+    <string name="preferences_display_recently_played">Display Recently Played menu</string>
+    <string name="preferences_display_recently_played_summary">Show or Hide the Recently Added item in the Side Menu.</string>
 
     <string name="preferences_leanback_user_interface">TV User Interface</string>
     <string name="preferences_separate_animation_from_movies_summary">Check to separate animation videos from movies and tv shows adding an animation row</string>
