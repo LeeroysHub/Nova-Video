@@ -47,7 +47,7 @@ public class UpnpRootFragment extends UpnpSmbCommonRootFragment implements UpnpS
     public void onViewCreated (View v, Bundle saved){
 
         // First initialization, start the discovery (if there is connectivity)
-        if (NetworkState.isNetworkConnected(getActivity())) {
+        if (NetworkState.isLocalNetworkConnected(getActivity())) {
             startDiscovery();
         }
     }
