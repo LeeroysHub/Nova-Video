@@ -453,9 +453,9 @@ public class Delete {
             return result;
         }
         final String[] extensionsToClean = new String[] {
-                "-fanart.leeroy.jpg",
-                "-poster.leeroy.jpg",
-                ".leeroy.nfo"
+                ".fanart.jpg",
+                ".cover.jpg",
+                ".nfo"
         };
 
         for (String extension : extensionsToClean) {
