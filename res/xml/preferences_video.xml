@@ -231,7 +231,7 @@
 
         <CheckBoxPreference
             android:defaultValue="true"
-            android:key="@string/preferences_display_recently_added_key"
+            android:key="@string/preferences_display_recently_played_key"
             android:summary="@string/preferences_display_recently_played_summary"
             android:title="@string/preferences_display_recently_played"
             app:iconSpaceReserved="false"/>
