@@ -547,7 +547,8 @@ abstract public class BrowserCategory extends ListFragment {
     }
 
     private void addLastItems() {
-        mCategoryList.add("LeeroyFlix" + " v" + getText(R.string.VERSION_NAME));
+        //PREFERENCES MENU HEADER TABLET/PHONE UI
+        mCategoryList.add("LeeroyFlix");
         
         //Preferences Menu Phone/Tablet UI
         ItemData itemData = new ItemData();
