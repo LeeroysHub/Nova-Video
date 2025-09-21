@@ -37,8 +37,8 @@ public class LastAddedLoader extends VideoLoader {
         StringBuilder sb = new StringBuilder();
         sb.append(super.getSelection()); // get common selection from the parent
 
-        if (sb.length()>0) { sb.append(" AND "); }
-        sb.append(VideoStore.Video.VideoColumns.LEEROYFLIX_LAST_TIME_PLAYED + "!=0");
+        sb.append(") GROUP BY (");
+        sb.append(VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID);
         return sb.toString();
     }
 
