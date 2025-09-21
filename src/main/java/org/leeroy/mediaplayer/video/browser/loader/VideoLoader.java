@@ -57,9 +57,9 @@ public abstract class VideoLoader extends CursorLoader implements CompatAndSDKCu
     // for all All*GridFragment and BrowserAll* and *Fragment
     public static final boolean GRIDVIDEO_THROTTLE = true;
     public static final int GRIDVIDEO_THROTTLE_DELAY = 60000; // 1m
-    // for MainFragment line - enabled to prevent SQLite contention during scanning
+    // for MainFragment line
     public static final boolean ALLVIDEO_THROTTLE = true;
-    public static final int ALLVIDEO_THROTTLE_DELAY = 1000; // 1s - reduces database queries during scanning
+    public static final int ALLVIDEO_THROTTLE_DELAY = 10000; // 10s
     // for channels
     public static final boolean CHANNEL_THROTTLE = false;
     public static final int CHANNEL_THROTTLE_DELAY = 60000; // 1m
