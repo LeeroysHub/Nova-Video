@@ -209,4 +209,4 @@
         android:visibility="gone"
         android:elevation="10dp" />
 
-</org.leeroy.mediacenter.video.player.PlayerControlsRelativeLayout>
+</org.leeroy.mediaplayer.video.player.PlayerControlsRelativeLayout>

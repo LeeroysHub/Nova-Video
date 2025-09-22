@@ -206,7 +206,6 @@
         android:paddingTop="6sp"
         android:paddingBottom="6sp"/>
 
-
     <ImageView
         android:id="@+id/central_play_icon"
         android:layout_width="120dp"
