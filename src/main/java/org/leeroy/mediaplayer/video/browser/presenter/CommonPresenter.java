@@ -101,8 +101,8 @@ public class CommonPresenter implements Presenter {
         holder.expanded = (ImageButton) view.findViewById(R.id.expanded);
         holder.secondLine=view.findViewById(R.id.bottom_row);
         holder.name = (TextView) view.findViewById(R.id.name);
-        holder.count = (TextView) view.findViewById(R.id.occurencies_text_view);
-        holder.countcontainer = view.findViewById(R.id.occurencies_container);
+        //holder.count = (TextView) view.findViewById(R.id.occurencies_text_view);
+        //holder.countcontainer = view.findViewById(R.id.occurencies_container);
         holder.info = (TextView) view.findViewById(R.id.info);
         holder.resume = (ProgressBar) view.findViewById(R.id.resume_notif);
         holder.bookmark = (ImageLabel) view.findViewById(R.id.bookmark_notif);
