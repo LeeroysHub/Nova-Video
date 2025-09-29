@@ -322,7 +322,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private Uri                 mStreamingUri;
     private String              mTitle;
     Map<String, String>         mExtraMap = null;
-    private String              mMovieOrShowName;
+    public String              mMovieOrShowName;
     private String              mEpisode;
     private Bitmap              mThumbnail;
     private int                 mThumbnailDone;
