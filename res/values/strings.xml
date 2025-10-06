@@ -976,7 +976,7 @@
 
     <string name="rescrap_not_found">Rescrape videos without description</string>
     <string name="rescrap_all_title">Rescrape all</string>
-    <string name="rescrape_title">Re-Scan</string>
+    <string name="rescrape_title">Re-scan</string>
     <string name="rescrap_all_movies_title">Rescrape all movies</string>
     <string name="rescrap_all_collections_title">Rescrape all collections</string>
     <string name="nfo_export_manual_title">Export already scraped videos</string>
