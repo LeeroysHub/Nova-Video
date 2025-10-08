@@ -1174,6 +1174,8 @@
             android:foregroundServiceType="dataSync"/>
         <service android:name="com.archos.mediacenter.video.utils.MediaLibraryBackupService"
             android:foregroundServiceType="dataSync"/>
+        <service android:name="com.archos.mediacenter.video.utils.MediaLibraryBackupService"
+            android:foregroundServiceType="dataSync"/>
 
         <receiver
             android:name="com.archos.mediacenter.LibAvosReceiver"
