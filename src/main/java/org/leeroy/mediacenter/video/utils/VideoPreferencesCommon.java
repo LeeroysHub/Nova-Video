@@ -46,8 +46,8 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 
-import org.leeroy.environment.ArchosFeatures;
-import org.leeroy.environment.ArchosUtils;
+import org.leeroy.environment.LeeroyFlixFeatures;
+import org.leeroy.environment.LeeroyFlixUtils;
 import org.leeroy.filecorelibrary.ExtStorageManager;
 import org.leeroy.filecorelibrary.jcifs.JcifsUtils;
 import org.leeroy.filecorelibrary.samba.SambaDiscovery;
@@ -583,6 +583,13 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             return true;
         });
 
+        mDbImportManualPreference = findPreference(getString(R.string.db_import_manual_prefkey));
+        mDbImportManualPreference.setOnPreferenceClickListener(preference -> {
+            importDatabase(getContext(),"media.db");
+            Toast.makeText(getActivity(), R.string.db_import_in_progress, Toast.LENGTH_SHORT).show();
+            return true;
+        });
+
         Preference exportLibraryPreference = findPreference(getString(R.string.media_library_export_prefkey));
         exportLibraryPreference.setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(MediaLibraryBackupService.ACTION_EXPORT, null, getActivity(), MediaLibraryBackupService.class);
@@ -594,10 +601,6 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         Preference importLibraryPreference = findPreference(getString(R.string.media_library_import_prefkey));
         importLibraryPreference.setOnPreferenceClickListener(preference -> {
             showImportDialog();
-        mDbImportManualPreference = findPreference(getString(R.string.db_import_manual_prefkey));
-        mDbImportManualPreference.setOnPreferenceClickListener(preference -> {
-            importDatabase(getContext(),"media.db");
-            Toast.makeText(getActivity(), R.string.db_import_in_progress, Toast.LENGTH_SHORT).show();
             return true;
         });
 

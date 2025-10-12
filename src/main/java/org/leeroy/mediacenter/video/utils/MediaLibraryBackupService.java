@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.archos.mediacenter.video.utils;
+package org.leeroy.mediaplayer.video.utils;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -29,8 +29,8 @@ import android.widget.Toast;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.ServiceCompat;
 
-import com.archos.mediacenter.video.R;
-import com.archos.mediascraper.MediaScraper;
+import org.leeroy.mediaplayer.video.R;
+import org.leeroy.mediascraper.MediaScraper;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1165,11 +1165,9 @@
             android:foregroundServiceType="dataSync"/>
         <service android:name="org.leeroy.mediascraper.AllCollectionScrapeService"
             android:foregroundServiceType="dataSync"/>
-        <service android:name="org.leeroy.mediacenter.video.browser.FileManagerService"
+        <service android:name="org.leeroy.mediaplayer.video.browser.FileManagerService"
             android:foregroundServiceType="dataSync"/>
-        <service android:name="com.archos.mediacenter.video.utils.MediaLibraryBackupService"
-            android:foregroundServiceType="dataSync"/>
-        <service android:name="com.archos.mediacenter.video.utils.MediaLibraryBackupService"
+        <service android:name="org.leeroy.mediaplayer.video.utils.MediaLibraryBackupService"
             android:foregroundServiceType="dataSync"/>
 
         <receiver
