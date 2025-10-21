@@ -44,6 +44,6 @@ public class LastAddedLoader extends VideoLoader {
 
     @Override
     public String getSortOrder() {
-        return VideoStore.MediaColumns.DATE_ADDED + " DESC LIMIT 100";
+        return VideoStore.MediaColumns.DATE_ADDED + " DESC LIMIT 50";
     }
 }
