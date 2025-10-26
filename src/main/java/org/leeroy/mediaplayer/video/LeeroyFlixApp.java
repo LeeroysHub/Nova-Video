@@ -809,7 +809,7 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
         Security.insertProviderAt(new BouncyCastleProvider(), 1);
     }
 
-    static boolean DBG = true;
+    static boolean DBG = false;
 
     public void loadLocale() {
         // Warning no log.debug at this stage
