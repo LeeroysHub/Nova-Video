@@ -1097,7 +1097,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         System.exit(0); // Optionally use this to ensure the app process is fully restarted.
     }
 
-    private static boolean DBG = true;
+    private static boolean DBG = false;
 
     private void rescanPath(String s) {
         isMediaScannerScanning(getActivity().getContentResolver());
