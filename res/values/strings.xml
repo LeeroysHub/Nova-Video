@@ -794,6 +794,8 @@
     <string name="preferences_display_recently_added_summary">Show or Hide the Recently Added item in the Side Menu.</string>
     <string name="preferences_display_recently_played">Display Watch History menu</string>
     <string name="preferences_display_recently_played_summary">Show or Hide the Recently Played item in the Side Menu.</string>
+    <string name="reset_brightness_on_start">Remember saved Video Brightness.</string>
+    <string name="reset_brightness_on_start_summary">Remember last used Brightness Setting when opening a Video. Turn off to use System Brightness.</string>
 
     <string name="preferences_leanback_user_interface">TV User Interface</string>
     <string name="preferences_separate_animation_from_movies_summary">Check to separate animation videos from movies and tv shows adding an animation row</string>

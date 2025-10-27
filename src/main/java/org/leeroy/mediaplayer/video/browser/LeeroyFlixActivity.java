@@ -269,6 +269,10 @@ public class LeeroyFlixActivity extends BrowserActivity implements ExternalPlaye
         setBackground();
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    
+        //Reset Video brightness to System on Startup.
+        if (!mPreferences.getBoolean("reset_brightness_on_start", false))
+            mPreferences.edit().putInt("brightness_saved",-1).apply();
 
         mNewVideosActionProvider = new NewVideosActionProvider(this);
         LoaderManager.getInstance(this).initLoader(0, null, mNewVideosActionProvider);

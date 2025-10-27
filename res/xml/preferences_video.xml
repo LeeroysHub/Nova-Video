@@ -249,7 +249,14 @@
             android:summary="@string/preferences_display_recently_played_summary"
             android:title="@string/preferences_display_recently_played"
             app:iconSpaceReserved="false"/>
-
+        
+         <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/reset_brightness_on_start_key"
+            android:summary="@string/reset_brightness_on_start_summary"
+            android:title="@string/reset_brightness_on_start"
+            app:iconSpaceReserved="false"/>
+        
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_leanback_user_interface" android:key="category_leanback_user_interface"
         app:iconSpaceReserved="false" >
