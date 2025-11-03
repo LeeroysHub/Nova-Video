@@ -576,11 +576,10 @@ abstract public class BrowserCategory extends ListFragment {
     }
 
     private boolean isConnected(){
-        return true;
-        //if (mPreferences.getBoolean(getString(R.string.preferences_network_mobile_vpn_key), false))
-        //    return NetworkState.isNetworkConnected(getActivity());
-        //else
-        //    return NetworkState.isLocalNetworkConnected(getActivity());
+        if (mPreferences.getBoolean(getString(R.string.preferences_network_mobile_vpn_key), false))
+            return NetworkState.isNetworkConnected(getActivity());
+        else
+            return NetworkState.isLocalNetworkConnected(getActivity());
     }
 
     /**
