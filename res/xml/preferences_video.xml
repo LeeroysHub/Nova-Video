@@ -576,6 +576,17 @@
             android:key="@string/rescrap_all_collections_prefkey"
             android:title="@string/rescrap_all_collections_title"
             app:iconSpaceReserved="false"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:title="@string/enable_adult_scrap_title"
+            android:summary="@string/enable_adult_scrap_summary"
+            android:key="enable_adult_scrap_key"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/import_export"
+        android:key="import_export_category"
+        app:iconSpaceReserved="false" >
         <Preference
             android:key="@string/nfo_export_manual_prefkey"
             android:summary="@string/nfo_export_manual_summary"
@@ -602,12 +613,7 @@
             android:title="@string/media_library_import_title"
             app:iconSpaceReserved="false"/>
         
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:title="@string/enable_adult_scrap_title"
-            android:summary="@string/enable_adult_scrap_summary"
-            android:key="enable_adult_scrap_key"
-            app:iconSpaceReserved="false"/>
+        
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/storage"
