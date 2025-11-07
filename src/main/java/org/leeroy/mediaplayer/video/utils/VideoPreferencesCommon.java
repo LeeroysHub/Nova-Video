@@ -254,7 +254,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
     private ListPreference mAudioTrackFavoriteLanguage = null;
     private CheckBoxPreference mWatchingUpNext = null;
     private PreferenceCategory mAboutPreferences = null;
-    private CheckBoxPreference mAdultScrape = null;
+    //private CheckBoxPreference mAdultScrape = null;
     private EditTextPreference mStreamBufferSize = null;
     private EditTextPreference mStreamMaxIFrameSize = null;
     private String mLastTraktUser = null;
@@ -381,6 +381,8 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             prefCategory.removePreference(mEnableCutoutModeShortEdge);
         }
         PreferenceCategory prefScraperCategory = (PreferenceCategory) findPreference(KEY_SCRAPER_CATEGORY);
+        PreferenceCategory prefImportExportCategory = (PreferenceCategory) findPreference("import_export_category");
+
         if (mSharedPreferences.getBoolean(KEY_ADVANCED_VIDEO_ENABLED, false)) {
             // advanced preferences
             Editor editor = mSharedPreferences.edit();
@@ -392,13 +394,13 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             prefCategory.addPreference(mDecChoicePreferences);
             prefCategory.addPreference(mAudioInterfaceChoicePreferences);
             prefCategory.addPreference(mParserSyncMode);
-            prefScraperCategory.addPreference(mDbExportManualPreference);
-            prefScraperCategory.addPreference(mDbImportManualPreference);
+            prefImportExportCategory.addPreference(mDbExportManualPreference);
+            prefImportExportCategory.addPreference(mDbImportManualPreference);
             // more smb discovery disabling options in advanced mode
             netShareCategory.addPreference(mSmbDisableTcpDiscovery);
             netShareCategory.addPreference(mSmbDisableMdnsDiscovery);
             getPreferenceScreen().addPreference(mAdvancedPreferences);
-            if (BuildConfig.ADULT_SCRAPE) prefScraperCategory.addPreference(mAdultScrape);
+            //if (BuildConfig.ADULT_SCRAPE) prefScraperCategory.addPreference(mAdultScrape);
         } else {
             // normal preferences
             //Editor editor = mDecChoicePreferences.getEditor();
@@ -410,10 +412,10 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             prefCategory.removePreference(mAudioInterfaceChoicePreferences);
             prefCategory.removePreference(mParserSyncMode);
             prefCategory.addPreference(mForceSwDecPreferences);
-            prefScraperCategory.removePreference(mDbExportManualPreference);
-            prefScraperCategory.removePreference(mDbImportManualPreference);
+            prefImportExportCategory.removePreference(mDbExportManualPreference);
+            prefImportExportCategory.removePreference(mDbImportManualPreference);
             getPreferenceScreen().removePreference(mAdvancedPreferences);
-            prefScraperCategory.removePreference(mAdultScrape);
+            //prefScraperCategory.removePreference(mAdultScrape);
             prefCategory.removePreference(mStreamBufferSize);
             prefCategory.removePreference(mStreamMaxIFrameSize);
             // not needed since for fire10hd only UDP discovery is upsetting wifi drivers
@@ -569,7 +571,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             mActivateRefreshrateTVSwitch.setEntryValues(newEntryValues);
         }
 
-        mAdultScrape = (CheckBoxPreference) findPreference(KEY_ADULT_SCRAPE);
+        //mAdultScrape = (CheckBoxPreference) findPreference(KEY_ADULT_SCRAPE);
         mTraktSyncProgressPreference = (CheckBoxPreference) findPreference(KEY_TRAKT_SYNC_PROGRESS);
         mAdvancedPreferences = (PreferenceCategory) findPreference(KEY_ADVANCED_VIDEO_CATEGORY);
         mSeparateAnimeMoviePreference = (CheckBoxPreference) findPreference(KEY_SEPARATE_ANIME_MOVIE_SHOW);

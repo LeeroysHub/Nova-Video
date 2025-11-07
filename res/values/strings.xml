@@ -238,6 +238,7 @@
     <string name="scrap_failed">Movie not found in online database.</string>
     <string name="start_auto_scraper_activity">Search info online</string>
     <string name="scraper_settigns">Posters &amp; info</string>
+    <string name="import_export">Import &amp; Export</string>
     <string name="scrap_status_initial">Queued</string>
     <string name="scrap_status_busy">Searching…</string>
     <string name="scrap_status_success">Updated</string>
