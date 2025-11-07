@@ -71,6 +71,13 @@ public class AudioSpeedPickerDialog extends AlertDialog implements OnClickListen
 
         setCancelable(true);
         setCanceledOnTouchOutside(true);
+        
+        //Use the 0.5 to 2.0x time for ATEMPO, 0.10 to 2.0x for AudioTrack
+        if (PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("audio_speed_audiotrack", false)) {
+            setMin(0.1f);
+        } else {
+            setMin(0.5f);
+        }
     }
     public void onAttachedToWindow(){
         super.onAttachedToWindow();
