@@ -17,7 +17,8 @@ package org.leeroy.mediaplayer.video.player;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-
+import androidx.preference.PreferenceManager;
+import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
 
 public abstract class AudioSpeedPickerAbstract extends FrameLayout {
 
@@ -25,7 +26,7 @@ public abstract class AudioSpeedPickerAbstract extends FrameLayout {
 
     // audio speed granularity of 0.05f because IMHO 1.15x is the best speed mitigating gain of speed and brain strain (subjective)
     protected float mStep = 0.05f;
-    protected float mMin = 0.50f;
+    protected float mMin = 0.5f;
     protected float mMax = 2.0f;
     protected boolean hasMin = true;
     protected boolean hasMax = true;
@@ -49,6 +50,13 @@ public abstract class AudioSpeedPickerAbstract extends FrameLayout {
 
         if (!isEnabled()) {
             setEnabled(false);
+        }
+
+        //Check if we are on AudiotTrack or ATEMPO, minimum speeds differ.
+        if (PreferenceManager.getDefaultSharedPreferences(context).getBoolean(VideoPreferencesCommon.KEY_AUDIO_SPEED_AUDIOTRACK,  false)) {
+            mMin = 0.1f;
+        } else {
+            mMin = 0.5f;
         }
     }
 
