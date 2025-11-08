@@ -90,7 +90,7 @@ public class BrowserListOfEpisodes extends BrowserWithShowHeader {
         ((ListView)mLeeroyFlixGridView).setDivider(null); //unset otherwise, crash in listview
         ((ListView)mLeeroyFlixGridView).setDividerHeight(0);
         mApplicationFrameLayout.setBackground(null);
-        ((LeeroyFlixActivity)getActivity()).getSupportActionBar().setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.color.leanback_background_transparent));
+        ((LeeroyFlixActivity)getActivity()).getSupportActionBar().setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.color.lightgrey));
         getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
