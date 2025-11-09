@@ -834,6 +834,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             }
             LibAvos.setStreamMaxIframeSize(finalSize);
             LibAvos.enableAudioSpeed(mPreferences.getBoolean(KEY_PLAYBACK_SPEED,false));
+            LibAvos.disableAtempoFilter(mPreferences.getBoolean(VideoPreferencesCommon.KEY_AUDIO_SPEED_AUDIOTRACK, false));
             LibAvos.setAndroidFrameTiming(mPreferences.getBoolean(KEY_ENABLE_ANDROID_FRAME_TIMING,false));
             LibAvos.setRaisePriority(mPreferences.getBoolean(KEY_INCREASE_DECODER_PRIORITY,false));
             LibAvos.setAudioSpeed(audioSpeed); // set audio speed playback (does nothing if audio speed not enabled)
