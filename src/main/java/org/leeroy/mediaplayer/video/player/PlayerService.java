@@ -460,6 +460,20 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         mResume = intent.getIntExtra(RESUME, RESUME_NO);
         log.debug("PlayerService.onStart: read mResume={} from intent", mResume);
 
+        // Check if user had paused the video before - this persists in preferences
+        boolean userPausedVideo = mPreferences.getBoolean("user_paused_video", false);
+        log.debug("PlayerService.onStart: userPausedVideo={} from preferences", userPausedVideo);
+
+        if (userPausedVideo) {
+            // User had paused - preserve pause state
+            log.debug("PlayerService.onStart: user had paused video, preserving mPlayOnResume = false");
+            mPlayOnResume = false;
+        } else {
+            // New video or should play - reset to true
+            log.debug("PlayerService.onStart: starting/resuming video, setting mPlayOnResume = true");
+            mPlayOnResume = true;
+        }
+
         // Reset explicit position at the start
         mExplicitPosition = -1;
         
@@ -878,8 +892,15 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         if(mIndexHelper!=null) {
             if ((mPlayerState != PlayerState.INIT && mPlayerState != PlayerState.PREPARING)) {// if it has really been played at least once, otherwise it would overwrite lastresume with 0
                 log.debug("saveVideoStateIfReady");
-                if (mLastPosition != LAST_POSITION_END) //if last position, we went there through "onCompletion"
-                    mLastPosition = getBookmarkPosition();
+                if (mLastPosition != LAST_POSITION_END) {//if last position, we went there through "onCompletion"
+                    // If player is paused, keep exact position; otherwise update to bookmark position
+                    if (mPlayer != null && !mPlayer.isPaused()) {
+                        mLastPosition = getBookmarkPosition();
+                        log.debug("saveVideoStateIfReady: player playing, updated to bookmark position {}", mLastPosition);
+                    } else {
+                        log.debug("saveVideoStateIfReady: player paused, keeping exact position {}", mLastPosition);
+                    }
+                }
                 if (mVideoInfo != null && !PrivateMode.isActive()) {
                     mVideoInfo.resume = mLastPosition;
                     int duration = mPlayer.getDuration();
@@ -1866,6 +1887,15 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
 
     public void setAudioFilt() {
         mPlayer.setAudioFilter(mAudioFilt, mNightModeOn);
+    }
+
+    public void setPlayOnResume(boolean playOnResume) {
+        log.debug("setPlayOnResume: {}", playOnResume);
+        mPlayOnResume = playOnResume;
+    }
+
+    public boolean isPlayOnResume() {
+        return mPlayOnResume;
     }
 
     public static void pausePlayer() {
