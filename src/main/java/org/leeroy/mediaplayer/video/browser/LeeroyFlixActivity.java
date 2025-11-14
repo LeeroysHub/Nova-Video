@@ -224,6 +224,8 @@ public class LeeroyFlixActivity extends BrowserActivity implements ExternalPlaye
         if (!mPreferences.getBoolean("reset_brightness_on_start", false))
             mPreferences.edit().putInt("brightness_saved",-1).apply();
 
+        //Set the Hide watched videos on Startup.
+        LoaderUtils.mMustHideWatchedVideo = mPreferences.getBoolean("hide_watched", false);
         try {
             mSearchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
             if (mSearchManager == null) {
@@ -235,6 +237,9 @@ public class LeeroyFlixActivity extends BrowserActivity implements ExternalPlaye
         } catch (IllegalStateException e) {
             log.error("onCreate: searchManager is null");
         }
+        
+        //Set the Hide watched videos on Startup.
+        LoaderUtils.mMustHideWatchedVideo = mPreferences.getBoolean("hide_watched", false);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -274,12 +279,6 @@ public class LeeroyFlixActivity extends BrowserActivity implements ExternalPlaye
         AutoScrapeService.registerObserver(this);
         mPermissionChecker = new PermissionChecker(hasManageExternalStoragePermission(getApplicationContext()));
         setBackground();
-
-        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-    
-        //Reset Video brightness to System on Startup.
-        if (!mPreferences.getBoolean("reset_brightness_on_start", false))
-            mPreferences.edit().putInt("brightness_saved",-1).apply();
 
         mNewVideosActionProvider = new NewVideosActionProvider(this);
         LoaderManager.getInstance(this).initLoader(0, null, mNewVideosActionProvider);

@@ -29,6 +29,7 @@ import android.view.KeyEvent;
 import org.leeroy.mediaplayer.video.LeeroyFlixApp;
 import org.leeroy.mediaplayer.video.DensityTweak;
 import org.leeroy.mediaplayer.video.EntryActivity;
+import org.leeroy.mediaprovider.video.LoaderUtils;
 import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaplayer.video.UiChoiceDialog;
 import org.leeroy.mediaplayer.video.browser.BootupRecommandationService;
@@ -74,6 +75,7 @@ public class LeeroyFlixActivityLeanback extends LeanbackActivity {
         log.warn("onCreate: LeeroyFlixActivityLeanback instance created: {}", this.hashCode());
         ((LeeroyFlixApp) getApplication()).loadLocale();
         super.onCreate(savedInstanceState);
+        LoaderUtils.mMustHideWatchedVideo = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("hide_watched", false);
 
         UnavailablePosterBroadcastReceiver.registerReceiver(this);
         mPermissionChecker = new PermissionChecker(hasManageExternalStoragePermission(getApplicationContext()));

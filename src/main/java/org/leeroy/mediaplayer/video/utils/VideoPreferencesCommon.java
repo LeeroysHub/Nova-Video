@@ -53,6 +53,7 @@ import org.leeroy.filecorelibrary.jcifs.JcifsUtils;
 import org.leeroy.filecorelibrary.samba.SambaDiscovery;
 import org.leeroy.mediaplayer.utils.trakt.Trakt;
 import org.leeroy.mediaplayer.utils.trakt.TraktService;
+import org.leeroy.mediaprovider.video.LoaderUtils;
 import org.leeroy.mediaplayer.video.BuildConfig;
 import org.leeroy.mediaplayer.video.LeeroyFlixApp;
 import org.leeroy.mediaplayer.video.R;
@@ -605,6 +606,13 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         findPreference(getString(R.string.preferences_hide_external_menus_key)).setOnPreferenceClickListener(preference -> {       
             getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED); // way to tell the LeeroyFlixActivity that an important preference has been changed
             getActivity().finish(); // close the preference activity right away
+            return true;
+        });
+
+        findPreference("hide_watched").setOnPreferenceChangeListener((preference, newValue) -> {       
+            LoaderUtils.mMustHideWatchedVideo =  (boolean) newValue;
+            getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED); // way to tell the LeeroyFlixActivity that an important preference has been changed
+            getActivity().finish();
             return true;
         });
         
