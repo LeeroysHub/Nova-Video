@@ -197,6 +197,13 @@
             app:iconSpaceReserved="false"/>
         <CheckBoxPreference
             android:defaultValue="false"
+            android:key="hide_controls_on_pause"
+            android:persistent="true"
+            android:summary="Hide Player Controls after 5 seconds when Video is Paused."
+            android:title="Hide Controls on Pause"
+            app:iconSpaceReserved="false"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
             android:key="hide_watched"
             android:persistent="true"
             android:summary="@string/hide_watched_videos_summary"
