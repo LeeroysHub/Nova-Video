@@ -269,6 +269,13 @@
             android:summary="@string/reset_brightness_on_start_summary"
             android:title="@string/reset_brightness_on_start"
             app:iconSpaceReserved="false"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="hide_controls_on_pause"
+            android:persistent="true"
+            android:summary="Hide Player Controls after 5 seconds when Video is Paused."
+            android:title="Hide Controls on Pause"
+            app:iconSpaceReserved="false"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_leanback_user_interface" android:key="category_leanback_user_interface"
         app:iconSpaceReserved="false" >

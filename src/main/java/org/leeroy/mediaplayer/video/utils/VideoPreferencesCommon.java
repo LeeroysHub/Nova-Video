@@ -1100,8 +1100,10 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
                 });
                 
                 //We don't want the New and History options for Phone Interface In Leanback
-                findPreference(getString(R.string.preferences_display_recently_added_key)).setVisible(false);
-                findPreference(getString(R.string.preferences_display_recently_played_key)).setVisible(false);
+                Preference tmpPref = findPreference(getString(R.string.preferences_display_recently_added_key));
+                if (tmpPref != null ) tmpPref.setVisible(false);
+                tmpPref = findPreference(getString(R.string.preferences_display_recently_played_key));
+                if (tmpPref != null ) tmpPref.setVisible(false);
 
                 // FIXME: for now feature watch up next is disabled because makes the interface crash
                 if (! LeeroyFlixFragment.FEATURE_WATCH_UP_NEXT)
