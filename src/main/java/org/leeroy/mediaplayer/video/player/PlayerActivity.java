@@ -185,6 +185,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private static final String KEY_LOCK_ROTATION = "pref_lock_rotation";
     public static final String KEY_ADVANCED_VIDEO_ENABLED = "preferences_advanced_video_enabled";
     public static final String KEY_ENABLE_ANDROID_FRAME_TIMING = "enable_android_frame_timing";
+    //public static final String KEY_INCREASE_DECODER_PRIORITY = "increase_decoder_priority";
 
     public static final String INDEXED_URI = "indexed_uri";
     public static final String KEY_TORRENT="torrent";
@@ -828,6 +829,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             LibAvos.setStreamMaxIframeSize(finalSize);
             LibAvos.enableAudioSpeed(mPreferences.getBoolean(KEY_PLAYBACK_SPEED,false));
             LibAvos.setAndroidFrameTiming(mPreferences.getBoolean(KEY_ENABLE_ANDROID_FRAME_TIMING,false));
+            //LibAvos.setRaisePriority(mPreferences.getBoolean(KEY_INCREASE_DECODER_PRIORITY,false));
             LibAvos.setAudioSpeed(audioSpeed); // set audio speed playback (does nothing if audio speed not enabled)
             LibAvos.setDynamicAudioDelay(mPreferences.getBoolean(VideoPreferencesCommon.KEY_ENABLE_DYNAMIC_AUDIO_DELAY, true)); // set dynamic audio delay estimation (default enabled)
             LibAvos.parserSyncMode(Integer.parseInt(mPreferences.getString(KEY_PARSER_SYNC_MODE,"0"))); // set lavc parser sync mode (0: PTS, 1 samples)
