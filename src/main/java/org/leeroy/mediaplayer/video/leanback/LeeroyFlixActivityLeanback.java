@@ -101,7 +101,7 @@ public class LeeroyFlixActivityLeanback extends LeanbackActivity {
 
         //Setup an preferences before we start activites.
         LoaderUtils.mMustHideWatchedVideo = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("hide_watched", false);
-        LoaderUtils.mSmartRecentlyRows = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("smart_recently_rows", false);
+        LoaderUtils.mSmartRecentlyRows = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("smart_recently_rows", true);
 
         UnavailablePosterBroadcastReceiver.registerReceiver(this);
         mPermissionChecker = new PermissionChecker(hasManageExternalStoragePermission(getApplicationContext()));

@@ -1099,10 +1099,16 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
                     return true;
                 });
                 
-                //We don't want the New and History options for Phone Interface In Leanback
+                // We don't want the New and History options for Phone Interface In Leanback
+                // These options are normally not shown twice, but on Tablet or Phone 
+                // if Leanback is selected we get both
                 Preference tmpPref = findPreference(getString(R.string.preferences_display_recently_added_key));
                 if (tmpPref != null ) tmpPref.setVisible(false);
                 tmpPref = findPreference(getString(R.string.preferences_display_recently_played_key));
+                if (tmpPref != null ) tmpPref.setVisible(false);
+                tmpPref = findPreference("reset_last_played_section");
+                if (tmpPref != null ) tmpPref.setVisible(false);
+                tmpPref = findPreference("preferences_display_recently_added_key");
                 if (tmpPref != null ) tmpPref.setVisible(false);
 
                 // FIXME: for now feature watch up next is disabled because makes the interface crash

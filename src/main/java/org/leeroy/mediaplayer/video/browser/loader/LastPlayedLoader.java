@@ -13,7 +13,6 @@
 // limitations under the License.
 
 package org.leeroy.mediaplayer.video.browser.loader;
-
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
@@ -41,7 +40,7 @@ public class LastPlayedLoader extends VideoLoader {
         if (LoaderUtils.isSmartRecentlyRows()) {
             Uri baseUri = getUri();
             Uri.Builder builder = baseUri.buildUpon();
-            builder.appendQueryParameter("group", "COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_E_IMDB_ID + ")");
+            builder.appendQueryParameter("group", VideoStore.Video.VideoColumns.BOOKMARK+", COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_E_IMDB_ID + ")");
             setUri(builder.build());
             if (DBG) Log.d(TAG, "Modified URI: " + builder.build());
         }
@@ -53,9 +52,16 @@ public class LastPlayedLoader extends VideoLoader {
         sb.append(super.getSelection()); // get common selection from the parent
 
         if (sb.length()>0) { sb.append(" AND "); }
-
         sb.append(VideoStore.Video.VideoColumns.LEEROYFLIX_LAST_TIME_PLAYED + "!=0");
-
+        
+        //Group by BOOKMARK so we don't show the same TV Episodes filling the list. This will show possibly show one episode that is finished watching.
+        //sb.append(") GROUP BY "+VideoStore.Video.VideoColumns.BOOKMARK+", ");
+        //sb.append("COALESCE(");
+        //sb.append(VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID);
+        //sb.append(", ");
+        //sb.append(VideoStore.Video.VideoColumns.SCRAPER_E_IMDB_ID);
+        //sb.append(") HAVING (COUNT(*) = 1");  //THIS HIDES EXTRA WATCHED ITEM, BUT WONT SHOW ANY IF ALL ARE WATCHED!
+       
         String selection = sb.toString();
         if (DBG) Log.d(TAG, "getSelection() returned: " + selection);
         return selection;
@@ -64,10 +70,11 @@ public class LastPlayedLoader extends VideoLoader {
     @Override
     public String getSortOrder() {
         String sortOrder;
+        
         if (LoaderUtils.isSmartRecentlyRows()) {
             // Secondary sort by release/air date to ensure consistent ordering when last_played is equal
             // Movies use m_release_date (YYYY-MM-DD string), Episodes use e_aired (milliseconds timestamp)
-            sortOrder = "MAX(" + VideoStore.Video.VideoColumns.LEEROYFLIX_LAST_TIME_PLAYED + ") DESC, " +
+            sortOrder = "MIN(" + VideoStore.Video.VideoColumns.LEEROYFLIX_LAST_TIME_PLAYED + ") DESC, " +
                        "COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_RELEASE_DATE + ", " +
                        "date(" + VideoStore.Video.VideoColumns.SCRAPER_E_AIRED + "/1000, 'unixepoch')) DESC " +
                        "LIMIT 50";
