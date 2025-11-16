@@ -263,9 +263,9 @@ public class LeeroyFlixActivity extends BrowserActivity implements ExternalPlaye
             mDrawerToggle.setDrawerIndicatorEnabled(true);
             mDrawerToggle.syncState();
 
-            if(savedInstanceState==null && !isShortcutIntent())
-                mDrawerLayout.openDrawer(GravityCompat.START);
-
+            //Open the Drawer on Startup
+            //if(savedInstanceState==null && !isShortcutIntent())
+            //    mDrawerLayout.openDrawer(GravityCompat.START);
         }
 
         // determine if display has cutouts
