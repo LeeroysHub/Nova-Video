@@ -22,7 +22,7 @@ import androidx.loader.content.Loader;
 import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaplayer.video.browser.loader.LastPlayedLoader;
 import org.leeroy.mediaplayer.video.utils.VideoPreferencesCommon;
-import org.leeroy.mediaprovider.video.LoaderUtils;
+//import org.leeroy.mediaprovider.video.LoaderUtils;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 
@@ -42,7 +42,7 @@ public class BrowserLastPlayed extends CursorBrowserByVideo {
 
     @Override
     protected String getActionBarTitle() {
-        return getString(LoaderUtils.isSmartRecentlyRows() ? R.string.keep_watching_videos : R.string.recently_played_videos);
+        return getString( R.string.recently_played_videos);
     }
 
     @Override

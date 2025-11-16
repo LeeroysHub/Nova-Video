@@ -263,7 +263,7 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
         if (! FEATURE_WATCH_UP_NEXT) mShowWatchingUpNextRow = false;
         mShowLastAddedRow = mPrefs.getBoolean(VideoPreferencesCommon.KEY_SHOW_LAST_ADDED_ROW, VideoPreferencesCommon.SHOW_LAST_ADDED_ROW_DEFAULT);
         mShowLastPlayedRow = mPrefs.getBoolean(VideoPreferencesCommon.KEY_SHOW_LAST_PLAYED_ROW, VideoPreferencesCommon.SHOW_LAST_PLAYED_ROW_DEFAULT);
-        mSmartRecentlyRows = mPrefs.getBoolean("smart_recently_rows", false);
+        mSmartRecentlyRows = mPrefs.getBoolean("smart_recently_rows", true);
         mShowMoviesRow = mPrefs.getBoolean(VideoPreferencesCommon.KEY_SHOW_ALL_MOVIES_ROW, VideoPreferencesCommon.SHOW_ALL_MOVIES_ROW_DEFAULT);
         mMovieSortOrder = mPrefs.getString(VideoPreferencesCommon.KEY_MOVIE_SORT_ORDER, MoviesLoader.DEFAULT_SORT);
         mShowTvshowsRow = mPrefs.getBoolean(VideoPreferencesCommon.KEY_SHOW_ALL_TV_SHOWS_ROW, VideoPreferencesCommon.SHOW_ALL_TV_SHOWS_ROW_DEFAULT);
@@ -479,7 +479,7 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
         }
 
         // Check if smart_recently_rows preference changed - need to restart loaders to update URI and row titles
-        boolean newSmartRecentlyRows = mPrefs.getBoolean("smart_recently_rows", false);
+        boolean newSmartRecentlyRows = mPrefs.getBoolean("smart_recently_rows", true);
         if (newSmartRecentlyRows != mSmartRecentlyRows) {
             log.debug("onResume: preference changed, smart recently rows: {} -> updating row titles and restarting loaders", newSmartRecentlyRows);
             mSmartRecentlyRows = newSmartRecentlyRows;

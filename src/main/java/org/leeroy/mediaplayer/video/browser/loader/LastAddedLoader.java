@@ -20,6 +20,7 @@ import android.util.Log;
 
 import org.leeroy.mediaprovider.video.LoaderUtils;
 import org.leeroy.mediaprovider.video.VideoStore;
+import org.leeroy.mediaprovider.video.LoaderUtils;
 
 /**
  * Load the 100 latest videos
@@ -52,12 +53,18 @@ public class LastAddedLoader extends VideoLoader {
     public String getSelection() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.getSelection()); // get common selection from the parent
-
+        
         if (LoaderUtils.isSmartRecentlyRows()) {
+            //If we have watched it, it is now new anymore!
+            //sb.append(LoaderUtils.HIDE_WATCHED_FILTER);
+
             //If we have played it at all (watched or started), it's not new anymore - it will show in Last Played!
-            sb.append(" AND ");
-            sb.append(VideoStore.Video.VideoColumns.LEEROYFLIX_LAST_TIME_PLAYED + "=0");
+            sb.append(" AND " + VideoStore.Video.VideoColumns.LEEROYFLIX_LAST_TIME_PLAYED + "=0");
+        } else {
+            //NO NULL MOVIES, I WILL LEAVE OUT SO I CAN FIX THe LIBRARY!
+            sb.append (" AND COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_E_IMDB_ID + ") IS NOT NULL");
         }
+
         String selection = sb.toString();
         if (DBG) Log.d(TAG, "getSelection() returned: " + selection);
         return selection;
