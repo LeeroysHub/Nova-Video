@@ -985,6 +985,14 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
                 if (!currentUiMode.equals(UiChoiceDialog.UI_CHOICE_LEANBACK_TV_VALUE)) {
                     userInterfaceCategory.removePreference(uiZoomPref);
                 }
+
+                 //Last Played Section on Phone UI
+                findPreference("reset_last_played_section").setOnPreferenceClickListener(preference -> {
+                    //Show the toast BEFORE starting the actions!
+                    Toast.makeText(getActivity(), R.string.reset_last_played_row_in_progress, Toast.LENGTH_SHORT).show();
+                    DbUtils.markAsNotRead(getActivity());
+                    return true;
+                });
             }
         }
         
@@ -994,17 +1002,22 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             if (!UiChoiceDialog.applicationIsInLeanbackMode(getActivity())) {
                 getPreferenceScreen().removePreference(leanbackUserInterfaceCategory);
             } else {
+                //Last Played section on Leanback.
                 findPreference("reset_last_played_row").setOnPreferenceClickListener(preference -> {
-                    DbUtils.markAsNotRead(getActivity());
+                    //Show the toast BEFORE starting the actions!
                     Toast.makeText(getActivity(), R.string.reset_last_played_row_in_progress, Toast.LENGTH_SHORT).show();
-
+                    DbUtils.markAsNotRead(getActivity());
                     return true;
                 });
                 
-                //We don't want the New and History options for Phone Interface In Leanback
+                // We don't want the New and History options for Phone Interface In Leanback
+                // These options are normally not shown twice, but on Tablet or Phone 
+                // if Leanback is selected we get both
                 Preference tmpPref = findPreference(getString(R.string.preferences_display_recently_added_key));
                 if (tmpPref != null ) tmpPref.setVisible(false);
                 tmpPref = findPreference(getString(R.string.preferences_display_recently_played_key));
+                if (tmpPref != null ) tmpPref.setVisible(false);
+                tmpPref = findPreference("reset_last_played_section");
                 if (tmpPref != null ) tmpPref.setVisible(false);
 
                 // FIXME: for now feature watch up next is disabled because makes the interface crash

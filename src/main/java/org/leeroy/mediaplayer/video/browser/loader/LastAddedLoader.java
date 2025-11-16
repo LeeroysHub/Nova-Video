@@ -17,6 +17,7 @@ package org.leeroy.mediaplayer.video.browser.loader;
 import android.content.Context;
 
 import org.leeroy.mediaprovider.video.VideoStore;
+import org.leeroy.mediaprovider.video.LoaderUtils;
 
 /**
  * Load the 100 latest videos
@@ -36,13 +37,21 @@ public class LastAddedLoader extends VideoLoader {
     public String getSelection() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.getSelection()); // get common selection from the parent
+        
+        //If we have watched it, it is now new anymore!
+        sb.append(" AND ");
+        sb.append(LoaderUtils.HIDE_WATCHED_FILTER);
 
-        sb.append(") GROUP BY (");
-        sb.append("COALESCE(");
+        //Don't show duplicates, and dont show non scraped movie (even once!)
+        sb.append(") GROUP BY COALESCE(");
         sb.append(VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID);
         sb.append(", ");
         sb.append(VideoStore.Video.VideoColumns.SCRAPER_E_IMDB_ID);
-        sb.append(")");
+        sb.append(") HAVING (COALESCE(");
+        sb.append(VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID);
+        sb.append(", ");
+        sb.append(VideoStore.Video.VideoColumns.SCRAPER_E_IMDB_ID);
+        sb.append(") IS NOT NULL");
         return sb.toString();
     }
 

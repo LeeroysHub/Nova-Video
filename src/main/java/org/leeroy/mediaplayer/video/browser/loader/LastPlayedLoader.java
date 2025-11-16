@@ -13,9 +13,9 @@
 // limitations under the License.
 
 package org.leeroy.mediaplayer.video.browser.loader;
-
 import android.content.Context;
 
+import org.leeroy.mediaprovider.video.LoaderUtils;
 import org.leeroy.mediaprovider.video.VideoStore;
 
 /**
@@ -39,6 +39,14 @@ public class LastPlayedLoader extends VideoLoader {
 
         if (sb.length()>0) { sb.append(" AND "); }
         sb.append(VideoStore.Video.VideoColumns.LEEROYFLIX_LAST_TIME_PLAYED + "!=0");
+        
+        //Group by BOOKMARK so we don't show the same TV Episodes filling the list. This will show possibly show one episode that is finished watching.
+        sb.append(") GROUP BY "+VideoStore.Video.VideoColumns.BOOKMARK+", ");
+        sb.append("COALESCE(");
+        sb.append(VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID);
+        sb.append(", ");
+        sb.append(VideoStore.Video.VideoColumns.SCRAPER_E_IMDB_ID);
+        //sb.append(") HAVING (COUNT(*) = 1");  //THIS HIDES EXTRA WATCHED ITEM, BUT WONT SHOW ANY IF ALL ARE WATCHED!
         return sb.toString();
     }
 

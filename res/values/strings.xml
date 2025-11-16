@@ -279,7 +279,7 @@
     <string name="use_remote_resume">Use network resume position?</string>
     <!-- VIDEO COVER ROLL -->
     <string name="you_have_no_recently_added_video">Nothing to see here!</string>
-    <string name="you_have_no_recently_played_video">No history to show</string>
+    <string name="you_have_no_recently_played_video">No History to show</string>
     <string name="you_have_no_video">No videos</string>
     <string name="you_have_no_video_yet">Searching for videos&#8230;</string>
     <string name="you_have_no_movies">No movies</string>
@@ -800,8 +800,8 @@
     <!--These are for the Tablet/Phone UI, leanback ones are below-->
     <string name="preferences_display_recently_added">Display New on LeeroyFlix menu</string>
     <string name="preferences_display_recently_added_summary">Show or Hide the Recently Added item in the Side Menu.</string>
-    <string name="preferences_display_recently_played">Display Watch History menu</string>
-    <string name="preferences_display_recently_played_summary">Show or Hide the Recently Played item in the Side Menu.</string>
+    <string name="preferences_display_recently_played">Display History menu</string>
+    <string name="preferences_display_recently_played_summary">Show or Hide the History item in the Side Menu.</string>
     
     <string name="preferences_leanback_user_interface">TV User Interface</string>
     <string name="preferences_separate_animation_from_movies_summary">Check to separate animation videos from movies and tv shows adding an animation row</string>
@@ -811,9 +811,9 @@
     <string name="preferences_show_last_added_row_summary">Check to show a row with your last added media</string>
     <string name="preferences_show_last_added_row">Show New on LeeroyFlix row</string>
     <string name="preferences_show_last_played_row_summary">Check to show a row with your last played media</string>
-    <string name="preferences_show_last_played_row">Show Watch History row</string>
-    <string name="preferences_reset_last_played_row">Reset last played row</string>
-    <string name="reset_last_played_row_in_progress">Resetting last played row</string>
+    <string name="preferences_show_last_played_row">Show History row</string>
+    <string name="preferences_reset_last_played_row">Clear History</string>
+    <string name="reset_last_played_row_in_progress">Clearing the History row</string>
     <string name="preferences_show_all_movies_row_summary">Check to show a row with all your movies instead of the movie categories row</string>
     <string name="preferences_show_all_movies_row">Show all movie row</string>
     <string name="preferences_movie_sort_order_summary">Select the sort order of the all movie row</string>
