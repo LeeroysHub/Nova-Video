@@ -52,7 +52,7 @@ public class WatchingUpNextLoader extends VideoLoader {
                 "_id IN (SELECT _id FROM (SELECT v._id, ROW_NUMBER() OVER(PARTITION BY v.m_coll_id ORDER BY v.m_year) as rn FROM video v JOIN ( SELECT m_coll_id, MAX(m_year) AS max_watched_year FROM video WHERE lfx_traktSeen = 1 AND lfx_hiddenbyuser = 0 GROUP BY m_coll_id ) AS lw ON v.m_coll_id = lw.m_coll_id WHERE v.lfx_traktSeen = 0 AND v.lfx_hiddenbyuser = 0 AND v.m_year > lw.max_watched_year ) WHERE rn = 1))" +
                 " OR " +
                 // Part 3: Currently watching videos (partially watched, not completed)
-                "(bookmark > 0 AND lfx_traktSeen = 0 AND lfx_hiddenbyuser = 0)" +
+                "(bookmark > 0 AND lfx_traktSeen = 0 AND lfx_hiddenbyuser = 0 AND bookmark != -2)" +
                 ")"
         );
 
