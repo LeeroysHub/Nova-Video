@@ -76,6 +76,10 @@ public class LeeroyFlixActivityLeanback extends LeanbackActivity {
         ((LeeroyFlixApp) getApplication()).loadLocale();
         super.onCreate(savedInstanceState);
         LoaderUtils.mMustHideWatchedVideo = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("hide_watched", false);
+        
+        //Reset the Video Aspect Ratio on Startup.
+        PreferenceManager.getDefaultSharedPreferences(this).edit().putString("player_pref_auto_format_key","-1").apply();
+        PreferenceManager.getDefaultSharedPreferences(this).edit().putString("player_pref_format_key","0").apply();
 
         UnavailablePosterBroadcastReceiver.registerReceiver(this);
         mPermissionChecker = new PermissionChecker(hasManageExternalStoragePermission(getApplicationContext()));

@@ -226,6 +226,11 @@ public class LeeroyFlixActivity extends BrowserActivity implements ExternalPlaye
 
         //Set the Hide watched videos on Startup.
         LoaderUtils.mMustHideWatchedVideo = mPreferences.getBoolean("hide_watched", false);
+        
+        //Reset the Video Aspect Ratio on Startup.
+        mPreferences.edit().putString("player_pref_auto_format_key","-1").apply();
+        mPreferences.edit().putString("player_pref_format_key","0").apply();
+
         try {
             mSearchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
             if (mSearchManager == null) {
