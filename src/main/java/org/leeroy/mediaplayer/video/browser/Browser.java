@@ -159,7 +159,6 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
     protected BaseAdapter mBrowserAdapter;
     private boolean mCommonDefaultInvalidate = true;
     protected Context mContext;
-    private static AlertDialog mDialogDelete;
     private static DeleteDialog mDialogDeleting;
     protected DialogRetrieveSubtitles mDialogRetrieveSubtitles;
     protected SharedPreferences mPreferences;
@@ -171,7 +170,6 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
     protected View mRootView;
     protected ActionBarSubmenu mDisplayModeSubmenu;
     protected ActionBarSubmenu mSortModeSubmenu;
-    private View mMenuAnchor;
     protected int mScroll =0;
     protected int mOffset=0;
     static final String CURRENT_SCROLL = "currentscroll";
@@ -179,7 +177,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
     private Delete mDelete;
 
     private List<Uri> deleteUrisList = null;
-    private static Boolean isFileManagerServiceBound = false;
+    //private static Boolean isFileManagerServiceBound = false;
 
     private final ActivityResultLauncher<IntentSenderRequest> deleteLauncher = registerForActivityResult(
             new ActivityResultContracts.StartIntentSenderForResult(),
@@ -400,18 +398,18 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 // All is done on action down because it also moves the focus, hence we can't wait for action up
 
-                 
-                 /*
-                  * Work around to handle issues on focus for android 4.1
-                  * 
-                  * Sometimes it is impossible to down with the pad.
-                  * what we know :
-                  * before going to the onkey method, list should have scrolled (except when and issue occured)
-                  * so, if we are going down, the last visible item has to be focused item +1 (focus is done after the function, when  return false)
-                  * if last visible item == selected item even if this isn't the last item of the list, then the list won't scroll anymore.
-                  * So we scroll it manually.
-                  * 
-                  */
+
+                /*
+                 * Work around to handle issues on focus for android 4.1
+                 *
+                 * Sometimes it is impossible to down with the pad.
+                 * what we know :
+                 * before going to the onkey method, list should have scrolled (except when and issue occured)
+                 * so, if we are going down, the last visible item has to be focused item +1 (focus is done after the function, when  return false)
+                 * if last visible item == selected item even if this isn't the last item of the list, then the list won't scroll anymore.
+                 * So we scroll it manually.
+                 *
+                 */
                 if (event.getAction() == KeyEvent.ACTION_DOWN && mLeeroyFlixGridView instanceof ListView) {
                     if (keyCode == KeyEvent.KEYCODE_DPAD_UP && mLeeroyFlixGridView.getFirstVisiblePosition() == mLeeroyFlixGridView.getSelectedItemPosition() && mLeeroyFlixGridView.getSelectedItemPosition() > 0) {
 
@@ -480,12 +478,12 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
         setViewMode(viewMode!=VideoUtils.VIEW_MODE_GRID_SHORT?viewMode:VideoUtils.VIEW_MODE_GRID);
         setViewMode(viewMode);
 
-        mMenuAnchor = mRootView.findViewById(R.id.menu_anchor);
+        View menuAnchor = mRootView.findViewById(R.id.menu_anchor);
 
-        mDisplayModeSubmenu = new ActionBarSubmenu(mContext, inflater, mMenuAnchor);
+        mDisplayModeSubmenu = new ActionBarSubmenu(mContext, inflater, menuAnchor);
         mDisplayModeSubmenu.setListener(this);
 
-        mSortModeSubmenu = new ActionBarSubmenu(mContext, inflater, mMenuAnchor);
+        mSortModeSubmenu = new ActionBarSubmenu(mContext, inflater, menuAnchor);
         mSortModeSubmenu.setListener(this);
         return mRootView;
     }
@@ -531,7 +529,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
                 if(mLeeroyFlixGridView instanceof GridView&&mode==VideoUtils.VIEW_MODE_GRID)
                     ((GridView)mLeeroyFlixGridView).setColumnWidth(res.getDimensionPixelSize(R.dimen.video_grid_column_width) +
                             res.getDimensionPixelSize(R.dimen.content_grid_horizontal_minimal_spacing_between_items));
-                else if(mLeeroyFlixGridView instanceof GridView&&mode==VideoUtils.VIEW_MODE_GRID_SHORT)
+                else if(mLeeroyFlixGridView instanceof GridView)
                     ((GridView)mLeeroyFlixGridView).setColumnWidth(res.getDimensionPixelSize(R.dimen.video_info_grid_column_width));
                 stretchMode = GridView.STRETCH_SPACING_UNIFORM;
                 break;
@@ -980,7 +978,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
             b.setMessage(R.string.confirm_delete);
         else
             b.setMessage(R.string.confirm_delete_parent_folder);
-        mDialogDelete =b.setNegativeButton(R.string.no, null)
+        AlertDialog dialogDelete = b.setNegativeButton(R.string.no, null)
                 .setPositiveButton(R.string.yes, new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -998,7 +996,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
 
                     }
                 }).create();
-        mDialogDelete.show();
+        dialogDelete.show();
     }
 
     /**
@@ -1213,7 +1211,8 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
     public void startDownloadingVideo(List<Uri> uris) {
         if(FileManagerService.fileManagerService==null) {
             log.debug("startDownloadingVideo: binding FileManagerService since FileManagerService.fileManagerService==null");
-            isFileManagerServiceBound = getContext().bindService(new Intent(getContext(), FileManagerService.class), new ServiceConnection() {
+            Context context = getContext();
+            if (context != null) context.bindService(new Intent(getContext(), FileManagerService.class), new ServiceConnection() {
                 @Override
                 public void onServiceConnected(ComponentName name, IBinder service) {
                     log.debug("startDownloadingVideo: FileManagerService connected, launching PasteDialog and copy of {}", uris);
@@ -1241,7 +1240,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
         if (filename == null)
             return null;
         int dotPos = filename.lastIndexOf('.');
-        if (dotPos >= 0 && dotPos < filename.length()) {
+        if (dotPos >= 0) {
             return filename.substring(dotPos + 1).toLowerCase();
         }
         return null;

@@ -14,6 +14,7 @@
 
 package org.leeroy.mediaplayer.video.player;
 
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -78,7 +79,6 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
     private View mFloatingPlayerRootView;
     public static FloatingPlayerService sFloatingPlayerService;
     private boolean contains;
-    private SurfaceController mSurfaceController;
     private SubtitleManager mSubtitleManager;
     private int mSubtitleSizeDefault;
     private int mSubtitleVPosDefault;
@@ -86,14 +86,11 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
     private View mProgressView;
     private View mPlayerController;
     private ImageView mPausePlayButton;
-    private ImageView mFullscreenButton;
     private LeeroyFlixProgressSlider mProgress;
     private SeekBar mVolumeLevel;
     private AudioManager mAudioManager;
-    private RepeatingImageButton mVolumeDownButton;
-    private RepeatingImageButton mVolumeUpButton;
 
-    private ServiceConnection mPlayerServiceConnection = new ServiceConnection() {
+    private final ServiceConnection mPlayerServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
         }
@@ -102,7 +99,6 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
         public void onServiceDisconnected(ComponentName name) {
         }
     };
-    private ImageView mHideButton;
 
 
     private BroadcastReceiver mReceiver;
@@ -111,11 +107,11 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
     private int mSubtitleColorDefault;
     private int mSize = -1;
     private int mVPos;
-    private ImageView mDiscreteButton;
     private ImageView mNormalButton;
     private WindowManager.LayoutParams mNormalButtonLayoutParams;
     private Intent mStartIntent;
 
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
     public void onCreate() {
         super.onCreate();
         sFloatingPlayerService = this;
@@ -225,10 +221,10 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
             mFloatingPlayerRootView = li.inflate(R.layout.floating_player, null);
             mPlayerController = mFloatingPlayerRootView.findViewById(R.id.player_controller);
             mPausePlayButton = (ImageView) mPlayerController.findViewById(R.id.play_button);
-            mFullscreenButton = (ImageView) mPlayerController.findViewById(R.id.fullscreen_button);
+            ImageView fullscreenButton = (ImageView) mPlayerController.findViewById(R.id.fullscreen_button);
 
-            mDiscreteButton = (ImageView) mPlayerController.findViewById(R.id.discrete_button);
-            mDiscreteButton.setOnClickListener(new View.OnClickListener() {
+            ImageView discreteButton = (ImageView) mPlayerController.findViewById(R.id.discrete_button);
+            discreteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     PlayerService.sPlayerService.startStatusbarNotification(true);
@@ -239,8 +235,8 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
 
                 }
             });
-            mHideButton = (ImageView) mPlayerController.findViewById(R.id.hide_button);
-            mHideButton.setOnClickListener(new View.OnClickListener() {
+            ImageView hideButton = (ImageView) mPlayerController.findViewById(R.id.hide_button);
+            hideButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     PlayerService.sPlayerService.startStatusbarNotification(true);
@@ -263,7 +259,7 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
                     stopSelf();
                 }
             });
-            mFullscreenButton.setOnClickListener(new View.OnClickListener() {
+            fullscreenButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                    log.debug("Fullscreen button clicked");
@@ -274,7 +270,6 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
 
 
             mProgressView = mFloatingPlayerRootView.findViewById(R.id.progress_indicator);
-            mSurfaceController = new SurfaceController(mFloatingPlayerRootView);
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
                 mParamsF = new WindowManager.LayoutParams(
                         WindowManager.LayoutParams.WRAP_CONTENT,
@@ -297,12 +292,12 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
             mVolumeLevel = (SeekBar) mFloatingPlayerRootView.findViewById(R.id.volume_level);
             mVolumeLevel.setMax(mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
             mVolumeLevel.setOnSeekBarChangeListener(mVolumeLevelListener);
-            mVolumeUpButton = (RepeatingImageButton) mFloatingPlayerRootView.findViewById(R.id.volume_up);
-            mVolumeUpButton.setOnClickListener(mVolumeUpListener);
-            mVolumeUpButton.setRepeatListener(mVolumeUpRepeatListener, 100);
-            mVolumeDownButton = (RepeatingImageButton) mFloatingPlayerRootView.findViewById(R.id.volume_down);
-            mVolumeDownButton.setOnClickListener(mVolumeDownListener);
-            mVolumeDownButton.setRepeatListener(mVolumeDownRepeatListener, 100);
+            RepeatingImageButton volumeUpButton = (RepeatingImageButton) mFloatingPlayerRootView.findViewById(R.id.volume_up);
+            volumeUpButton.setOnClickListener(mVolumeUpListener);
+            volumeUpButton.setRepeatListener(mVolumeUpRepeatListener, 100);
+            RepeatingImageButton volumeDownButton = (RepeatingImageButton) mFloatingPlayerRootView.findViewById(R.id.volume_down);
+            volumeDownButton.setOnClickListener(mVolumeDownListener);
+            volumeDownButton.setRepeatListener(mVolumeDownRepeatListener, 100);
             mFloatingPlayerRootView.findViewById(R.id.surface_view).setAlpha((float) 0.5);
             mWindowManager.addView(mFloatingPlayerRootView, mParamsF);
             contains = true;
@@ -448,7 +443,7 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
                 e.printStackTrace();
             }
             PlayerService.sPlayerService.switchPlayerFrontend(this);
-            new Player(this, null, mSurfaceController,false);
+            new Player(this, null, new SurfaceController(mFloatingPlayerRootView),false);
 
             PlayerService.sPlayerService.setPlayer();
             Player.sPlayer.setEffect(VideoEffect.EFFECT_STEREO_SPLIT, VideoEffect.NORMAL_2D_MODE);

@@ -156,10 +156,10 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     private IPlayerControl      mPlayer;
     private Window              mWindow;
     private int                 mLayoutWidth, mLayoutHeight;
-    final private boolean       mSw600dp; // are we using the sw600dp ressources?
+    //final private boolean       mSw600dp; // are we using the sw600dp ressources?
 
-    private int                 mActionBarHeight = 0;
-    private int                 mSystemBarHeight = 0;
+    //private int                 mActionBarHeight = 0;
+    //private int                 mSystemBarHeight = 0;
     private SurfaceController   mSurfaceController;
     private Settings            mSettings;
     private View                mRootView, mControllerView, mControllerViewLeft,mControllerViewRight;
@@ -175,9 +175,9 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     private ImageButton         mBackwardButton;
     private ImageButton         mForwardButton;
     private ImageButton         mFormatButton;
-    private ImageButton         mBackwardButton2;
-    private ImageButton         mForwardButton2;
-    private ImageButton         mFormatButton2;
+    //private ImageButton         mBackwardButton2;
+    //private ImageButton         mForwardButton2;
+    //private ImageButton         mFormatButton2;
     private TextView            mOsdLeftTextView;
     private TextView            mOsdRightTextView;
     private ImageView           mCentralPlayIcon;
@@ -185,13 +185,12 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     private float               scrollGestureHorizontal = 0f;
     private final float         BORDER_WIDTH = MiscUtils.dp2Px(24);
     private final float         SCROLL_THRESHOLD = MiscUtils.dp2Px(16);
-    private final float         SCROLL_ANGLE = 30;
     private SeekBar             mProgress;
     private SeekBar             mProgress2;
     private TextView            mEndTime, mCurrentTime;
     private TextView            mEndTime2, mCurrentTime2;
     private View                mSeekState;
-    private View                mSeekState2;
+   // private View                mSeekState2;
     private TextView            mClock;
     private SimpleDateFormat    mDateFormat;
     private boolean				splitView;
@@ -199,11 +198,11 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     private View                mVolumeBar;
     private View                mVolumeBar2;
     private SeekBar             mVolumeLevel;
-    private RepeatingImageButton mVolumeUpButton;
-    private RepeatingImageButton mVolumeDownButton;
+    //private RepeatingImageButton mVolumeUpButton;
+    //private RepeatingImageButton mVolumeDownButton;
     private SeekBar             mVolumeLevel2;
-    private RepeatingImageButton mVolumeUpButton2;
-    private RepeatingImageButton mVolumeDownButton2;
+    //private RepeatingImageButton mVolumeUpButton2;
+    //private RepeatingImageButton mVolumeDownButton2;
 
     private StringBuilder       mFormatBuilder;
     private Formatter           mFormatter;
@@ -235,7 +234,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     private Rect                mLastCrop = new Rect();
     private int                 mSystemUiVisibility;
     private int 				UIMode;
-    private int 				testSwitchView=0;
+    //private int 				testSwitchView=0;
 
     private TVMenuAdapter mTVMenuAdapter;
     private View				mTVMenuView;
@@ -249,8 +248,8 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     private boolean             isTVMode = false;
     private long                mLastTouchEventTime = -1;
     private View mPlayPauseTouchZone;
-    private boolean mPlayPauseOnTouchActivated = false;
-    private static boolean mFullScreenWithCutout = true;
+    //private boolean mPlayPauseOnTouchActivated = false;
+   //private static boolean mFullScreenWithCutout = true;
 
     private GestureDetector gestureDetector;
     private float currentBrightness;
@@ -278,7 +277,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         mPlayerView = playerView;
         mActionBar = actionBar;
 
-        mSw600dp = mContext.getResources().getConfiguration().smallestScreenWidthDp >= 600;
+        //mSw600dp = mContext.getResources().getConfiguration().smallestScreenWidthDp >= 600;
 
         mVideoTitle = (TextView) inflater.inflate(R.layout.video_title, null);
         // Default to GONE, enable it if you want it
@@ -421,7 +420,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         }
 
         View playPauseTouchZone = v.findViewById(R.id.play_touch_zone);
-        if(playPauseTouchZone != null &&mPlayPauseOnTouchActivated)
+        if(playPauseTouchZone != null /* &&mPlayPauseOnTouchActivated */)
             playPauseTouchZone.setOnClickListener(mPauseListener);
 
         // Find central play icon
@@ -496,14 +495,13 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
             mVolumeDownButton.setRepeatListener(mVolumeDownRepeatListener, 100);
 
             if(isMainView){
-
-                this.mVolumeUpButton=mVolumeUpButton;
-                this.mVolumeDownButton=mVolumeDownButton;
+                //this.mVolumeUpButton=mVolumeUpButton;
+                //this.mVolumeDownButton=mVolumeDownButton;
                 this.mVolumeLevel = mVolumeLevel;
             }
             else{
-                this.mVolumeUpButton2=mVolumeUpButton;
-                this.mVolumeDownButton2=mVolumeDownButton;
+                //this.mVolumeUpButton2=mVolumeUpButton;
+                //this.mVolumeDownButton2=mVolumeDownButton;
                 this.mVolumeLevel2 = mVolumeLevel;
             }
 
@@ -551,13 +549,13 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
             this.mVolumeBar2 = mVolumeBar;
             this.mControlBar2=mControlBar;
             this.mPauseButton2=mPauseButton; 
-            this.mFormatButton2=mFormatButton;
-            this.mBackwardButton2=mBackwardButton;
+            //this.mFormatButton2=mFormatButton;
+            //this.mBackwardButton2=mBackwardButton;
             this.mProgress2=mProgress;
-            this.mForwardButton2=mForwardButton ;
+            //this.mForwardButton2=mForwardButton ;
             mCurrentTime2 = (TextView) v.findViewById(R.id.time_current);
             mEndTime2 = (TextView) v.findViewById(R.id.time);
-            mSeekState2 = v.findViewById(R.id.seek_state);
+            //mSeekState2 = v.findViewById(R.id.seek_state);
         }
 
         updateVolumeBar();
@@ -575,8 +573,8 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         // on phones layoutWidth is smaller than MATCH_PARENT by navigationBarHeight thus cannot use ViewGroup.LayoutParams.MATCH_PARENT=-1
         mLayoutWidth = layoutWidth;
         mLayoutHeight = layoutHeight;
-        mSystemBarHeight = displayHeight - mLayoutHeight;
-        log.debug("CONFIG setSizes layout: {}x{} / display: {}x{}, systemBarHeight: {}", mLayoutWidth, mLayoutHeight, displayWidth, displayHeight, mSystemBarHeight);
+        //mSystemBarHeight = displayHeight - mLayoutHeight;
+        log.debug("CONFIG setSizes layout: {}x{} / display: {}x{}, systemBarHeight: {}", mLayoutWidth, mLayoutHeight, displayWidth, displayHeight, displayHeight - /* mLayoutHeight = displayHeight - mLayoutHeight*/  displayHeight - mLayoutHeight);
         if (mControllerView != null) {
             log.debug("CONFIG setSizes, mControllerView != null, recreate whole layout");
             // size changed and maybe orientation too, recreate the whole layout
@@ -591,7 +589,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
 
     private void attachWindow() {
         SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-        if (mPreferences != null) mFullScreenWithCutout = mPreferences.getBoolean("enable_cutout_mode_short_edges", true);
+        //if (mPreferences != null) mFullScreenWithCutout = mPreferences.getBoolean("enable_cutout_mode_short_edges", true);
 
         log.debug("CONFIG attachWindow getStatusBarHeight={}, getNavigationBarHeight={}, getActionBarHeight={}, getGestureAreaHeight={}, isGestureAreaDisplayed={}, ",
                 MiscUtils.getStatusBarHeight(mContext), MiscUtils.getNavigationBarHeight(mContext), MiscUtils.getActionBarHeight(mContext),
@@ -1774,7 +1772,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
             return true;
         }
 
-        if (mActionBarShowing && event.getY() < mActionBarHeight) {
+        if (mActionBarShowing && event.getY() < /* mActionBarHeight = */ 0) {
             mWindow.superDispatchTouchEvent(event);
             return true;
         }
@@ -1906,7 +1904,8 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
             angleDegrees += 360;
 
         // Define upward/downward angle ranges
-        boolean isVerticalScroll = (angleDegrees >= 90-SCROLL_ANGLE && angleDegrees <= 90+SCROLL_ANGLE) || (angleDegrees >= 270-SCROLL_ANGLE && angleDegrees <= 270+SCROLL_ANGLE);
+        float SCROLL_ANGLE = 30;
+        boolean isVerticalScroll = (angleDegrees >= 90- SCROLL_ANGLE && angleDegrees <= 90+ SCROLL_ANGLE) || (angleDegrees >= 270- SCROLL_ANGLE && angleDegrees <= 270+ SCROLL_ANGLE);
         //boolean isVerticalScroll = (Math.abs(distanceY) > Math.abs(distanceX));
 
         if (Math.abs(scrollGestureVertical) > SCROLL_THRESHOLD && isVerticalScroll) {
