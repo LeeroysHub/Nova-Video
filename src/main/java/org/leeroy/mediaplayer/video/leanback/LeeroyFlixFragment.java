@@ -159,9 +159,6 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
     private String currentLocale;
 
     private ArrayObjectAdapter mRowsAdapter;
-    private ArrayObjectAdapter mMoviesRowsAdapter;
-    private ArrayObjectAdapter mAnimeRowAdapter;
-    private ArrayObjectAdapter mTvshowRowAdapter;
     private CursorObjectAdapter mMoviesAdapter;
     private CursorObjectAdapter mAnimesAdapter;
     private CursorObjectAdapter mTvshowsAdapter;
@@ -169,7 +166,6 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
     private CursorObjectAdapter mLastAddedAdapter;
     private CursorObjectAdapter mLastPlayedAdapter;
     private ArrayObjectAdapter mFileBrowsingRowAdapter;
-    private ArrayObjectAdapter mPreferencesRowAdapter;
 
     private ListRow mWatchingUpNextRow;
     private ListRow mLastAddedRow;
@@ -677,39 +673,39 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
 
         boolean showByRating = mPrefs.getBoolean(VideoPreferencesCommon.KEY_SHOW_BY_RATING, VideoPreferencesCommon.SHOW_BY_RATING_DEFAULT);
 
-        mMoviesRowsAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
+        ArrayObjectAdapter moviesRowsAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
         buildAllMoviesBox(wasInPause);
-        mMoviesRowsAdapter.add(mAllMoviesBox);
+        moviesRowsAdapter.add(mAllMoviesBox);
         //mMoviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_ALPHA, getString(R.string.movies_by_alpha), R.drawable.alpha_banner));
-        mMoviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_GENRE, getString(R.string.movies_by_genre), R.drawable.genres_banner));
+        moviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_GENRE, getString(R.string.movies_by_genre), R.drawable.genres_banner));
         if (showByRating)
-            mMoviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_RATING, getString(R.string.movies_by_rating), R.drawable.ratings_banner));
-        mMoviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_YEAR, getString(R.string.movies_by_year), R.drawable.years_banner_2025));
-        mMovieRow = new ListRow(ROW_ID_MOVIES, new HeaderItem(getString(R.string.movies)), mMoviesRowsAdapter);
+            moviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_RATING, getString(R.string.movies_by_rating), R.drawable.ratings_banner));
+        moviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_YEAR, getString(R.string.movies_by_year), R.drawable.years_banner_2025));
+        mMovieRow = new ListRow(ROW_ID_MOVIES, new HeaderItem(getString(R.string.movies)), moviesRowsAdapter);
         buildAllCollectionsBox(wasInPause);
-        mMoviesRowsAdapter.add(mAllCollectionsBox);
+        moviesRowsAdapter.add(mAllCollectionsBox);
 
-        mTvshowRowAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
+        ArrayObjectAdapter tvshowRowAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
         buildAllTvshowsBox(wasInPause);
-        mTvshowRowAdapter.add(mAllTvshowsBox);
+        tvshowRowAdapter.add(mAllTvshowsBox);
         //tvshowRowAdapter.add(new Box(Box.ID.TVSHOWS_BY_ALPHA, getString(R.string.tvshows_by_alpha), R.drawable.alpha_banner));
-        mTvshowRowAdapter.add(new Box(Box.ID.TVSHOWS_BY_GENRE, getString(R.string.tvshows_by_genre), R.drawable.genres_banner));
+        tvshowRowAdapter.add(new Box(Box.ID.TVSHOWS_BY_GENRE, getString(R.string.tvshows_by_genre), R.drawable.genres_banner));
         if (showByRating)
-            mTvshowRowAdapter.add(new Box(Box.ID.TVSHOWS_BY_RATING, getString(R.string.tvshows_by_rating), R.drawable.ratings_banner));
-        mTvshowRowAdapter.add(new Box(Box.ID.EPISODES_BY_DATE, getString(R.string.episodes_by_date), R.drawable.years_banner_2025));
-        mTvshowRow = new ListRow(ROW_ID_TVSHOW, new HeaderItem(getString(R.string.all_tv_shows)), mTvshowRowAdapter);
+            tvshowRowAdapter.add(new Box(Box.ID.TVSHOWS_BY_RATING, getString(R.string.tvshows_by_rating), R.drawable.ratings_banner));
+        tvshowRowAdapter.add(new Box(Box.ID.EPISODES_BY_DATE, getString(R.string.episodes_by_date), R.drawable.years_banner_2025));
+        mTvshowRow = new ListRow(ROW_ID_TVSHOW, new HeaderItem(getString(R.string.all_tv_shows)), tvshowRowAdapter);
 
-        mAnimeRowAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
-        mAnimeRow = new ListRow(ROW_ID_ANIMES, new HeaderItem(getString(R.string.animes)), mAnimeRowAdapter);
+        ArrayObjectAdapter animeRowAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
+        mAnimeRow = new ListRow(ROW_ID_ANIMES, new HeaderItem(getString(R.string.animes)), animeRowAdapter);
         buildAllAnimesBox(wasInPause);
-        mAnimeRowAdapter.add(mAllAnimesBox);
-        mAnimeRowAdapter.add(new Box(Box.ID.ANIMES_BY_GENRE, getString(R.string.animes_by_genre), R.drawable.genres_banner));
-        mAnimeRowAdapter.add(new Box(Box.ID.ANIMES_BY_YEAR, getString(R.string.animes_by_year), R.drawable.years_banner_2025));
+        animeRowAdapter.add(mAllAnimesBox);
+        animeRowAdapter.add(new Box(Box.ID.ANIMES_BY_GENRE, getString(R.string.animes_by_genre), R.drawable.genres_banner));
+        animeRowAdapter.add(new Box(Box.ID.ANIMES_BY_YEAR, getString(R.string.animes_by_year), R.drawable.years_banner_2025));
         buildAllAnimeShowsBox(wasInPause);
-        mAnimeRowAdapter.add(mAllAnimeShowsBox);
+        animeRowAdapter.add(mAllAnimeShowsBox);
 
         buildAllAnimeCollectionsBox(wasInPause);
-        mAnimeRowAdapter.add(mAllAnimeCollectionsBox);
+        animeRowAdapter.add(mAllAnimeCollectionsBox);
 
         wasInPause = false;
 
@@ -748,18 +744,20 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
             updateUsbAndSdcardVisibility();
         }
 
-        mPreferencesRowAdapter = new ArrayObjectAdapter(new IconItemPresenter());
-        mPreferencesRowAdapter.add(new Icon(Icon.ID.PREFERENCES, getString(R.string.preferences), R.drawable.lollipop_settings));
+        ArrayObjectAdapter preferencesRowAdapter = new ArrayObjectAdapter(new IconItemPresenter());
+        preferencesRowAdapter.add(new Icon(Icon.ID.PREFERENCES, getString(R.string.preferences), R.drawable.lollipop_settings));
+        preferencesRowAdapter.add(new Icon(Icon.ID.RESCRAPE, getString(R.string.rescrape_title), R.drawable.filetype_new_rescan));
+
         //mPreferencesRowAdapter.add(new Icon(Icon.ID.PRIVATE_MODE, getString(R.string.private_mode_is_on), getString(R.string.private_mode_is_off),
         //                                    R.drawable.private_mode,  R.drawable.private_mode_off, PrivateMode.isActive()));
         if (mShowLegacyUI) 
-            mPreferencesRowAdapter.add(new Icon(Icon.ID.LEGACY_UI, getString(R.string.leanback_legacy_ui), R.drawable.legacy_ui_icon));
+            preferencesRowAdapter.add(new Icon(Icon.ID.LEGACY_UI, getString(R.string.leanback_legacy_ui), R.drawable.legacy_ui_icon));
         //mPreferencesRowAdapter.add(new Icon(Icon.ID.HELP_FAQ, getString(R.string.help_faq), R.drawable.lollipop_help));
 
         // Must use an IconListRow to have the dedicated presenter used (see ClassPresenterSelector above)
         mRowsAdapter.add(new IconListRow(ROW_ID_PREFERENCES,
                 new HeaderItem(getString(R.string.preferences)),
-                mPreferencesRowAdapter));
+                preferencesRowAdapter));
 
         setAdapter(mRowsAdapter);
     }
@@ -1224,18 +1222,20 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
         if (mNonScrapedVideosItem == null) {
             log.debug("updateNonScrapedVideosVisibility: mNonScrapedVideosItem is null.");
         } else {
-            int currentIndex = mFileBrowsingRowAdapter.indexOf(mNonScrapedVideosItem);
-            log.debug("updateNonScrapedVideosVisibility: count={}, currentIndex={}", count, currentIndex);
-            if (count > 0) {
-                if (currentIndex < 0) {
-                    log.debug("updateNonScrapedVideosVisibility: adding non-scraped box");
-                    mFileBrowsingRowAdapter.add(mNonScrapedVideosItem);
+            if (mFileBrowsingRowAdapter != null) {
+                int currentIndex = mFileBrowsingRowAdapter.indexOf(mNonScrapedVideosItem);
+                log.debug("updateNonScrapedVideosVisibility: count={}, currentIndex={}", count, currentIndex);
+                if (count > 0) {
+                    if (currentIndex < 0) {
+                        log.debug("updateNonScrapedVideosVisibility: adding non-scraped box");
+                        mFileBrowsingRowAdapter.add(mNonScrapedVideosItem);
+                    } else {
+                        log.debug("updateNonScrapedVideosVisibility: non-scraped box already present at index {}", currentIndex);
+                    }
                 } else {
-                    log.debug("updateNonScrapedVideosVisibility: non-scraped box already present at index {}", currentIndex);
+                    log.debug("updateNonScrapedVideosVisibility: removing non-scraped box");
+                    mFileBrowsingRowAdapter.remove(mNonScrapedVideosItem);
                 }
-            } else {
-                log.debug("updateNonScrapedVideosVisibility: removing non-scraped box");
-                mFileBrowsingRowAdapter.remove(mNonScrapedVideosItem);
             }
         }
     }

@@ -67,7 +67,7 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
      * Used to disable the action bar navigation listener when initializing the action bar navigation while the fragment is already created
      */
     private boolean mNavigationItemListenerActive = true;
-    private static final int ITEM_ID_VIDEO_FOLDER = ITEM_ID_OFFSET + 0;
+    private static final int ITEM_ID_VIDEO_FOLDER = ITEM_ID_OFFSET;
     private static final int ITEM_ID_MOVIES = ITEM_ID_OFFSET + 1;
     private static final int ITEM_ID_TV_SHOWS = ITEM_ID_OFFSET + 2;
     private static final int ITEM_ID_ALL_VIDEOS = ITEM_ID_OFFSET + 3;
