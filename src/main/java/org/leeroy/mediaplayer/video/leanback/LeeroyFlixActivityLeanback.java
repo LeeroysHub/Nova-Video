@@ -17,6 +17,7 @@ package org.leeroy.mediaplayer.video.leanback;
 import static org.leeroy.filecorelibrary.FileUtils.hasManageExternalStoragePermission;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -75,11 +76,23 @@ public class LeeroyFlixActivityLeanback extends LeanbackActivity {
         log.warn("onCreate: LeeroyFlixActivityLeanback instance created: {}", this.hashCode());
         ((LeeroyFlixApp) getApplication()).loadLocale();
         super.onCreate(savedInstanceState);
-        LoaderUtils.mMustHideWatchedVideo = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("hide_watched", false);
         
+        //Save preferences and editor for speedier access.
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        
+        //Set the Hide watched videos on Startup
+        LoaderUtils.mMustHideWatchedVideo  = preferences.getBoolean("hide_watched", false);
+       
         //Reset the Video Aspect Ratio on Startup.
-        PreferenceManager.getDefaultSharedPreferences(this).edit().putString("player_pref_auto_format_key","-1").apply();
-        PreferenceManager.getDefaultSharedPreferences(this).edit().putString("player_pref_format_key","0").apply();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("player_pref_auto_format_key","-1");
+        editor.putString("player_pref_format_key","0");
+
+        //If we are starting the Browser again, we aren't unpausing a Video
+        editor.putBoolean("user_paused_video", false);
+        
+        //Apply all the changes at once!
+        editor.apply();
 
         UnavailablePosterBroadcastReceiver.registerReceiver(this);
         mPermissionChecker = new PermissionChecker(hasManageExternalStoragePermission(getApplicationContext()));
