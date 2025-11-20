@@ -271,7 +271,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         mCutoutBottom = bottom;
     }
 
-    private Handler mHandler = new Handler() {
+    private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -336,7 +336,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private boolean             mPoster;
     private String              mPosterPath;
 
-    private boolean             fileHasAlreadyPlayed = false;
+    //private boolean             fileHasAlreadyPlayed = false;
     private int                 mResume;
     private long                mVideoId;
     private int                 mErrorCode = 0;
@@ -367,13 +367,11 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private static boolean      mLockRotation;
     private static boolean      mIsRotationLocked;
     private static int          mLockedRotation;
-    private boolean             mForceSWDecoding;
     private boolean             mStopped;
     private boolean             mHdmiPlugged = false;
     private int                 mNotificationMode;
     private MenuItem            mInfoMenuItem;
     private MenuItem            mBookmarkMenuItem;
-    private MenuItem            mBrightnessMenuItem;
     private boolean             mSeekingWithJoystickStarted = false;
 
     // Specific player settings used for demo mode
@@ -384,8 +382,8 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private int                 mSubtitleColorDefault;
     private boolean             mSubtitleOutlineDefault;
     private boolean             mAudioSubtitleNeedUpdate = false;
-    private int                 mNewSubtitleTrack = -1;
-    private int                 mNewAudioTrack = -1;
+    //private int                 mNewSubtitleTrack = -1;
+    //private int                 mNewAudioTrack = -1;
     private VideoDbInfo         mVideoInfo;
     private IndexHelper         mIndexHelper = null;
 
@@ -400,12 +398,12 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private TVMenu              mAudioTracksTVMenu;
     private boolean             isTVMode;
     private TorrentObserverService mTorrent;
-    private int                 mTorrentFilePosition = -1;
+    //private int                 mTorrentFilePosition = -1;
     private Runnable            r = null;
     private int                 mSavedMode;
     private AlertDialog         ad=null;
     private long                mWillSleepAt; //for timer, stop player activity
-    private ServiceConnection   mPlayerServiceConnection = new ServiceConnection() {
+    private final ServiceConnection   mPlayerServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             log.debug("Service connected");
@@ -779,7 +777,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         isTVMode = TVUtils.isTV(mContext);
         mLockRotation = mPreferences.getBoolean(KEY_LOCK_ROTATION, false);
         mNetworkBookmarksEnabled = mPreferences.getBoolean(KEY_NETWORK_BOOKMARKS, true);
-        mForceSWDecoding = mPreferences.getBoolean(KEY_FORCE_SW, false);
+        boolean forceSWDecoding = mPreferences.getBoolean(KEY_FORCE_SW, false);
         log.debug("onStart: setLockRotation {}", mLockRotation);
         setLockRotation(mLockRotation);
         mSurfaceController.setVideoFormat(Integer.parseInt(mPreferences.getString(KEY_PLAYER_FORMAT, "-1")),
@@ -862,7 +860,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         }
 
         //if not started from floating player, we have to stop our video
-        if (mForceSWDecoding)
+        if (forceSWDecoding)
             Toast.makeText(
                 mContext,
                 R.string.warning_swdec,
@@ -2195,9 +2193,9 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             
             if (!isPluggedOnTv()) {
 
-                mBrightnessMenuItem = menu.add(MENU_GLOBAL_ACTIONS_GROUP, MENU_BRIGHTNESS_ID, Menu.NONE, R.string.menu_brightness_settings);
-                if (mBrightnessMenuItem != null) {
-                    mBrightnessMenuItem.setIcon(R.drawable.ic_menu_brightness).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+                MenuItem brightnessMenuItem = menu.add(MENU_GLOBAL_ACTIONS_GROUP, MENU_BRIGHTNESS_ID, Menu.NONE, R.string.menu_brightness_settings);
+                if (brightnessMenuItem != null) {
+                    brightnessMenuItem.setIcon(R.drawable.ic_menu_brightness).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
                 }
                 if (mPlayer!=null&&mPlayer.getEffectType()==VideoEffect.EFFECT_NONE) {
                     menuItem = menu.add(MENU_GLOBAL_ACTIONS_GROUP, MENU_LOCK_ROTATION_ID,
@@ -3897,7 +3895,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
         public void onAudioMetadataUpdated(VideoMetadata vMetadata, int newAudioTrack) {
             if (mVideoInfo == null) {
-                mNewAudioTrack = newAudioTrack;
+                //mNewAudioTrack = newAudioTrack;
                 mAudioSubtitleNeedUpdate = true;
                 return;
             }
@@ -3928,7 +3926,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
         public void onSubtitleMetadataUpdated(VideoMetadata vMetadata, int newSubtitleTrack) {
             if (mVideoInfo == null) {
-                mNewSubtitleTrack = newSubtitleTrack;
+                //mNewSubtitleTrack = newSubtitleTrack;
                 mAudioSubtitleNeedUpdate = true;
                 return;
             }
@@ -4029,7 +4027,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             log.debug("onVideoDb: localVideoInfo.subtitleTrack={}, remoteVideoInfo.subtitleTrack={}", ((localVideoInfo != null) ? localVideoInfo.subtitleTrack : "none"), ((remoteVideoInfo != null) ? remoteVideoInfo.subtitleTrack : "none"));
             log.debug("onVideoDb: trakt: {} local {}", localVideoInfo.traktResume, localVideoInfo.resume);
             log.debug("onVideoDb: localVideoInfo.lastTimePlayed: {}, remoteVideoInfo.lastTimePlayed: {}", ((localVideoInfo != null) ? localVideoInfo.lastTimePlayed : "none"), ((remoteVideoInfo != null) ? remoteVideoInfo.lastTimePlayed : "none"));
-            if (localVideoInfo != null) {
+            /*if (localVideoInfo != null) {
                 if (remoteVideoInfo != null) {
                     if (localVideoInfo.lastTimePlayed == 0 && remoteVideoInfo.audioTrack == -1) {
                         log.debug("onVideoDb: first play");
@@ -4041,75 +4039,73 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                         fileHasAlreadyPlayed = false;
                     } else fileHasAlreadyPlayed = true;
                 }
-            } else fileHasAlreadyPlayed = false;
-            if (localVideoInfo != null) {
-                final int localTraktPosition = Math.abs(localVideoInfo.duration>0 ? (int)(localVideoInfo.traktResume * (double) localVideoInfo.duration / 100) : 0);
-                log.info("onVideoDb: trakt calc: "+ localTraktPosition+ " local "+ localVideoInfo.resume);
+            } //else fileHasAlreadyPlayed = false; */
+            final int localTraktPosition = Math.abs(localVideoInfo.duration > 0 ? (int) (localVideoInfo.traktResume * (double) localVideoInfo.duration / 100) : 0);
+            log.info("onVideoDb: trakt calc: "+ localTraktPosition+ " local "+ localVideoInfo.resume);
 
-                if (localVideoInfo != null && remoteVideoInfo != null && mResume != RESUME_NO&& mResume !=  RESUME_FROM_LOCAL_POS) {
-                    log.debug("hasRemoteVideoInfo");
-                    // Don't show resume dialog if user explicitly paused the video
-                    // Use mUserPausedVideo flag which is set by onPause listener and cleared by onPlay
-                    log.debug("onVideoDb: mUserPausedVideo={}", mUserPausedVideo);
+            if ( remoteVideoInfo != null && mResume != RESUME_NO&& mResume !=  RESUME_FROM_LOCAL_POS) {
+                log.debug("hasRemoteVideoInfo");
+                // Don't show resume dialog if user explicitly paused the video
+                // Use mUserPausedVideo flag which is set by onPause listener and cleared by onPlay
+                log.debug("onVideoDb: mUserPausedVideo={}", mUserPausedVideo);
 
-                    if (!mUserPausedVideo) {
-                        int localLastPosition = getLastPosition(localVideoInfo, mResume);
-                        int remoteLastPosition = getLastPosition(remoteVideoInfo, mResume);
+                if (!mUserPausedVideo) {
+                    int localLastPosition = getLastPosition(localVideoInfo, mResume);
+                    int remoteLastPosition = getLastPosition(remoteVideoInfo, mResume);
 
-                        if (localLastPosition != remoteLastPosition && remoteLastPosition > 0) {
-                            //do not display dialog if remote position is the only available
-                            if (localLastPosition <= 0) {
-                                log.debug("use remoteVideoInfo");
-                                showTraktResumeDialog(localTraktPosition,remoteVideoInfo);
+                    if (localLastPosition != remoteLastPosition && remoteLastPosition > 0) {
+                        //do not display dialog if remote position is the only available
+                        if (localLastPosition <= 0) {
+                            log.debug("use remoteVideoInfo");
+                            showTraktResumeDialog(localTraktPosition,remoteVideoInfo);
 
-                            } else {
-                                if(mResume ==  RESUME_FROM_REMOTE_POS){ //use only remote
-                                    mVideoInfo = remoteVideoInfo;
-                                    // Apply remote position BEFORE calling PlayerService.setVideoInfo()
-                                    if (mRemotePosition > 0) {
-                                        mVideoInfo.resume = mRemotePosition;
-                                    }
-                                    if(PlayerService.sPlayerService!=null){
-                                        PlayerService.sPlayerService.setVideoInfo(mVideoInfo);
-                                        PlayerService.sPlayerService.requestIndexAndScrap();
-                                    }
-                                    log.debug("onVideoDb: call setVideoInfo");
-                                    setVideoInfo(mVideoInfo);
+                        } else {
+                            if(mResume ==  RESUME_FROM_REMOTE_POS){ //use only remote
+                                mVideoInfo = remoteVideoInfo;
+                                // Apply remote position BEFORE calling PlayerService.setVideoInfo()
+                                if (mRemotePosition > 0) {
+                                    mVideoInfo.resume = mRemotePosition;
                                 }
-                                else {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(PlayerActivity.this);
-                                    builder.setMessage(R.string.use_remote_resume)
-                                            .setCancelable(false)
-                                            .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog, int id) {
-                                                    mVideoInfo = remoteVideoInfo;
-                                                    applyRemotePositionIfNeeded();
-                                                    if(PlayerService.sPlayerService!=null){
-                                                        PlayerService.sPlayerService.setVideoInfo(mVideoInfo);
-                                                        PlayerService.sPlayerService.requestIndexAndScrap();
-                                                    }
-                                                    log.debug("onVideoDb: call setVideoInfo");
-                                                    setVideoInfo(mVideoInfo);
-                                                }
-                                            })
-                                            .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog, int id) {
-                                                    showTraktResumeDialog(localTraktPosition, localVideoInfo);
-                                                }
-                                            });
-                                    AlertDialog alert = builder.create();
-                                    alert.show();
+                                if(PlayerService.sPlayerService!=null){
+                                    PlayerService.sPlayerService.setVideoInfo(mVideoInfo);
+                                    PlayerService.sPlayerService.requestIndexAndScrap();
                                 }
+                                log.debug("onVideoDb: call setVideoInfo");
+                                setVideoInfo(mVideoInfo);
                             }
-                            return;
+                            else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(PlayerActivity.this);
+                                builder.setMessage(R.string.use_remote_resume)
+                                        .setCancelable(false)
+                                        .setPositiveButton(R.string.yes, new OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                mVideoInfo = remoteVideoInfo;
+                                                applyRemotePositionIfNeeded();
+                                                if(PlayerService.sPlayerService!=null){
+                                                    PlayerService.sPlayerService.setVideoInfo(mVideoInfo);
+                                                    PlayerService.sPlayerService.requestIndexAndScrap();
+                                                }
+                                                log.debug("onVideoDb: call setVideoInfo");
+                                                setVideoInfo(mVideoInfo);
+                                            }
+                                        })
+                                        .setNegativeButton(R.string.no, new OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                showTraktResumeDialog(localTraktPosition, localVideoInfo);
+                                            }
+                                        });
+                                AlertDialog alert = builder.create();
+                                alert.show();
+                            }
                         }
-                    } else {
-                        log.debug("onVideoDb: player is paused, skipping resume dialog");
+                        return;
                     }
+                } else {
+                    log.debug("onVideoDb: player is paused, skipping resume dialog");
                 }
-                //	showTraktResumeDialog(localTraktPosition,localVideoInfo);
-                //return ;
             }
+            //	showTraktResumeDialog(localTraktPosition,localVideoInfo);
+            //return ;
 
             // this provides the video info to the player based on localVideoInfo (keeping subtrack etc...)
             log.debug("onVideoDb: call setVideoInfo for playerActivity and playerService");

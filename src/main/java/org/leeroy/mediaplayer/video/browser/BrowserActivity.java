@@ -21,6 +21,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.loader.app.LoaderManager;
@@ -143,7 +145,7 @@ abstract public class BrowserActivity extends AppCompatActivity {
 
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         boolean ret = super.onOptionsItemSelected(item);
 
 
@@ -153,14 +155,15 @@ abstract public class BrowserActivity extends AppCompatActivity {
     private final BroadcastReceiver mCoverLaunchListener = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(Cover.LAUNCH_CONTENT_BROWSER_INTENT)) {
+            String intentAction = intent.getAction();
+            if (intentAction != null && intentAction.equals(Cover.LAUNCH_CONTENT_BROWSER_INTENT)) {
                 // Replaces this but only used in TvShowCover with BrowserListOfSeasons
                 // Fragment f = Fragment.instantiate(BrowserActivity.this, intent.getStringExtra(FRAGMENT_NAME), intent.getBundleExtra(FRAGMENT_ARGS));
                 Fragment f = new BrowserListOfSeasons();
                 f.setArguments(intent.getBundleExtra(FRAGMENT_ARGS));
                 BrowserCategory category = (BrowserCategory) getSupportFragmentManager().findFragmentById(
                         R.id.category);
-                category.startContent(f);
+                if (category != null )category.startContent(f);
             }
         }
     };

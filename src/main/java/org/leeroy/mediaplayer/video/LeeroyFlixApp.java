@@ -141,11 +141,10 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
         sharedPreferences.edit().putBoolean("app_updated", false).commit();
         novaUpdated = false;
     }
-
-    // AVOS encoding values are aligned with Android AudioFormat ones
+     // AVOS encoding values are aligned with Android AudioFormat ones
     // note that API level has been checked with https://cs.android.com/android/platform/superproject/+/android-6.0.0_r23:frameworks/base/media/java/android/media/AudioFormat.java
     // maintain sync with avos audio_spdif.c
-    private final int AVOS_ENCODING_INVALID = 0;                // 0 -> AudioFormat.ENCODING_INVALID = 0 (API21)
+    /* private final int AVOS_ENCODING_INVALID = 0;                // 0 -> AudioFormat.ENCODING_INVALID = 0 (API21)
     private final int AVOS_ENCODING_DEFAULT = 1;                // 1 -> AudioFormat.ENCODING_DEFAULT = 1 (API21)
     private final int AVOS_ENCODING_PCM_16BIT = 2;              // 2 -> AudioFormat.ENCODING_PCM_16BIT = 2 (API21)
     private final int AVOS_ENCODING_PCM_8BIT = 3;               // 3 -> AudioFormat.ENCODING_PCM_8BIT = 3 (API21)
@@ -179,7 +178,7 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
     private final int AVOS_ENCODING_DTS_UHD_P2 = 30;            // 30 -> AudioFormat.ENCODING_DTS_UHD_P2 = 30 (API34)
     private final int AVOS_ENCODING_DSD = 31;                   // 31 -> AudioFormat.ENCODING_DSD = 31 (API34)
     // TODO: update this variable when adding new encodings
-    private final int AVOS_ENCODING_MAX = 31;
+    private final int AVOS_ENCODING_MAX = 31; */
 
     private static volatile boolean isForeground = false;
 
@@ -216,7 +215,7 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
                 options.setSampleRate(null);
                 options.setDebug(false);
                 options.setEnableSystemEventBreadcrumbs(false);
-                });
+            });
         }
     }
 
@@ -324,11 +323,11 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
                     } catch (NoSuchMethodError e) {
                         log.debug("updateDirectPcmMultichannelCapability: getDirectPlaybackSupport not available, skipping");
                     }
-                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                } else {
                     // API 29-32: Use isDirectPlaybackSupported() via reflection
                     try {
-                        java.lang.reflect.Method method = AudioManager.class.getMethod("isDirectPlaybackSupported", AudioFormat.class, AudioAttributes.class);
-                        isSupported = (Boolean) method.invoke(mAudioManager, format, attrs);
+                        //java.lang.reflect.Method method = AudioManager.class.getMethod("isDirectPlaybackSupported", AudioFormat.class, AudioAttributes.class);
+                        isSupported = true; //(Boolean) method.invoke(mAudioManager, format, attrs);
                     } catch (Exception e) {
                         log.debug("updateDirectPcmMultichannelCapability: isDirectPlaybackSupported not available, skipping: {}", e.getMessage());
                     }
@@ -470,7 +469,7 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
         launchSambaDiscovery();
 
         // init HttpImageManager manager.
-        mHttpImageManager = new HttpImageManager(HttpImageManager.createDefaultMemoryCache(), 
+        mHttpImageManager = new HttpImageManager(HttpImageManager.createDefaultMemoryCache(),
                 new FileSystemPersistence(BASEDIR));
 
         // Note: we do not init UPnP here, we wait for the user to enter the network view
@@ -692,12 +691,10 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
                 hdmiAudioEncodingFlag = !hasHdmi ? 0 : getEncodingFlags(intent.getIntArrayExtra(AudioManager.EXTRA_ENCODINGS));
                 updateIecEncapsulationCapability();
                 updateDirectPcmMultichannelCapability();
-                final Integer isAudioPlugged = intent.getIntExtra(AudioManager.EXTRA_AUDIO_PLUG_STATE, 0);
-                if (isAudioPlugged != null) {
-                    // maxAudioChannelCount not exploited for now
-                    if (isAudioPlugged == 1) {
-                        maxAudioChannelCount = intent.getIntExtra(AudioManager.EXTRA_MAX_CHANNEL_COUNT, 2);
-                    }
+                final int isAudioPlugged = intent.getIntExtra(AudioManager.EXTRA_AUDIO_PLUG_STATE, 0);
+                // maxAudioChannelCount not exploited for now
+                if (isAudioPlugged == 1) {
+                    maxAudioChannelCount = intent.getIntExtra(AudioManager.EXTRA_MAX_CHANNEL_COUNT, 2);
                 }
 
                 log.debug("mHdmiAudioPlugReceiver: received ACTION_HDMI_AUDIO_PLUG, isAudioPlugged={}, hasHdmi={}, maxAudioChannelCount={}, hdmiAudioEncodingFlag={}, iecCapable={}", isAudioPlugged, hasHdmi, maxAudioChannelCount, hdmiAudioEncodingFlag, isIecEncapsulationCapable);
@@ -727,6 +724,45 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
             return 0;
         long encodingFlags = 0;
         for (int encoding : encodings) {
+            // AVOS encoding values are aligned with Android AudioFormat ones
+            // note that API level has been checked with https://cs.android.com/android/platform/superproject/+/android-6.0.0_r23:frameworks/base/media/java/android/media/AudioFormat.java
+            // maintain sync with avos audio_spdif.c
+            /* private final int AVOS_ENCODING_INVALID = 0;                // 0 -> AudioFormat.ENCODING_INVALID = 0 (API21)
+    private final int AVOS_ENCODING_DEFAULT = 1;                // 1 -> AudioFormat.ENCODING_DEFAULT = 1 (API21)
+    private final int AVOS_ENCODING_PCM_16BIT = 2;              // 2 -> AudioFormat.ENCODING_PCM_16BIT = 2 (API21)
+    private final int AVOS_ENCODING_PCM_8BIT = 3;               // 3 -> AudioFormat.ENCODING_PCM_8BIT = 3 (API21)
+    private final int AVOS_ENCODING_PCM_FLOAT = 4;              // 4 -> AudioFormat.ENCODING_PCM_FLOAT = 4 (API21)
+    private final int AVOS_ENCODING_AC3 = 5;                    // 5 -> AudioFormat.ENCODING_AC3 = 5 (API21)
+    private final int AVOS_ENCODING_E_AC3 = 6;                  // 6 -> AudioFormat.ENCODING_E_AC3 = 6 (API21)
+    private final int AVOS_ENCODING_DTS = 7;                    // 7 -> AudioFormat.ENCODING_DTS = 7 (API23)
+    private final int AVOS_ENCODING_DTS_HD = 8;                 // 8 -> AudioFormat.ENCODING_DTS_HD = 8 (API23)
+    private final int AVOS_ENCODING_MP3 = 9;                    // 9 -> AudioFormat.ENCODING_MP3 = 9 (API23)
+    private final int AVOS_ENCODING_AAC_LC = 10;                // 10 -> AudioFormat.ENCODING_AAC_LC = 10 (API23)
+    private final int AVOS_ENCODING_AAC_HE_V1 = 11;             // 11 -> AudioFormat.ENCODING_AAC_HE_V1 = 11 (API23)
+    private final int AVOS_ENCODING_AAC_HE_V2 = 12;             // 12 -> AudioFormat.ENCODING_AAC_HE_V2 = 12 (API23)
+    private final int AVOS_ENCODING_IEC61937 = 13;              // 13 -> AudioFormat.ENCODING_IEC61937 = 13 (API24)
+    private final int AVOS_ENCODING_DOLBY_TRUEHD = 14;          // 14 -> AudioFormat.ENCODING_DOLBY_TRUEHD = 14 (API25)
+    private final int AVOS_ENCODING_AAC_ELD = 15;               // 15 -> AudioFormat.ENCODING_AAC_ELD = 15 (API28)
+    private final int AVOS_ENCODING_AAC_XHE = 16;               // 16 -> AudioFormat.ENCODING_AAC_XHE = 16 (API28)
+    private final int AVOS_ENCODING_AC4 = 17;                   // 17 -> AudioFormat.ENCODING_AC4 = 17 (API28)
+    private final int AVOS_ENCODING_E_AC3_JOC = 18;             // 18 -> AudioFormat.ENCODING_E_AC3_JOC = 18 (API29)
+    private final int AVOS_ENCODING_DOLBY_MAT = 19;             // 19 -> AudioFormat.ENCODING_DOLBY_MAT = 19 (API29)
+    private final int AVOS_ENCODING_OPUS = 20;                  // 20 -> AudioFormat.ENCODING_OPUS = 20 (API30)
+    private final int AVOS_ENCODING_PCM_24BIT_PACKED = 21;      // 21 -> AudioFormat.ENCODING_PCM_24BIT_PACKED = 21 (API31)
+    private final int AVOS_ENCODING_PCM_32BIT = 22;             // 22 -> AudioFormat.ENCODING_PCM_32BIT = 22 (API31)
+    private final int AVOS_ENCODING_MPEGH_BL_L3 = 23;           // 23 -> AudioFormat.ENCODING_MPEGH_BL_L3 = 23 (API31)
+    private final int AVOS_ENCODING_MPEGH_BL_L4 = 24;           // 24 -> AudioFormat.ENCODING_MPEGH_BL_L4 = 24 (API31)
+    private final int AVOS_ENCODING_MPEGH_LC_L3 = 25;           // 25 -> AudioFormat.ENCODING_MPEGH_LC_L3 = 25 (API31)
+    private final int AVOS_ENCODING_MPEGH_LC_L4 = 26;           // 26 -> AudioFormat.ENCODING_MPEGH_LC_L4 = 26 (API31)
+    private final int AVOS_ENCODING_DTS_UHD = 27;               // 27 -> AudioFormat.ENCODING_DTS_UHD = 27 (API31)
+    private final int AVOS_ENCODING_DRA = 28;                   // 28 -> AudioFormat.ENCODING_DRA = 28 (API31)
+    private final int AVOS_ENCODING_DTS_HD_MA = 29;             // 29 -> AudioFormat.ENCODING_DTS_HD_MA = 29 (API34)
+    private final int AVOS_ENCODING_DTS_UHD_P1 = 27;            // 27 -> AudioFormat.ENCODING_DTS_UHD_P1 = AVOS_ENCODING_DTS_UHD = 27 (API34)
+    private final int AVOS_ENCODING_DTS_UHD_P2 = 30;            // 30 -> AudioFormat.ENCODING_DTS_UHD_P2 = 30 (API34)
+    private final int AVOS_ENCODING_DSD = 31;                   // 31 -> AudioFormat.ENCODING_DSD = 31 (API34)
+    */
+            // TODO: update this variable when adding new encodings
+            int AVOS_ENCODING_MAX = 31;
             if (encoding <= AVOS_ENCODING_MAX) {
                 encodingFlags |= 1L << encoding;
                 log.debug("getEncodingFlags: hdmi RX supports {}", audioEncodings[encoding]);
@@ -912,17 +948,17 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
             log.debug("showChangelogDialog: changelog is null, nothing to do.");
         }
         AlertDialog dialog = new AlertDialog.Builder(activity)
-            .setTitle(R.string.upgrade_info)
-            .setMessage(changelog)
-            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    clearUpdatedFlag(activity);
-                    dialog.cancel();
-                    updateVersionState(activity); // be sure not to display twice
-                }
-            })
-            .show();
+                .setTitle(R.string.upgrade_info)
+                .setMessage(changelog)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        clearUpdatedFlag(activity);
+                        dialog.cancel();
+                        updateVersionState(activity); // be sure not to display twice
+                    }
+                })
+                .show();
     }
 
     private void setupBouncyCastle() {
@@ -990,8 +1026,8 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
 
         // if nova is upgraded from 6.4.19 and below disable force_passthrough and android frame timing
         if ((novaPreviousVersionArray[0] < 6) ||
-            (novaPreviousVersionArray[0] == 6 && novaPreviousVersionArray[1] < 4) ||
-            (novaPreviousVersionArray[0] == 6 && novaPreviousVersionArray[1] == 4 && novaPreviousVersionArray[2] <= 19)) {
+                (novaPreviousVersionArray[0] == 6 && novaPreviousVersionArray[1] < 4) ||
+                (novaPreviousVersionArray[0] == 6 && novaPreviousVersionArray[1] == 4 && novaPreviousVersionArray[2] <= 19)) {
             PreferenceManager.getDefaultSharedPreferences(context)
                     .edit()
                     .putBoolean(VideoPreferencesCommon.KEY_FORCE_AUDIO_PASSTHROUGH, false)
