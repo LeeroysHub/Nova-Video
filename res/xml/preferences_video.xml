@@ -262,8 +262,7 @@
             android:summary="@string/preferences_display_recently_played_summary"
             android:title="@string/preferences_display_recently_played"
             app:iconSpaceReserved="false"/>
-
-         <CheckBoxPreference
+        <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/reset_brightness_on_start_key"
             android:summary="@string/reset_brightness_on_start_summary"
@@ -557,30 +556,11 @@
             android:summary="@string/scraper_language_summary"
             android:title="@string/scraper_language_title"
             app:iconSpaceReserved="false"/>
-
         <CheckBoxPreference
             android:defaultValue="@bool/network_nfo_parse_default"
             android:key="@string/network_nfo_parse_prefkey"
             android:summary="@string/network_nfo_parse_summary"
             android:title="@string/network_nfo_parse"
-            app:iconSpaceReserved="false"/>
-        <CheckBoxPreference
-            android:defaultValue="@bool/nfo_export_auto_default"
-            android:key="@string/nfo_export_auto_prefkey"
-            android:summary="@string/nfo_export_auto_summary"
-            android:title="@string/nfo_export_auto_title"
-            app:iconSpaceReserved="false"/>
-        <Preference
-            android:key="@string/rescrap_all_prefkey"
-            android:title="@string/rescrap_all_title"
-            app:iconSpaceReserved="false"/>
-        <Preference
-            android:key="@string/rescrap_all_movies_prefkey"
-            android:title="@string/rescrap_all_movies_title"
-            app:iconSpaceReserved="false"/>
-        <Preference
-            android:key="@string/rescrap_all_collections_prefkey"
-            android:title="@string/rescrap_all_collections_title"
             app:iconSpaceReserved="false"/>
         <CheckBoxPreference
             android:defaultValue="false"
@@ -593,6 +573,12 @@
         android:title="@string/import_export"
         android:key="import_export_category"
         app:iconSpaceReserved="false" >
+        <CheckBoxPreference
+            android:defaultValue="@bool/nfo_export_auto_default"
+            android:key="@string/nfo_export_auto_prefkey"
+            android:summary="@string/nfo_export_auto_summary"
+            android:title="@string/nfo_export_auto_title"
+            app:iconSpaceReserved="false"/>
         <Preference
             android:key="@string/nfo_export_manual_prefkey"
             android:summary="@string/nfo_export_manual_summary"
@@ -618,10 +604,24 @@
             android:summary="@string/media_library_import_summary"
             android:title="@string/media_library_import_title"
             app:iconSpaceReserved="false"/>
-        
-        
     </PreferenceCategory>
-
+    <PreferenceCategory
+        android:title="Media Scraping"
+        android:key="media_scraping_category"
+        app:iconSpaceReserved="false" >
+        <Preference
+            android:key="@string/rescrap_all_prefkey"
+            android:title="@string/rescrap_all_title"
+            app:iconSpaceReserved="false"/>
+        <Preference
+            android:key="@string/rescrap_all_movies_prefkey"
+            android:title="@string/rescrap_all_movies_title"
+            app:iconSpaceReserved="false"/>
+        <Preference
+            android:key="@string/rescrap_all_collections_prefkey"
+            android:title="@string/rescrap_all_collections_title"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/storage"
         app:iconSpaceReserved="false" >
 
