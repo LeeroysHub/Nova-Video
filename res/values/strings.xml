@@ -601,6 +601,8 @@
     <string name="preference_tv_3d_automatic_switch_summary">Use this feature only if your 3D TV supports it</string>
     <string name="enable_android_frame_timing">Enable Android frame timing</string>
     <string name="enable_android_frame_timing_summary">Delegate to Android the frame blit timing for smoother playback (experimental)</string>
+    <string name="enable_increase_decoder_priority">Raise Decoder Priority</string>
+    <string name="enable_increase_decoder_priority_summary">Decreases choppy playback, but may increase battery usage.</string>
     <string name="hide_watched_videos">Hide watched videos</string>
     <string name="hide_watched_videos_summary">Hide videos from the media Library if they are marked as watched.</string>
     <string name="enable_projector_mode">Enable projector mode</string>

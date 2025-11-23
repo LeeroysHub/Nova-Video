@@ -31,6 +31,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import androidx.preference.PreferenceManager;
+import android.content.SharedPreferences;
 
 import android.view.Display;
 import android.view.Surface;
@@ -497,8 +498,11 @@ public class Player implements IPlayerControl,
             return;
         }
 
-        boolean isDoViDisabled = PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(VideoPreferencesCommon.KEY_DISABLE_DOLBY_VISION, false);
-        CodecDiscovery.disableDoVi(isDoViDisabled); // could be an autoswitch based on HDR DoVi screen capability
+        //Grab options from preferences before we start player.
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        boolean isDoViDisabled = preferences.getBoolean(VideoPreferencesCommon.KEY_DISABLE_DOLBY_VISION, false);
+        CodecDiscovery.disableDoVi(isDoViDisabled); // could be an autoswitch based on HDR DoVi screen capability    
+        boolean raiseDecoderPriority = preferences.getBoolean(VideoPreferencesCommon.KEY_INCREASE_DECODER_PRIORITY, false);
 
         // we shouldn't clear the target state, because somebody might have
         // called start() previously
@@ -509,6 +513,9 @@ public class Player implements IPlayerControl,
             mStopPosition = -1;
         }
         new Thread(() -> {
+            //If the option to Raise Decoder Priority is set in PREFS.
+            if (raiseDecoderPriority) android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_AUDIO);
+
             try {
                 mMediaPlayer = MediaFactory.createPlayer(mContext, mForceSoftwareDecoding);
                 mMediaPlayer.setOnPreparedListener(this);

@@ -190,6 +190,13 @@
             app:iconSpaceReserved="false"/>
         <CheckBoxPreference
             android:defaultValue="false"
+            android:key="increase_decoder_priority"
+            android:persistent="true"
+            android:summary="@string/enable_increase_decoder_priority_summary"
+            android:title="@string/enable_increase_decoder_priority"
+            app:iconSpaceReserved="false"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
             android:key="player_projector_mode_key"
             android:persistent="true"
             android:summary="@string/enable_projector_mode_summary"
