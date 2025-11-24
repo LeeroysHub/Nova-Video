@@ -78,7 +78,7 @@ public class LeeroyFlixActivityLeanback extends LeanbackActivity {
         ((LeeroyFlixApp) getApplication()).loadLocale();
 
         // Check if user disabled "Always start in TV interface" - if so, redirect to phone UI
-        if (!UiChoiceDialog.applicationIsInLeanbackMode(this)) {
+        if (!UiChoiceDialog.applicationIsInLeanbackMode(this, false)) {
             log.debug("onCreate: User disabled leanback mode, redirecting to LeeroyFlixActivity");
             Intent i = new Intent(this, org.leeroy.mediaplayer.video.browser.LeeroyFlixActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -100,7 +100,8 @@ public class LeeroyFlixActivityLeanback extends LeanbackActivity {
         SharedPreferences.Editor editor = prefs.edit();
 
         // Update uimode/uimode_leanback to reflect we're in leanback mode
-        UiChoiceDialog.updateUiModePreferencesInEditor(this, editor);
+        //I DO THIS IN onResume, because then the current activity is remembered correctly
+        //UiChoiceDialog.updateUiModePreferencesInEditor(this, editor);
 
         // Reset the Video Aspect Ratio on Startup
         editor.putString("player_pref_auto_format_key", "-1");
@@ -139,7 +140,14 @@ public class LeeroyFlixActivityLeanback extends LeanbackActivity {
 
         LeeroyFlixApp.showChangelogDialog(LeeroyFlixApp.getChangelog(this.getApplicationContext()), this);
     }
+    
+    @Override
+    public void onResume() {
+        super.onResume();
 
+        // Update uimode/uimode_leanback to reflect we're in leanback mode
+        UiChoiceDialog.updateUiModePreferences(this, true);
+    }
 
     @Override
     protected void onDestroy(){

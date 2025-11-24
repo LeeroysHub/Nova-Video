@@ -49,7 +49,7 @@ public class EntryActivity extends AppCompatActivity {
         log.debug("onCreate");
 
         Class activityToLaunch = null;
-        if (UiChoiceDialog.applicationIsInLeanbackMode(this)) {
+        if (UiChoiceDialog.applicationIsInLeanbackMode(this, true)) {
             activityToLaunch = LeeroyFlixActivityLeanback.class;
         } else {
             activityToLaunch = LeeroyFlixActivity.class;

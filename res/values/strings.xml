@@ -633,6 +633,8 @@
     <string name="UiLang_summary">Set LeeroyFlix user interface language, pick system to use system default</string>
     <string name="ui_mode_title">User interface mode</string>
     <string name="ui_mode_summary">Choose between TV and Tablet/Phone UI</string>
+    <string name="remember_interface_choice_title">Remember Interface Choice</string>
+    <string name="remember_interface_choice_summary">Remember TV / Legacy Interface Choice when you next start the application.</string>
     <string name="preferences_video_about">About</string>
     <string name="preferences_video_os_text">Subtitles provided by</string>
     <string name="preferences_video_tmdb_text">Movie/TV Show information provided by</string>

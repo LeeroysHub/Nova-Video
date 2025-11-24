@@ -217,9 +217,6 @@ public class LeeroyFlixActivity extends BrowserActivity implements ExternalPlaye
         this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
         super.onCreate(savedInstanceState);
 
-        // Update uimode/uimode_leanback to reflect we're in phone/tablet mode
-        org.leeroy.mediaplayer.video.UiChoiceDialog.updateUiModePreferences(this, false);
-
         //Setup an preferences before we start activites.
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         
@@ -477,6 +474,9 @@ public class LeeroyFlixActivity extends BrowserActivity implements ExternalPlaye
         // Reload preferences that may have changed
         LoaderUtils.mMustHideWatchedVideo = mPreferences.getBoolean("hide_watched", false);
         LoaderUtils.mSmartRecentlyRows = mPreferences.getBoolean("smart_recently_rows", false);
+        
+        // Update uimode/uimode_leanback to reflect we're in phone/tablet mode
+        org.leeroy.mediaplayer.video.UiChoiceDialog.updateUiModePreferences(this, false);
 
         if (Build.VERSION.SDK_INT >= 33) {
             registerReceiver(mTraktRelogBroadcastReceiver,new IntentFilter(Trakt.TRAKT_ISSUE_REFRESH_TOKEN), Context.RECEIVER_NOT_EXPORTED);

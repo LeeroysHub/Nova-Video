@@ -229,6 +229,13 @@
             android:summary="@string/ui_mode_summary"
             android:title="@string/ui_mode_title"
             app:iconSpaceReserved="false"/>
+        
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="remember_interface_choice_key"
+            android:summary="@string/remember_interface_choice_summary"
+            android:title="@string/remember_interface_choice_title"
+            app:iconSpaceReserved="false"/>
 
         <Preference android:title="@string/interface_size"
             android:key="ui_zoom"
@@ -290,12 +297,12 @@
     <PreferenceCategory android:title="@string/preferences_leanback_user_interface" android:key="category_leanback_user_interface"
         app:iconSpaceReserved="false" >
 
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="always_leanback_on_tv_key"
-            android:summary="@string/always_leanback_on_tv_summary"
-            android:title="@string/always_leanback_on_tv"
-            app:iconSpaceReserved="false"/>
+        <!-- <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="hide_legacy_ui_icon_key"
+            android:summary="Hide the Legacy Interface Option in TV user interface. You can still change UI mode here."
+            android:title="Hide Legacy Interface button"
+            app:iconSpaceReserved="false"/> -->
 
         <CheckBoxPreference
             android:defaultValue="true"
