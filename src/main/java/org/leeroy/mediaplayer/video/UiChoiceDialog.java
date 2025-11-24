@@ -93,26 +93,14 @@ public class UiChoiceDialog extends DialogFragment implements View.OnClickListen
         //Save preferences object because we use it more than once.
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
 
-        boolean hasLeanbackFeature = context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_LEANBACK);
+        // When on an actual leanback device (Android TV, etc.) we give no choice -> Leanback!
+        if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_LEANBACK) && preferences.getBoolean("always_leanback_on_tv_key",true))
+            return true;
 
-        // Initialize preferences on first run for Android TV
-        if (hasLeanbackFeature && !preferences.contains("always_leanback_on_tv_key")) {
-            android.util.Log.d("UiChoiceDialog", "First run on Android TV - initializing always_leanback_on_tv_key=true");
-            preferences.edit()
-                .putBoolean("always_leanback_on_tv_key", true)
-                .apply();
-        }
-
-        // On Android TV: check always_leanback_on_tv_key preference (default true)
-        // On Phone/Tablet: ALWAYS return false (always use MainActivity)
-        if (hasLeanbackFeature) {
-            boolean alwaysLeanbackOnTv = preferences.getBoolean("always_leanback_on_tv_key", true);
-            android.util.Log.d("UiChoiceDialog", "Android TV: always_leanback_on_tv_key=" + alwaysLeanbackOnTv);
-            return alwaysLeanbackOnTv;
-        } else {
-            android.util.Log.d("UiChoiceDialog", "Phone/Tablet: always use MainActivity");
-            return false;
-        }
+        //Not on Leanback, or user turn off always on TV.
+        return UiChoiceDialog.UI_CHOICE_LEANBACK_TV_VALUE.equals(
+                preferences.getString(UiChoiceDialog.UI_CHOICE_LEANBACK_KEY, "-")
+        );
     }
 
     /**
