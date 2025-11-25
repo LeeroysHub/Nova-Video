@@ -9,7 +9,6 @@
     android:drawablePadding="24dip"
     android:paddingLeft="16dip"
     android:paddingRight="16dip"
-    android:background="@drawable/category_item_background_normal"
 
     android:maxLines="2"
     />

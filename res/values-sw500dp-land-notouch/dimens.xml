@@ -36,10 +36,10 @@
 
     <!-- ============ GLOBAL RESUME ============ -->
 <dimen name="global_resume_music_height">69dip</dimen>
-<dimen name="global_resume_video_height">69dip</dimen>
+<dimen name="global_resume_video_height">44dip</dimen>
 <dimen name="global_resume_playbutton_width">36dip</dimen>
 <dimen name="global_resume_playbutton_height">36dip</dimen>
-<dimen name="global_resume_icon_padding_left">22dip</dimen>
+<dimen name="global_resume_icon_padding_left">10dip</dimen>
 <dimen name="global_resume_icon_padding_right">7dip</dimen>
 
     <!-- ============ MUSIC BROWSER ============ -->
