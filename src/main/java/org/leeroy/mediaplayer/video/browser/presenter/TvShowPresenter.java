@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import org.leeroy.filecorelibrary.FileUtils;
 import org.leeroy.mediaplayer.utils.ThumbnailEngine;
 import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaplayer.video.browser.adapters.AdapterDefaultValues;
