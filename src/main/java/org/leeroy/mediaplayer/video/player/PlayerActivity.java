@@ -2027,7 +2027,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             }
             final View vPicInPic;
             if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N && TVUtils.isTV(this)) {
-                tvmFormat.createAndAddSeparator();
+                //tvmFormat.createAndAddSeparator();
                 vPicInPic = tvmFormat.createAndAddTVMenuItem(getString(R.string.picture_in_picture), false, false);
             }
             else vPicInPic = null;
