@@ -622,7 +622,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         findPreference("hide_watched").setOnPreferenceChangeListener((preference, newValue) -> {
             LoaderUtils.mMustHideWatchedVideo =  (boolean) newValue;
             getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED); // way to tell the LeeroyFlixActivity that an important preference has been changed
-            getActivity().finish();
+            //getActivity().finish();
             return true;
         });
 
@@ -631,7 +631,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             @Override
             public boolean onPreferenceClick(@NonNull Preference preference) {
                 getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED); // way to tell the LeeroyFlixActivity that an important preference has been changed
-                getActivity().finish();
+                //getActivity().finish();
                 return true;
             }
         };
@@ -1012,6 +1012,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
                 editor.commit();        //Need UPdated NOW!
                 
                 UiChoiceDialog.isInterfaceChanging = true;
+                //Change the User Interface Straight away, other Options are on Exit now.
                 getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED);
                 getActivity().finish();
                 return true;
