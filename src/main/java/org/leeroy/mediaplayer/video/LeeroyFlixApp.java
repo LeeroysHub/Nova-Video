@@ -1024,7 +1024,7 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
     private void upgradeActions(Context context) {
         log.info("upgradeActions: check for upgrade actions from version: {}.{}.{} to {}.{}.{}", novaPreviousVersionArray[0], novaPreviousVersionArray[1], novaPreviousVersionArray[2], novaVersionArray[0], novaVersionArray[1], novaVersionArray[2]);
 
-        // if nova is upgraded from 6.4.19 and below disable force_passthrough and android frame timing
+        // if nova is upgraded from 6.4.22 and below disable force_passthrough and android frame timing
         if ((novaPreviousVersionArray[0] < 6) ||
                 (novaPreviousVersionArray[0] == 6 && novaPreviousVersionArray[1] < 4) ||
                 (novaPreviousVersionArray[0] == 6 && novaPreviousVersionArray[1] == 4 && novaPreviousVersionArray[2] <= 19)) {
@@ -1034,7 +1034,7 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
                     .apply();
             PreferenceManager.getDefaultSharedPreferences(context)
                     .edit()
-                    .putBoolean(PlayerActivity.KEY_ENABLE_ANDROID_FRAME_TIMING, false)
+                    .putBoolean(PlayerActivity.KEY_ENABLE_ANDROID_FRAME_TIMING, true)
                     .apply();
         }
         // Disable live scrobbling on upgrade to avoid unexpected background traffic
