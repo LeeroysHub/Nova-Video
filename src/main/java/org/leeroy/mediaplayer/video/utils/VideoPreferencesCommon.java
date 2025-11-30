@@ -241,6 +241,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
     private CheckBoxPreference mForceSwDecPreferences = null;
     private CheckBoxPreference mForceAudioPassthrough = null;
     private CheckBoxPreference mPlaybackSpeed = null;
+    private CheckBoxPreference mAudioSpeedAudiotrack = null;
     private CheckBoxPreference mEnableDynamicAudioDelay = null;
     private CheckBoxPreference mDisableDownmix = null;
     private CheckBoxPreference mEnableDownmixATV = null;
@@ -537,6 +538,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         mWatchingUpNext = (CheckBoxPreference) findPreference(KEY_SHOW_WATCHING_UP_NEXT_ROW);
         mForceAudioPassthrough = (CheckBoxPreference) findPreference(KEY_FORCE_AUDIO_PASSTHROUGH);
         mPlaybackSpeed = (CheckBoxPreference) findPreference(KEY_PLAYBACK_SPEED);
+        mAudioSpeedAudiotrack = (CheckBoxPreference) findPreference(KEY_AUDIO_SPEED_AUDIOTRACK);
         mEnableDynamicAudioDelay = (CheckBoxPreference) findPreference(KEY_ENABLE_DYNAMIC_AUDIO_DELAY);
         mEnableAndroidFrameTiming = (CheckBoxPreference) findPreference("enable_android_frame_timing");
         mDisableDownmix = (CheckBoxPreference) findPreference("disable_downmix");
