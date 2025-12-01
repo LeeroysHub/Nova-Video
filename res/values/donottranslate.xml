@@ -18,6 +18,7 @@
     <string name="action_resume">org.leeroy.mediaplayer.video.action_resume</string>
     <string name="action_recently_added">org.leeroy.mediaplayer.video.action_recently_added</string>
     <string name="action_recently_played">org.leeroy.mediaplayer.video.action_recently_played</string>
+    <string name="action_non_scraped">org.leeroy.mediaplayer.video.action_non_scraped</string>
 
     <string name="subtitle_color_default">#ffffff</string>
 

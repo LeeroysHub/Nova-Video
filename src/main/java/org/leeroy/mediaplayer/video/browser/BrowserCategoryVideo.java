@@ -36,6 +36,7 @@ import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserMovies
 import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserMoviesByYear;
 import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserNeverPlayed;
 import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserPlaylists;
+import org.leeroy.mediaplayer.video.browser.BrowserByIndexedVideos.BrowserNonScraped;
 import org.leeroy.mediaplayer.video.browser.filebrowsing.BrowserByExtStorage;
 import org.leeroy.mediaplayer.video.browser.filebrowsing.BrowserByVideoFolder;
 import org.leeroy.mediaplayer.video.browser.filebrowsing.network.ShortcutRootFragment;
@@ -73,7 +74,8 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
     private static final int ITEM_ID_ALL_VIDEOS = ITEM_ID_OFFSET + 3;
     public static final int ITEM_ID_RECENTLY_ADDED = ITEM_ID_OFFSET + 4;
     private static final int ITEM_ID_RECENTLY_PLAYED = ITEM_ID_OFFSET +5;
-    private static final int ITEM_ID_LISTS = ITEM_ID_OFFSET +6;
+    private static final int ITEM_ID_NON_SCRAPED= ITEM_ID_OFFSET +6;
+    private static final int ITEM_ID_LISTS = ITEM_ID_OFFSET +7;
 
     public void setNavigationMode(int navigationMode){
         ((LeeroyFlixActivity)getActivity()).setNavigationMode(navigationMode);
@@ -117,6 +119,8 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
                     itemData.text = R.string.recently_added_videos;
                 } else if (itemData.id == ITEM_ID_RECENTLY_PLAYED) {
                     itemData.text = R.string.recently_played_videos;
+                } else if (itemData.id == ITEM_ID_NON_SCRAPED) {
+                    itemData.text = R.string.non_scraped_videos;
                 }
             }
         }
@@ -156,6 +160,16 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
             categoryList.add(itemData);
         }
         
+        //NON SCRAPED COLLECTION TABLET/PHONE UI
+        if (!IsBasicInterface) {
+            itemData = new ItemData();
+            itemData.icon = R.drawable.category_video_all;
+            itemData.text = R.string.non_scraped_videos;
+            itemData.id = ITEM_ID_NON_SCRAPED;
+            categoryList.add(itemData);
+        }
+
+
         //RECENTLY ADDED COLLECTION TABLET/PHONE UI
         if (mPreferences.getBoolean(getString(R.string.preferences_display_recently_added_key), true)) {
             itemData = new ItemData();
@@ -286,6 +300,10 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
                 fragmentClass = BrowserLastAdded.class;
                 struc.title = R.string.recently_added_videos_title;
                 break;
+            case ITEM_ID_NON_SCRAPED:
+                fragmentClass = BrowserNonScraped.class;
+                struc.title = R.string.recently_added_videos_title;
+                break;
             case ITEM_ID_RECENTLY_PLAYED:
                 fragmentClass = BrowserLastPlayed.class;
                 struc.title = R.string.recently_played_videos;
@@ -330,6 +348,13 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
     public void goToRecentlyAdded() {
         if(mSelectedItemId != ITEM_ID_RECENTLY_ADDED) {
             mSelectedItemId = ITEM_ID_RECENTLY_ADDED;
+            setFragment(null);
+        }
+    }
+
+    public void goToNonScraped() {
+        if(mSelectedItemId != ITEM_ID_NON_SCRAPED) {
+            mSelectedItemId = ITEM_ID_NON_SCRAPED;
             setFragment(null);
         }
     }
