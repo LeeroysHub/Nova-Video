@@ -76,6 +76,7 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
     private static final int ITEM_ID_RECENTLY_PLAYED = ITEM_ID_OFFSET +5;
     private static final int ITEM_ID_NON_SCRAPED= ITEM_ID_OFFSET +6;
     private static final int ITEM_ID_LISTS = ITEM_ID_OFFSET +7;
+    private static final int ITEM_ID_NON_PLAYED_YET = ITEM_ID_OFFSET +8;
 
     public void setNavigationMode(int navigationMode){
         ((LeeroyFlixActivity)getActivity()).setNavigationMode(navigationMode);
@@ -163,7 +164,7 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
         //NON SCRAPED COLLECTION TABLET/PHONE UI
         if (!IsBasicInterface) {
             itemData = new ItemData();
-            itemData.icon = R.drawable.category_video_all;
+            itemData.icon = R.drawable.category_non_scraped_videos;
             itemData.text = R.string.non_scraped_videos;
             itemData.id = ITEM_ID_NON_SCRAPED;
             categoryList.add(itemData);
@@ -187,17 +188,6 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
             itemData.id = ITEM_ID_RECENTLY_PLAYED;
             categoryList.add(itemData);
         }
-
-        //itemData = new ItemData();
-        //itemData.icon = R.drawable.category_video_played;
-        //itemData.text = R.string.video_lists;
-        //itemData.id = ITEM_ID_LISTS;
-        //categoryList.add(itemData);
-
-        /*itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_not_played;
-        itemData.text = R.string.not_played_yet_videos;
-        categoryList.add(itemData);*/
     }
 
 
@@ -302,7 +292,7 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
                 break;
             case ITEM_ID_NON_SCRAPED:
                 fragmentClass = BrowserNonScraped.class;
-                struc.title = R.string.recently_added_videos_title;
+                struc.title = R.string.non_scraped_videos;
                 break;
             case ITEM_ID_RECENTLY_PLAYED:
                 fragmentClass = BrowserLastPlayed.class;
@@ -312,7 +302,8 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
                 fragmentClass = BrowserPlaylists.class;
                 struc.title = R.string.video_lists;
                 break;
-            case R.string.not_played_yet_videos:
+                // TODO MARC WARNING
+            case ITEM_ID_NON_PLAYED_YET:
                 fragmentClass = BrowserNeverPlayed.class;
                 struc.title = R.string.not_played_yet_videos;
                 break;
