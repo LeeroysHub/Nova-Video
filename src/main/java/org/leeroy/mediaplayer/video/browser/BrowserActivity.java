@@ -73,12 +73,13 @@ abstract public class BrowserActivity extends AppCompatActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
         setContentView(getLayoutID());
-        setSupportActionBar((Toolbar) findViewById(R.id.main_toolbar));
-        ViewCompat.setElevation(findViewById(R.id.main_toolbar), getResources().getDimension(R.dimen.toolbar_default_elevation));
+
+        //THEME CODE
+        Toolbar toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
+        //toolbar.setBackgroundColor(Color.parseColor("#ff013a67"))
+        ViewCompat.setElevation(toolbar, getResources().getDimension(R.dimen.toolbar_default_elevation));
 
         // CoverRoll will trigger the info menu by itself but the
         // onPrepareDialog/onCreateDialog are to be handled here...
