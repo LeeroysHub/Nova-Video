@@ -159,10 +159,10 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
             itemData.text = R.string.all_videos;
             itemData.id = ITEM_ID_ALL_VIDEOS;
             categoryList.add(itemData);
-        }
-        
-        //NON SCRAPED COLLECTION TABLET/PHONE UI
-        if (!IsBasicInterface) {
+            
+            /* }
+            //NON SCRAPED COLLECTION TABLET/PHONE UI
+            if (!IsBasicInterface) { */
             itemData = new ItemData();
             itemData.icon = R.drawable.category_non_scraped_videos;
             itemData.text = R.string.non_scraped_videos;

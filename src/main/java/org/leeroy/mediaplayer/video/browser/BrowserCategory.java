@@ -452,11 +452,12 @@ abstract public class BrowserCategory extends ListFragment {
         final boolean isConnected = isConnected();
         final boolean isHidingExternal = mPreferences.getBoolean(getString(R.string.preferences_show_basic_interface_key), false);
 
+        ItemData itemData;
         if (!isHidingExternal && (hasExternal|| isConnected || NetworkState.isNetworkConnected(getActivity()))) {
             mCategoryList.add(getText(R.string.external_storage));
 
             {   //Scope local so the variables don't clash, rest are in conditionals and this is an edge case...
-                ItemData itemData = new ItemData();
+                itemData = new ItemData();
                 itemData.icon = R.drawable.category_common_folder;
                 itemData.text = R.string.video_folder;
                 itemData.id = ITEM_ID_VIDEO_FOLDER;
@@ -465,7 +466,7 @@ abstract public class BrowserCategory extends ListFragment {
 
             if (hasExternal) {
                 for(String s : storageManager.getExtSdcards()) {
-                    ItemData itemData = new ItemData();
+                    itemData = new ItemData();
                     itemData.icon = R.drawable.category_common_sdcard;
                     itemData.text = R.string.sd_card_storage;
                     itemData.path = s;
@@ -473,7 +474,7 @@ abstract public class BrowserCategory extends ListFragment {
                     mCategoryList.add(itemData);
                 }
                 for(String s : storageManager.getExtUsbStorages()) {
-                    ItemData itemData = new ItemData();
+                    itemData = new ItemData();
                     itemData.icon = R.drawable.category_common_usb;
                     itemData.text = R.string.usb_host_storage;
                     itemData.path = s;
@@ -481,7 +482,7 @@ abstract public class BrowserCategory extends ListFragment {
                     mCategoryList.add(itemData);
                 }
                 for(String s : storageManager.getExtOtherStorages()) {
-                    ItemData itemData = new ItemData();
+                    itemData = new ItemData();
                     itemData.icon = R.drawable.category_common_folder;
                     itemData.text = R.string.other_storage;
                     itemData.path = s;
@@ -491,22 +492,21 @@ abstract public class BrowserCategory extends ListFragment {
             }
 
             if (isConnected){
-                ItemData itemData = new ItemData();
+                itemData = new ItemData();
                 itemData.icon = R.drawable.category_common_network;
                 itemData.text = R.string.network_shared_folders;
                 itemData.id = ITEM_ID_SMB;
                 mCategoryList.add(itemData);
-            }
-
-            if (isConnected){
-                ItemData itemData = new ItemData();
+                /* }
+                if (isConnected){ */
+                itemData = new ItemData();
                 itemData.icon = R.drawable.category_common_network;
                 itemData.text = R.string.network_media_servers;
                 itemData.id = ITEM_ID_UPNP;
                 mCategoryList.add(itemData);
             }
             if ( NetworkState.isNetworkConnected(getActivity())){
-                ItemData itemData = new ItemData();
+                itemData = new ItemData();
                 itemData.icon = R.drawable.category_common_network;
                 itemData.text = R.string.network_shortcuts;
                 itemData.id = ITEM_ID_NETWORK;
@@ -517,7 +517,7 @@ abstract public class BrowserCategory extends ListFragment {
         // but offline capability is present in drive and provider is more generic
         // than cloud in reality. Perhaps think of better name
         if (!isHidingExternal) {
-            ItemData itemData = new ItemData();
+            itemData = new ItemData();
             itemData.icon = R.drawable.category_common_network;
             itemData.text = R.string.provider_folders;
             itemData.id = ITEM_ID_PROVIDER;
