@@ -43,11 +43,14 @@ public class BrowserNonScraped extends CursorBrowserByVideo {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.string.rescrap_not_found){
-            Intent intent = new Intent(getActivity(),AutoScrapeService.class);
-            intent.putExtra(AutoScrapeService.RESCAN_EVERYTHING, true);
-            intent.putExtra(AutoScrapeService.RESCAN_ONLY_DESC_NOT_FOUND, true);
-            getActivity().startService(intent);
-            Toast.makeText(getActivity(), R.string.rescrap_in_progress, Toast.LENGTH_SHORT).show();
+            //Show the toast before starting the intent
+			Toast.makeText(getActivity(), R.string.rescraping_collection, Toast.LENGTH_SHORT).show();
+			
+			//Send rescrape intent.
+			Intent intent = new Intent(getActivity(),AutoScrapeService.class);
+			intent.putExtra(AutoScrapeService.RESCAN_EVERYTHING, true);
+			intent.putExtra(AutoScrapeService.RESCAN_ONLY_DESC_NOT_FOUND, true);
+			getActivity().startService(intent);
             return true;
         } else
             return super.onOptionsItemSelected(item);

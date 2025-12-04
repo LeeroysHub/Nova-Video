@@ -684,26 +684,35 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         findPreference(getString(R.string.preferences_display_recently_played_key)).setOnPreferenceClickListener(prefClickListenerUIChanged);
 
         findPreference(getString(R.string.rescrap_all_prefkey)).setOnPreferenceClickListener(preference -> {
+            //Show the toast before starting the intent
+            Toast.makeText(getActivity(), R.string.rescraping_collection, Toast.LENGTH_SHORT).show();
+
+            //Send rescrape intent.
             Intent intent = new Intent(AutoScrapeService.RESCAN_EVERYTHING, null, getActivity(), AutoScrapeService.class);
             intent.putExtra(AutoScrapeService.RESCAN_EVERYTHING, true);
             intent.putExtra(AutoScrapeService.RESCAN_ONLY_DESC_NOT_FOUND, false);
             getContext().startService(intent);
-            Toast.makeText(getActivity(), R.string.rescrap_in_progress, Toast.LENGTH_SHORT).show();
             return true;
         });
 
         findPreference(getString(R.string.rescrap_all_movies_prefkey)).setOnPreferenceClickListener(preference -> {
+            //Show the toast before starting the intent
+            Toast.makeText(getActivity(), R.string.rescrap_movies_in_progress, Toast.LENGTH_SHORT).show();
+            
+            //Send rescrape intent.
             Intent intent = new Intent(AutoScrapeService.RESCAN_MOVIES, null, getActivity(), AutoScrapeService.class);
             intent.putExtra(AutoScrapeService.RESCAN_ONLY_DESC_NOT_FOUND, false);
             getContext().startService(intent);
-            Toast.makeText(getActivity(), R.string.rescrap_movies_in_progress, Toast.LENGTH_SHORT).show();
             return true;
         });
 
         findPreference(getString(R.string.rescrap_all_collections_prefkey)).setOnPreferenceClickListener(preference -> {
+            //Show the toast before starting the intent
+            Toast.makeText(getActivity(), R.string.rescrap_collections_in_progress, Toast.LENGTH_SHORT).show();
+            
+            //Send rescrape intent.
             Intent intent = new Intent(AllCollectionScrapeService.INTENT_RESCRAPE_ALL_COLLECTIONS, null, getActivity(), AllCollectionScrapeService.class);
             getContext().startService(intent);
-            Toast.makeText(getActivity(), R.string.rescrap_collections_in_progress, Toast.LENGTH_SHORT).show();
             return true;
         });
 
