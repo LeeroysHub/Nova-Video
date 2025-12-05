@@ -1328,9 +1328,9 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         mTraktLiveScrobblingPreference.setSelectable(enabled);
         mTraktSyncCollectionPreference.setEnabled(enabled);
         mTraktSyncCollectionPreference.setSelectable(enabled);
-        boolean syncProgressEnabled = mTraktLiveScrobblingPreference.isChecked() && enabled;
-        mTraktSyncProgressPreference.setEnabled(syncProgressEnabled);
-        mTraktSyncProgressPreference.setSelectable(syncProgressEnabled);
+        // Keep bookmark/resume sync available even if live scrobbling is disabled
+        mTraktSyncProgressPreference.setEnabled(enabled);
+        mTraktSyncProgressPreference.setSelectable(enabled);
         mTraktSigninPreference.setEnabled(!enabled);
         mTraktSigninPreference.setSelectable(!enabled);
     }
