@@ -336,8 +336,8 @@ public class MainActivity extends BrowserActivity implements ExternalPlayerWithR
                             .setPositiveButton(R.string.trakt_signin, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    TraktSigninDialogPreference dialog = new TraktSigninDialogPreference(MainActivity.this, null);
-                                    dialog.onClick();
+                                    TraktSigninDialogPreference dialog = new TraktSigninDialogPreference(LeeroyFlixActivity.this, null);
+                                    dialog.performDeviceAuth();
                                 }
                             })
                             .setNegativeButton(android.R.string.cancel, null);

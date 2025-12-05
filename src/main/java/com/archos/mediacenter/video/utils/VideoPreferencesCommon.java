@@ -1394,6 +1394,9 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
                     }
                 }
             }
+        } else if (mTraktSigninPreference != null) {
+            // Forward to TraktSigninDialogPreference to handle device auth result
+            mTraktSigninPreference.onActivityResult(requestCode, resultCode);
         }
     }
 
