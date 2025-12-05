@@ -42,8 +42,8 @@ public class LastAddedLoader extends VideoLoader {
         if (LoaderUtils.isSmartRecentlyRows()) {
             Uri baseUri = getUri();
             Uri.Builder builder = baseUri.buildUpon();
-            builder.appendQueryParameter("group", "COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_E_IMDB_ID + ")");
-            builder.appendQueryParameter("having", "COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_E_IMDB_ID + ") IS NOT NULL");
+            builder.appendQueryParameter("group", "COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_S_IMDB_ID + ")");
+            builder.appendQueryParameter("having", "COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_S_IMDB_ID + ") IS NOT NULL");
             setUri(builder.build());
             if (DBG) Log.d(TAG, "Modified URI: " + builder.build());
         }
@@ -62,7 +62,7 @@ public class LastAddedLoader extends VideoLoader {
             sb.append(" AND " + VideoStore.Video.VideoColumns.LEEROYFLIX_LAST_TIME_PLAYED + "=0");
         } else {
             //NO NULL MOVIES, I WILL LEAVE OUT SO I CAN FIX THe LIBRARY!
-            sb.append (" AND COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_E_IMDB_ID + ") IS NOT NULL");
+            sb.append (" AND COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_S_IMDB_ID + ") IS NOT NULL");
         }
 
         String selection = sb.toString();
