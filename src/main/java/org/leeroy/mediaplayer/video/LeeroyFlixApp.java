@@ -49,7 +49,7 @@ import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.preference.PreferenceManager;
 
 import org.leeroy.environment.LeeroyFlixFeatures;
-import org.leeroy.environment.LeeroyFlixFeatures;
+import org.leeroy.environment.LeeroyFlixUtils;
 import org.leeroy.environment.NetworkState;
 import org.leeroy.filecorelibrary.FileUtilsQ;
 import org.leeroy.filecorelibrary.jcifs.JcifsUtils;
