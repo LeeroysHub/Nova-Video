@@ -49,7 +49,7 @@ import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.preference.PreferenceManager;
 
 import org.leeroy.environment.LeeroyFlixFeatures;
-import org.leeroy.environment.LeeroyFlixUtils;
+import org.leeroy.environment.LeeroyFlixFeatures;
 import org.leeroy.environment.NetworkState;
 import org.leeroy.filecorelibrary.FileUtilsQ;
 import org.leeroy.filecorelibrary.jcifs.JcifsUtils;
@@ -59,6 +59,7 @@ import org.leeroy.filecorelibrary.smbj.SmbjUtils;
 import org.leeroy.filecorelibrary.sshj.SshjUtils;
 import org.leeroy.filecorelibrary.webdav.WebdavUtils;
 import org.leeroy.mediaplayer.utils.trakt.Trakt;
+import org.leeroy.mediaplayer.utils.trakt.TraktService;
 import org.leeroy.mediaplayer.video.browser.BootupRecommandationService;
 import org.leeroy.mediaplayer.video.picasso.SmbRequestHandler;
 import org.leeroy.mediaplayer.video.picasso.ThumbnailRequestHandler;
@@ -423,6 +424,8 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
         }).start();
 
         Trakt.initApiKeys(this);
+        // Start TraktService to enable lifecycle callbacks and automatic syncing
+        TraktService.syncAtStart(this);
         new Thread() {
             public void run() {
                 this.setPriority(Thread.MIN_PRIORITY);
