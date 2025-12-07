@@ -63,7 +63,7 @@ public class LeeroyFlixActivityLeanback extends LeanbackActivity {
     }
     @Override
     public void onResumeFragments(){
-        log.debug("onResumeFragments");
+        if (log.isDebugEnabled()) log.debug("onResumeFragments");
         super.onResumeFragments();
         LeeroyFlixApp.loadLocale(getResources());
 
@@ -79,7 +79,7 @@ public class LeeroyFlixActivityLeanback extends LeanbackActivity {
 
         // Check if user disabled "Always start in TV interface" - if so, redirect to phone UI
         if (!UiChoiceDialog.applicationIsInLeanbackMode(this, false)) {
-            log.debug("onCreate: User disabled leanback mode, redirecting to LeeroyFlixActivity");
+            if (log.isDebugEnabled()) log.debug("onCreate: User disabled leanback mode, redirecting to LeeroyFlixActivity");
             Intent i = new Intent(this, org.leeroy.mediaplayer.video.browser.LeeroyFlixActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             if (getIntent().getData() != null) {
