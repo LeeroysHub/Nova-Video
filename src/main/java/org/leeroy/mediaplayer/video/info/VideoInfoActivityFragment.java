@@ -120,7 +120,7 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCal
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
-import com.archos.mediacenter.video.utils.VideoUtils;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 
 import java.beans.PropertyChangeListener;
 import java.io.IOException;

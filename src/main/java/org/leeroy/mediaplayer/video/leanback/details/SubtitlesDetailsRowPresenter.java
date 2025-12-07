@@ -36,7 +36,7 @@ import org.leeroy.mediaplayer.video.browser.subtitlesmanager.SubtitleManager;
 import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
 import org.leeroy.mediaplayer.video.utils.VideoMetadata;
 import org.leeroy.mediaplayer.video.utils.VideoUtils;
-import com.archos.mediascraper.StringUtils;
+import org.leeroy.mediascraper.StringUtils;
 
 import java.util.LinkedList;
 import java.util.List;
