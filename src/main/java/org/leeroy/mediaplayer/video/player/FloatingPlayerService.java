@@ -446,7 +446,7 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
             new Player(this, null, new SurfaceController(mFloatingPlayerRootView),false);
 
             PlayerService.sPlayerService.setPlayer();
-            Player.sPlayer.setEffect(VideoEffect.EFFECT_STEREO_SPLIT, VideoEffect.NORMAL_2D_MODE);
+            //Player.sPlayer.setEffect(VideoEffect.EFFECT_STEREO_SPLIT, VideoEffect.NORMAL_2D_MODE);
             mSubtitleManager = new SubtitleManager(this, (ViewGroup) mFloatingPlayerRootView.findViewById(R.id.subtitle_root_view), mWindowManager, true);
             updateSizes(mParamsF);
 
