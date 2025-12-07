@@ -30,6 +30,7 @@ import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
 import org.leeroy.mediaplayer.video.info.VideoInfoCommonClass;
 import org.leeroy.mediaplayer.video.utils.VideoMetadata;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
 import org.leeroy.mediascraper.StringUtils;
 
 import org.slf4j.Logger;
@@ -201,8 +202,9 @@ public class FileDetailsRowPresenter extends FullWidthRowPresenter implements Ba
                 sb.append("\n");
             }
             int index = i + offset;
+            String format = VideoUtils.getSubtitleFormatLabel(context, videoMetadata.getSubtitleTrack(index).format);
             sb.append(Integer.toString(index + 1)).append(".").append(separator)
-                    .append(StringUtils.removeHtmlTags(generateTrackName(context, videoMetadata.getSubtitleTrack(index).name, videoMetadata.getSubtitleTrack(index).language, context.getResources().getStringArray(R.array.subtitles_types)[videoMetadata.getSubtitleTrack(index).format], false)) + separator);
+                    .append(StringUtils.removeHtmlTags(generateTrackName(context, videoMetadata.getSubtitleTrack(index).name, videoMetadata.getSubtitleTrack(index).language, format, false)) + separator);
         }
         return StringUtils.removeHtmlTags(sb.toString());
     }

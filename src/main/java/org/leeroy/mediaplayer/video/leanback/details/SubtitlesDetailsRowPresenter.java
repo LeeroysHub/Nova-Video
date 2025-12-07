@@ -35,7 +35,8 @@ import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaplayer.video.browser.subtitlesmanager.SubtitleManager;
 import org.leeroy.mediaplayer.video.browser.adapters.object.Video;
 import org.leeroy.mediaplayer.video.utils.VideoMetadata;
-import org.leeroy.mediascraper.StringUtils;
+import org.leeroy.mediaplayer.video.utils.VideoUtils;
+import com.archos.mediascraper.StringUtils;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -219,8 +220,9 @@ public class SubtitlesDetailsRowPresenter extends FullWidthRowPresenter implemen
                 sb.append("\n");
             }
             int index = i + offset;
+            String format = VideoUtils.getSubtitleFormatLabel(c, list.get(index).format);
             sb.append(Integer.toString(index + 1)).append(".").append(SEP)
-              .append(generateTrackName(c, list.get(index).name, list.get(index).language, c.getResources().getStringArray(R.array.subtitles_types)[list.get(index).format], false)).append(SEP);
+              .append(generateTrackName(c, list.get(index).name, list.get(index).language, format, false)).append(SEP);
         }
         return StringUtils.removeHtmlTags(sb.toString());
         /*
