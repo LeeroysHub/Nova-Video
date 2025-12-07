@@ -360,7 +360,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     public void setPlayMode(int newPlaymode, boolean wait) {
         mPlayMode = newPlaymode;
         if (log.isDebugEnabled()) log.debug("setPlaymode: new Playmode {}", newPlaymode);
-        if (PLAYMODE_REPEAT_SINGLE == newPlaymode || mForceSingleRepeatMode) {
+        if (PLAYMODE_REPEAT_SINGLE == newPlaymode) {
             mPlayer.setLooping(true);
             // just in Case we drop out to OnCompletion
             mNextUri = mUri;

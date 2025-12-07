@@ -177,7 +177,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
     private Delete mDelete;
 
     private List<Uri> deleteUrisList = null;
-    //private static Boolean isFileManagerServiceBound = false;
+    private static Boolean isFileManagerServiceBound = false;
 
     private final ActivityResultLauncher<IntentSenderRequest> deleteLauncher = registerForActivityResult(
             new ActivityResultContracts.StartIntentSenderForResult(),

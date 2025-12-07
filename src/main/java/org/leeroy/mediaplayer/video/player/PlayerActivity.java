@@ -4036,15 +4036,15 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 if (remoteVideoInfo != null) {
                     if (localVideoInfo.lastTimePlayed == 0 && remoteVideoInfo.audioTrack == -1) {
                         if (log.isDebugEnabled()) log.debug("onVideoDb: first play");
-                        fileHasAlreadyPlayed = false;
-                    } else fileHasAlreadyPlayed = true;
+                        //fileHasAlreadyPlayed = false;
+                    } //else fileHasAlreadyPlayed = true;
                 } else {
                     if (localVideoInfo.lastTimePlayed == 0) {
                         if (log.isDebugEnabled()) log.debug("onVideoDb: first play");
-                        fileHasAlreadyPlayed = false;
-                    } else fileHasAlreadyPlayed = true;
+                       // fileHasAlreadyPlayed = false;
+                    } //else fileHasAlreadyPlayed = true;
                 }
-            } else fileHasAlreadyPlayed = false;
+            } //else fileHasAlreadyPlayed = false;
             if (localVideoInfo != null) {
                 final int localTraktPosition = Math.abs(localVideoInfo.duration>0 ? (int)(localVideoInfo.traktResume * (double) localVideoInfo.duration / 100) : 0);
                 log.info("onVideoDb: trakt calc: "+ localTraktPosition+ " local "+ localVideoInfo.resume);
