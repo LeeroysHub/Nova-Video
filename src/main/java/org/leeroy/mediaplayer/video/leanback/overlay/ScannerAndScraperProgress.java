@@ -24,6 +24,7 @@ import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaprovider.ImportState;
 import org.leeroy.mediaprovider.video.NetworkScannerReceiver;
 import org.leeroy.mediascraper.AutoScrapeService;
+import org.leeroy.mediaprovider.video.LoaderUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,9 +84,9 @@ public class ScannerAndScraperProgress {
     private Runnable mRepeatRunnable = new Runnable() {
         @Override
         public void run() {
-            boolean scanningOnGoing = NetworkScannerReceiver.isScannerWorking() || AutoScrapeService.isScraping() || ImportState.VIDEO.isInitialImport() || ImportState.VIDEO.isRegularImport();
+            boolean scanningOnGoing = NetworkScannerReceiver.isScannerWorking() || LoaderUtils.getScrapeInProgress() || ImportState.VIDEO.isInitialImport() || ImportState.VIDEO.isRegularImport();
             mStatusVisibility = scanningOnGoing ? View.VISIBLE : View.GONE;
-            log.trace("mRepeatRunnable: visibility {} because scanningOngoing {} due to networkScanner {} due to autoScrapeService {} due to isInitialImport {} due to isRegularImport {}", mStatusVisibility, scanningOnGoing, NetworkScannerReceiver.isScannerWorking(), AutoScrapeService.isScraping(), ImportState.VIDEO.isInitialImport(), ImportState.VIDEO.isRegularImport());
+            log.trace("mRepeatRunnable: visibility {} because scanningOngoing {} due to networkScanner {} due to autoScrapeService {} due to isInitialImport {} due to isRegularImport {}", mStatusVisibility, scanningOnGoing, NetworkScannerReceiver.isScannerWorking(), LoaderUtils.getScrapeInProgress(), ImportState.VIDEO.isInitialImport(), ImportState.VIDEO.isRegularImport());
             updateCount();
             updateVisibility();
             mRepeatHandler.postDelayed(this, REPEAT_PERIOD_MS);
