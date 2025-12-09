@@ -46,7 +46,7 @@ public class Video extends Base implements Serializable {
     private final int mCalculatedBestAudiotrack;
     private final String mGuessedVideoFormat;
     private final String mGuessedAudioFormat;
-    private final int mOccurencies;
+    //private final int mOccurencies;
     private final long mSize;
 
     private boolean mHasSubs;
@@ -101,7 +101,7 @@ public class Video extends Base implements Serializable {
         mGuessedAudioFormat = guessedAudioFormat;
         mGuessedVideoFormat = guessedVideoFormat;
         mCalculatedBestAudiotrack= calculatedBestAudiotrack;
-        mOccurencies = occurencies;
+        //mOccurencies = occurencies;
     }
 
     static protected String buildFileNameWithExtension(String filePath) {
@@ -359,7 +359,7 @@ public class Video extends Base implements Serializable {
         return mAudioFormat;
     }
 
-    public int getOccurencies() {
-        return mOccurencies;
-    }
+    //public int getOccurencies() {
+    //    return mOccurencies;
+    //}
 }
