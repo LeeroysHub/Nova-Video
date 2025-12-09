@@ -28,6 +28,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.leanback.app.BackgroundManager;
@@ -117,6 +118,7 @@ import com.archos.mediaprovider.ImportState;
 import com.archos.mediaprovider.video.NetworkScannerReceiver;
 import com.archos.mediaprovider.video.VideoStore;
 import com.archos.mediascraper.AutoScrapeService;
+import com.archos.mediaprovider.video.NetworkAutoRefresh;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -157,9 +159,6 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
     private String currentLocale;
 
     private ArrayObjectAdapter mRowsAdapter;
-    private ArrayObjectAdapter mMoviesRowsAdapter;
-    private ArrayObjectAdapter mAnimeRowAdapter;
-    private ArrayObjectAdapter mTvshowRowAdapter;
     private CursorObjectAdapter mMoviesAdapter;
     private CursorObjectAdapter mAnimesAdapter;
     private CursorObjectAdapter mTvshowsAdapter;
@@ -167,7 +166,6 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
     private CursorObjectAdapter mLastAddedAdapter;
     private CursorObjectAdapter mLastPlayedAdapter;
     private ArrayObjectAdapter mFileBrowsingRowAdapter;
-    private ArrayObjectAdapter mPreferencesRowAdapter;
 
     private ListRow mWatchingUpNextRow;
     private ListRow mLastAddedRow;
@@ -195,9 +193,10 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
     private String mMovieSortOrder;
     private boolean mShowTvshowsRow;
     private boolean mShowAnimesRow;
-    private boolean mEnableSponsor = false;
     private String mAnimesSortOrder;
     private String mTvShowSortOrder;
+    private boolean mHideExternal;
+    private boolean mShowLegacyUI;
 
     private boolean restartLastAddedLoader, restartLastPlayedLoader, restartMoviesLoader, restartTvshowsLoader, restartAnimesLoader, restartWatchingUpNextLoader;
 
@@ -260,18 +259,23 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
         if (! FEATURE_WATCH_UP_NEXT) mShowWatchingUpNextRow = false;
         mShowLastAddedRow = mPrefs.getBoolean(VideoPreferencesCommon.KEY_SHOW_LAST_ADDED_ROW, VideoPreferencesCommon.SHOW_LAST_ADDED_ROW_DEFAULT);
         mShowLastPlayedRow = mPrefs.getBoolean(VideoPreferencesCommon.KEY_SHOW_LAST_PLAYED_ROW, VideoPreferencesCommon.SHOW_LAST_PLAYED_ROW_DEFAULT);
-        mSmartRecentlyRows = mPrefs.getBoolean("smart_recently_rows", false);
+        mSmartRecentlyRows = mPrefs.getBoolean("smart_recently_rows", true);
         mShowMoviesRow = mPrefs.getBoolean(VideoPreferencesCommon.KEY_SHOW_ALL_MOVIES_ROW, VideoPreferencesCommon.SHOW_ALL_MOVIES_ROW_DEFAULT);
         mMovieSortOrder = mPrefs.getString(VideoPreferencesCommon.KEY_MOVIE_SORT_ORDER, MoviesLoader.DEFAULT_SORT);
         mShowTvshowsRow = mPrefs.getBoolean(VideoPreferencesCommon.KEY_SHOW_ALL_TV_SHOWS_ROW, VideoPreferencesCommon.SHOW_ALL_TV_SHOWS_ROW_DEFAULT);
         mShowAnimesRow = mPrefs.getBoolean(VideoPreferencesCommon.KEY_SHOW_ALL_ANIMES_ROW, VideoPreferencesCommon.SHOW_ALL_ANIMES_ROW_DEFAULT);
         mAnimesSortOrder = mPrefs.getString(VideoPreferencesCommon.KEY_ANIMES_SORT_ORDER, AnimesLoader.DEFAULT_SORT);
         mTvShowSortOrder = mPrefs.getString(VideoPreferencesCommon.KEY_TV_SHOW_SORT_ORDER, TvshowSortOrderEntries.DEFAULT_SORT);
+        mHideExternal = mPrefs.getBoolean(VideoPreferencesCommon.KEY_SHOW_BASIC_INTERFACE, false);
+        
+        //If we use the Hide Legacy Icon Option, otherwise use basic interface preference.
+        //mShowLegacyUI = !mPrefs.getBoolean("hide_legacy_ui_icon_key", false);
+        mShowLegacyUI = !mHideExternal;
 
-        if (mPrefs.getBoolean(PREF_PRIVATE_MODE, false) !=  PrivateMode.isActive()) {
-            PrivateMode.toggle();
-            findAndUpdatePrivateModeIcon();
-        }
+        //if (mPrefs.getBoolean(PREF_PRIVATE_MODE, false) !=  PrivateMode.isActive()) {
+       //     PrivateMode.toggle();
+       //     findAndUpdatePrivateModeIcon();
+        //}
 
         updateBackground();
 
@@ -471,15 +475,15 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
         }
 
         // Check if smart_recently_rows preference changed - need to restart loaders to update URI and row titles
-        boolean newSmartRecentlyRows = mPrefs.getBoolean("smart_recently_rows", false);
+        boolean newSmartRecentlyRows = mPrefs.getBoolean("smart_recently_rows", true);
         if (newSmartRecentlyRows != mSmartRecentlyRows) {
             if (log.isDebugEnabled()) log.debug("onResume: preference changed, smart recently rows: {} -> updating row titles and restarting loaders", newSmartRecentlyRows);
             mSmartRecentlyRows = newSmartRecentlyRows;
             LoaderUtils.mSmartRecentlyRows = newSmartRecentlyRows;
 
             // Recreate rows with new titles
-            String lastAddedTitle = LoaderUtils.isSmartRecentlyRows() ? getString(R.string.new_and_unwatched) : getString(R.string.recently_added);
-            String lastPlayedTitle = LoaderUtils.isSmartRecentlyRows() ? getString(R.string.keep_watching) : getString(R.string.recently_played);
+            String lastAddedTitle = getString(R.string.recently_added);
+            String lastPlayedTitle = getString(R.string.recently_played);
 
             // Update last added row title
             if (mShowLastAddedRow) {
@@ -578,7 +582,7 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
 
         firstTimeLoad = false;
 
-        findAndUpdatePrivateModeIcon();
+        //findAndUpdatePrivateModeIcon();
     }
 
     @Override
@@ -662,49 +666,49 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
 
         mLastAddedAdapter = new CursorObjectAdapter(new PosterImageCardPresenter(mActivity));
         mLastAddedAdapter.setMapper(new CompatibleCursorMapperConverter(new VideoCursorMapper()));
-        String lastAddedTitle = LoaderUtils.isSmartRecentlyRows() ? getString(R.string.new_and_unwatched) : getString(R.string.recently_added);
+        String lastAddedTitle = getString(R.string.recently_added);
         mLastAddedRow = new ListRow(ROW_ID_LAST_ADDED, new HeaderItem(lastAddedTitle), mLastAddedAdapter);
 
         mLastPlayedAdapter = new CursorObjectAdapter(new PosterImageCardPresenter(mActivity));
         mLastPlayedAdapter.setMapper(new CompatibleCursorMapperConverter(new VideoCursorMapper()));
-        String lastPlayedTitle = LoaderUtils.isSmartRecentlyRows() ? getString(R.string.keep_watching) : getString(R.string.recently_played);
+        String lastPlayedTitle = getString(R.string.recently_played);
         mLastPlayedRow = new ListRow(ROW_ID_LAST_PLAYED, new HeaderItem(lastPlayedTitle), mLastPlayedAdapter);
 
         boolean showByRating = mPrefs.getBoolean(VideoPreferencesCommon.KEY_SHOW_BY_RATING, VideoPreferencesCommon.SHOW_BY_RATING_DEFAULT);
 
-        mMoviesRowsAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
+        ArrayObjectAdapter moviesRowsAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
         buildAllMoviesBox(wasInPause);
-        mMoviesRowsAdapter.add(mAllMoviesBox);
+        moviesRowsAdapter.add(mAllMoviesBox);
         //mMoviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_ALPHA, getString(R.string.movies_by_alpha), R.drawable.alpha_banner));
-        mMoviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_GENRE, getString(R.string.movies_by_genre), R.drawable.genres_banner));
+        moviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_GENRE, getString(R.string.movies_by_genre), R.drawable.genres_banner));
         if (showByRating)
-            mMoviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_RATING, getString(R.string.movies_by_rating), R.drawable.ratings_banner));
-        mMoviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_YEAR, getString(R.string.movies_by_year), R.drawable.years_banner_2026));
+            moviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_RATING, getString(R.string.movies_by_rating), R.drawable.ratings_banner));
+        moviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_YEAR, getString(R.string.movies_by_year), R.drawable.years_banner_2026));
         mMovieRow = new ListRow(ROW_ID_MOVIES, new HeaderItem(getString(R.string.movies)), mMoviesRowsAdapter);
         buildAllCollectionsBox(wasInPause);
-        mMoviesRowsAdapter.add(mAllCollectionsBox);
+        moviesRowsAdapter.add(mAllCollectionsBox);
 
-        mTvshowRowAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
+        ArrayObjectAdapter tvshowRowAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
         buildAllTvshowsBox(wasInPause);
-        mTvshowRowAdapter.add(mAllTvshowsBox);
+        tvshowRowAdapter.add(mAllTvshowsBox);
         //tvshowRowAdapter.add(new Box(Box.ID.TVSHOWS_BY_ALPHA, getString(R.string.tvshows_by_alpha), R.drawable.alpha_banner));
-        mTvshowRowAdapter.add(new Box(Box.ID.TVSHOWS_BY_GENRE, getString(R.string.tvshows_by_genre), R.drawable.genres_banner));
+        tvshowRowAdapter.add(new Box(Box.ID.TVSHOWS_BY_GENRE, getString(R.string.tvshows_by_genre), R.drawable.genres_banner));
         if (showByRating)
-            mTvshowRowAdapter.add(new Box(Box.ID.TVSHOWS_BY_RATING, getString(R.string.tvshows_by_rating), R.drawable.ratings_banner));
-        mTvshowRowAdapter.add(new Box(Box.ID.EPISODES_BY_DATE, getString(R.string.episodes_by_date), R.drawable.years_banner_2026));
-        mTvshowRow = new ListRow(ROW_ID_TVSHOW, new HeaderItem(getString(R.string.all_tv_shows)), mTvshowRowAdapter);
+            tvshowRowAdapter.add(new Box(Box.ID.TVSHOWS_BY_RATING, getString(R.string.tvshows_by_rating), R.drawable.ratings_banner));
+        tvshowRowAdapter.add(new Box(Box.ID.EPISODES_BY_DATE, getString(R.string.episodes_by_date), R.drawable.years_banner_2026));
+        mTvshowRow = new ListRow(ROW_ID_TVSHOW, new HeaderItem(getString(R.string.all_tv_shows)), tvshowRowAdapter);
 
-        mAnimeRowAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
-        mAnimeRow = new ListRow(ROW_ID_ANIMES, new HeaderItem(getString(R.string.animes)), mAnimeRowAdapter);
+        ArrayObjectAdapter animeRowAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
+        mAnimeRow = new ListRow(ROW_ID_ANIMES, new HeaderItem(getString(R.string.animes)), animeRowAdapter);
         buildAllAnimesBox(wasInPause);
-        mAnimeRowAdapter.add(mAllAnimesBox);
-        mAnimeRowAdapter.add(new Box(Box.ID.ANIMES_BY_GENRE, getString(R.string.animes_by_genre), R.drawable.genres_banner));
-        mAnimeRowAdapter.add(new Box(Box.ID.ANIMES_BY_YEAR, getString(R.string.animes_by_year), R.drawable.years_banner_2026));
+        animeRowAdapter.add(mAllAnimesBox);
+        animeRowAdapter.add(new Box(Box.ID.ANIMES_BY_GENRE, getString(R.string.animes_by_genre), R.drawable.genres_banner));
+        animeRowAdapter.add(new Box(Box.ID.ANIMES_BY_YEAR, getString(R.string.animes_by_year), R.drawable.years_banner_2026));
         buildAllAnimeShowsBox(wasInPause);
-        mAnimeRowAdapter.add(mAllAnimeShowsBox);
+        animeRowAdapter.add(mAllAnimeShowsBox);
 
         buildAllAnimeCollectionsBox(wasInPause);
-        mAnimeRowAdapter.add(mAllAnimeCollectionsBox);
+        animeRowAdapter.add(mAllAnimeCollectionsBox);
 
         wasInPause = false;
 
@@ -726,34 +730,37 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
         mAnimesAdapter.setMapper(new CompatibleCursorMapperConverter(new AnimesNShowsMapper()));
         mAnimesRow = new ListRow(ROW_ID_ALL_ANIMES, new HeaderItem(getString(R.string.all_animes_row)), mAnimesAdapter);
 
-        mFileBrowsingRowAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
-        mFileBrowsingRowAdapter.add(new Box(Box.ID.NETWORK, getString(R.string.network_storage), R.drawable.filetype_new_server));
-        mFileBrowsingRowAdapter.add(new Box(Box.ID.FOLDERS, getString(R.string.internal_storage), R.drawable.filetype_new_folder));
-        mFileBrowsingRowAdapter.add(new Box(Box.ID.VIDEOS_BY_LISTS, getString(R.string.video_lists), R.drawable.filetype_new_playlist));
+        if (!mHideExternal ) {
+            mFileBrowsingRowAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
+            mFileBrowsingRowAdapter.add(new Box(Box.ID.NETWORK, getString(R.string.network_storage), R.drawable.filetype_new_server));
+        
+            mFileBrowsingRowAdapter.add(new Box(Box.ID.FOLDERS, getString(R.string.internal_storage), R.drawable.filetype_new_folder));
+            //mFileBrowsingRowAdapter.add(new Box(Box.ID.VIDEOS_BY_LISTS, getString(R.string.video_lists), R.drawable.filetype_new_playlist));
 
-        mNonScrapedVideosItem = new Box(Box.ID.NON_SCRAPED_VIDEOS, getString(R.string.non_scraped_videos), R.drawable.filetype_new_unscraped_video);
-        // Add USB and SDcard items at init ?depending of their availability
-        updateUsbAndSdcardVisibility();
+            mNonScrapedVideosItem = new Box(Box.ID.NON_SCRAPED_VIDEOS, getString(R.string.non_scraped_videos), R.drawable.filetype_new_unscraped_video);
+            
+            mRowsAdapter.add(new ListRow(ROW_ID_FILES,
+                    new HeaderItem(getString(R.string.leanback_browsing)),
+                    mFileBrowsingRowAdapter));
 
-        mRowsAdapter.add(new ListRow(ROW_ID_FILES,
-                new HeaderItem(getString(R.string.leanback_browsing)),
-                mFileBrowsingRowAdapter));
-
-        mPreferencesRowAdapter = new ArrayObjectAdapter(new IconItemPresenter());
-        mPreferencesRowAdapter.add(new Icon(Icon.ID.PREFERENCES, getString(R.string.preferences), R.drawable.ic_cog_outline));
-        mPreferencesRowAdapter.add(new Icon(Icon.ID.PRIVATE_MODE, getString(R.string.private_mode_is_on), getString(R.string.private_mode_is_off),
-                                            R.drawable.ic_incognito,  R.drawable.ic_incognito_off, PrivateMode.isActive()));
-        mPreferencesRowAdapter.add(new Icon(Icon.ID.LEGACY_UI, getString(R.string.leanback_legacy_ui), R.drawable.ic_tablet_cellphone));
-        mPreferencesRowAdapter.add(new Icon(Icon.ID.HELP_FAQ, getString(R.string.help_faq), R.drawable.ic_help_circle));
-
-        if (BuildConfig.ENABLE_SPONSOR) mEnableSponsor = mPrefs.getBoolean(VideoPreferencesCommon.KEY_ENABLE_SPONSOR, VideoPreferencesCommon.ENABLE_SPONSOR_DEFAULT) && BuildConfig.ENABLE_SPONSOR;
-        if (((! ArchosUtils.isInstalledfromPlayStore(getActivity().getApplicationContext())) || mEnableSponsor) && BuildConfig.ENABLE_SPONSOR) {
-            mPreferencesRowAdapter.add(new Icon(Icon.ID.SPONSOR, getString(R.string.sponsor), R.drawable.piggy_bank_leanback_256));
+            // Add USB and SDcard items at init ?depending of their availability
+            updateUsbAndSdcardVisibility();
         }
+
+        ArrayObjectAdapter preferencesRowAdapter = new ArrayObjectAdapter(new IconItemPresenter());
+        preferencesRowAdapter.add(new Icon(Icon.ID.PREFERENCES, getString(R.string.preferences), R.drawable.lollipop_settings));
+        preferencesRowAdapter.add(new Icon(Icon.ID.RESCRAPE, getString(R.string.rescrape_title), R.drawable.filetype_new_rescan));
+
+        //mPreferencesRowAdapter.add(new Icon(Icon.ID.PRIVATE_MODE, getString(R.string.private_mode_is_on), getString(R.string.private_mode_is_off),
+        //                                    R.drawable.private_mode,  R.drawable.private_mode_off, PrivateMode.isActive()));
+        if (mShowLegacyUI) 
+            preferencesRowAdapter.add(new Icon(Icon.ID.LEGACY_UI, getString(R.string.leanback_legacy_ui), R.drawable.legacy_ui_icon));
+        //mPreferencesRowAdapter.add(new Icon(Icon.ID.HELP_FAQ, getString(R.string.help_faq), R.drawable.lollipop_help));
+
         // Must use an IconListRow to have the dedicated presenter used (see ClassPresenterSelector above)
         mRowsAdapter.add(new IconListRow(ROW_ID_PREFERENCES,
                 new HeaderItem(getString(R.string.preferences)),
-                mPreferencesRowAdapter));
+                preferencesRowAdapter));
 
         setAdapter(mRowsAdapter);
     }
@@ -1544,40 +1551,42 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
     };
 
     private void updateUsbAndSdcardVisibility() {
-        if (log.isDebugEnabled()) log.debug("updateUsbAndSdcardVisibility");
-        ExtStorageManager storageManager = ExtStorageManager.getExtStorageManager();
-        final boolean hasExternal = storageManager.hasExtStorage();
+        if (!mHideExternal) {
+            if (log.isDebugEnabled()) log.debug("updateUsbAndSdcardVisibility");
+            ExtStorageManager storageManager = ExtStorageManager.getExtStorageManager();
+            final boolean hasExternal = storageManager.hasExtStorage();
 
-        // Remember if non-scraped box was present before clearing
-        boolean nonScrapedWasPresent = mFileBrowsingRowAdapter.indexOf(mNonScrapedVideosItem) >= 0;
-        if (log.isDebugEnabled()) log.debug("updateUsbAndSdcardVisibility: nonScrapedWasPresent={}", nonScrapedWasPresent);
+            // Remember if non-scraped box was present before clearing
+            boolean nonScrapedWasPresent = mFileBrowsingRowAdapter.indexOf(mNonScrapedVideosItem) >= 0;
+            if (log.isDebugEnabled()) log.debug("uspdateUsbAndSdcardVisibility: nonScrapedWasPresent={}", nonScrapedWasPresent);
 
-        mFileBrowsingRowAdapter.clear();
-        mFileBrowsingRowAdapter.add(new Box(Box.ID.NETWORK, getString(R.string.network_storage), R.drawable.filetype_new_server));
-        mFileBrowsingRowAdapter.add(new Box(Box.ID.FOLDERS, getString(R.string.internal_storage), R.drawable.filetype_new_folder));
+            mFileBrowsingRowAdapter.clear();
+            mFileBrowsingRowAdapter.add(new Box(Box.ID.NETWORK, getString(R.string.network_storage), R.drawable.filetype_new_server));
+            mFileBrowsingRowAdapter.add(new Box(Box.ID.FOLDERS, getString(R.string.internal_storage), R.drawable.filetype_new_folder));
 
-        if (hasExternal) {
-            for(String s : storageManager.getExtSdcards()) {
-                Box item = new Box(Box.ID.SDCARD, getString(R.string.sd_card_storage) + getVolumeDescription(s), R.drawable.filetype_new_sdcard, s);
-                mFileBrowsingRowAdapter.add(item);
+            if (hasExternal) {
+                for(String s : storageManager.getExtSdcards()) {
+                    Box item = new Box(Box.ID.SDCARD, getString(R.string.sd_card_storage) + getVolumeDescription(s), R.drawable.filetype_new_sdcard, s);
+                    mFileBrowsingRowAdapter.add(item);
+                }
+                for(String s : storageManager.getExtUsbStorages()) {
+                    Box item = new Box(Box.ID.USB, getString(R.string.usb_host_storage) + getVolumeDescription(s), R.drawable.filetype_new_usb, s);
+                    mFileBrowsingRowAdapter.add(item);
+                }
+                for(String s : storageManager.getExtOtherStorages()) {
+                    Box item = new Box(Box.ID.OTHER, getString(R.string.other_storage) + getVolumeDescription(s), R.drawable.filetype_new_folder, s);
+                    mFileBrowsingRowAdapter.add(item);
+                }
             }
-            for(String s : storageManager.getExtUsbStorages()) {
-                Box item = new Box(Box.ID.USB, getString(R.string.usb_host_storage) + getVolumeDescription(s), R.drawable.filetype_new_usb, s);
-                mFileBrowsingRowAdapter.add(item);
+
+            // Re-add non-scraped box if it was present before
+            if (nonScrapedWasPresent) {
+                if (log.isDebugEnabled()) log.debug("updateUsbAndSdcardVisibility: re-adding non-scraped box");
+                mFileBrowsingRowAdapter.add(mNonScrapedVideosItem);
             }
-            for(String s : storageManager.getExtOtherStorages()) {
-                Box item = new Box(Box.ID.OTHER, getString(R.string.other_storage) + getVolumeDescription(s), R.drawable.filetype_new_folder, s);
-                mFileBrowsingRowAdapter.add(item);
-            }
+
+            mFileBrowsingRowAdapter.add(new Box(Box.ID.VIDEOS_BY_LISTS, getString(R.string.video_lists), R.drawable.filetype_new_playlist));
         }
-
-        // Re-add non-scraped box if it was present before
-        if (nonScrapedWasPresent) {
-            if (log.isDebugEnabled()) log.debug("updateUsbAndSdcardVisibility: re-adding non-scraped box");
-            mFileBrowsingRowAdapter.add(mNonScrapedVideosItem);
-        }
-
-        mFileBrowsingRowAdapter.add(new Box(Box.ID.VIDEOS_BY_LISTS, getString(R.string.video_lists), R.drawable.filetype_new_playlist));
     }
 
     private String getVolumeDescription(String s) {
@@ -1592,27 +1601,31 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
         return descr;
     }
 
-    private void updatePrivateMode(Icon icon) {
-        icon.setActive(PrivateMode.isActive());
-        mPreferencesRowAdapter.replace(mPreferencesRowAdapter.indexOf(icon), icon);
-        updateBackground();
-    }
+    //private void updatePrivateMode(Icon icon) {
+    //    icon.setActive(PrivateMode.isActive());
+    //    mPreferencesRowAdapter.replace(mPreferencesRowAdapter.indexOf(icon), icon);
+    //    updateBackground();
+    //}
 
-    private void findAndUpdatePrivateModeIcon() {
-        if (mPreferencesRowAdapter != null) {
-            for(int i=0 ; i<mPreferencesRowAdapter.size() ; i++) {
-                Object item = mPreferencesRowAdapter.get(i);
-                if (item instanceof Icon) {
-                    Icon icon = (Icon) item;
-                    if (icon.getId() == Icon.ID.PRIVATE_MODE) {
-                        if (icon.isActive() != PrivateMode.isActive()) {
-                            updatePrivateMode(icon);
-                        }
-                        break;
-                    }
-                }
-            }
-        }
+    //private void findAndUpdatePrivateModeIcon() {
+    //    if (mPreferencesRowAdapter != null) {
+    //        for(int i=0 ; i<mPreferencesRowAdapter.size() ; i++) {
+    //            Object item = mPreferencesRowAdapter.get(i);
+    //            if (item instanceof Icon) {
+    //                Icon icon = (Icon) item;
+    //                if (icon.getId() == Icon.ID.PRIVATE_MODE) {
+    //                    if (icon.isActive() != PrivateMode.isActive()) {
+    //                        updatePrivateMode(icon);
+    //                    }
+    //                    break;
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
+    
+    protected void rescanAvailableShortcuts() {
+        NetworkAutoRefresh.forceRescan(getActivity());
     }
 
     public class MainViewClickedListener extends VideoViewClickedListener {
@@ -1687,24 +1700,27 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
                         else
                             throw new IllegalStateException("Sorry developer, this ugly code can work with a MainActivityLeanback only for now!");
                         break;
-                    case PRIVATE_MODE:
-                        if (!PrivateMode.isActive() && PrivateMode.canShowDialog(vActivity))
-                            PrivateMode.showDialog(vActivity);
-                        PrivateMode.toggle();
-                        mPrefs.edit().putBoolean(PREF_PRIVATE_MODE, PrivateMode.isActive()).apply();
-                        updatePrivateMode(icon);
+                    case RESCRAPE:
+                        rescanAvailableShortcuts();
                         break;
+                    //case PRIVATE_MODE:
+                    //    if (!PrivateMode.isActive() && PrivateMode.canShowDialog(vActivity))
+                    //        PrivateMode.showDialog(vActivity);
+                    //    PrivateMode.toggle();
+                    //    mPrefs.edit().putBoolean(PREF_PRIVATE_MODE, PrivateMode.isActive()).apply();
+                    //    updatePrivateMode(icon);
+                    //    break;
                     case LEGACY_UI:
                         new DensityTweak(vActivity)
                                 .temporaryRestoreDefaultDensity();
                         vActivity.startActivity(new Intent(vActivity, MainActivity.class));
                         break;
-                    case HELP_FAQ:
-                        WebUtils.openWebLink(vActivity,getString(R.string.faq_url));
-                        break;
-                    case SPONSOR:
-                        WebUtils.openWebLink(vActivity,getString(R.string.sponsor_url));
-                        break;
+                    //case HELP_FAQ:
+                    //    WebUtils.openWebLink(vActivity,getString(R.string.faq_url));
+                    //    break;
+                    //case SPONSOR:
+                    //    WebUtils.openWebLink(vActivity,getString(R.string.sponsor_url));
+                    //    break;
                 }
             }
             else {
