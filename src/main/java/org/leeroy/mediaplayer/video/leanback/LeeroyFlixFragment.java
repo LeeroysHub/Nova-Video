@@ -683,7 +683,7 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
         moviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_GENRE, getString(R.string.movies_by_genre), R.drawable.genres_banner));
         if (showByRating)
             moviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_RATING, getString(R.string.movies_by_rating), R.drawable.ratings_banner));
-        moviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_YEAR, getString(R.string.movies_by_year), R.drawable.years_banner_2025));
+        moviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_YEAR, getString(R.string.movies_by_year), R.drawable.years_banner_2026));
         mMovieRow = new ListRow(ROW_ID_MOVIES, new HeaderItem(getString(R.string.movies)), moviesRowsAdapter);
         buildAllCollectionsBox(wasInPause);
         moviesRowsAdapter.add(mAllCollectionsBox);
@@ -695,7 +695,7 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
         tvshowRowAdapter.add(new Box(Box.ID.TVSHOWS_BY_GENRE, getString(R.string.tvshows_by_genre), R.drawable.genres_banner));
         if (showByRating)
             tvshowRowAdapter.add(new Box(Box.ID.TVSHOWS_BY_RATING, getString(R.string.tvshows_by_rating), R.drawable.ratings_banner));
-        tvshowRowAdapter.add(new Box(Box.ID.EPISODES_BY_DATE, getString(R.string.episodes_by_date), R.drawable.years_banner_2025));
+        tvshowRowAdapter.add(new Box(Box.ID.EPISODES_BY_DATE, getString(R.string.episodes_by_date), R.drawable.years_banner_2026));
         mTvshowRow = new ListRow(ROW_ID_TVSHOW, new HeaderItem(getString(R.string.all_tv_shows)), tvshowRowAdapter);
 
         ArrayObjectAdapter animeRowAdapter = new ArrayObjectAdapter(new BoxItemPresenter());
@@ -703,7 +703,7 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
         buildAllAnimesBox(wasInPause);
         animeRowAdapter.add(mAllAnimesBox);
         animeRowAdapter.add(new Box(Box.ID.ANIMES_BY_GENRE, getString(R.string.animes_by_genre), R.drawable.genres_banner));
-        animeRowAdapter.add(new Box(Box.ID.ANIMES_BY_YEAR, getString(R.string.animes_by_year), R.drawable.years_banner_2025));
+        animeRowAdapter.add(new Box(Box.ID.ANIMES_BY_YEAR, getString(R.string.animes_by_year), R.drawable.years_banner_2026));
         buildAllAnimeShowsBox(wasInPause);
         animeRowAdapter.add(mAllAnimeShowsBox);
 
