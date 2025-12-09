@@ -21,10 +21,11 @@ public class Icon {
 
     public enum ID {
         PREFERENCES,
-        PRIVATE_MODE,
-        LEGACY_UI,
-        HELP_FAQ,
-        SPONSOR
+        //PRIVATE_MODE,
+        //LEGACY_UI,
+        //HELP_FAQ,
+        //SPONSOR,
+        RESCRAPE
     }
 
     final private ID mId;
