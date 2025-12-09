@@ -31,7 +31,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.widget.Toast;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -58,7 +58,7 @@ import com.archos.mediacenter.video.CustomApplication;
 import com.archos.mediacenter.video.R;
 import com.archos.mediacenter.video.UiChoiceDialog;
 import com.archos.mediacenter.video.browser.loader.MoviesLoader;
-import com.archos.mediacenter.video.leanback.MainFragment;
+import com.archos.mediacenter.video.leanback.ArchosFragment;
 import com.archos.mediacenter.video.leanback.animes.AllAnimesGridFragment;
 import com.archos.mediacenter.video.leanback.animes.AnimesSortOrderEntry;
 import com.archos.mediacenter.video.leanback.movies.AllMoviesGridFragment;
@@ -70,6 +70,7 @@ import com.archos.mediacenter.video.leanback.tvshow.TvshowsSortOrderEntry;
 import com.archos.mediacenter.video.tvshow.AnimeShowSortOrderEntries;
 import com.archos.mediacenter.video.tvshow.TvshowSortOrderEntries;
 import com.archos.mediacenter.video.utils.credentialsmanager.CredentialsManagerPreferenceActivity;
+import com.archos.mediacenter.video.utils.MediaLibraryBackupService;
 import com.archos.medialib.MediaFactory;
 import com.archos.mediaprovider.video.VideoProvider;
 import com.archos.mediascraper.AllCollectionScrapeService;
@@ -85,6 +86,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import static com.archos.filecorelibrary.FileUtils.backupDatabase;
+import static com.archos.filecorelibrary.FileUtils.importDatabase;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -145,6 +147,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
     public static final String KEY_FORCE_AUDIO_PASSTHROUGH = "force_passthrough";
     public static final String KEY_PARSER_SYNC_MODE = "parser_sync_mode";
     public static final String KEY_DISABLE_DOLBY_VISION = "disable_dolby_vision";
+    public static final String KEY_INCREASE_DECODER_PRIORITY = "increase_decoder_priority";
     public static final String KEY_STREAM_BUFFER_SIZE = "stream_buffer_size";
     public static final String KEY_STREAM_MAX_IFRAME_SIZE = "stream_max_iframe_size";
     public static final String KEY_PLAYBACK_SPEED = "playback_speed";
@@ -153,6 +156,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
     public static final String KEY_ACTIVATE_REFRESHRATE_SWITCH = "enable_tv_refreshrate_switch_mode";
     public static final String KEY_ACTIVATE_3D_SWITCH = "activate_tv_switch";
     public static final String KEY_ADULT_SCRAPE = "enable_adult_scrap_key";
+    public static final String KEY_SHOW_BASIC_INTERFACE = "show_basic_interface_key";
 
     public static final String KEY_SEPARATE_ANIME_MOVIE_SHOW = "separate_anime_movie_show";
     public static final String KEY_SHOW_WATCHING_UP_NEXT_ROW = "show_watching_up_next_row";
@@ -191,7 +195,6 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
     public static final String KEY_TRAKT_SYNC_COLLECTION = "trakt_sync_collection";
     public static final String KEY_HIDE_WATCHED = "hide_watched";
     public static final String KEY_CREATE_REMOTE_THUMBS = VideoProvider.PREFERENCE_CREATE_REMOTE_THUMBS;
-    public static final String KEY_ENABLE_SPONSOR = "enable_sponsor";
     public static final String KEY_ABOUT_PREFERENCES = "preferences_about";
 
     public static final String KEY_SMB2 = "pref_smbv2";
@@ -253,10 +256,9 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
     private MultiSelectListPreference mSubtitlesDownloadLanguagePreferences = null;
     private ListPreference mTMDbScraperLanguagePreferences = null;
     private ListPreference mAudioTrackFavoriteLanguage = null;
-    private CheckBoxPreference mEnableSponsor = null;
     private CheckBoxPreference mWatchingUpNext = null;
     private PreferenceCategory mAboutPreferences = null;
-    private CheckBoxPreference mAdultScrape = null;
+    //private CheckBoxPreference mAdultScrape = null;
     private EditTextPreference mStreamBufferSize = null;
     private EditTextPreference mStreamMaxIFrameSize = null;
     private String mLastTraktUser = null;
@@ -290,6 +292,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
     final public static int ACTIVITY_RESULT_UI_ZOOM_CHANGED = 667;
     private Preference mExportManualPreference;
     private Preference mDbExportManualPreference = null;
+    private Preference mDbImportManualPreference = null;
 
     private PreferenceFragmentCompat mPreferencesFragment;
 
@@ -384,31 +387,26 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             prefCategory.removePreference(mEnableCutoutModeShortEdge);
         }
         PreferenceCategory prefScraperCategory = (PreferenceCategory) findPreference(KEY_SCRAPER_CATEGORY);
+        PreferenceCategory prefImportExportCategory = (PreferenceCategory) findPreference("import_export_category");
+
         if (mSharedPreferences.getBoolean(KEY_ADVANCED_VIDEO_ENABLED, false)) {
             // advanced preferences
             Editor editor = mSharedPreferences.edit();
             editor.remove(KEY_FORCE_SW);
             editor.apply();
-            // no need of the enable sponsor link if not installed from ggplay
-            if (! ArchosUtils.isInstalledfromPlayStore(getContext())) {
-                aboutCategory.removePreference(mEnableSponsor);
-            } else {
-                if (BuildConfig.ENABLE_SPONSOR)
-                    aboutCategory.addPreference(mEnableSponsor);
-                else aboutCategory.removePreference(mEnableSponsor);
-            }
             prefCategory.removePreference(mForceSwDecPreferences);
             prefCategory.addPreference(mStreamBufferSize);
             prefCategory.addPreference(mStreamMaxIFrameSize);
             prefCategory.addPreference(mDecChoicePreferences);
             prefCategory.addPreference(mAudioInterfaceChoicePreferences);
             prefCategory.addPreference(mParserSyncMode);
-            prefScraperCategory.addPreference(mDbExportManualPreference);
+            prefImportExportCategory.addPreference(mDbExportManualPreference);
+            prefImportExportCategory.addPreference(mDbImportManualPreference);
             // more smb discovery disabling options in advanced mode
             netShareCategory.addPreference(mSmbDisableTcpDiscovery);
             netShareCategory.addPreference(mSmbDisableMdnsDiscovery);
             getPreferenceScreen().addPreference(mAdvancedPreferences);
-            if (BuildConfig.ADULT_SCRAPE) prefScraperCategory.addPreference(mAdultScrape);
+            //if (BuildConfig.ADULT_SCRAPE) prefScraperCategory.addPreference(mAdultScrape);
         } else {
             // normal preferences
             //Editor editor = mDecChoicePreferences.getEditor();
@@ -416,14 +414,14 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             editor.remove(KEY_DEC_CHOICE);
             editor.remove(KEY_AUDIO_INTERFACE_CHOICE);
             editor.apply();
-            aboutCategory.removePreference(mEnableSponsor);
             prefCategory.removePreference(mDecChoicePreferences);
             prefCategory.removePreference(mAudioInterfaceChoicePreferences);
             prefCategory.removePreference(mParserSyncMode);
             prefCategory.addPreference(mForceSwDecPreferences);
-            prefScraperCategory.removePreference(mDbExportManualPreference);
+            prefImportExportCategory.removePreference(mDbExportManualPreference);
+            prefImportExportCategory.removePreference(mDbImportManualPreference);
             getPreferenceScreen().removePreference(mAdvancedPreferences);
-            prefScraperCategory.removePreference(mAdultScrape);
+            //prefScraperCategory.removePreference(mAdultScrape);
             prefCategory.removePreference(mStreamBufferSize);
             prefCategory.removePreference(mStreamMaxIFrameSize);
             // not needed since for fire10hd only UDP discovery is upsetting wifi drivers
@@ -532,34 +530,11 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
 
         mSharedPreferences = getPreferenceManager().getSharedPreferences();
         mSharedPreferences.registerOnSharedPreferenceChangeListener(this);
-        final Preference pref = (Preference) findPreference(KEY_VIDEO_OS);
-        pref.setEnabled(true);
-        pref.setOnPreferenceClickListener(preference -> {
-            videoPreferenceOsClick();
-            return false;
-        });
-
-        findPreference(KEY_TMDB).setOnPreferenceClickListener(preference -> {
-            videoPreferenceTmdbClick();
-            return false;
-        });
-        findPreference(KEY_TRAKT).setOnPreferenceClickListener(preference -> {
-            videoPreferenceTraktClick();
-            return false;
-        });
-        findPreference(KEY_LICENCES).setOnPreferenceClickListener(preference -> {
-            if (!UiChoiceDialog.applicationIsInLeanbackMode(getActivity()))
-                startActivity(new Intent(getActivity(), VideoPreferencesLicencesActivity.class));
-            else
-                startActivity(new Intent(getActivity(), VideoSettingsLicencesActivity.class));
-            return false;
-        });
-
+        
         mDecChoicePreferences = (ListPreference) findPreference(KEY_DEC_CHOICE);
         mAudioInterfaceChoicePreferences = (ListPreference) findPreference(KEY_AUDIO_INTERFACE_CHOICE);
         mParserSyncMode = (ListPreference) findPreference(KEY_PARSER_SYNC_MODE);
         mForceSwDecPreferences = (CheckBoxPreference) findPreference(KEY_FORCE_SW);
-        mEnableSponsor = (CheckBoxPreference) findPreference(KEY_ENABLE_SPONSOR);
         mWatchingUpNext = (CheckBoxPreference) findPreference(KEY_SHOW_WATCHING_UP_NEXT_ROW);
         mForceAudioPassthrough = (CheckBoxPreference) findPreference(KEY_FORCE_AUDIO_PASSTHROUGH);
         mPlaybackSpeed = (CheckBoxPreference) findPreference(KEY_PLAYBACK_SPEED);
@@ -653,7 +628,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             mActivateRefreshrateTVSwitch.setEntryValues(newEntryValues);
         }
 
-        mAdultScrape = (CheckBoxPreference) findPreference(KEY_ADULT_SCRAPE);
+        //mAdultScrape = (CheckBoxPreference) findPreference(KEY_ADULT_SCRAPE);
         mTraktSyncProgressPreference = (CheckBoxPreference) findPreference(KEY_TRAKT_SYNC_PROGRESS);
         mAdvancedPreferences = (PreferenceCategory) findPreference(KEY_ADVANCED_VIDEO_CATEGORY);
         mSeparateAnimeMoviePreference = (CheckBoxPreference) findPreference(KEY_SEPARATE_ANIME_MOVIE_SHOW);
@@ -669,7 +644,13 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         mSmbDisableUdpDiscovery = (CheckBoxPreference) findPreference(KEY_SMB_DISABLE_UDP_DISCOVERY);
         mSmbDisableMdnsDiscovery = (CheckBoxPreference) findPreference(KEY_SMB_DISABLE_MDNS_DISCOVERY);
         mSmbj = (CheckBoxPreference) findPreference(KEY_SMBJ);
-
+        
+        //SMBJ IS BROKEN at the moment, dont let the user use it!
+        mSmbj.setChecked(false);
+        mSmbj.setEnabled(false);
+        mSmbj.setVisible(false);
+        mSmb2.setEnabled(!mSmbj.isChecked());   //Disable checkbox on startup
+           
         mScraperCategory = (PreferenceCategory) findPreference(KEY_SCRAPER_CATEGORY);
         mExportManualPreference = findPreference(getString(R.string.nfo_export_manual_prefkey));
         mExportManualPreference.setOnPreferenceClickListener(preference -> {
@@ -682,31 +663,56 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         findPreference("hide_watched").setOnPreferenceChangeListener((preference, newValue) -> {
             LoaderUtils.mMustHideWatchedVideo =  (boolean) newValue;
             getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED); // way to tell the MainActivity that an important preference has been changed
-            getActivity().finish();
+            //getActivity().finish();
             return true;
         });
 
+        //Save the UI changed Listener, re-use it for the prefs that need it.
+        Preference.OnPreferenceClickListener prefClickListenerUIChanged = new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(@NonNull Preference preference) {
+                getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED); // way to tell the MainActivity that an important preference has been changed
+                //getActivity().finish();
+                return true;
+            }
+        };
+
+        //We want the prefs changes to change the UI, so we have to set them all up.
+        findPreference(getString(R.string.preferences_show_basic_interface_key)).setOnPreferenceClickListener(prefClickListenerUIChanged);
+        findPreference("smart_recently_rows").setOnPreferenceClickListener(prefClickListenerUIChanged);
+        findPreference(getString(R.string.preferences_display_recently_added_key)).setOnPreferenceClickListener(prefClickListenerUIChanged);
+        findPreference(getString(R.string.preferences_display_recently_played_key)).setOnPreferenceClickListener(prefClickListenerUIChanged);
+
         findPreference(getString(R.string.rescrap_all_prefkey)).setOnPreferenceClickListener(preference -> {
+            //Show the toast before starting the intent
+            Toast.makeText(getActivity(), R.string.rescraping_collection, Toast.LENGTH_SHORT).show();
+
+            //Send rescrape intent.
             Intent intent = new Intent(AutoScrapeService.RESCAN_EVERYTHING, null, getActivity(), AutoScrapeService.class);
             intent.putExtra(AutoScrapeService.RESCAN_EVERYTHING, true);
             intent.putExtra(AutoScrapeService.RESCAN_ONLY_DESC_NOT_FOUND, false);
             getContext().startService(intent);
-            Toast.makeText(getActivity(), R.string.rescrap_in_progress, Toast.LENGTH_SHORT).show();
             return true;
         });
 
         findPreference(getString(R.string.rescrap_all_movies_prefkey)).setOnPreferenceClickListener(preference -> {
+            //Show the toast before starting the intent
+            Toast.makeText(getActivity(), R.string.rescrap_movies_in_progress, Toast.LENGTH_SHORT).show();
+            
+            //Send rescrape intent.
             Intent intent = new Intent(AutoScrapeService.RESCAN_MOVIES, null, getActivity(), AutoScrapeService.class);
             intent.putExtra(AutoScrapeService.RESCAN_ONLY_DESC_NOT_FOUND, false);
             getContext().startService(intent);
-            Toast.makeText(getActivity(), R.string.rescrap_movies_in_progress, Toast.LENGTH_SHORT).show();
             return true;
         });
 
         findPreference(getString(R.string.rescrap_all_collections_prefkey)).setOnPreferenceClickListener(preference -> {
+            //Show the toast before starting the intent
+            Toast.makeText(getActivity(), R.string.rescrap_collections_in_progress, Toast.LENGTH_SHORT).show();
+            
+            //Send rescrape intent.
             Intent intent = new Intent(AllCollectionScrapeService.INTENT_RESCRAPE_ALL_COLLECTIONS, null, getActivity(), AllCollectionScrapeService.class);
             getContext().startService(intent);
-            Toast.makeText(getActivity(), R.string.rescrap_collections_in_progress, Toast.LENGTH_SHORT).show();
             return true;
         });
 
@@ -759,8 +765,15 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
 
         mDbExportManualPreference = findPreference(getString(R.string.db_export_manual_prefkey));
         mDbExportManualPreference.setOnPreferenceClickListener(preference -> {
-            backupDatabase(getContext(),"media.db");
             Toast.makeText(getActivity(), R.string.db_export_in_progress, Toast.LENGTH_SHORT).show();
+            backupDatabase(getContext(),"media.db");
+            return true;
+        });
+
+        mDbImportManualPreference = findPreference(getString(R.string.db_import_manual_prefkey));
+        mDbImportManualPreference.setOnPreferenceClickListener(preference -> {
+            importDatabase(getContext(),"media.db");
+            Toast.makeText(getActivity(), R.string.db_import_in_progress, Toast.LENGTH_SHORT).show();
             return true;
         });
 
@@ -1037,6 +1050,37 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             });
         }
 
+        // Show uimode_leanback selector ONLY when in Classic mode (so user can switch to TV mode)
+        // Hide it when in Leanback mode (user is already in TV mode)
+        Preference uimodeLeanbackPref = findPreference("uimode_leanback");
+    
+        // In Classic mode: show selector so user can switch back to TV mode
+        uimodeLeanbackPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                // Sync with always_leanback_on_tv_key and uimode on Android TV devices
+                String uiMode = (String) newValue;
+                boolean isLeanbackMode = UiChoiceDialog.UI_CHOICE_LEANBACK_TV_VALUE.equals(uiMode);
+                String uimodeValue = isLeanbackMode ? "2" : "1";
+                
+                //The user selected Classic UI. If they left Always in Leanback on, it wont work.
+                //The user made the decisiom, so I wll turn off Always leanback, not warn them. 
+                Editor editor = getPreferenceManager().getSharedPreferences().edit();
+                //if (!isLeanbackMode) 
+                //    editor.putBoolean("always_leanback_on_tv_key", false);
+                editor.putString("uimode", uimodeValue);
+                editor.commit();        //Need UPdated NOW!
+                
+                UiChoiceDialog.isInterfaceChanging = true;
+                //Change the User Interface Straight away, other Options are on Exit now.
+                getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED);
+                getActivity().finish();
+                return true;
+            }
+        });
+
+        //Reset Interface if Hide CLassic UI is selected.
+        //findPreference("hide_legacy_ui_icon_key").setOnPreferenceClickListener(prefClickListenerUIChanged);
+
         PreferenceCategory userInterfaceCategory = (PreferenceCategory)findPreference("category_user_interface");
         if (userInterfaceCategory!=null) {
             // Leanback device case: keep category but remove phone-specific UI preferences
@@ -1044,33 +1088,6 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
                 // Remove phone-specific preferences on leanback devices
                 Preference uimodePref = findPreference("uimode");
                 if (uimodePref != null) userInterfaceCategory.removePreference(uimodePref);
-
-                // Show uimode_leanback selector ONLY when in Classic mode (so user can switch to TV mode)
-                // Hide it when in Leanback mode (user is already in TV mode)
-                Preference uimodeLeanbackPref = findPreference("uimode_leanback");
-                if (uimodeLeanbackPref != null) {
-                    if (UiChoiceDialog.applicationIsInLeanbackMode(getActivity())) {
-                        // In TV mode: hide the selector, user can use "Always Start in TV Interface" instead
-                        userInterfaceCategory.removePreference(uimodeLeanbackPref);
-                    } else {
-                        // In Classic mode: show selector so user can switch back to TV mode
-                        uimodeLeanbackPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                                // Sync with always_leanback_on_tv_key and uimode on Android TV devices
-                                String uiMode = (String) newValue;
-                                boolean isLeanbackMode = UiChoiceDialog.UI_CHOICE_LEANBACK_TV_VALUE.equals(uiMode);
-                                String uimodeValue = isLeanbackMode ? "2" : "1";
-                                getPreferenceManager().getSharedPreferences().edit()
-                                    .putBoolean("always_leanback_on_tv_key", isLeanbackMode)
-                                    .putString("uimode", uimodeValue)
-                                    .apply();
-                                getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED);
-                                getActivity().finish();
-                                return true;
-                            }
-                        });
-                    }
-                }
 
                 Preference uiZoomPref = findPreference("ui_zoom");
                 if (uiZoomPref != null) userInterfaceCategory.removePreference(uiZoomPref);
@@ -1084,23 +1101,6 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             else {
                 Preference uimodePref = findPreference("uimode");
                 if (uimodePref != null) userInterfaceCategory.removePreference(uimodePref); // remove the old uimode settings
-                Preference uimodeLeanbackPref = findPreference("uimode_leanback");
-                if (uimodeLeanbackPref != null) {
-                    uimodeLeanbackPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                        public boolean onPreferenceChange(Preference preference, Object newValue) {
-                            // Sync with uimode preference (phones/tablets don't use always_leanback_on_tv_key)
-                            String uiMode = (String) newValue;
-                            boolean isLeanbackMode = UiChoiceDialog.UI_CHOICE_LEANBACK_TV_VALUE.equals(uiMode);
-                            String uimodeValue = isLeanbackMode ? "2" : "1";
-                            getPreferenceManager().getSharedPreferences().edit()
-                                .putString("uimode", uimodeValue)
-                                .apply();
-                            getActivity().setResult(ACTIVITY_RESULT_UI_MODE_CHANGED);
-                            getActivity().finish();
-                            return true;
-                        }
-                    });
-                }
                 Preference uiZoomPref = findPreference("ui_zoom");
                 if (uiZoomPref != null) {
                     uiZoomPref.setOnPreferenceClickListener(preference -> {
@@ -1131,34 +1131,16 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         PreferenceCategory leanbackUserInterfaceCategory = (PreferenceCategory)findPreference("category_leanback_user_interface");
 
         if (leanbackUserInterfaceCategory != null) {
-            if (!UiChoiceDialog.applicationIsInLeanbackMode(getActivity())) {
+            if (!UiChoiceDialog.applicationIsInLeanbackMode(getActivity(), false)) {
                 getPreferenceScreen().removePreference(leanbackUserInterfaceCategory);
             }
             else {
                 // Hide "Always Start in TV Interface" on non-TV devices (it's only relevant on Android TV)
-                if (!getActivity().getPackageManager().hasSystemFeature(PackageManager.FEATURE_LEANBACK)) {
-                    Preference alwaysLeanbackPref = findPreference("always_leanback_on_tv_key");
-                    if (alwaysLeanbackPref != null) leanbackUserInterfaceCategory.removePreference(alwaysLeanbackPref);
-                } else {
-                    // On Android TV: sync "Always Start in TV Interface" with uimode/uimode_leanback
-                    Preference alwaysLeanbackPref = findPreference("always_leanback_on_tv_key");
-                    if (alwaysLeanbackPref != null) {
-                        alwaysLeanbackPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                                boolean enabled = (Boolean) newValue;
-                                // Sync with uimode_leanback and uimode preferences
-                                String modeValue = enabled ? UiChoiceDialog.UI_CHOICE_LEANBACK_TV_VALUE : UiChoiceDialog.UI_CHOICE_LEANBACK_TABLET_VALUE;
-                                String uimodeValue = enabled ? "2" : "1";
-                                getPreferenceManager().getSharedPreferences().edit()
-                                    .putString(UiChoiceDialog.UI_CHOICE_LEANBACK_KEY, modeValue)
-                                    .putString("uimode", uimodeValue)
-                                    .apply();
-                                // Don't restart - let change take effect on next app launch
-                                return true;
-                            }
-                        });
-                    }
-                }
+                //THIS IS RELEVANT TO MY TABLET!
+                //if (!getActivity().getPackageManager().hasSystemFeature(PackageManager.FEATURE_LEANBACK)) {
+                //    Preference alwaysLeanbackPref = findPreference("always_leanback_on_tv_key");
+                //    if (alwaysLeanbackPref != null) leanbackUserInterfaceCategory.removePreference(alwaysLeanbackPref);
+                //}
 
                 //Last Played section on Leanback.
                 findPreference("reset_last_played_row").setOnPreferenceClickListener(preference -> {
@@ -1167,6 +1149,18 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
                     DbUtils.markAsNotRead(getActivity());
                     return true;
                 });
+                
+                // We don't want the New and History options for Phone Interface In Leanback
+                // These options are normally not shown twice, but on Tablet or Phone 
+                // if Leanback is selected we get both
+                Preference tmpPref = findPreference(getString(R.string.preferences_display_recently_added_key));
+                if (tmpPref != null ) tmpPref.setVisible(false);
+                tmpPref = findPreference(getString(R.string.preferences_display_recently_played_key));
+                if (tmpPref != null ) tmpPref.setVisible(false);
+                tmpPref = findPreference("reset_last_played_section");
+                if (tmpPref != null ) tmpPref.setVisible(false);
+                tmpPref = findPreference("preferences_display_recently_added_key");
+                if (tmpPref != null ) tmpPref.setVisible(false);
 
                 // FIXME: for now feature watch up next is disabled because makes the interface crash
                 if (! MainFragment.FEATURE_WATCH_UP_NEXT)
@@ -1207,7 +1201,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
                     mMoreLeanbackPrefsClickLastTime = currentTime;
 
                     if (mMoreLeanbackPrefsClickCount > 4) {
-                        if (UiChoiceDialog.applicationIsInLeanbackMode(getActivity()))
+                        if (UiChoiceDialog.applicationIsInLeanbackMode(getActivity(), false))
                             startActivity(new Intent(getActivity(), VideoSettingsMoreLeanbackActivity.class));
                         mMoreLeanbackPrefsClickCount = 0; // reset
                     }
