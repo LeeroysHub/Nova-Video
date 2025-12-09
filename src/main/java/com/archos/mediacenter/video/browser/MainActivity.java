@@ -217,15 +217,12 @@ public class MainActivity extends BrowserActivity implements ExternalPlayerWithR
         this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
         super.onCreate(savedInstanceState);
 
-        // Update uimode/uimode_leanback to reflect we're in phone/tablet mode
-        com.archos.mediacenter.video.UiChoiceDialog.updateUiModePreferences(this, false);
-
         //Setup an preferences before we start activites.
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         
         //Set the Hide watched videos on Startup.
         LoaderUtils.mMustHideWatchedVideo = mPreferences.getBoolean("hide_watched", false);
-        LoaderUtils.mSmartRecentlyRows = mPreferences.getBoolean("smart_recently_rows", false);
+        LoaderUtils.mSmartRecentlyRows = mPreferences.getBoolean("smart_recently_rows", true);
 
         //Reset the Video Aspect Ratio on Startup.
         SharedPreferences.Editor editor = mPreferences.edit();
@@ -263,9 +260,9 @@ public class MainActivity extends BrowserActivity implements ExternalPlayerWithR
             mDrawerToggle.setDrawerIndicatorEnabled(true);
             mDrawerToggle.syncState();
 
-            if(savedInstanceState==null && !isShortcutIntent())
-                mDrawerLayout.openDrawer(GravityCompat.START);
-
+            //Open the Drawer on Startup
+            //if(savedInstanceState==null && !isShortcutIntent())
+            //    mDrawerLayout.openDrawer(GravityCompat.START);
         }
 
         // determine if display has cutouts
@@ -487,6 +484,9 @@ public class MainActivity extends BrowserActivity implements ExternalPlayerWithR
         // Reload preferences that may have changed
         LoaderUtils.mMustHideWatchedVideo = mPreferences.getBoolean("hide_watched", false);
         LoaderUtils.mSmartRecentlyRows = mPreferences.getBoolean("smart_recently_rows", false);
+        
+        // Update uimode/uimode_leanback to reflect we're in phone/tablet mode
+        com.archos.mediacenter.video.UiChoiceDialog.updateUiModePreferences(this, false);
 
         if (Build.VERSION.SDK_INT >= 33) {
             registerReceiver(mTraktRelogBroadcastReceiver,new IntentFilter(Trakt.TRAKT_ISSUE_REFRESH_TOKEN), Context.RECEIVER_NOT_EXPORTED);
@@ -685,12 +685,12 @@ public class MainActivity extends BrowserActivity implements ExternalPlayerWithR
         if (requestCode == ACTIVITY_REQUEST_CODE_PREFERENCES) {
             if (resultCode == VideoPreferencesCommon.ACTIVITY_RESULT_UI_MODE_CHANGED) {
                 // Check if the UI mode changed
-                String newUiModeLeanback = PreferenceManager.getDefaultSharedPreferences(this).getString(UiChoiceDialog.UI_CHOICE_LEANBACK_KEY, "-");
-                if (!newUiModeLeanback.equals(mCurrentUiModeLeanback)) {
+                //String newUiModeLeanback = PreferenceManager.getDefaultSharedPreferences(this).getString(UiChoiceDialog.UI_CHOICE_LEANBACK_KEY, "-");
+                //if (!newUiModeLeanback.equals(mCurrentUiModeLeanback)) {
                     // ui mode changed -> quit the current activity and restart
-                    finish();
-                    startActivity(new Intent(this, EntryActivity.class));
-                }
+                finish();
+                startActivity(new Intent(this, EntryActivity.class));
+                //}
                 mCurrentUiModeLeanback = null; // reset
             }
             else if (resultCode == VideoPreferencesCommon.ACTIVITY_RESULT_UI_ZOOM_CHANGED) {
