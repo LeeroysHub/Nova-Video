@@ -78,21 +78,21 @@ public class PosterImageCardPresenter extends Presenter {
     private View.OnLongClickListener mLongClickListener;
 
     public class VideoViewHolder extends ViewHolder {
-        private final View mOccurenciesView;
+        //private final View mOccurenciesView;
         private CustomImageCardview mCardView;
         private View mProgressBar;
         private PicassoImageCardViewTarget mImageCardViewTarget;
 
         public VideoViewHolder(Context context) {
             super(new CustomImageCardview(context));
-            mOccurenciesView=  LayoutInflater.from(mContext).inflate(R.layout.leanback_video_occurencies, mCardView, false);
-            mOccurenciesView.setVisibility(View.INVISIBLE);
+            //mOccurenciesView=  LayoutInflater.from(mContext).inflate(R.layout.leanback_video_occurencies, mCardView, false);
+            //mOccurenciesView.setVisibility(View.INVISIBLE);
             mCardView = (CustomImageCardview)view;
 
-            mCardView.addViewToRoot(mOccurenciesView);
+            //mCardView.addViewToRoot(mOccurenciesView);
             mCardView.setMainImageDimensions(getWidth(context), getHeight(context));
             mCardView.setMainImage(new ColorDrawable(ContextCompat.getColor(context, R.color.lb_basic_card_bg_color)));
-            mCardView.getMainImageView().setBackgroundColor(ContextCompat.getColor(context, R.color.lightblue900));
+            mCardView.getMainImageView().setBackgroundColor(ContextCompat.getColor(context, R.color.lightgrey));
             mCardView.setFocusable(true);
             mCardView.setFocusableInTouchMode(true);
 
@@ -107,13 +107,14 @@ public class PosterImageCardPresenter extends Presenter {
             mImageCardViewTarget = new PicassoImageCardViewTarget(mCardView);
         }
 
-        public void setOccurencies(int occurencies){
-            if(occurencies>1)
-                mOccurenciesView.setVisibility(View.VISIBLE);
-            else
-                mOccurenciesView.setVisibility(View.INVISIBLE);
-            ((TextView)mOccurenciesView.findViewById(R.id.occurencies_text_view)).setText(String.valueOf(occurencies));
-        }
+        //public void setOccurencies(int occurencies){
+        //    if(occurencies>1)
+        //        mOccurenciesView.setVisibility(View.VISIBLE);
+        //    else
+        //        mOccurenciesView.setVisibility(View.INVISIBLE);
+        //    ((TextView)mOccurenciesView.findViewById(R.id.occurencies_text_view)).setText(String.valueOf(occurencies));
+        //}
+        
         public ImageCardView getImageCardView() {
             return mCardView;
         }
@@ -216,6 +217,7 @@ public class PosterImageCardPresenter extends Presenter {
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, Object item) {
         VideoViewHolder vh = (VideoViewHolder)viewHolder;
+        Context context = vh.view.getContext();
 
         if (item instanceof Video) {
             bindVideo(vh, (Video) item);
@@ -303,7 +305,7 @@ public class PosterImageCardPresenter extends Presenter {
         } else {
             vh.setResumeInPercent(100*resumeMs/(float)video.getDurationMs(), isLarge);
         }
-        vh.setOccurencies(video.getOccurencies());
+        //vh.setOccurencies(video.getOccurencies());
     }
 
     /**
@@ -332,7 +334,7 @@ public class PosterImageCardPresenter extends Presenter {
         else
             vh.updateCardView(mErrorDrawable);
         
-        vh.setOccurencies(0);
+        //vh.setOccurencies(0);
     }
 
     /**
@@ -361,7 +363,7 @@ public class PosterImageCardPresenter extends Presenter {
         else
             vh.updateCardView(mErrorDrawable);
 
-        vh.setOccurencies(0);
+        //vh.setOccurencies(0);
     }
 
     private void bindMetaFile(VideoViewHolder vh, MetaFile2 file) {
@@ -370,8 +372,7 @@ public class PosterImageCardPresenter extends Presenter {
         card.setMainImageScaleType(ImageView.ScaleType.CENTER);
         card.setTitleText(file.getName());
         card.setContentText("");
-        vh.setOccurencies(0);
-
+        //vh.setOccurencies(0);
     }
 
     @Override
