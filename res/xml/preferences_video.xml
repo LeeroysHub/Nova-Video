@@ -20,6 +20,7 @@
             android:summary="@string/UiLang_summary"
             android:title="@string/UiLang_title"
             app:iconSpaceReserved="false"/>
+
     </PreferenceCategory>
     <PreferenceCategory
         android:key="preferences_category_video"
@@ -194,18 +195,12 @@
             android:summary="@string/enable_android_frame_timing_summary"
             android:title="@string/enable_android_frame_timing"
             app:iconSpaceReserved="false"/>
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/preferences_user_interface" android:key="category_user_interface"
-        app:iconSpaceReserved="false" >
-
-        <!-- first "uimode" item is for Android before 4.2 that does not support leanback -->
-        <!-- second "uimode" item is for Android >= 4.2 that does support leanback -->
-        <!-- (in case of actual leanback device we display none) -->
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="smart_recently_rows"
-            android:summary="@string/pref_declutter_home_rows_summary"
-            android:title="@string/pref_smart_recently_rows_title"
+            android:key="increase_decoder_priority"
+            android:persistent="true"
+            android:summary="@string/enable_increase_decoder_priority_summary"
+            android:title="@string/enable_increase_decoder_priority"
             app:iconSpaceReserved="false"/>
         <CheckBoxPreference
             android:defaultValue="false"
@@ -214,14 +209,20 @@
             android:summary="@string/enable_projector_mode_summary"
             android:title="@string/enable_projector_mode"
             app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preferences_user_interface" android:key="category_user_interface"
+        app:iconSpaceReserved="false" >
+
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="hide_watched"
+            android:key="@string/preferences_show_basic_interface_key"
             android:persistent="true"
-            android:summary="@string/hide_watched_videos_summary"
-            android:title="@string/hide_watched_videos"
+            android:summary="@string/preferences_show_basic_interface_summary"
+            android:title="@string/preferences_show_basic_interface_title"
             app:iconSpaceReserved="false"/>
-
+        <!-- first "uimode" item is for Android before 4.2 that does not support leanback -->
+        <!-- second "uimode" item is for Android >= 4.2 that does support leanback -->
+        <!-- (in case of actual leanback device we display none) -->
         <ListPreference
             android:defaultValue="0"
             android:dialogTitle="@string/ui_mode_title"
@@ -242,20 +243,58 @@
             android:summary="@string/ui_mode_summary"
             android:title="@string/ui_mode_title"
             app:iconSpaceReserved="false"/>
+        
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="remember_interface_choice_key"
+            android:summary="@string/remember_interface_choice_summary"
+            android:title="@string/remember_interface_choice_title"
+            app:iconSpaceReserved="false"/>
 
         <Preference android:title="@string/interface_size"
             android:key="ui_zoom"
             android:summary="@string/interface_size_summary"
             app:iconSpaceReserved="false"/>
+ 
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="smart_recently_rows"
+            android:summary="@string/pref_declutter_home_rows_summary"
+            android:title="@string/pref_smart_recently_rows_title"
+            app:iconSpaceReserved="false"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="hide_watched"
+            android:persistent="true"
+            android:summary="@string/hide_watched_videos_summary"
+            android:title="@string/hide_watched_videos"
+            app:iconSpaceReserved="false"/>
 
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="display_resume_box"
             android:summary="@string/preferences_display_resume_box_summary"
             android:title="@string/preferences_display_resume_box"
             app:iconSpaceReserved="false"/>
+            
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/preferences_display_recently_added_key"
+            android:summary="@string/preferences_display_recently_added_summary"
+            android:title="@string/preferences_display_recently_added"
+            app:iconSpaceReserved="false"/>
 
-         <CheckBoxPreference
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/preferences_display_recently_played_key"
+            android:summary="@string/preferences_display_recently_played_summary"
+            android:title="@string/preferences_display_recently_played"
+            app:iconSpaceReserved="false"/>
+        <Preference
+            android:key="reset_last_played_section"
+            android:title="@string/preferences_reset_last_played_row" 
+            app:iconSpaceReserved="false" />
+        <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/reset_brightness_on_start_key"
             android:summary="@string/reset_brightness_on_start_summary"
@@ -272,12 +311,12 @@
     <PreferenceCategory android:title="@string/preferences_leanback_user_interface" android:key="category_leanback_user_interface"
         app:iconSpaceReserved="false" >
 
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="always_leanback_on_tv_key"
-            android:summary="@string/always_leanback_on_tv_summary"
-            android:title="@string/always_leanback_on_tv"
-            app:iconSpaceReserved="false"/>
+        <!-- <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="hide_legacy_ui_icon_key"
+            android:summary="Hide the Legacy Interface Option in TV user interface. You can still change UI mode here."
+            android:title="Hide Legacy Interface button"
+            app:iconSpaceReserved="false"/> -->
 
         <CheckBoxPreference
             android:defaultValue="true"
@@ -287,14 +326,14 @@
             app:iconSpaceReserved="false"/>
         
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="show_last_added_row"
             android:summary="@string/preferences_show_last_added_row_summary"
             android:title="@string/preferences_show_last_added_row"
             app:iconSpaceReserved="false"/>
 
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="show_last_played_row"
             android:summary="@string/preferences_show_last_played_row_summary"
             android:title="@string/preferences_show_last_played_row"
@@ -368,7 +407,7 @@
         </Preference>
 
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="subtitles_hide_default"
             android:summary="@string/subtitles_hide_default_summary"
             android:title="@string/subtitles_hide_default"
@@ -525,7 +564,7 @@
             app:iconSpaceReserved="false"/>
 
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="network_bookmarks"
             android:summary="@string/network_bookmarks_summary"
             android:title="@string/network_bookmarks"
@@ -562,7 +601,6 @@
             android:summary="@string/scraper_language_summary"
             android:title="@string/scraper_language_title"
             app:iconSpaceReserved="false"/>
-
         <CheckBoxPreference
             android:defaultValue="@bool/network_nfo_parse_default"
             android:key="@string/network_nfo_parse_prefkey"
@@ -575,23 +613,21 @@
             android:summary="@string/enable_scrape_from_db_summary"
             android:title="@string/enable_scrape_from_db_title"
             app:iconSpaceReserved="false"/>
+        <CheckBoxPreference    
+            android:title="@string/enable_adult_scrap_title"
+            android:summary="@string/enable_adult_scrap_summary"
+            android:key="enable_adult_scrap_key"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/import_export"
+        android:key="import_export_category"
+        app:iconSpaceReserved="false" >
         <CheckBoxPreference
             android:defaultValue="@bool/nfo_export_auto_default"
             android:key="@string/nfo_export_auto_prefkey"
             android:summary="@string/nfo_export_auto_summary"
             android:title="@string/nfo_export_auto_title"
-            app:iconSpaceReserved="false"/>
-        <Preference
-            android:key="@string/rescrap_all_prefkey"
-            android:title="@string/rescrap_all_title"
-            app:iconSpaceReserved="false"/>
-        <Preference
-            android:key="@string/rescrap_all_movies_prefkey"
-            android:title="@string/rescrap_all_movies_title"
-            app:iconSpaceReserved="false"/>
-        <Preference
-            android:key="@string/rescrap_all_collections_prefkey"
-            android:title="@string/rescrap_all_collections_title"
             app:iconSpaceReserved="false"/>
         <Preference
             android:key="@string/nfo_export_manual_prefkey"
@@ -604,6 +640,11 @@
             android:title="@string/db_export_manual_title"
             app:iconSpaceReserved="false"/>
         <Preference
+            android:key="@string/db_import_manual_prefkey"
+            android:summary="@string/db_import_manual_summary"
+            android:title="@string/db_import_manual_title"
+            app:iconSpaceReserved="false"/>
+        <Preference
             android:key="@string/media_library_export_prefkey"
             android:summary="@string/media_library_export_summary"
             android:title="@string/media_library_export_title"
@@ -613,14 +654,24 @@
             android:summary="@string/media_library_import_summary"
             android:title="@string/media_library_import_title"
             app:iconSpaceReserved="false"/>
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:title="@string/enable_adult_scrap_title"
-            android:summary="@string/enable_adult_scrap_summary"
-            android:key="enable_adult_scrap_key"
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Media Scraping"
+        android:key="media_scraping_category"
+        app:iconSpaceReserved="false" >
+        <Preference
+            android:key="@string/rescrap_all_prefkey"
+            android:title="@string/rescrap_all_title"
+            app:iconSpaceReserved="false"/>
+        <Preference
+            android:key="@string/rescrap_all_movies_prefkey"
+            android:title="@string/rescrap_all_movies_title"
+            app:iconSpaceReserved="false"/>
+        <Preference
+            android:key="@string/rescrap_all_collections_prefkey"
+            android:title="@string/rescrap_all_collections_title"
             app:iconSpaceReserved="false"/>
     </PreferenceCategory>
-
     <PreferenceCategory android:title="@string/storage"
         app:iconSpaceReserved="false" >
 
@@ -656,32 +707,35 @@
     <PreferenceCategory android:title="@string/preferences_video_about"
         android:key="about_category"
         app:iconSpaceReserved="false" >
-        <CheckBoxPreference
+        <!--<CheckBoxPreference **** Commented rather than removed so upstream changes dont mess with me too much. ***
             android:defaultValue="false"
             android:key="enable_sponsor"
             android:persistent="true"
             android:summary="@string/enable_sponsor_summary"
             android:title="@string/enable_sponsor_title"
-            app:iconSpaceReserved="false"/>
+            app:iconSpaceReserved="false"/>-->
         <Preference
             android:key="preferences_video_os"
             android:title="@string/preferences_video_os_text"
+            android:selectable="false"
             android:widgetLayout="@layout/preferences_video_os_button"
             app:iconSpaceReserved="false"/>
         <Preference
             android:key="preferences_video_tmdb"
             android:title="@string/preferences_video_tmdb_text"
+            android:selectable="false"
             android:widgetLayout="@layout/preferences_video_tmdb_button"
             app:iconSpaceReserved="false"/>
         <Preference
             android:key="preferences_video_trakt"
             android:title="@string/preferences_video_trakt_text"
+            android:selectable="false"
             android:widgetLayout="@layout/preferences_video_trakt_button"
             app:iconSpaceReserved="false"/>
-        <PreferenceScreen
+        <!--<PreferenceScreen
             android:key="preferences_video_licences"
             android:title="@string/preferences_video_licenses"
-            app:iconSpaceReserved="false"/>
+            app:iconSpaceReserved="false"/>-->
     </PreferenceCategory>
 
     <PreferenceCategory
