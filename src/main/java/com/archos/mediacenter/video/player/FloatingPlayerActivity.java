@@ -34,7 +34,7 @@ public class FloatingPlayerActivity extends FragmentActivity {
 
     private static final Logger log = LoggerFactory.getLogger(FloatingPlayerActivity.class);
 
-    private ServiceConnection mPlayerServiceConnection = new ServiceConnection() {
+    private final ServiceConnection mPlayerServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             PlayerService.sPlayerService.setIndexHelper(new IndexHelper(FloatingPlayerActivity.this, LoaderManager.getInstance(FloatingPlayerActivity.this),0));

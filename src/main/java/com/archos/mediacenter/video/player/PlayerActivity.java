@@ -188,6 +188,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private static final String KEY_LOCK_ROTATION = "pref_lock_rotation";
     public static final String KEY_ADVANCED_VIDEO_ENABLED = "preferences_advanced_video_enabled";
     public static final String KEY_ENABLE_ANDROID_FRAME_TIMING = "enable_android_frame_timing";
+    public static final String KEY_INCREASE_DECODER_PRIORITY = "increase_decoder_priority";
 
     public static final String INDEXED_URI = "indexed_uri";
     public static final String KEY_TORRENT="torrent";
@@ -247,20 +248,20 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private static final int SUBTITLE_REQUEST = 0;
     private static final String[] GENERIC_TEXT_SUBTITLE_FORMATS = {"srt", "vtt"};
 
-    private boolean mHasAskedFloatingPermission;
-    private boolean mIsInfoActivityDisplayed;
-    private boolean mLaunchFloatingPlayer;
-    private boolean mIsReadytoStart;
-    private PermissionChecker mPermissionChecker;
-    private static int mScreenWidth, mScreenHeight;
-    private static int mCurrentRotation;
+    private boolean             mHasAskedFloatingPermission;
+    private boolean             mIsInfoActivityDisplayed;
+    private boolean             mLaunchFloatingPlayer;
+    private boolean             mIsReadytoStart;
+    private PermissionChecker   mPermissionChecker;
+    private static int          mScreenWidth, mScreenHeight;
+    private static int          mCurrentRotation;
     // screen cutouts
-    private static int mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom;
-    private static boolean mFullScreenWithCutout = true;
+    private static int          mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom;
+    private static boolean      mFullScreenWithCutout = true;
 
-    private NetworkState networkState = null;
+    private NetworkState        networkState = null;
     private PropertyChangeListener propertyChangeListener = null;
-    private DisplayManager mDisplayManager = null;
+    private DisplayManager      mDisplayManager = null;
     private DisplayManager.DisplayListener mDisplayListener = null;
 
     @Override
@@ -271,7 +272,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         mCutoutBottom = bottom;
     }
 
-    private Handler mHandler = new Handler() {
+    private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -329,14 +330,14 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private Uri                 mStreamingUri;
     private String              mTitle;
     Map<String, String>         mExtraMap = null;
-    private String              mMovieOrShowName;
+    public String               mMovieOrShowName;
     private String              mEpisode;
     private Bitmap              mThumbnail;
     private int                 mThumbnailDone;
     private boolean             mPoster;
     private String              mPosterPath;
 
-    private boolean             fileHasAlreadyPlayed = false;
+    //private boolean             fileHasAlreadyPlayed = false;
     private int                 mResume;
     private long                mVideoId;
     private int                 mErrorCode = 0;
@@ -353,59 +354,57 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private TrackInfoController mSubtitleInfoController;
 
     // State maintained for proper onPause/OnResume behaviour.
-    private boolean mResumeFromLast;
-    private boolean mNetworkBookmarksEnabled;
-    private int mRemotePosition =-1;
-    private int mLastPosition;
+    private boolean             mResumeFromLast;
+    private boolean             mNetworkBookmarksEnabled;
+    private int                 mRemotePosition =-1;
+    private int                 mLastPosition;
 
     // External player result reporting
-    private boolean mIsExternalPlayer = false;
-    private boolean mVideoFinished = false;
-    private boolean mResultSent = false;
-    private String mCallingPackage = null;
-    private int mForceAudioTrack = -1;
-    private static boolean mLockRotation;
-    private static boolean mIsRotationLocked;
-    private static int mLockedRotation;
-    private boolean mForceSWDecoding;
-    private boolean mStopped;
-    private boolean mHdmiPlugged = false;
-    private int mNotificationMode;
-    private MenuItem mInfoMenuItem;
-    private MenuItem mBookmarkMenuItem;
-    private MenuItem mBrightnessMenuItem;
-    private boolean mSeekingWithJoystickStarted = false;
+    private boolean             mIsExternalPlayer = false;
+    private boolean             mVideoFinished = false;
+    private boolean             mResultSent = false;
+    private String              mCallingPackage = null;
+    private int                 mForceAudioTrack = -1;
+    private static boolean      mLockRotation;
+    private static boolean      mIsRotationLocked;
+    private static int          mLockedRotation;
+    private boolean             mStopped;
+    private boolean             mHdmiPlugged = false;
+    private int                 mNotificationMode;
+    private MenuItem            mInfoMenuItem;
+    private MenuItem            mBookmarkMenuItem;
+    private boolean             mSeekingWithJoystickStarted = false;
 
     // Specific player settings used for demo mode
-    private boolean mForceExitOnTouch;
+    private boolean             mForceExitOnTouch;
 
-    private int mSubtitleSizeDefault;
-    private int mSubtitleVPosDefault;
-    private int mSubtitleColorDefault;
-    private boolean mSubtitleOutlineDefault;
-    private boolean mAudioSubtitleNeedUpdate = false;
-    private int mNewSubtitleTrack = -1;
-    private int mNewAudioTrack = -1;
-    private VideoDbInfo mVideoInfo;
-    private IndexHelper mIndexHelper = null;
+    private int                 mSubtitleSizeDefault;
+    private int                 mSubtitleVPosDefault;
+    private int                 mSubtitleColorDefault;
+    private boolean             mSubtitleOutlineDefault;
+    private boolean             mAudioSubtitleNeedUpdate = false;
+    //private int                 mNewSubtitleTrack = -1;
+    //private int                 mNewAudioTrack = -1;
+    private VideoDbInfo         mVideoInfo;
+    private IndexHelper         mIndexHelper = null;
 
-    private boolean mNetworkStateListenerAdded = false;
-    private boolean mCling = false;
+    private boolean             mNetworkStateListenerAdded = false;
+    private boolean             mCling = false;
 
-    private TVMenu mSubtitleTVMenu;
-    private TVMenuItem mSubtitleSettingsMenuItem;
-    private TVMenuItem mSubtitleDelayMenuItem;
-    private TVCardView mSubtitleTVCardView;
-    private TVCardView mAudioTracksTVCardView;
-    private TVMenu mAudioTracksTVMenu;
-    private boolean isTVMode;
+    private TVMenu              mSubtitleTVMenu;
+    private TVMenuItem          mSubtitleSettingsMenuItem;
+    private TVMenuItem          mSubtitleDelayMenuItem;
+    private TVCardView          mSubtitleTVCardView;
+    private TVCardView          mAudioTracksTVCardView;
+    private TVMenu              mAudioTracksTVMenu;
+    private boolean             isTVMode;
     private TorrentObserverService mTorrent;
-    private int mTorrentFilePosition = -1;
-    private Runnable r = null;
-    private int mSavedMode;
-    private AlertDialog ad=null;
-    private long mWillSleepAt; //for timer, stop player activity
-    private ServiceConnection mPlayerServiceConnection = new ServiceConnection() {
+    //private int                 mTorrentFilePosition = -1;
+    private Runnable            r = null;
+    private int                 mSavedMode;
+    private AlertDialog         ad=null;
+    private long                mWillSleepAt; //for timer, stop player activity
+    private final ServiceConnection   mPlayerServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             if (log.isDebugEnabled()) log.debug("Service connected");
@@ -779,7 +778,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         isTVMode = TVUtils.isTV(mContext);
         mLockRotation = mPreferences.getBoolean(KEY_LOCK_ROTATION, false);
         mNetworkBookmarksEnabled = mPreferences.getBoolean(KEY_NETWORK_BOOKMARKS, true);
-        mForceSWDecoding = mPreferences.getBoolean(KEY_FORCE_SW, false);
+        boolean forceSWDecoding = mPreferences.getBoolean(KEY_FORCE_SW, false);
         if (log.isDebugEnabled()) log.debug("onStart: setLockRotation {}", mLockRotation);
         setLockRotation(mLockRotation);
         mSurfaceController.setVideoFormat(Integer.parseInt(mPreferences.getString(KEY_PLAYER_FORMAT, "-1")),
@@ -837,6 +836,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             LibAvos.enableAudioSpeed(mPreferences.getBoolean(KEY_PLAYBACK_SPEED,false));
             LibAvos.disableAtempoFilter(mPreferences.getBoolean(VideoPreferencesCommon.KEY_AUDIO_SPEED_AUDIOTRACK, false));
             LibAvos.setAndroidFrameTiming(mPreferences.getBoolean(KEY_ENABLE_ANDROID_FRAME_TIMING,false));
+            LibAvos.setRaisePriority(mPreferences.getBoolean(KEY_INCREASE_DECODER_PRIORITY,false));
             LibAvos.setAudioSpeed(audioSpeed); // set audio speed playback (does nothing if audio speed not enabled)
             LibAvos.setDynamicAudioDelay(mPreferences.getBoolean(VideoPreferencesCommon.KEY_ENABLE_DYNAMIC_AUDIO_DELAY, true)); // set dynamic audio delay estimation (default enabled)
             LibAvos.parserSyncMode(Integer.parseInt(mPreferences.getString(KEY_PARSER_SYNC_MODE,"0"))); // set lavc parser sync mode (0: PTS, 1 samples)
@@ -863,7 +863,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         }
 
         //if not started from floating player, we have to stop our video
-        if (mForceSWDecoding)
+        if (forceSWDecoding)
             Toast.makeText(
                 mContext,
                 R.string.warning_swdec,
@@ -2028,7 +2028,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             }
             final View vPicInPic;
             if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N && TVUtils.isTV(this)) {
-                tvmFormat.createAndAddSeparator();
+                //tvmFormat.createAndAddSeparator();
                 vPicInPic = tvmFormat.createAndAddTVMenuItem(getString(R.string.picture_in_picture), false, false);
             }
             else vPicInPic = null;
@@ -2192,11 +2192,13 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             //------------------------------------------------------------------
 
             menu.add(MENU_GLOBAL_ACTIONS_GROUP, MENU_LOCK_ID, Menu.NONE, R.string.menu_lock_player);
+            menu.add(MENU_OTHER_GROUP, MENU_WINDOW_MODE, Menu.NONE, R.string.player_window_mode);
+            
             if (!isPluggedOnTv()) {
 
-                mBrightnessMenuItem = menu.add(MENU_GLOBAL_ACTIONS_GROUP, MENU_BRIGHTNESS_ID, Menu.NONE, R.string.menu_brightness_settings);
-                if (mBrightnessMenuItem != null) {
-                    mBrightnessMenuItem.setIcon(R.drawable.ic_menu_brightness).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+                MenuItem brightnessMenuItem = menu.add(MENU_GLOBAL_ACTIONS_GROUP, MENU_BRIGHTNESS_ID, Menu.NONE, R.string.menu_brightness_settings);
+                if (brightnessMenuItem != null) {
+                    brightnessMenuItem.setIcon(R.drawable.ic_menu_brightness).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
                 }
                 if (mPlayer!=null&&mPlayer.getEffectType()==VideoEffect.EFFECT_NONE) {
                     menuItem = menu.add(MENU_GLOBAL_ACTIONS_GROUP, MENU_LOCK_ROTATION_ID,
@@ -2257,7 +2259,6 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 }
                 mBrightnessMenuItem.setVisible(brightnessMode == 0);
             }*/
-            menu.add(MENU_OTHER_GROUP, MENU_WINDOW_MODE, Menu.NONE, R.string.player_window_mode);
             // Always add a link to the general application preferences
             menu.add(MENU_OTHER_GROUP, MENU_PREFERENCES, Menu.NONE, R.string.preferences)
                     .setIcon(R.drawable.ic_menu_settings).setShowAsAction(!isPluggedOnTv()? MenuItem.SHOW_AS_ACTION_NEVER:MenuItem.SHOW_AS_ACTION_ALWAYS);
@@ -3897,7 +3898,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
         public void onAudioMetadataUpdated(VideoMetadata vMetadata, int newAudioTrack) {
             if (mVideoInfo == null) {
-                mNewAudioTrack = newAudioTrack;
+                //mNewAudioTrack = newAudioTrack;
                 mAudioSubtitleNeedUpdate = true;
                 return;
             }
@@ -3928,7 +3929,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
         public void onSubtitleMetadataUpdated(VideoMetadata vMetadata, int newSubtitleTrack) {
             if (mVideoInfo == null) {
-                mNewSubtitleTrack = newSubtitleTrack;
+                //mNewSubtitleTrack = newSubtitleTrack;
                 mAudioSubtitleNeedUpdate = true;
                 return;
             }
@@ -4035,15 +4036,15 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 if (remoteVideoInfo != null) {
                     if (localVideoInfo.lastTimePlayed == 0 && remoteVideoInfo.audioTrack == -1) {
                         if (log.isDebugEnabled()) log.debug("onVideoDb: first play");
-                        fileHasAlreadyPlayed = false;
-                    } else fileHasAlreadyPlayed = true;
+                        //fileHasAlreadyPlayed = false;
+                    } //else fileHasAlreadyPlayed = true;
                 } else {
                     if (localVideoInfo.lastTimePlayed == 0) {
                         if (log.isDebugEnabled()) log.debug("onVideoDb: first play");
-                        fileHasAlreadyPlayed = false;
-                    } else fileHasAlreadyPlayed = true;
+                       // fileHasAlreadyPlayed = false;
+                    } //else fileHasAlreadyPlayed = true;
                 }
-            } else fileHasAlreadyPlayed = false;
+            } //else fileHasAlreadyPlayed = false;
             if (localVideoInfo != null) {
                 final int localTraktPosition = Math.abs(localVideoInfo.duration>0 ? (int)(localVideoInfo.traktResume * (double) localVideoInfo.duration / 100) : 0);
                 log.info("onVideoDb: trakt calc: "+ localTraktPosition+ " local "+ localVideoInfo.resume);
