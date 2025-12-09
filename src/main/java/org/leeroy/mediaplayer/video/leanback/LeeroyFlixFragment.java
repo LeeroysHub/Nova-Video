@@ -684,7 +684,7 @@ public class LeeroyFlixFragment extends BrowseSupportFragment implements LoaderM
         if (showByRating)
             moviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_RATING, getString(R.string.movies_by_rating), R.drawable.ratings_banner));
         moviesRowsAdapter.add(new Box(Box.ID.MOVIES_BY_YEAR, getString(R.string.movies_by_year), R.drawable.years_banner_2026));
-        mMovieRow = new ListRow(ROW_ID_MOVIES, new HeaderItem(getString(R.string.movies)), mMoviesRowsAdapter);
+        mMovieRow = new ListRow(ROW_ID_MOVIES, new HeaderItem(getString(R.string.movies)), moviesRowsAdapter);
         buildAllCollectionsBox(wasInPause);
         moviesRowsAdapter.add(mAllCollectionsBox);
 
