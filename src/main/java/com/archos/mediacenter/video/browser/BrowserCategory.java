@@ -48,6 +48,7 @@ import com.archos.mediacenter.video.player.PrivateMode;
 import com.archos.mediacenter.video.utils.VideoPreferencesCommon;
 import com.archos.mediacenter.video.utils.WebUtils;
 import com.archos.environment.NetworkState;
+import com.archos.mediaprovider.video.NetworkAutoRefresh;
 
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -76,7 +77,7 @@ abstract public class BrowserCategory extends ListFragment {
     protected static final int ITEM_ID_PROVIDER = 6;
     protected static final int ITEM_ID_NETWORK = 5;
     protected static final int FILE_CHOOSER_ACTIVITY_REQUEST_CODE = 788;
-
+    protected static final int ITEM_ID_VIDEO_FOLDER = ITEM_ID_OFFSET + 0;
 
     private int mLibrarySize;
     protected int mSelectedItemId;
@@ -90,7 +91,6 @@ abstract public class BrowserCategory extends ListFragment {
     private NetworkState networkState = null;
     private PropertyChangeListener propertyChangeListener = null;
     private boolean mNetworkStateListenerAdded = false;
-    private boolean mEnableSponsor = false;
 
     /**
      * This object is used to store basic info for the category list item.
@@ -191,7 +191,7 @@ abstract public class BrowserCategory extends ListFragment {
         }
         mLayoutCallback = new LayoutCallback();
 
-        updateLibrary();
+        updateLibrary(mPreferences.getBoolean(getString(R.string.preferences_show_basic_interface_key), false));
         mCategoryAdapter = new CategoryAdapter(getActivity().getApplicationContext());
         setListAdapter(mCategoryAdapter);
 
@@ -308,22 +308,24 @@ abstract public class BrowserCategory extends ListFragment {
                 if(getActivity() instanceof MainActivity)
                     ((MainActivity) getActivity()).startPreference();
                 setSelection(mSelectedItemId); //restore selection
-            } else if (item.text == R.string.help_faq){
-                WebUtils.openWebLink(getActivity(),getString(R.string.faq_url));
-            } else if (item.text == R.string.sponsor){
-                WebUtils.openWebLink(getActivity(),getString(R.string.sponsor_url));
-            } else if(item.text  == R.string.activate_private_mode || item.text  == R.string.deactivate_private_mode){
-                if (!PrivateMode.isActive() && PrivateMode.canShowDialog(getActivity())) {
-                    PrivateMode.showDialog(getActivity());
-                }
-                PrivateMode.toggle();
-                setSelection(mSelectedItemId); //restore selection
-                ((MainActivity) getActivity()).setBackground();
-                updateExternalStorage();
+            } else if (item.text == R.string.rescrape_title) {
+                rescanAvailableShortcuts();
+            //} else if (item.text == R.string.help_faq){
+            //    WebUtils.openWebLink(getActivity(),getString(R.string.faq_url));
+            //} else if (item.text == R.string.sponsor){
+            //    WebUtils.openWebLink(getActivity(),getString(R.string.sponsor_url));
+            //} else if(item.text  == R.string.activate_private_mode || item.text  == R.string.deactivate_private_mode){
+            //    if (!PrivateMode.isActive() && PrivateMode.canShowDialog(getActivity())) {
+            //        PrivateMode.showDialog(getActivity());
+            //    }
+            //    PrivateMode.toggle();
+            //    setSelection(mSelectedItemId); //restore selection
+            //    ((MainActivity) getActivity()).setBackground();
+            //    updateExternalStorage();
             } else {
-
                 updateListSelection(v, item);
                 setFragment(item.path);
+                setSelection(mSelectedItemId); //restore selection
                 if(item.id!=ITEM_ID_PROVIDER) { //don't save when provider to avoid restarting with android browser view
                     PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putInt(PREFERENCE_LAST_FRAGMENT, mSelectedItemId).apply();
                     PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putString(PREFERENCE_LAST_PATH, item.path).apply();
@@ -331,8 +333,11 @@ abstract public class BrowserCategory extends ListFragment {
                 if (getActivity() instanceof MainActivity)
                     ((MainActivity) getActivity()).closeDrawer();
             }
-
         }
+    }
+
+    protected void rescanAvailableShortcuts() {
+        NetworkAutoRefresh.forceRescan(getActivity());
     }
 
     protected void updateListSelection(View v, ItemData item) {
@@ -391,21 +396,21 @@ abstract public class BrowserCategory extends ListFragment {
     /**
      * Update the library category's items
      */
-    private void updateLibrary() {
+    private void updateLibrary(boolean IsBasicInterface) {
         if (mCategoryList == null)
             mCategoryList = new ArrayList<Object>();
         else
             mCategoryList.clear();
 
         mCategoryList.add(getText(R.string.goto_start));
-        setLibraryList(mCategoryList);
+        setLibraryList(mCategoryList, IsBasicInterface);
         mLibrarySize = mCategoryList.size();
     }
 
     /**
      * Add the library category items.
      */
-    abstract public void setLibraryList(ArrayList<Object> categoryList);
+    abstract public void setLibraryList(ArrayList<Object> categoryList, boolean IsBasicInterface);
 
 
     /**
@@ -440,15 +445,27 @@ abstract public class BrowserCategory extends ListFragment {
             }
         }
         */
+        
         ExtStorageManager storageManager = ExtStorageManager.getExtStorageManager();
         final boolean hasExternal = storageManager.hasExtStorage();
         final boolean isConnected = isConnected();
-        if (hasExternal|| isConnected || NetworkState.isNetworkConnected(getActivity())) {
+        final boolean isHidingExternal = mPreferences.getBoolean(getString(R.string.preferences_show_basic_interface_key), false);
+
+        ItemData itemData;
+        if (!isHidingExternal && (hasExternal|| isConnected || NetworkState.isNetworkConnected(getActivity()))) {
             mCategoryList.add(getText(R.string.external_storage));
+
+            {   //Scope local so the variables don't clash, rest are in conditionals and this is an edge case...
+                itemData = new ItemData();
+                itemData.icon = R.drawable.category_common_folder;
+                itemData.text = R.string.video_folder;
+                itemData.id = ITEM_ID_VIDEO_FOLDER;
+                mCategoryList.add(itemData);
+            }
 
             if (hasExternal) {
                 for(String s : storageManager.getExtSdcards()) {
-                    ItemData itemData = new ItemData();
+                    itemData = new ItemData();
                     itemData.icon = R.drawable.category_common_sdcard;
                     itemData.text = R.string.sd_card_storage;
                     itemData.path = s;
@@ -456,7 +473,7 @@ abstract public class BrowserCategory extends ListFragment {
                     mCategoryList.add(itemData);
                 }
                 for(String s : storageManager.getExtUsbStorages()) {
-                    ItemData itemData = new ItemData();
+                    itemData = new ItemData();
                     itemData.icon = R.drawable.category_common_usb;
                     itemData.text = R.string.usb_host_storage;
                     itemData.path = s;
@@ -464,7 +481,7 @@ abstract public class BrowserCategory extends ListFragment {
                     mCategoryList.add(itemData);
                 }
                 for(String s : storageManager.getExtOtherStorages()) {
-                    ItemData itemData = new ItemData();
+                    itemData = new ItemData();
                     itemData.icon = R.drawable.category_common_folder;
                     itemData.text = R.string.other_storage;
                     itemData.path = s;
@@ -474,22 +491,21 @@ abstract public class BrowserCategory extends ListFragment {
             }
 
             if (isConnected){
-                ItemData itemData = new ItemData();
+                itemData = new ItemData();
                 itemData.icon = R.drawable.category_common_network;
                 itemData.text = R.string.network_shared_folders;
                 itemData.id = ITEM_ID_SMB;
                 mCategoryList.add(itemData);
-            }
-
-            if (isConnected){
-                ItemData itemData = new ItemData();
+                /* }
+                if (isConnected){ */
+                itemData = new ItemData();
                 itemData.icon = R.drawable.category_common_network;
                 itemData.text = R.string.network_media_servers;
                 itemData.id = ITEM_ID_UPNP;
                 mCategoryList.add(itemData);
             }
             if ( NetworkState.isNetworkConnected(getActivity())){
-                ItemData itemData = new ItemData();
+                itemData = new ItemData();
                 itemData.icon = R.drawable.category_common_network;
                 itemData.text = R.string.network_shortcuts;
                 itemData.id = ITEM_ID_NETWORK;
@@ -499,11 +515,14 @@ abstract public class BrowserCategory extends ListFragment {
         // one could argue that "cloud" should be made available only if connected
         // but offline capability is present in drive and provider is more generic
         // than cloud in reality. Perhaps think of better name
-        ItemData itemData = new ItemData();
-        itemData.icon = R.drawable.category_common_network;
-        itemData.text = R.string.provider_folders;
-        itemData.id = ITEM_ID_PROVIDER;
-        mCategoryList.add(itemData);
+        if (!isHidingExternal) {
+            itemData = new ItemData();
+            itemData.icon = R.drawable.category_common_network;
+            itemData.text = R.string.provider_folders;
+            itemData.id = ITEM_ID_PROVIDER;
+            mCategoryList.add(itemData);
+        }
+        
         addLastItems();
         mCategoryAdapter.notifyDataSetChanged();
         // Set the selection when rotating.
@@ -524,23 +543,26 @@ abstract public class BrowserCategory extends ListFragment {
     }
 
     private void addLastItems() {
-        mCategoryList.add("Nova" + " v" + getText(R.string.VERSION_NAME));
+        //PREFERENCES MENU HEADER TABLET/PHONE UI
+        mCategoryList.add("Archos");
+        
+        //Preferences Menu Phone/Tablet UI
         ItemData itemData = new ItemData();
         itemData.icon = R.drawable.android29_ic_settings;
         itemData.text = R.string.preferences;
         mCategoryList.add(itemData);
+        
+        //Re-scan menu Phone/Tablet UI
         itemData = new ItemData();
-        itemData.icon = R.drawable.android29_ic_menu_help;
-        itemData.text = R.string.help_faq;
+        itemData.icon = R.drawable.android29_ic_rescan;
+        itemData.text = R.string.rescrape_title;
         mCategoryList.add(itemData);
+        
+        //itemData = new ItemData();
+        //itemData.icon = R.drawable.android29_ic_menu_help;
+        //itemData.text = R.string.help_faq;
+        //mCategoryList.add(itemData);
         // Google Play is allergic to piggies... no donation button
-        if (BuildConfig.ENABLE_SPONSOR) mEnableSponsor = mPreferences.getBoolean(VideoPreferencesCommon.KEY_ENABLE_SPONSOR, VideoPreferencesCommon.ENABLE_SPONSOR_DEFAULT);
-        if (((! ArchosUtils.isInstalledfromPlayStore(getActivity().getApplicationContext())) || mEnableSponsor) && BuildConfig.ENABLE_SPONSOR) {
-            itemData = new ItemData();
-            itemData.icon = R.drawable.piggy_bank;
-            itemData.text = R.string.sponsor;
-            mCategoryList.add(itemData);
-        }
     }
 
     public void clearCheckedItem() {
