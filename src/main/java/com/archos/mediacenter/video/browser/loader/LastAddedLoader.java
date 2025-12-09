@@ -20,6 +20,7 @@ import android.util.Log;
 
 import com.archos.mediaprovider.video.LoaderUtils;
 import com.archos.mediaprovider.video.VideoStore;
+import com.archos.mediaprovider.video.LoaderUtils;
 
 /**
  * Load the 100 latest videos
@@ -34,7 +35,7 @@ public class LastAddedLoader extends VideoLoader {
         super(context);
         init();
         // cf. https://github.com/nova-video-player/aos-AVP/issues/134 reduce strain
-        // only updates the CursorLoader on data change every 10s since used only in MainFragment as nonScraped box presence
+        // only updates the CursorLoader on data change every 10s since used only in ArchosFragment as nonScraped box presence
         if (VideoLoader.ALLVIDEO_THROTTLE) setUpdateThrottle(VideoLoader.ALLVIDEO_THROTTLE_DELAY);
 
         // When smart mode is enabled, add GROUP BY and HAVING via URI query parameters
@@ -54,10 +55,16 @@ public class LastAddedLoader extends VideoLoader {
         sb.append(super.getSelection()); // get common selection from the parent
 
         if (LoaderUtils.isSmartRecentlyRows()) {
+            //If we have watched it, it is now new anymore!
+            //sb.append(LoaderUtils.HIDE_WATCHED_FILTER);
+
             //If we have played it at all (watched or started), it's not new anymore - it will show in Last Played!
-            sb.append(" AND ");
-            sb.append(VideoStore.Video.VideoColumns.ARCHOS_LAST_TIME_PLAYED + "=0");
+            sb.append(" AND " + VideoStore.Video.VideoColumns.ARCHOS_LAST_TIME_PLAYED + "=0");
+        } else {
+            //NO NULL MOVIES, I WILL LEAVE OUT SO I CAN FIX THe LIBRARY!
+            sb.append (" AND COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_S_IMDB_ID + ") IS NOT NULL");
         }
+
         String selection = sb.toString();
         if (DBG) Log.d(TAG, "getSelection() returned: " + selection);
         return selection;
