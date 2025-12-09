@@ -59,7 +59,7 @@ public abstract class AnimeShowsByLoader extends CursorLoader implements CompatA
             sb.append(" AND "+LoaderUtils.HIDE_WATCHED_FILTER);
         }
 
-        sb.append(" AND ( " + VideoStore.Video.VideoColumns.SCRAPER_S_GENRES + " IS NULL OR " +
+        sb.append(" AND (" + VideoStore.Video.VideoColumns.SCRAPER_S_GENRES + " IS NULL OR " +
                 VideoStore.Video.VideoColumns.SCRAPER_S_GENRES + " LIKE '%" + mContext.getString(com.archos.medialib.R.string.tvshow_genre_animation) + "%' )");
 
         return sb.toString();
