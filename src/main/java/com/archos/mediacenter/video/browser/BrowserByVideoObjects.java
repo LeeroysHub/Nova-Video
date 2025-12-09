@@ -199,10 +199,9 @@ public abstract class BrowserByVideoObjects extends Browser implements CommonPre
         // Subloader
         menu.add(0, R.string.get_subtitles_online, 0, R.string.get_subtitles_online);
 
-        if(video.hasScraperData()){
-            menu.add(0, R.string.add_to_list, 0, R.string.add_to_list);
-
-        }
+        //if(video.hasScraperData()){
+        //    menu.add(0, R.string.add_to_list, 0, R.string.add_to_list);
+        //}
 
         // Propose to remove from DB the files that are indexed
         if (video.getId()>0) {
@@ -335,13 +334,13 @@ public abstract class BrowserByVideoObjects extends Browser implements CommonPre
                 startDownloadingVideo(toCopy);
 
                 break;
-            case R.string.add_to_list:
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(ListDialog.EXTRA_VIDEO, video);
-                ListDialog dialog = new ListDialog();
-                dialog.setArguments(bundle);
-                dialog.show(getActivity().getSupportFragmentManager(), "list_dialog");
-                break;
+            //case R.string.add_to_list:
+            //    Bundle bundle = new Bundle();
+            //    bundle.putSerializable(ListDialog.EXTRA_VIDEO, video);
+            //    ListDialog dialog = new ListDialog();
+            //    dialog.setArguments(bundle);
+            //    dialog.show(getActivity().getSupportFragmentManager(), "list_dialog");
+            //    break;
             default:
                 ret = super.onContextItemSelected(item);
                 log.error("onContextItemSelected: unexpected default case! {}", index);
