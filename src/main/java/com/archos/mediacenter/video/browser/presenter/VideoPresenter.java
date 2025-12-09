@@ -129,10 +129,10 @@ public class VideoPresenter extends CommonPresenter{
             holder.traktLibrary.setVisibility(video.isTraktLibrary() ? View.VISIBLE : View.GONE);
         if (holder.video3D != null)
             holder.video3D.setVisibility(video.is3D() ? View.VISIBLE : View.GONE);
-        if(holder.count!=null){
-            holder.countcontainer.setVisibility(video.getOccurencies()>1 ? View.VISIBLE : View.GONE);
-            holder.count.setText(String.valueOf(video.getOccurencies()));
-        }
+        //if(holder.count!=null){
+        //    holder.countcontainer.setVisibility(video.getOccurencies()>1 ? View.VISIBLE : View.GONE);
+        //    holder.count.setText(String.valueOf(video.getOccurencies()));
+        //}
         return view;
     }
     public void setResume(boolean display, int max, int resumePosition, ProgressBar resume){
