@@ -68,7 +68,7 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
      * Used to disable the action bar navigation listener when initializing the action bar navigation while the fragment is already created
      */
     private boolean mNavigationItemListenerActive = true;
-    private static final int ITEM_ID_VIDEO_FOLDER = ITEM_ID_OFFSET + 0;
+    private static final int ITEM_ID_VIDEO_FOLDER = ITEM_ID_OFFSET;
     private static final int ITEM_ID_MOVIES = ITEM_ID_OFFSET + 1;
     private static final int ITEM_ID_TV_SHOWS = ITEM_ID_OFFSET + 2;
     private static final int ITEM_ID_ALL_VIDEOS = ITEM_ID_OFFSET + 3;
@@ -117,9 +117,9 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
             if (item instanceof ItemData) {
                 ItemData itemData = (ItemData) item;
                 if (itemData.id == ITEM_ID_RECENTLY_ADDED) {
-                    itemData.text = LoaderUtils.isSmartRecentlyRows() ? R.string.new_and_unwatched_videos : R.string.recently_added_videos;
+                    itemData.text = R.string.recently_added_videos;
                 } else if (itemData.id == ITEM_ID_RECENTLY_PLAYED) {
-                    itemData.text = LoaderUtils.isSmartRecentlyRows() ? R.string.keep_watching_videos : R.string.recently_played_videos;
+                    itemData.text = R.string.recently_played_videos;
                 } else if (itemData.id == ITEM_ID_NON_SCRAPED) {
                     itemData.text = R.string.non_scraped_videos;
                 }
@@ -135,62 +135,59 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
 
 
     @Override
-    public void setLibraryList(ArrayList<Object> categoryList) {
+    public void setLibraryList(ArrayList<Object> categoryList, boolean IsBasicInterface) {
         ItemData itemData;
 
+        //MOVIES COLLECTION TABLET/PHONE UI
         itemData = new ItemData();
         itemData.icon = R.drawable.category_video_movie;
         itemData.text = R.string.movies;
         itemData.id = ITEM_ID_MOVIES;
         categoryList.add(itemData);
 
+        //TV SHOWS COLLECTION TABLET/PHONE UI
         itemData = new ItemData();
         itemData.icon = R.drawable.category_video_tvshow;
         itemData.text = R.string.all_tv_shows;
         itemData.id = ITEM_ID_TV_SHOWS;
         categoryList.add(itemData);
 
-        //ALL VIDEO COLLECTION TABLET/PHONE UI
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_all;
-        itemData.text = R.string.all_videos;
-        itemData.id = ITEM_ID_ALL_VIDEOS;
-        categoryList.add(itemData);
+        if (!IsBasicInterface) {
+            //ALL VIDEO COLLECTION TABLET/PHONE UI
+            itemData = new ItemData();
+            itemData.icon = R.drawable.category_video_all;
+            itemData.text = R.string.all_videos;
+            itemData.id = ITEM_ID_ALL_VIDEOS;
+            categoryList.add(itemData);
+            
+            /* }
+            //NON SCRAPED COLLECTION TABLET/PHONE UI
+            if (!IsBasicInterface) { */
+            itemData = new ItemData();
+            itemData.icon = R.drawable.category_non_scraped_videos;
+            itemData.text = R.string.non_scraped_videos;
+            itemData.id = ITEM_ID_NON_SCRAPED;
+            categoryList.add(itemData);
+        }
 
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_added;
-        itemData.text = LoaderUtils.isSmartRecentlyRows() ? R.string.new_and_unwatched_videos : R.string.recently_added_videos;
-        itemData.id = ITEM_ID_RECENTLY_ADDED;
-        categoryList.add(itemData);
 
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_played;
-        itemData.text = LoaderUtils.isSmartRecentlyRows() ? R.string.keep_watching_videos : R.string.recently_played_videos;
-        itemData.id = ITEM_ID_RECENTLY_PLAYED;
-        categoryList.add(itemData);
-
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_played;
-        itemData.text = R.string.video_lists;
-        itemData.id = ITEM_ID_LISTS;
-        categoryList.add(itemData);
-
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_non_scraped_videos;
-        itemData.text = R.string.non_scraped_videos;
-        itemData.id = ITEM_ID_NON_SCRAPED;
-        categoryList.add(itemData);
-
-        /*itemData = new ItemData();
-        itemData.icon = R.drawable.category_video_not_played;
-        itemData.text = R.string.not_played_yet_videos;
-        categoryList.add(itemData);*/
-
-        itemData = new ItemData();
-        itemData.icon = R.drawable.category_common_folder;
-        itemData.text = R.string.video_folder;
-        itemData.id = ITEM_ID_VIDEO_FOLDER;
-        categoryList.add(itemData);
+        //RECENTLY ADDED COLLECTION TABLET/PHONE UI
+        if (mPreferences.getBoolean(getString(R.string.preferences_display_recently_added_key), true)) {
+            itemData = new ItemData();
+            itemData.icon = R.drawable.category_video_added;
+            itemData.text = R.string.recently_added_videos;
+            itemData.id = ITEM_ID_RECENTLY_ADDED;
+            categoryList.add(itemData);
+        }
+        
+        //RECENTLY PLAYED COLLECTION TABLET/PHONE UI        
+        if (mPreferences.getBoolean(getString(R.string.preferences_display_recently_played_key), true)) {
+            itemData = new ItemData();
+            itemData.icon = R.drawable.category_video_played;
+            itemData.text = R.string.recently_played_videos;
+            itemData.id = ITEM_ID_RECENTLY_PLAYED;
+            categoryList.add(itemData);
+        }
     }
 
 
@@ -291,7 +288,7 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
                 break;
             case ITEM_ID_RECENTLY_ADDED:
                 fragmentClass = BrowserLastAdded.class;
-                struc.title = LoaderUtils.isSmartRecentlyRows() ? R.string.new_and_unwatched_videos : R.string.recently_added_videos;
+                struc.title = R.string.recently_added_videos_title;
                 break;
             case ITEM_ID_NON_SCRAPED:
                 fragmentClass = BrowserNonScraped.class;
@@ -299,12 +296,13 @@ public class BrowserCategoryVideo extends BrowserCategory implements androidx.ap
                 break;
             case ITEM_ID_RECENTLY_PLAYED:
                 fragmentClass = BrowserLastPlayed.class;
-                struc.title = LoaderUtils.isSmartRecentlyRows() ? R.string.keep_watching_videos : R.string.recently_played_videos;
+                struc.title = R.string.recently_played_videos;
                 break;
             case ITEM_ID_LISTS:
                 fragmentClass = BrowserPlaylists.class;
                 struc.title = R.string.video_lists;
                 break;
+                // TODO MARC WARNING
             case ITEM_ID_NON_PLAYED_YET:
                 fragmentClass = BrowserNeverPlayed.class;
                 struc.title = R.string.not_played_yet_videos;
