@@ -8,7 +8,7 @@
 
     <string name="player_plugin_store_url">https://www.archos.com/misc/result.html?ptype=10&amp;ts=pl</string>
 
-    <string name="sponsor_url">https://home.courville.org/sponsor</string>
+    <!-- <string name="sponsor_url">https://home.courville.org/sponsor</string>-->
 
     <string name="faq_url">https://home.courville.org/nova_video_player-faq/index.html</string>
 
@@ -27,6 +27,12 @@
     <string name="save_audio_speed_setting_pref_key">save_audio_speed_setting_pref_key</string>
     <string name="preferences_network_mobile_vpn_key">vpn_mobile</string>
     <string name="reset_brightness_on_start_key">reset_brightness_on_start</string>
+    <string name="preferences_show_basic_interface_key">show_basic_interface_key</string>
+    <string name="preferences_display_recently_played_key">display_recently_played</string>
+    <string name="preferences_display_recently_added_key">display_recently_added</string>
+    
+    <!-- <string name="preferences_leeroys_override_key">leeroys_override</string> -->
+
     <string name="nfo_export_manual_prefkey">export_manual_prefkey</string>
     <string name="rescrap_all_prefkey">rescrap_all_prefkey</string>
     <string name="rescrap_all_movies_prefkey">rescrap_all_movies_prefkey</string>
@@ -34,11 +40,12 @@
     <string name="db_export_manual_prefkey">db_export_manual_prefkey</string>
     <string name="media_library_export_prefkey">media_library_export_prefkey</string>
     <string name="media_library_import_prefkey">media_library_import_prefkey</string>
+    <string name="db_import_manual_prefkey">db_import_manual_prefkey</string>
 
     <string name="nova">Nova Video Player</string>
 
     <string name="resolution_4k">4k</string>
-    // do not say p since it can be i too
+    <!-- // do not say p since it can be i too -->
     <string name="resolution_1080p">1080</string>
     <string name="resolution_720p">720</string>
     <string name="resolution_SD">SD</string>
