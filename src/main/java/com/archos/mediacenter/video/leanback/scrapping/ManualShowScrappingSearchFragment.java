@@ -400,7 +400,7 @@ public class ManualShowScrappingSearchFragment extends ManualScrappingSearchFrag
 
         private EpisodeTags getEpisode(Map<String, EpisodeTags> map, int episode, int season, ShowTags show) {
             // TODO: handle map being null to avoid crash
-            EpisodeTags newEpTag = map.get(season + "|" + episode);
+            EpisodeTags newEpTag = map.get(show.getId() + "|" + season + "|" + episode);
             if (newEpTag == null) {
                 newEpTag = new EpisodeTags();
                 // assume episode / season of request
