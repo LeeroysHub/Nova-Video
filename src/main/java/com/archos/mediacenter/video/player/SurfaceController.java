@@ -333,7 +333,7 @@ public class SurfaceController {
             dch =  dh - cutoutTop - cutoutBottom;
         }
 
-        if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: v=({},{})", vw, vh);
+        //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: v=({},{})", vw, vh);
 
         //Get the Display aspect ratio, with and without cutouts.
         double dar = (double) dw / (double) dh;     // display aspect ratio
@@ -357,7 +357,7 @@ public class SurfaceController {
         //Is the STRETCH_XY doing Y? 
         willStretchY = (dcar < ar) ;
 
-        if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: sar={}, ar={}, dar={}, dcar={}", sar, ar, dar, dcar);
+        //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: sar={}, ar={}, dar={}, dcar={}", sar, ar, dar, dcar);
 
         //Apply any Video Format Effects, stretch to the right size.
         switch (fmt) {
@@ -365,12 +365,12 @@ public class SurfaceController {
                 if (dcar < ar) {
                     //4:3 movie on 16:9 screen or 16:9 movie on portrait screen
                     dch = (int) (dcw/ (ar));
-                    if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.ORIGINAL dcar<ar dch={}", dch);
+                    //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.ORIGINAL dcar<ar dch={}", dch);
                 } else {
                     //16:9 movie on 4:3 screen
                     cutoutLeft = cutoutTop = cutoutRight = mCutoutBottom = 0;
                     dcw = (int) (dch * ar);
-                    if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.ORIGINAL dcar>=ar dcw={}", dcw);
+                    //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.ORIGINAL dcar>=ar dcw={}", dcw);
                 }
                 break;
             case VideoFormat.STRETCH_XY:
@@ -411,11 +411,11 @@ public class SurfaceController {
                 if (dcar > ar) {
                     dcw = dcw + (((int) (dch * ar)) - dcw) / 2;
                     cropH = (float) dch / (float) (dcw / ar);
-                    if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.AUTO dcar>ar dc=({},{})", dcw, dch);
+                    //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.AUTO dcar>ar dc=({},{})", dcw, dch);
                 } else {
                     dch = dch + (((int) (dcw / ar)) - dch) / 2;
                     cropW = (float) dcw / (float) (dch * ar);
-                    if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.AUTO dcar<=ar dc=({},{})", dcw, dch);
+                    //log.debug("CONFIG updateSurface: VideoFormat.AUTO dcar<=ar dc=({},{})", dcw, dch);
                 }
                 break;
             }
@@ -424,14 +424,14 @@ public class SurfaceController {
         if (((mEffectMode & VideoEffect.TB_MODE)!=0) && (ar <= 1.5)) dcw *= 2;
         if (((mEffectMode & VideoEffect.SBS_MODE)!=0) && (ar >= 3.0)) dch *= 2;
 
-        if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: setFixedSize({},{})", vw, vh);
+        //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: setFixedSize({},{})", vw, vh);
 
         if (mSurfaceView != null) mSurfaceView.getHolder().setFixedSize(vw, vh);
 
         dcw = Math.round(dcw  / cropW);
         dch = Math.round(dch / cropH);
 
-        if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: setLayoutParams({},{})", dcw, dch);
+        //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: setLayoutParams({},{})", dcw, dch);
 
         // margins to avoid cutout
         // When HDMI is plugged, do not apply phone's cutout margins to external display
@@ -440,14 +440,14 @@ public class SurfaceController {
 
         ViewGroup.LayoutParams lp = mView.getLayoutParams();
         if (lp instanceof ViewGroup.MarginLayoutParams marginParams) {
-            if (log.isDebugEnabled()) log.debug("MARC works with MarginLayoutParams"); // TODO MARC it works!!!
+            //if (log.isDebugEnabled()) log.debug("MARC works with MarginLayoutParams"); // TODO MARC it works!!!
             lp.width = dcw;
             lp.height = dch;
             // video view is centered on the screen, in order to avoid cutout it needs to be shifted slightly
             marginParams.setMargins(mMarginLeft, mMarginTop, 0, 0);
             mView.setLayoutParams(marginParams);
         } else {
-            if (log.isDebugEnabled()) log.debug("MARC works with LayoutParams NO MARGIN");
+            //if (log.isDebugEnabled()) log.debug("MARC works with LayoutParams NO MARGIN");
             lp.width = dcw;
             lp.height = dch;
             mView.setLayoutParams(lp);
@@ -456,7 +456,7 @@ public class SurfaceController {
 
         mSurfaceWidth = dcw;
         mSurfaceHeight = dch;
-        if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: ({},{})->({},{}) / formatCrop: ({},{}) / mEffectMode: {}", vw, vh, dcw, dch, cropW, cropH, mEffectMode);
+        //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: ({},{})->({},{}) / formatCrop: ({},{}) / mEffectMode: {}", vw, vh, dcw, dch, cropW, cropH, mEffectMode);
     }
 
     public int getViewWidth() { return mSurfaceWidth; }

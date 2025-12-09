@@ -557,17 +557,18 @@ public class VideoDetailsFragment extends DetailsFragmentWithLessTopOffset imple
         }
 
         // update video in case of binge watching or repeat mode
-        if (log.isDebugEnabled()) log.debug("onResume: mFirstOnResume {}, mResumeFromPlayer {}", mFirstOnResume, mResumeFromPlayer);
+        //if (log.isDebugEnabled()) log.debug("onResume: mFirstOnResume {}, mResumeFromPlayer {}", mFirstOnResume, mResumeFromPlayer);
         long playerVideoId = CustomApplication.getLastVideoPlayedId();
         Uri playerVideoUri = CustomApplication.getLastVideoPlayedUri();
-        if (mVideo != null) if (log.isDebugEnabled()) log.debug("onResume: current mVideo {}({}), playerVideo {}({}), mVideoIdFromPlayer {}, mVideoFromPlayer {}({})", mVideo.getFileUri(), mVideo.getId(), playerVideoUri, playerVideoId, mVideoIdFromPlayer, mVideoPathFromPlayer, mVideoIdFromPlayer);
-        else if (log.isDebugEnabled()) log.debug("onResume: current mVideo is null");
+        
+        //if (mVideo != null) if (log.isDebugEnabled()) log.debug("onResume: current mVideo {}({}), playerVideo {}({}), mVideoIdFromPlayer {}, mVideoFromPlayer {}({})", mVideo.getFileUri(), mVideo.getId(), playerVideoUri, playerVideoId, mVideoIdFromPlayer, mVideoPathFromPlayer, mVideoIdFromPlayer);
+        //else if (log.isDebugEnabled()) log.debug("onResume: current mVideo is null");
         if ((playerVideoId != -42 && mVideo.getId() != playerVideoId) ||
             (playerVideoUri != null && ! mVideo.getFileUri().equals(playerVideoUri))) {
-            if (log.isDebugEnabled()) log.debug("onResume: different playerVideo and mVideo detected!");
+            //if (log.isDebugEnabled()) log.debug("onResume: different playerVideo and mVideo detected!");
             mVideoPathFromPlayer = playerVideoUri.toString();
             mVideoIdFromPlayer = playerVideoId;
-            if (log.isDebugEnabled()) log.debug("onResume: not the same video than before (repeat mode?) target is {}", mVideoPathFromPlayer);
+            //if (log.isDebugEnabled()) log.debug("onResume: not the same video than before (repeat mode?) target is {}", mVideoPathFromPlayer);
             // get mVideo set to new video
             CursorLoader loader = new MultipleVideoLoader(getActivity(), mVideoPathFromPlayer);
             Cursor c = loader.loadInBackground();

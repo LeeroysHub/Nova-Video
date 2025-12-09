@@ -79,7 +79,7 @@ public class OpenSubtitlesApiHelper {
     private static int allowedTranslations = 5;
     private static int numberDownloads = 0;
     private static String resetTimeRemaining = "";
-    private static String resetTimeUTC = "2100-04-21T00:00:00Z"; // long live nova video player (I should be dead by then)
+    private static String resetTimeUTC = "2100-04-21T00:00:00Z"; // long live nova video player (I should be dead by then) (Um, Morbid but I love these finds! I hereby pledge to upload my brain to the cloud if possible, so Ill be here!)
     private static boolean vip = false;
     private static int userId = 0;
     private static boolean extInstalled = false;
