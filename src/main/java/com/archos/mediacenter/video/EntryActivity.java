@@ -49,7 +49,7 @@ public class EntryActivity extends AppCompatActivity {
         if (log.isDebugEnabled()) log.debug("onCreate");
 
         Class activityToLaunch = null;
-        if (UiChoiceDialog.applicationIsInLeanbackMode(this)) {
+        if (UiChoiceDialog.applicationIsInLeanbackMode(this, true)) {
             activityToLaunch = MainActivityLeanback.class;
         } else {
             activityToLaunch = MainActivity.class;
