@@ -143,11 +143,10 @@ public class CustomApplication extends Application implements DefaultLifecycleOb
         sharedPreferences.edit().putBoolean("app_updated", false).commit();
         novaUpdated = false;
     }
-
     // AVOS encoding values are aligned with Android AudioFormat ones
     // note that API level has been checked with https://cs.android.com/android/platform/superproject/+/android-6.0.0_r23:frameworks/base/media/java/android/media/AudioFormat.java
     // maintain sync with avos audio_spdif.c
-    private final int AVOS_ENCODING_INVALID = 0;                // 0 -> AudioFormat.ENCODING_INVALID = 0 (API21)
+    /* private final int AVOS_ENCODING_INVALID = 0;                // 0 -> AudioFormat.ENCODING_INVALID = 0 (API21)
     private final int AVOS_ENCODING_DEFAULT = 1;                // 1 -> AudioFormat.ENCODING_DEFAULT = 1 (API21)
     private final int AVOS_ENCODING_PCM_16BIT = 2;              // 2 -> AudioFormat.ENCODING_PCM_16BIT = 2 (API21)
     private final int AVOS_ENCODING_PCM_8BIT = 3;               // 3 -> AudioFormat.ENCODING_PCM_8BIT = 3 (API21)
@@ -181,7 +180,7 @@ public class CustomApplication extends Application implements DefaultLifecycleOb
     private final int AVOS_ENCODING_DTS_UHD_P2 = 30;            // 30 -> AudioFormat.ENCODING_DTS_UHD_P2 = 30 (API34)
     private final int AVOS_ENCODING_DSD = 31;                   // 31 -> AudioFormat.ENCODING_DSD = 31 (API34)
     // TODO: update this variable when adding new encodings
-    private final int AVOS_ENCODING_MAX = 31;
+    private final int AVOS_ENCODING_MAX = 31; */
 
     private static volatile boolean isForeground = false;
 
@@ -326,7 +325,7 @@ public class CustomApplication extends Application implements DefaultLifecycleOb
                 options.setSampleRate(null);
                 options.setDebug(false);
                 options.setEnableSystemEventBreadcrumbs(false);
-                });
+            });
         }
     }
 
@@ -831,6 +830,45 @@ public class CustomApplication extends Application implements DefaultLifecycleOb
             return 0;
         long encodingFlags = 0;
         for (int encoding : encodings) {
+            // AVOS encoding values are aligned with Android AudioFormat ones
+            // note that API level has been checked with https://cs.android.com/android/platform/superproject/+/android-6.0.0_r23:frameworks/base/media/java/android/media/AudioFormat.java
+            // maintain sync with avos audio_spdif.c
+            /* private final int AVOS_ENCODING_INVALID = 0;                // 0 -> AudioFormat.ENCODING_INVALID = 0 (API21)
+    private final int AVOS_ENCODING_DEFAULT = 1;                // 1 -> AudioFormat.ENCODING_DEFAULT = 1 (API21)
+    private final int AVOS_ENCODING_PCM_16BIT = 2;              // 2 -> AudioFormat.ENCODING_PCM_16BIT = 2 (API21)
+    private final int AVOS_ENCODING_PCM_8BIT = 3;               // 3 -> AudioFormat.ENCODING_PCM_8BIT = 3 (API21)
+    private final int AVOS_ENCODING_PCM_FLOAT = 4;              // 4 -> AudioFormat.ENCODING_PCM_FLOAT = 4 (API21)
+    private final int AVOS_ENCODING_AC3 = 5;                    // 5 -> AudioFormat.ENCODING_AC3 = 5 (API21)
+    private final int AVOS_ENCODING_E_AC3 = 6;                  // 6 -> AudioFormat.ENCODING_E_AC3 = 6 (API21)
+    private final int AVOS_ENCODING_DTS = 7;                    // 7 -> AudioFormat.ENCODING_DTS = 7 (API23)
+    private final int AVOS_ENCODING_DTS_HD = 8;                 // 8 -> AudioFormat.ENCODING_DTS_HD = 8 (API23)
+    private final int AVOS_ENCODING_MP3 = 9;                    // 9 -> AudioFormat.ENCODING_MP3 = 9 (API23)
+    private final int AVOS_ENCODING_AAC_LC = 10;                // 10 -> AudioFormat.ENCODING_AAC_LC = 10 (API23)
+    private final int AVOS_ENCODING_AAC_HE_V1 = 11;             // 11 -> AudioFormat.ENCODING_AAC_HE_V1 = 11 (API23)
+    private final int AVOS_ENCODING_AAC_HE_V2 = 12;             // 12 -> AudioFormat.ENCODING_AAC_HE_V2 = 12 (API23)
+    private final int AVOS_ENCODING_IEC61937 = 13;              // 13 -> AudioFormat.ENCODING_IEC61937 = 13 (API24)
+    private final int AVOS_ENCODING_DOLBY_TRUEHD = 14;          // 14 -> AudioFormat.ENCODING_DOLBY_TRUEHD = 14 (API25)
+    private final int AVOS_ENCODING_AAC_ELD = 15;               // 15 -> AudioFormat.ENCODING_AAC_ELD = 15 (API28)
+    private final int AVOS_ENCODING_AAC_XHE = 16;               // 16 -> AudioFormat.ENCODING_AAC_XHE = 16 (API28)
+    private final int AVOS_ENCODING_AC4 = 17;                   // 17 -> AudioFormat.ENCODING_AC4 = 17 (API28)
+    private final int AVOS_ENCODING_E_AC3_JOC = 18;             // 18 -> AudioFormat.ENCODING_E_AC3_JOC = 18 (API29)
+    private final int AVOS_ENCODING_DOLBY_MAT = 19;             // 19 -> AudioFormat.ENCODING_DOLBY_MAT = 19 (API29)
+    private final int AVOS_ENCODING_OPUS = 20;                  // 20 -> AudioFormat.ENCODING_OPUS = 20 (API30)
+    private final int AVOS_ENCODING_PCM_24BIT_PACKED = 21;      // 21 -> AudioFormat.ENCODING_PCM_24BIT_PACKED = 21 (API31)
+    private final int AVOS_ENCODING_PCM_32BIT = 22;             // 22 -> AudioFormat.ENCODING_PCM_32BIT = 22 (API31)
+    private final int AVOS_ENCODING_MPEGH_BL_L3 = 23;           // 23 -> AudioFormat.ENCODING_MPEGH_BL_L3 = 23 (API31)
+    private final int AVOS_ENCODING_MPEGH_BL_L4 = 24;           // 24 -> AudioFormat.ENCODING_MPEGH_BL_L4 = 24 (API31)
+    private final int AVOS_ENCODING_MPEGH_LC_L3 = 25;           // 25 -> AudioFormat.ENCODING_MPEGH_LC_L3 = 25 (API31)
+    private final int AVOS_ENCODING_MPEGH_LC_L4 = 26;           // 26 -> AudioFormat.ENCODING_MPEGH_LC_L4 = 26 (API31)
+    private final int AVOS_ENCODING_DTS_UHD = 27;               // 27 -> AudioFormat.ENCODING_DTS_UHD = 27 (API31)
+    private final int AVOS_ENCODING_DRA = 28;                   // 28 -> AudioFormat.ENCODING_DRA = 28 (API31)
+    private final int AVOS_ENCODING_DTS_HD_MA = 29;             // 29 -> AudioFormat.ENCODING_DTS_HD_MA = 29 (API34)
+    private final int AVOS_ENCODING_DTS_UHD_P1 = 27;            // 27 -> AudioFormat.ENCODING_DTS_UHD_P1 = AVOS_ENCODING_DTS_UHD = 27 (API34)
+    private final int AVOS_ENCODING_DTS_UHD_P2 = 30;            // 30 -> AudioFormat.ENCODING_DTS_UHD_P2 = 30 (API34)
+    private final int AVOS_ENCODING_DSD = 31;                   // 31 -> AudioFormat.ENCODING_DSD = 31 (API34)
+    */
+            // TODO: update this variable when adding new encodings
+            int AVOS_ENCODING_MAX = 31;
             if (encoding <= AVOS_ENCODING_MAX) {
                 encodingFlags |= 1L << encoding;
                 if (log.isDebugEnabled()) log.debug("getEncodingFlags: hdmi RX supports {}", audioEncodings[encoding]);
@@ -940,14 +978,14 @@ public class CustomApplication extends Application implements DefaultLifecycleOb
             novaVersionName = info.versionName;
             try {
                 novaVersionArray = splitVersion(novaVersionName);
-                novaLongVersion = "Nova v" + novaVersionArray[0] + "." + novaVersionArray[1] + "." + novaVersionArray[2] +
+                novaLongVersion = "LeeroyFlix v" + novaVersionArray[0] + "." + novaVersionArray[1] + "." + novaVersionArray[2] +
                         " (" + novaVersionArray[3] + String.format("%02d", novaVersionArray[4]) + String.format("%02d", novaVersionArray[5]) +
                         "." + String.format("%02d", novaVersionArray[6]) + String.format("%02d", novaVersionArray[7]) + ")";
                 novaShortVersion = "v" + novaVersionArray[0] + "." + novaVersionArray[1] + "." + novaVersionArray[2];
             } catch (IllegalArgumentException ie) {
                 novaVersionArray = new int[] { 0, 0, 0, 0, 0, 0, 0, 0};
                 log.error("updateVersionState: cannot split application version {}", novaVersionName);
-                novaLongVersion = "Nova v" + novaVersionName;
+                novaLongVersion = "LeeroyFlix v" + novaVersionName;
             }
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
             int previousVersion = sharedPreferences.getInt("current_versionCode", -1);
