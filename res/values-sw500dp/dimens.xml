@@ -36,7 +36,7 @@
     <dimen name="global_resume_music_height">92dip</dimen>
     <dimen name="global_resume_playbutton_width">48dip</dimen>
     <dimen name="global_resume_playbutton_height">48dip</dimen>
-    <dimen name="global_resume_icon_padding_left">30dip</dimen>
+    <dimen name="global_resume_icon_padding_left">10dip</dimen>
     <dimen name="global_resume_icon_padding_right">10dip</dimen>
 
     <!-- ============ VIDEO INFO BROWSER ============ -->
