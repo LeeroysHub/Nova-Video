@@ -97,12 +97,13 @@ public class VideoInfoCommonClass {
         // We do not call fillFromRetriever() when the file does not exist because we see it block forever on Android TV
         // if called two times with unexisting files (looks like a problem in SmbProxy.java, maybe due to
         // lower layers because we do not see it on some devices)
-        if (streamingPath.startsWith("smb")) {
-            FileEditor editor = FileEditorFactoryWithUpnp.getFileEditorForUrl(Uri.parse(streamingPath), null);
-            if (!editor.exists()) {
-                return new VideoMetadata(); //return empty metadata
-            }
-        }
+        //if (streamingPath.startsWith("smb")) {
+        //    FileEditor editor = FileEditorFactoryWithUpnp.getFileEditorForUrl(Uri.parse(streamingPath), null);
+        //    if (!editor.exists()) {
+        //        return new VideoMetadata(); //return empty metadata
+        //    }
+        //}
+        
         // Get metadata from file
         VideoMetadata videoMetaData = new VideoMetadata(streamingPath);
         videoMetaData.fillFromRetriever(context);
