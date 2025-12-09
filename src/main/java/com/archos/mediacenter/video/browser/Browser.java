@@ -158,7 +158,6 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
     protected BaseAdapter mBrowserAdapter;
     private boolean mCommonDefaultInvalidate = true;
     protected Context mContext;
-    private static AlertDialog mDialogDelete;
     private static DeleteDialog mDialogDeleting;
     protected DialogRetrieveSubtitles mDialogRetrieveSubtitles;
     protected SharedPreferences mPreferences;
@@ -169,7 +168,6 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
     protected boolean mIsClickValid;
     protected View mRootView;
     protected ActionBarSubmenu mSortModeSubmenu;
-    private View mMenuAnchor;
     protected int mScroll =0;
     protected int mOffset=0;
     static final String CURRENT_SCROLL = "currentscroll";
@@ -235,7 +233,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
 
     @Override
     public void onResume() {
-        if (log.isDebugEnabled()) log.debug("onResume");
+        //if (log.isDebugEnabled())log.debug("onResume");
         CustomApplication.loadLocale(getResources());
         FileUtilsQ.setDeleteLauncher(deleteLauncher);
         mThumbnailEngine.setListener(this, mHandler);
@@ -247,7 +245,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
 
     @Override
     public void onPause() {
-        if (log.isDebugEnabled()) log.debug("onPause");
+        //if (log.isDebugEnabled())log.debug("onPause");
         //Posted in mArchosGridView to retrieve these values when the GridView is rendered.
         //risk of null values otherwise
         mArchosGridView.post(new Runnable() {
@@ -478,8 +476,8 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
         setViewMode(viewMode!=VideoUtils.VIEW_MODE_GRID_SHORT?viewMode:VideoUtils.VIEW_MODE_GRID);
         setViewMode(viewMode);
 
-        mMenuAnchor = mRootView.findViewById(R.id.menu_anchor);
-        mSortModeSubmenu = new ActionBarSubmenu(mContext, inflater, mMenuAnchor);
+        View menuAnchor = = mRootView.findViewById(R.id.menu_anchor);
+        mSortModeSubmenu = new ActionBarSubmenu(mContext, inflater, menuAnchor);
         mSortModeSubmenu.setListener(this);
         return mRootView;
     }
@@ -974,7 +972,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
             b.setMessage(R.string.confirm_delete);
         else
             b.setMessage(R.string.confirm_delete_parent_folder);
-        mDialogDelete =b.setNegativeButton(R.string.no, null)
+        AlertDialog dialogDelete = b.setNegativeButton(R.string.no, null)
                 .setPositiveButton(R.string.yes, new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -992,7 +990,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
 
                     }
                 }).create();
-        mDialogDelete.show();
+        dialogDelete.show();
     }
 
     /**
@@ -1246,7 +1244,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
         if (filename == null)
             return null;
         int dotPos = filename.lastIndexOf('.');
-        if (dotPos >= 0 && dotPos < filename.length()) {
+        if (dotPos >= 0) {
             return filename.substring(dotPos + 1).toLowerCase();
         }
         return null;
