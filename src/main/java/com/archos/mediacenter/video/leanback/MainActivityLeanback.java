@@ -78,7 +78,7 @@ public class MainActivityLeanback extends LeanbackActivity {
         ((CustomApplication) getApplication()).loadLocale();
 
         // Check if user disabled "Always start in TV interface" - if so, redirect to phone UI
-        if (!UiChoiceDialog.applicationIsInLeanbackMode(this)) {
+        if (!UiChoiceDialog.applicationIsInLeanbackMode(this, false)) {
             if (log.isDebugEnabled()) log.debug("onCreate: User disabled leanback mode, redirecting to MainActivity");
             Intent i = new Intent(this, com.archos.mediacenter.video.browser.MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -100,7 +100,8 @@ public class MainActivityLeanback extends LeanbackActivity {
         SharedPreferences.Editor editor = prefs.edit();
 
         // Update uimode/uimode_leanback to reflect we're in leanback mode
-        UiChoiceDialog.updateUiModePreferencesInEditor(this, editor);
+        //I DO THIS IN onResume, because then the current activity is remembered correctly
+        //UiChoiceDialog.updateUiModePreferencesInEditor(this, editor);
 
         // Reset the Video Aspect Ratio on Startup
         editor.putString("player_pref_auto_format_key", "-1");
@@ -139,7 +140,14 @@ public class MainActivityLeanback extends LeanbackActivity {
 
         CustomApplication.showChangelogDialog(CustomApplication.getChangelog(this.getApplicationContext()), this);
     }
+    
+    @Override
+    public void onResume() {
+        super.onResume();
 
+        // Update uimode/uimode_leanback to reflect we're in leanback mode
+        UiChoiceDialog.updateUiModePreferences(this, true);
+    }
 
     @Override
     protected void onDestroy(){
@@ -173,12 +181,12 @@ public class MainActivityLeanback extends LeanbackActivity {
         if (requestCode == ACTIVITY_REQUEST_CODE_PREFERENCES) {
             if (resultCode == VideoPreferencesCommon.ACTIVITY_RESULT_UI_MODE_CHANGED) {
                 // Check if the UI mode changed
-                String newUiModeLeanback = PreferenceManager.getDefaultSharedPreferences(this).getString(UiChoiceDialog.UI_CHOICE_LEANBACK_KEY, "-");
-                if (!newUiModeLeanback.equals(mCurrentUiModeLeanback)) {
+                //String newUiModeLeanback = PreferenceManager.getDefaultSharedPreferences(this).getString(UiChoiceDialog.UI_CHOICE_LEANBACK_KEY, "-");
+                //if (!newUiModeLeanback.equals(mCurrentUiModeLeanback)) {
                     // ui mode changed -> quit the current activity and restart
-                    finish();
-                    startActivity(new Intent(this, EntryActivity.class));
-                }
+                finish();
+                startActivity(new Intent(this, EntryActivity.class));
+                //}
                 mCurrentUiModeLeanback = null; // reset
             } else if (resultCode == VideoPreferencesCommon.ACTIVITY_RESULT_UI_ZOOM_CHANGED) {
                 new DensityTweak(this)
