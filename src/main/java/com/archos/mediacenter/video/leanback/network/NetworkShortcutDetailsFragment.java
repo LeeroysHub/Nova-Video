@@ -100,8 +100,8 @@ public class NetworkShortcutDetailsFragment extends DetailsSupportFragment imple
         mDetailsRowPresenter = new ArchosDetailsOverviewRowPresenter(new ShortcutDetailsPresenter());
         //be aware of a hack to avoid fullscreen overview : cf onSetRowStatus
 
-        mDetailsRowPresenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.lightblue900));
-        mDetailsRowPresenter.setActionsBackgroundColor(getDarkerColor(ContextCompat.getColor(getActivity(), R.color.lightblue900)));
+        mDetailsRowPresenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.lightgrey));
+        mDetailsRowPresenter.setActionsBackgroundColor(getDarkerColor(ContextCompat.getColor(getActivity(), R.color.lightgrey)));
         mDetailsRowPresenter.setOnActionClickedListener(this);
 
         ArrayObjectAdapter adapter = new ArrayObjectAdapter(mDetailsRowPresenter);
