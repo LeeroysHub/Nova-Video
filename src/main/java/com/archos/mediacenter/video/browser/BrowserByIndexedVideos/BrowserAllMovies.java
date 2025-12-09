@@ -17,6 +17,8 @@ package com.archos.mediacenter.video.browser.BrowserByIndexedVideos;
 
 import android.database.Cursor;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.loader.content.Loader;
 
 import com.archos.mediacenter.video.R;
@@ -33,7 +35,7 @@ public class BrowserAllMovies extends BrowserByVideoSelection {
 
 	public static final String SELECTION_ALL_MOVIES = VideoStore.Video.VideoColumns.SCRAPER_MOVIE_ID + " IS NOT NULL";
 
-	@Override
+	/*@Override
 	public int getEmptyMessage() {
 		return R.string.scraper_no_movie_text;
 	}
@@ -41,9 +43,10 @@ public class BrowserAllMovies extends BrowserByVideoSelection {
 	@Override
 	public int getEmptyViewButtonLabel() {
 		return R.string.scraper_no_movie_button_label;
-	}
+	}*/
 
-	@Override
+	@NonNull
+    @Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args2) {
 		if(getArguments()!=null){
 			String listOfMoviesIds = getArguments().getString(BrowserAllMovies.LIST_OF_IDS);
