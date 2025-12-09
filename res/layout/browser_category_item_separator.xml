@@ -13,6 +13,8 @@
     android:paddingRight="8dip"
     android:background="@drawable/category_title_background"
 
-    android:textColor="@color/lightblue500"
+    android:textAllCaps="false"
+    android:textColor="@color/lightblue400"
+    android:textStyle="bold"
     android:singleLine="true"
      />
