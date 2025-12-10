@@ -1,0 +1,6 @@
+package org.leeroy.supernova;
+
+interface IAdditionalService {
+    float[] transformAudio(in float[] audio);
+    void setControl(float value);
+}

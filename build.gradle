@@ -96,7 +96,7 @@ if (shouldApplyPlayPlugin) {
 //}
 
 android {
-    namespace = 'com.archos.mediacenter.video'
+    namespace = 'org.leeroy.mediaplayer.video'
     signingConfigs {
         release {
             if (keystorePropertiesFile.exists()) {
@@ -146,7 +146,7 @@ android {
         }
     }
     defaultConfig {
-        applicationId = "org.courville.nova"
+        applicationId = "org.leeroy.media"
         generatedDensities = []
         minSdkVersion 23
         targetSdkVersion 35
