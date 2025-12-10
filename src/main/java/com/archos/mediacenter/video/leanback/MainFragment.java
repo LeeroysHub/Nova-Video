@@ -1219,19 +1219,21 @@ public class MainFragment extends BrowseSupportFragment implements LoaderManager
     }
 
     private void updateNonScrapedVideosVisibility(Cursor cursor) {
-        int count = NonScrapedVideosCountLoader.getNonScrapedVideoCount(cursor);
-        int currentIndex = mFileBrowsingRowAdapter.indexOf(mNonScrapedVideosItem);
-        if (log.isDebugEnabled()) log.debug("updateNonScrapedVideosVisibility: count={}, currentIndex={}", count, currentIndex);
-        if (count > 0) {
-            if (currentIndex < 0) {
-                if (log.isDebugEnabled()) log.debug("updateNonScrapedVideosVisibility: adding non-scraped box");
-                mFileBrowsingRowAdapter.add(mNonScrapedVideosItem);
+        if (!mHideExternal) {
+            int count = NonScrapedVideosCountLoader.getNonScrapedVideoCount(cursor);
+            int currentIndex = mFileBrowsingRowAdapter.indexOf(mNonScrapedVideosItem);
+            if (log.isDebugEnabled()) log.debug("updateNonScrapedVideosVisibility: count={}, currentIndex={}", count, currentIndex);
+            if (count > 0) {
+                if (currentIndex < 0) {
+                    if (log.isDebugEnabled()) log.debug("updateNonScrapedVideosVisibility: adding non-scraped box");
+                    mFileBrowsingRowAdapter.add(mNonScrapedVideosItem);
+                } else {
+                    if (log.isDebugEnabled()) log.debug("updateNonScrapedVideosVisibility: non-scraped box already present at index {}", currentIndex);
+                }
             } else {
-                if (log.isDebugEnabled()) log.debug("updateNonScrapedVideosVisibility: non-scraped box already present at index {}", currentIndex);
+                if (log.isDebugEnabled()) log.debug("updateNonScrapedVideosVisibility: removing non-scraped box");
+                mFileBrowsingRowAdapter.remove(mNonScrapedVideosItem);
             }
-        } else {
-            if (log.isDebugEnabled()) log.debug("updateNonScrapedVideosVisibility: removing non-scraped box");
-            mFileBrowsingRowAdapter.remove(mNonScrapedVideosItem);
         }
     }
 
