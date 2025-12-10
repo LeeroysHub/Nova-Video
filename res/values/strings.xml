@@ -432,7 +432,7 @@
     <string name="player_plugin_video_audio_msg">This file contains an <xliff:g id="video">%1$s</xliff:g> video format and an <xliff:g id="audio">%2$s</xliff:g> audio format.</string>
     <string name="player_plugin_purchase_msg">You need to purchase the <xliff:g id="plugin">%1$s</xliff:g></string>
     <string name="player_plugin_purchase">Go to the Store</string>
-    <string name="player_plugin_purchase_archos_msg">You can purchase additional codec plug-ins on www.archos.com.</string>
+    <string name="player_plugin_purchase_leeroyflix_msg">You can purchase additional codec plug-ins on www.archos.com.</string>
     <string name="player_plugin_purchase_google_play_msg">You can purchase additional codec plug-ins on Google Play.</string>
     <string name="player_plugin_purchase_google_play_button">Go to Google Play</string>
     <string name="plugin_update_required_title">Codec update required</string>
@@ -680,7 +680,7 @@
     <!--  Title of the video picker activity. -->
     <string name="video_picker_title">Select video</string>
 
-    <!-- Archos File Info -->
+    <!-- LeeroyFlix File Info -->
 
     <string name="video_info_custom_search_file_hint">"\"Moviename\" or \"Showname S01E01\""</string>
     <string name="video_info_custom_search_show_hint">Name of the TV show</string>
@@ -760,10 +760,10 @@
     <!--  Nfo File parsing -->
     <string name="network_nfo_parse">Process \'.nfo\' files</string>
     <string name="network_nfo_parse_summary">Read Kodi \'.nfo\' files during (re-)scanning to gather media information and posters.</string>
-    <string name="ask_to_mail_media_DB">Do you want to mail your Video database to Archos development team in order to help them check a bug?\n\nThe video files are (of course) not mailed, but the full list of file names is.</string>
+    <string name="ask_to_mail_media_DB">Do you want to mail your Video database to LeeroyFlix development team in order to help them check a bug?\n\nThe video files are (of course) not mailed, but the full list of file names is.</string>
     <string name="no_email_installed">No email application found</string>
     <string name="zipping_library_before_mailing">Zipping a copy of the library before mailing it…</string>
-    <string name="zipped_library_mail_subject">Archos Video Database Dump</string>
+    <string name="zipped_library_mail_subject">LeeroyFlix Video Database Dump</string>
     <string name="zipped_library_mail_text">Please describe the problem you\'re experiencing\n\n</string>
 
     <string name="sort_mode">Sort mode</string>
@@ -817,7 +817,7 @@
 
     
     <!--These are for the Tablet/Phone UI, leanback ones are below-->
-    <string name="preferences_display_recently_added">Display New on Archos menu</string>
+    <string name="preferences_display_recently_added">Display New on LeeroyFlix menu</string>
     <string name="preferences_display_recently_added_summary">Show or Hide the Recently Added item in the Side Menu.</string>
     <string name="preferences_display_recently_played">Display History menu</string>
     <string name="preferences_display_recently_played_summary">Show or Hide the History item in the Side Menu.</string>
@@ -828,7 +828,7 @@
     <string name="preferences_show_watching_up_next_row_summary">Check to show a row with your currently watching and up next videos</string>
     <string name="preferences_show_watching_up_next_row">Show watching/up next row</string>
     <string name="preferences_show_last_added_row_summary">Check to show a row with your last added media</string>
-    <string name="preferences_show_last_added_row">Show New on Archos row</string>
+    <string name="preferences_show_last_added_row">Show New on LeeroyFlix row</string>
     <string name="preferences_show_last_played_row_summary">Check to show a row with your last played media</string>
     <string name="preferences_show_last_played_row">Show History</string>
     <string name="preferences_reset_last_played_row">Clear History</string>
@@ -923,7 +923,7 @@
     <string name="trakt_force_push_summary">One-time upload of watched and resume to Trakt (may duplicate if Trakt is not empty)</string>
     <string name="trakt_force_pull_title">Force re-import from Trakt</string>
     <string name="trakt_force_pull_summary">One-time import of watched and resume from Trakt (may overwrite local state)</string>
-    <string name="trakt_sync_collection_summary">Automatically add all videos from your Archos library to your Trakt collection</string>
+    <string name="trakt_sync_collection_summary">Automatically add all videos from your LeeroyFlix library to your Trakt collection</string>
     <string name="trakt_toast_syncing">Syncing with Trakt&#8230;</string>
     <string name="trakt_device_auth_step1">1. On your phone or computer, go to:</string>
     <string name="trakt_device_auth_step2">2. Enter this code:</string>
@@ -973,7 +973,7 @@
     <string name="leanback_unscrap">@string/scrap_remove</string>
     <string name="leanback_legacy_ui">Legacy interface</string>
     <string name="leanback_hint_long_press_on_back">HINT: long press on BACK key closes the file browser</string>
-    <string name="leanback_archos_video_webview">Archos Video WebView</string>
+    <string name="leanback_leeroyflix_video_webview">LeeroyFlix Video WebView</string>
     <string name="file_access_error">Did not manage to access the file</string>
     <string name="always_leanback_on_tv">Always start in TV user inferface</string>
     <string name="always_leanback_on_tv_summary">Always start the application in TV user inferface, turn off if you want to start in classic UI on your TV.</string>
@@ -1057,7 +1057,7 @@
     <string name="switch_remote_empty_message">Switching to remote display mode might give more track options</string>
     <string name="cast_stream_mode">Stream mode</string>
     <string name="cast_remote_display_mode">Remote display</string>
-    <string name="cast_remote_display_mode_description">every format supported by Archos can be played using remote display. However, quality can be deteriorated.</string>
+    <string name="cast_remote_display_mode_description">every format supported by LeeroyFlix can be played using remote display. However, quality can be deteriorated.</string>
     <string name="cast_stream_mode_description">Optimal quality but some format cannot be supported</string>
 
     <string name="sleep_timer_title">Sleep timer</string>

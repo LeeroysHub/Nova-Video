@@ -3,7 +3,7 @@
 <!-- This is the resume view of the video browser for getting fast
 access to last video played. -->
 
-<com.archos.mediacenter.utils.GlobalResumeView
+<org.leeroy.mediaplayer.utils.GlobalResumeView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/global_resume"
@@ -45,4 +45,4 @@ access to last video played. -->
         android:visibility="gone"
         />
 
-</com.archos.mediacenter.utils.GlobalResumeView>
+</org.leeroy.mediaplayer.utils.GlobalResumeView>

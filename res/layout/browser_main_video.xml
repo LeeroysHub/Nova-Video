@@ -11,7 +11,7 @@ category, and contents.
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <com.archos.mediacenter.video.browser.BrowserLayout
+    <org.leeroy.mediaplayer.video.browser.BrowserLayout
 
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
@@ -64,7 +64,7 @@ category, and contents.
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                class="com.archos.mediacenter.video.browser.BrowserCategoryVideo"
+                class="org.leeroy.mediaplayer.video.browser.BrowserCategoryVideo"
                 />
 
             <!-- Global resume at the middle and below the category view -->
@@ -83,7 +83,7 @@ category, and contents.
         <!-- Content view at the right -->
 
 
-    </com.archos.mediacenter.video.browser.BrowserLayout >
+    </org.leeroy.mediaplayer.video.browser.BrowserLayout >
 
 
 

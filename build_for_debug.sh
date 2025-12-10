@@ -2,4 +2,4 @@
 
 eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa
 
-./gradlew -PadultScrape aND && scp /home/leeroy/projects/Archos/Video/build/outputs/apk/noamazon/debug/com.archos.media-*-arm*.apk leeroy@192.168.1.200:/mnt/leeroys_stuff/Media/
+./gradlew -PadultScrape aND && scp /home/leeroy/projects/LeeroyFlix/Video/build/outputs/apk/noamazon/debug/org.leeroy.media-*-arm*.apk leeroy@192.168.1.200:/mnt/leeroys_stuff/Media/

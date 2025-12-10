@@ -90,7 +90,7 @@
         android:transitionGroup="true"
         android:visibility="visible" />
 
-    <com.archos.mediacenter.video.leanback.widget.HintView
+    <org.leeroy.mediaplayer.video.leanback.widget.HintView
         android:id="@+id/hint_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
