@@ -30,7 +30,7 @@ import org.leeroy.mediaprovider.video.VideoStore;
 import org.leeroy.mediaprovider.video.VideoStore.MediaColumns;
 import org.leeroy.mediaprovider.video.VideoStore.Video.VideoColumns;
 
-public class SearchProviderVideo extends ContentProvider {
+public class LeeroyFlixSearchProvider extends ContentProvider {
 
     // primary text, = scraper title with fallback to plain filename based title
     private static final String LINE1 = "coalesce(" + VideoColumns.SCRAPER_TITLE + "," + MediaColumns.TITLE

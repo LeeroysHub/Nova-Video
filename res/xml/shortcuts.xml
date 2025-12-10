@@ -22,7 +22,7 @@
         >
         <intent
             android:action="org.leeroy.mediaplayer.video.action_resume"
-            android:targetPackage="org.leeroy.mediaplayer.videocommunity"
+            android:targetPackage="org.leeroy.mediaplayer.video"
             android:targetClass="org.leeroy.mediaplayer.video.browser.MainActivity" />
     </shortcut>
     <shortcut
@@ -33,7 +33,7 @@
         >
         <intent
             android:action="org.leeroy.mediaplayer.video.action_recently_played"
-            android:targetPackage="org.leeroy.mediaplayer.videocommunity"
+            android:targetPackage="org.leeroy.mediaplayer.video"
             android:targetClass="org.leeroy.mediaplayer.video.browser.MainActivity" />
     </shortcut>
     <shortcut
@@ -44,7 +44,7 @@
         >
         <intent
             android:action="org.leeroy.mediaplayer.video.action_recently_added"
-            android:targetPackage="org.leeroy.mediaplayer.videocommunity"
+            android:targetPackage="org.leeroy.mediaplayer.video"
             android:targetClass="org.leeroy.mediaplayer.video.browser.MainActivity" />
     </shortcut>
 </shortcuts>

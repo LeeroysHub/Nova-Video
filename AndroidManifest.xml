@@ -192,8 +192,8 @@
 
         <!-- Provides search suggestions for video search. -->
         <provider
-            android:name="org.leeroy.mediaplayer.video.browser.SearchProviderVideo"
-            android:authorities="browser.SearchProviderVideocommunity" />
+            android:name="org.leeroy.mediaplayer.video.browser.LeeroyFlixSearchProvider"
+            android:authorities="browser.LeeroyFlixSearchProvider" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -1244,7 +1244,7 @@
         <!-- ContentProvider for media -->
         <provider
             android:name="org.leeroy.mediaprovider.video.VideoProvider"
-            android:authorities="org.leeroy.media.videocommunity;org.leeroy.media.scrapercommunity"
+            android:authorities="org.leeroy.media.video;org.leeroy.media.scraper"
             android:exported="true" />
         <!-- BroadcastReceiver to trigger database import -->
         <receiver
