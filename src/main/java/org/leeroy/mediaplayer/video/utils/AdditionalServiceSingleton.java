@@ -40,7 +40,7 @@ public class AdditionalServiceSingleton {
     private final ServiceConnection mConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            if (log.isDebugEnabled()) log.debug("SuperNOVA: onServiceConnected");
+            //if (log.isDebugEnabled()) log.debug("SuperNOVA: onServiceConnected");
             mService = IAdditionalService.Stub.asInterface(service);
             mIsBound = true;
             for (WeakReference<OnConnected> ref : mOnConnectedListeners) {
@@ -54,7 +54,7 @@ public class AdditionalServiceSingleton {
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            if (log.isDebugEnabled()) log.debug("SuperNOVA: onServiceDisconnected");
+            //if (log.isDebugEnabled()) log.debug("SuperNOVA: onServiceDisconnected");
             mService = null;
             mIsBound = false;
             for (WeakReference<OnDisconnected> ref : mOnDisconnectedListeners) {
@@ -83,7 +83,7 @@ public class AdditionalServiceSingleton {
             intent.setComponent(new ComponentName("org.leeroy.supernova", "org.leeroy.supernova.NovaAiService"));
             try {
                 boolean res = context.bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
-                if (log.isDebugEnabled()) log.debug("Trying to bind supernova gave {}", res);
+                //if (log.isDebugEnabled()) log.debug("Trying to bind supernova gave {}", res);
             } catch (SecurityException e) {
                 log.error("Failed binding to supernova", e);
             }

@@ -307,7 +307,7 @@ public class VideoDetailsDescriptionPresenter extends Presenter {
                 break;
         }
 
-        if (log.isDebugEnabled()) log.debug("displayGuessesVideoBadges: {} visible {}", resolutionBadgeRes, visible);
+        //if (log.isDebugEnabled()) log.debug("displayGuessesVideoBadges: {} visible {}", resolutionBadgeRes, visible);
 
         if (visible) {
             setTextOrSetGoneIfEmpty(vh.mResolutionBadge, resolutionBadgeRes);
@@ -342,7 +342,7 @@ public class VideoDetailsDescriptionPresenter extends Presenter {
             // Resolution badge
             final int w = metadata.getVideoWidth();
             final int h = metadata.getVideoHeight();
-            if (log.isDebugEnabled()) log.debug("displayActualVideoBadges: {}x{}", w, h);
+            //if (log.isDebugEnabled()) log.debug("displayActualVideoBadges: {}x{}", w, h);
             String resolutionBadgeRes = "";
             boolean visible = false;
             if (w>=3840 || h>=2160) {
@@ -364,7 +364,7 @@ public class VideoDetailsDescriptionPresenter extends Presenter {
                 visible = true;
             }
 
-            if (log.isDebugEnabled()) log.debug("displayActualVideoBadges: {} visible {}", resolutionBadgeRes, visible);
+            //if (log.isDebugEnabled()) log.debug("displayActualVideoBadges: {} visible {}", resolutionBadgeRes, visible);
 
             if (visible) {
                 setTextOrSetGoneIfEmpty(mSingleViewHolder.mResolutionBadge, resolutionBadgeRes);
@@ -405,7 +405,7 @@ public class VideoDetailsDescriptionPresenter extends Presenter {
                     audioBadgeRes = mSingleViewHolder.view.getContext().getString(R.string.audio_2_0);
                 }
 
-                if (log.isDebugEnabled()) log.debug("displayActualVideoBadges {} visible true", audioBadgeRes);
+                //if (log.isDebugEnabled()) log.debug("displayActualVideoBadges {} visible true", audioBadgeRes);
 
                 setTextOrSetGoneIfEmpty(mSingleViewHolder.mAudioBadge, audioBadgeRes);
                 mSingleViewHolder.mAudioBadge.setTextColor(VideoDetailsFragment.getDominantColor());

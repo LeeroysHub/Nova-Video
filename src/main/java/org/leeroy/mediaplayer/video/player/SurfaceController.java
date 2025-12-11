@@ -138,7 +138,7 @@ public class SurfaceController {
     }
   
     public void setGLSupportEnabled(boolean enable){
-        if (log.isDebugEnabled()) log.debug("setGLSupportEnabled: {}", enable);
+        //if (log.isDebugEnabled()) log.debug("setGLSupportEnabled: {}", enable);
         if (mEffectEnable == enable) return;
         mView.setVisibility(View.GONE);
         if (enable) {
@@ -163,7 +163,7 @@ public class SurfaceController {
     }
     
     public boolean supportOpenGLVideoEffect() {
-        if (log.isDebugEnabled()) log.debug("supportOpenGLVideoEffect: {}", (mEffectView == mView) && (VideoEffect.openGLRequested(mEffectType)));
+        //if (log.isDebugEnabled()) log.debug("supportOpenGLVideoEffect: {}", (mEffectView == mView) && (VideoEffect.openGLRequested(mEffectType)));
         return (mEffectView == mView) && (VideoEffect.openGLRequested(mEffectType));
     }
 
@@ -173,7 +173,7 @@ public class SurfaceController {
     }
 
     public void setHdmiPlugged(boolean plugged, int hdmiWidth, int hdmiHeight) {
-        if (log.isDebugEnabled()) log.debug("setHdmiPlugged: plugged={}, hdmi=({},{})", plugged, hdmiWidth, hdmiHeight);
+        //if (log.isDebugEnabled()) log.debug("setHdmiPlugged: plugged={}, hdmi=({},{})", plugged, hdmiWidth, hdmiHeight);
         if (plugged != mHdmiPlugged) {
             mHdmiPlugged = plugged;
             mHdmiWidth = hdmiWidth;
@@ -214,22 +214,22 @@ public class SurfaceController {
         return getVideoFormat().getMax();
     }
     public int getCurrentFormat(){
-        if (log.isDebugEnabled()) log.debug("getCurrentFormat: {}", getVideoFormat().getFmt());
+        //if (log.isDebugEnabled()) log.debug("getCurrentFormat: {}", getVideoFormat().getFmt());
         return getVideoFormat().getFmt();
     }
     private VideoFormat getVideoFormat() {
         if (!mHdmiPlugged && ((mVideoWidth / (double) mVideoHeight) - (mLcdWidth / (double) mLcdHeight) > VideoFormat.VIDEO_FORMAT_AUTO_THRES)) {
             // on special screen sizes that are closer to 4:3 then enable the "optimized" aspect ratio
-            if (log.isDebugEnabled()) log.debug("getVideoFormat: return mAutoVideoFormat");
+            //if (log.isDebugEnabled()) log.debug("getVideoFormat: return mAutoVideoFormat");
             return mAutoVideoFormat;
         } else {
-            if (log.isDebugEnabled()) log.debug("getVideoFormat: return mVideoFormat");
+            //if (log.isDebugEnabled()) log.debug("getVideoFormat: return mVideoFormat");
             return mVideoFormat;
         }
     }
 
     public void switchVideoFormat() {
-        if (log.isDebugEnabled()) log.debug("switchVideoFormat");
+        //if (log.isDebugEnabled()) log.debug("switchVideoFormat");
         getVideoFormat().switchFmt();
         updateSurface();
         if (mSurfaceListener != null) {
@@ -237,7 +237,7 @@ public class SurfaceController {
         }
     }
     public void setVideoFormat(int fmt) {
-        if (log.isDebugEnabled()) log.debug("setVideoFormat fmt={}", fmt);
+        //if (log.isDebugEnabled()) log.debug("setVideoFormat fmt={}", fmt);
         getVideoFormat().setFmt(fmt);
         updateSurface();
         if (mSurfaceListener != null) {
@@ -245,7 +245,7 @@ public class SurfaceController {
         }
     }
     public void setVideoFormat(int fmt, int autoFmt) {
-        if (log.isDebugEnabled()) log.debug("setVideoFormat fmt={}, autoFmt={}", fmt, autoFmt);
+        //if (log.isDebugEnabled()) log.debug("setVideoFormat fmt={}, autoFmt={}", fmt, autoFmt);
         mVideoFormat.setFmt(fmt);
         mAutoVideoFormat.setFmt(autoFmt);
         updateSurface();
@@ -284,7 +284,7 @@ public class SurfaceController {
     }
     
     synchronized public void updateSurface() {
-        if (log.isDebugEnabled()) log.debug("updateSurface");
+        //if (log.isDebugEnabled()) log.debug("updateSurface");
         // get screen size
         int dw, dh, vw, vh, fmt, dcw, dch;
         float cropW = 1.0f;
@@ -365,12 +365,12 @@ public class SurfaceController {
                 if (dcar < ar) {
                     //4:3 movie on 16:9 screen or 16:9 movie on portrait screen
                     dch = (int) (dcw/ (ar));
-                    //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.ORIGINAL dcar<ar dch={}", dch);
+                    ////if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.ORIGINAL dcar<ar dch={}", dch);
                 } else {
                     //16:9 movie on 4:3 screen
                     cutoutLeft = cutoutTop = cutoutRight = mCutoutBottom = 0;
                     dcw = (int) (dch * ar);
-                    //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.ORIGINAL dcar>=ar dcw={}", dcw);
+                    ////if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.ORIGINAL dcar>=ar dcw={}", dcw);
                 }
                 break;
             case VideoFormat.STRETCH_XY:
@@ -402,7 +402,7 @@ public class SurfaceController {
             case VideoFormat.FULL_SCREEN: { // display on full screen resolution stretched: keep dcw and dch
                 //cropW = 1.0f;
                 //cropH = 1.0f;
-                //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.FULL_SCREEN dc=({},{}), crop=({},{})", dcw, dch, cropW, cropH);
+                ////if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.FULL_SCREEN dc=({},{}), crop=({},{})", dcw, dch, cropW, cropH);
                 break;
             }
             case VideoFormat.AUTO: {
@@ -411,7 +411,7 @@ public class SurfaceController {
                 if (dcar > ar) {
                     dcw = dcw + (((int) (dch * ar)) - dcw) / 2;
                     cropH = (float) dch / (float) (dcw / ar);
-                    //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.AUTO dcar>ar dc=({},{})", dcw, dch);
+                    ////if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: VideoFormat.AUTO dcar>ar dc=({},{})", dcw, dch);
                 } else {
                     dch = dch + (((int) (dcw / ar)) - dch) / 2;
                     cropW = (float) dcw / (float) (dch * ar);
@@ -424,14 +424,14 @@ public class SurfaceController {
         if (((mEffectMode & VideoEffect.TB_MODE)!=0) && (ar <= 1.5)) dcw *= 2;
         if (((mEffectMode & VideoEffect.SBS_MODE)!=0) && (ar >= 3.0)) dch *= 2;
 
-        //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: setFixedSize({},{})", vw, vh);
+        ////if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: setFixedSize({},{})", vw, vh);
 
         if (mSurfaceView != null) mSurfaceView.getHolder().setFixedSize(vw, vh);
 
         dcw = Math.round(dcw  / cropW);
         dch = Math.round(dch / cropH);
 
-        //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: setLayoutParams({},{})", dcw, dch);
+        ////if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: setLayoutParams({},{})", dcw, dch);
 
         // margins to avoid cutout
         // When HDMI is plugged, do not apply phone's cutout margins to external display
@@ -440,14 +440,14 @@ public class SurfaceController {
 
         ViewGroup.LayoutParams lp = mView.getLayoutParams();
         if (lp instanceof ViewGroup.MarginLayoutParams marginParams) {
-            //if (log.isDebugEnabled()) log.debug("MARC works with MarginLayoutParams"); // TODO MARC it works!!!
+            ////if (log.isDebugEnabled()) log.debug("MARC works with MarginLayoutParams"); // TODO MARC it works!!!
             lp.width = dcw;
             lp.height = dch;
             // video view is centered on the screen, in order to avoid cutout it needs to be shifted slightly
             marginParams.setMargins(mMarginLeft, mMarginTop, 0, 0);
             mView.setLayoutParams(marginParams);
         } else {
-            //if (log.isDebugEnabled()) log.debug("MARC works with LayoutParams NO MARGIN");
+            ////if (log.isDebugEnabled()) log.debug("MARC works with LayoutParams NO MARGIN");
             lp.width = dcw;
             lp.height = dch;
             mView.setLayoutParams(lp);
@@ -456,7 +456,7 @@ public class SurfaceController {
 
         mSurfaceWidth = dcw;
         mSurfaceHeight = dch;
-        //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: ({},{})->({},{}) / formatCrop: ({},{}) / mEffectMode: {}", vw, vh, dcw, dch, cropW, cropH, mEffectMode);
+        ////if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: ({},{})->({},{}) / formatCrop: ({},{}) / mEffectMode: {}", vw, vh, dcw, dch, cropW, cropH, mEffectMode);
     }
 
     public int getViewWidth() { return mSurfaceWidth; }

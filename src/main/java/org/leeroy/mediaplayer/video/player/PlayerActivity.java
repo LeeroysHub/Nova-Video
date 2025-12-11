@@ -407,7 +407,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private final ServiceConnection   mPlayerServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            if (log.isDebugEnabled()) log.debug("Service connected");
+            //if (log.isDebugEnabled()) log.debug("Service connected");
             if(mIsReadytoStart)
                 postOnPlayerServiceBind();
         }
@@ -428,18 +428,18 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (log.isDebugEnabled()) log.debug("onReceive: {}", intent);
+            //if (log.isDebugEnabled()) log.debug("onReceive: {}", intent);
             String action = intent.getAction();
             if (isFinishing())
                 return;
             if (action.equals(Intent.ACTION_SHUTDOWN)) {
                 finishWithResult();
             } else if (action.equals(ACTION_HDMI_PLUGGED)) {
-                if (log.isDebugEnabled()) log.debug("intent received hdmi");
+                //if (log.isDebugEnabled()) log.debug("intent received hdmi");
                 boolean plugged = intent.getBooleanExtra(EXTRA_HDMI_PLUGGED_STATE, false);
                 int w = 0, h = 0;
                 mHdmiPlugged = plugged;
-                if (log.isDebugEnabled()) log.debug("intent received hdmi plugged={}", plugged);
+                //if (log.isDebugEnabled()) log.debug("intent received hdmi plugged={}", plugged);
                 if (plugged) {
                     // update HDMI screen size
                     int[] size = readHdmiSize(mContext);
@@ -472,14 +472,14 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 display.getRealMetrics(metrics);
                 int width = metrics.widthPixels;
                 int height = metrics.heightPixels;
-                if (log.isDebugEnabled()) log.debug("readHdmiSize: size=({},{})", width,height);
+                //if (log.isDebugEnabled()) log.debug("readHdmiSize: size=({},{})", width,height);
                 int[] ret = new int[2];
                 ret[0] = width;
                 ret[1] = height;
                 return ret;
             }
         }
-        if (log.isDebugEnabled()) log.debug("readHdmiSize: no external HDMI display found.");
+        //if (log.isDebugEnabled()) log.debug("readHdmiSize: no external HDMI display found.");
         return null;
     }
 
@@ -489,7 +489,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
     @Override
     protected void onCreate(Bundle icicle) {
-        if (log.isDebugEnabled()) log.debug("onCreate");
+        //if (log.isDebugEnabled()) log.debug("onCreate");
 
         AdditionalServiceSingleton.getInstance().bindToService(
                 getApplicationContext(),
@@ -540,7 +540,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             mFullScreenWithCutout = mPreferences.getBoolean("enable_cutout_mode_short_edges", true);
             cutBothSidesX = mPreferences.getBoolean("enable_cutout_both_sidesx", false);
-            if (log.isDebugEnabled()) log.debug("onCreate cutout: mFullScreenWithCutout={}, cutBothSidesX={}",  mFullScreenWithCutout, cutBothSidesX);
+            //if (log.isDebugEnabled()) log.debug("onCreate cutout: mFullScreenWithCutout={}, cutBothSidesX={}",  mFullScreenWithCutout, cutBothSidesX);
             //Always using the long one, does this matter!?
             attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
         }
@@ -568,7 +568,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     //NOTE do not do updateSizes() here otherwise player controller is not displayed
                     MiscUtils.setCutoutMetrics(insets, mRootView, PlayerActivity.this);
                     mSurfaceController.setCutoutMetrics(mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom);
-                    if (log.isDebugEnabled()) log.debug("CONFIG onApplyWindowInsets: cutout=({},{},{},{})", mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom);
+                    //if (log.isDebugEnabled()) log.debug("CONFIG onApplyWindowInsets: cutout=({},{},{},{})", mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom);
                     getWindow().getDecorView().setOnApplyWindowInsetsListener(null);
                     // needed on Bravia for HDR content to avoid grey bars cf. issue #270
                     // avoid emulator UI glitch
@@ -583,12 +583,12 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         mRootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, final int top, int right, final int bottom, int oldLeft, final int oldTop, int oldRight, final int oldBottom) {
-                if (log.isDebugEnabled()) log.debug("CONFIG addOnLayoutChangeListener: left={}, top={}, right={}, bottom={}, oldLeft={}, oldTop={}, oldRight={}, oldBottom={}", left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom);
+                //if (log.isDebugEnabled()) log.debug("CONFIG addOnLayoutChangeListener: left={}, top={}, right={}, bottom={}, oldLeft={}, oldTop={}, oldRight={}, oldBottom={}", left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom);
                 if(oldBottom!=bottom||oldTop!=top) {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            if (log.isDebugEnabled()) log.debug("CONFIG addOnLayoutChangeListener, do updateSizes()");
+                            //if (log.isDebugEnabled()) log.debug("CONFIG addOnLayoutChangeListener, do updateSizes()");
                             // without this video is stretched fullscreen
                             updateSizes();
                         }
@@ -654,9 +654,9 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                if (log.isDebugEnabled()) log.debug("CONFIG onDisplayChanged do updateSizes() rotation={}({})->{}({})",
-                                        getHumanReadableRotation(mCurrentRotation), mCurrentRotation,
-                                        getHumanReadableRotation(orientation), orientation);
+                                //if (log.isDebugEnabled()) log.debug("CONFIG onDisplayChanged do updateSizes() rotation={}({})->{}({})",
+                                        //getHumanReadableRotation(mCurrentRotation), mCurrentRotation,
+                                        //getHumanReadableRotation(orientation), orientation);
                                 // needed to update dimensions when unchecking autorot
                                 updateSizes();
                             }
@@ -677,9 +677,9 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     @Override
                     public void propertyChange(PropertyChangeEvent evt) {
                         if (evt.getOldValue() != evt.getNewValue()) {
-                            if (log.isDebugEnabled()) log.debug("NetworkState for {} changed:{} -> {}", evt.getPropertyName(), evt.getOldValue(), evt.getNewValue());
+                            //if (log.isDebugEnabled()) log.debug("NetworkState for {} changed:{} -> {}", evt.getPropertyName(), evt.getOldValue(), evt.getNewValue());
                             if (!networkState.hasLocalConnection() && !mPlayer.isLocalVideo()) { // should not finish if playing local file
-                                if (log.isDebugEnabled()) log.debug("lost network: finish");
+                                //if (log.isDebugEnabled()) log.debug("lost network: finish");
                                 finishWithResult();
                             }
                         }
@@ -724,18 +724,18 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     }
 
     private void setEffect(int type, int mode, boolean needSave) {
-        if (log.isDebugEnabled()) log.debug("setEffectForced: type {}, mode {}, needSave {}", type, mode, needSave);
+        //if (log.isDebugEnabled()) log.debug("setEffectForced: type {}, mode {}, needSave {}", type, mode, needSave);
         if (needSave) mSavedMode=mode;
         mPlayer.setEffect(type, mode);
         mPlayerController.setUIMode(mPlayer.getUIMode());
         if(mSubtitleManager!=null)
             mSubtitleManager.setUIMode(mPlayer.getUIMode());
         if(type!=VideoEffect.EFFECT_NONE){
-            if (log.isDebugEnabled()) log.debug("setEffect: setLockRotation true");
+            //if (log.isDebugEnabled()) log.debug("setEffect: setLockRotation true");
             setLockRotation(true);
         }
         else{
-            if (log.isDebugEnabled()) log.debug("setEffect: setLockRotation {}", mLockRotation);
+            //if (log.isDebugEnabled()) log.debug("setEffect: setLockRotation {}", mLockRotation);
             setLockRotation(mLockRotation);
         }
     }
@@ -743,7 +743,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private void addNetworkListener() {
         if (networkState == null) networkState = NetworkState.instance(mContext);
         if (!mNetworkStateListenerAdded && propertyChangeListener != null) {
-            if (log.isDebugEnabled()) log.debug("addNetworkListener: networkState.addPropertyChangeListener");
+            //if (log.isDebugEnabled()) log.debug("addNetworkListener: networkState.addPropertyChangeListener");
             networkState.addPropertyChangeListener(propertyChangeListener);
             mNetworkStateListenerAdded = true;
         }
@@ -752,7 +752,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private void removeNetworkListener() {
         if (networkState == null) networkState = NetworkState.instance(mContext);
         if (mNetworkStateListenerAdded && propertyChangeListener != null) {
-            if (log.isDebugEnabled()) log.debug("removeListener: networkState.removePropertyChangeListener");
+            //if (log.isDebugEnabled()) log.debug("removeListener: networkState.removePropertyChangeListener");
             networkState.removePropertyChangeListener(propertyChangeListener);
             mNetworkStateListenerAdded = false;
         }
@@ -761,7 +761,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     @Override
     protected void onStart() {
         super.onStart();
-        if (log.isDebugEnabled()) log.debug("onStart()");
+        //if (log.isDebugEnabled()) log.debug("onStart()");
         mStopped = false;
         removeNetworkListener();
         IntentFilter intentFilter = new IntentFilter();
@@ -778,7 +778,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         mLockRotation = mPreferences.getBoolean(KEY_LOCK_ROTATION, false);
         mNetworkBookmarksEnabled = mPreferences.getBoolean(KEY_NETWORK_BOOKMARKS, true);
         boolean forceSWDecoding = mPreferences.getBoolean(KEY_FORCE_SW, false);
-        if (log.isDebugEnabled()) log.debug("onStart: setLockRotation {}", mLockRotation);
+        //if (log.isDebugEnabled()) log.debug("onStart: setLockRotation {}", mLockRotation);
         setLockRotation(mLockRotation);
         mSurfaceController.setVideoFormat(Integer.parseInt(mPreferences.getString(KEY_PLAYER_FORMAT, "-1")),
                 Integer.parseInt(mPreferences.getString(KEY_PLAYER_AUTO_FORMAT, "-1")));
@@ -786,7 +786,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         //Set up projector mode if we need it, otherwise dont even call.
         if (mPreferences.getBoolean(KEY_PLAYER_PROJECTOR_MODE, false)) mSurfaceController.setProjectorMode(true);
         
-        if (log.isDebugEnabled()) log.debug("onStart: Setting audio transformer");
+        //if (log.isDebugEnabled()) log.debug("onStart: Setting audio transformer");
         if (LibAvos.isAvailable()) {
             VideoPreferencesCommon.resetPassthroughPref(mPreferences); // note this resets the audio_speed if in passthrough to 1.0f in prefs
             // enable passthrough only if HDMI is connected and enabled in options
@@ -812,9 +812,9 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             float audioSpeed;
             if (Integer.parseInt(mPreferences.getString("force_audio_passthrough_multiple","0")) == 0) {
                 audioSpeed = mPreferences.getFloat(getString(R.string.save_audio_speed_setting_pref_key), 1.0f);
-                if (log.isDebugEnabled()) log.debug("onStart: {}", audioSpeed);
+                //if (log.isDebugEnabled()) log.debug("onStart: {}", audioSpeed);
             } else {
-                if (log.isDebugEnabled()) log.debug("onStart: {}", 1.0f);
+                //if (log.isDebugEnabled()) log.debug("onStart: {}", 1.0f);
                 audioSpeed = 1.0f;
             }
             String size = mPreferences.getString(KEY_STREAM_BUFFER_SIZE, String.valueOf(DEFAULT_STREAM_BUFFER_SIZE));
@@ -877,37 +877,37 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     }
 
     private void postOnPlayerServiceBind() {
-        if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: START, mResumeFromLast={}", mResumeFromLast);
+        //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: START, mResumeFromLast={}", mResumeFromLast);
         if (!mResumeFromLast && getSharedPreferences("player", 0).getInt("lastintent", 0) == getIntent().hashCode()) {
             /* resume video if last intent == current intent
              * (when resumed from history for example)
              */
             mResumeFromLast = true;
-            if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: Set mResumeFromLast=true due to lastintent match");
+            //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: Set mResumeFromLast=true due to lastintent match");
         }
         final String action = getIntent().getAction();
         if (mResumeFromLast || (action != null && action.equals(LeeroyFlixIntents.LEEROYFLIX_RESUME_VIDEOPLAYER))) {
             mResume = RESUME_FROM_LAST_POS;
             getIntent().putExtra(RESUME, mResume);
-            if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: Set mResume=RESUME_FROM_LAST_POS due to mResumeFromLast or LEEROYFLIX_RESUME action");
+            //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: Set mResume=RESUME_FROM_LAST_POS due to mResumeFromLast or LEEROYFLIX_RESUME action");
         } else {
             mResume = getIntent().getIntExtra(RESUME, RESUME_NO);
-            if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: Retrieved mResume from intent, value={}", mResume);
+            //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: Retrieved mResume from intent, value={}", mResume);
             // Check for external resume position if no other resume mode is set
             if (mResume == RESUME_NO) {
-                if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: mResume==RESUME_NO, checking for position extras");
-                if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: resume from extra");
+                //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: mResume==RESUME_NO, checking for position extras");
+                //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: resume from extra");
                 // Debug: dump all intent extras
                 if (log.isTraceEnabled()) {
                     if (getIntent().getExtras() != null) {
-                        if (log.isDebugEnabled()) log.debug("Intent extras dump:");
+                        //if (log.isDebugEnabled()) log.debug("Intent extras dump:");
                         for (String key : getIntent().getExtras().keySet()) {
                             Object value = getIntent().getExtras().get(key);
                             String valueType = value != null ? value.getClass().getSimpleName() : "null";
-                            if (log.isDebugEnabled()) log.debug("  {} = {} ({})", key, value, valueType);
+                            //if (log.isDebugEnabled()) log.debug("  {} = {} ({})", key, value, valueType);
                         }
                     } else {
-                        if (log.isDebugEnabled()) log.debug("Intent extras: null");
+                        //if (log.isDebugEnabled()) log.debug("Intent extras: null");
                     }
                 }
                 if (getIntent().hasExtra("startfrom")) {
@@ -917,7 +917,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     } else if (positionExtra instanceof Long) {
                         mRemotePosition = ((Long) positionExtra).intValue();
                     }
-                    if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: found startfrom extra, mRemotePosition={}", mRemotePosition);
+                    //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: found startfrom extra, mRemotePosition={}", mRemotePosition);
                 } else if (getIntent().hasExtra("position")) {
                     Object positionExtra = getIntent().getExtras().get("position");
                     if (positionExtra instanceof Integer) {
@@ -925,7 +925,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     } else if (positionExtra instanceof Long) {
                         mRemotePosition = ((Long) positionExtra).intValue();
                     }
-                    if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: found position extra, mRemotePosition={}", mRemotePosition);
+                    //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: found position extra, mRemotePosition={}", mRemotePosition);
                 } else if (getIntent().hasExtra("resume_position")) {
                     Object positionExtra = getIntent().getExtras().get("resume_position");
                     if (positionExtra instanceof Integer) {
@@ -933,27 +933,27 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     } else if (positionExtra instanceof Long) {
                         mRemotePosition = ((Long) positionExtra).intValue();
                     }
-                    if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: found resume_position extra, mRemotePosition={}", mRemotePosition);
+                    //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: found resume_position extra, mRemotePosition={}", mRemotePosition);
                 }
                 if (mRemotePosition > 0) {
                     mResume = RESUME_FROM_REMOTE_POS;
                     getIntent().putExtra(RESUME, mResume);
-                    if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: set mResume=RESUME_FROM_REMOTE_POS({}) and updated intent", RESUME_FROM_REMOTE_POS);
+                    //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: set mResume=RESUME_FROM_REMOTE_POS({}) and updated intent", RESUME_FROM_REMOTE_POS);
                     // Set the remote position in VideoDbInfo for playback
                     if (mVideoInfo != null) {
                         mVideoInfo.resume = mRemotePosition;
-                        if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: Set mVideoInfo.resume={}", mRemotePosition);
+                        //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: Set mVideoInfo.resume={}", mRemotePosition);
                     } else {
-                        if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: mVideoInfo is null, cannot set resume position yet");
+                        //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: mVideoInfo is null, cannot set resume position yet");
                     }
                 } else {
-                    if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: mRemotePosition not > 0, value={}", mRemotePosition);
+                    //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: mRemotePosition not > 0, value={}", mRemotePosition);
                 }
             }
         }
 
         mIsReadytoStart = false;
-        if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind() ");
+        //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind() ");
         Intent intent = new Intent();
         intent.putExtras(getIntent());
         intent.setData(getIntent().getData());
@@ -962,7 +962,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         Player.sPlayer = mPlayer;
         PlayerService.sPlayerService.setPlayer();
         if(mPermissionChecker.hasExternalPermission(this)) {
-            if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: hasExternalPermission");
+            //if (log.isDebugEnabled()) log.debug("postOnPlayerServiceBind: hasExternalPermission");
             PlayerService.sPlayerService.onStart(intent);
             PlayerService.sPlayerService.setIndexHelper(mIndexHelper);
             start();
@@ -979,7 +979,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     @Override
     protected void onResume() {
         super.onResume();
-        if (log.isDebugEnabled()) log.debug("onResume");
+        //if (log.isDebugEnabled()) log.debug("onResume");
         // Clock (for leanback devices only)
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_LEANBACK) || isChromeOS(mContext)) {
             registerReceiver(mClockReceiver, new IntentFilter(Intent.ACTION_TIME_TICK));
@@ -1000,7 +1000,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 mPlayer.checkSubtitles();
                 // Ensure mPlayOnResume stays false if player is paused
                 if (mPlayer.isPaused() && PlayerService.sPlayerService != null) {
-                    if (log.isDebugEnabled()) log.debug("onResume: player is paused, ensuring mPlayOnResume = false and mUserPausedVideo = true");
+                    //if (log.isDebugEnabled()) log.debug("onResume: player is paused, ensuring mPlayOnResume = false and mUserPausedVideo = true");
                     mUserPausedVideo = true;
                     PlayerService.sPlayerService.setPlayOnResume(false);
                 }
@@ -1022,7 +1022,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     @Override
     protected void onPause() {
         super.onPause();
-        if (log.isDebugEnabled()) log.debug("onPause");
+        //if (log.isDebugEnabled()) log.debug("onPause");
 
         // Update last position for external player result reporting
         if (mIsExternalPlayer && mPlayer != null && mPlayer.isInPlaybackState()) {
@@ -1052,14 +1052,14 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
         // If player is paused when activity pauses (screen off), preserve pause state
         if (mPlayer != null && mPlayer.isPaused() && PlayerService.sPlayerService != null) {
-            if (log.isDebugEnabled()) log.debug("onPause (activity): player is paused, setting mPlayOnResume = false");
+            //if (log.isDebugEnabled()) log.debug("onPause (activity): player is paused, setting mPlayOnResume = false");
             PlayerService.sPlayerService.setPlayOnResume(false);
         }
 
         //Update the playback time for proper restore when resumed.
         if (mLastPosition != LAST_POSITION_END) {
                 mLastPosition = mPlayer.getCurrentPosition();
-                if (log.isDebugEnabled()) log.debug("onPause: player activity paused, saving exact position {}", mLastPosition);
+                //if (log.isDebugEnabled()) log.debug("onPause: player activity paused, saving exact position {}", mLastPosition);
                 Intent intent = getIntent();
                 if (intent.hasExtra("position"))
                     intent.putExtra("position", mLastPosition);
@@ -1076,7 +1076,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     @Override
     protected void onStop() {
         super.onStop();
-        if (log.isDebugEnabled()) log.debug("onStop");
+        //if (log.isDebugEnabled()) log.debug("onStop");
 
         // Send external player result when stopping (before onDestroy)
         sendExternalPlayerResult();
@@ -1084,7 +1084,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         if (mStopped)
             return;
         if(mTorrent!=null){
-            if (log.isDebugEnabled()) log.debug("onStop, unbinding torrentObserver");
+            //if (log.isDebugEnabled()) log.debug("onStop, unbinding torrentObserver");
         }
 
         /*
@@ -1102,10 +1102,10 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             // If player is paused, save exact position; otherwise save bookmark position
             if (mPlayer.isPaused()) {
                 mLastPosition = mPlayer.getCurrentPosition();
-                if (log.isDebugEnabled()) log.debug("onStop: player paused, saving exact position {}", mLastPosition);
+                //if (log.isDebugEnabled()) log.debug("onStop: player paused, saving exact position {}", mLastPosition);
             } else {
                 mLastPosition = getBookmarkPosition();
-                if (log.isDebugEnabled()) log.debug("onStop: player playing, saving bookmark position {}", mLastPosition);
+                //if (log.isDebugEnabled()) log.debug("onStop: player playing, saving bookmark position {}", mLastPosition);
             }
         }
         stop();
@@ -1127,7 +1127,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
     @Override
     protected void onDestroy() {
-        if (log.isDebugEnabled()) log.debug("onDestroy");
+        //if (log.isDebugEnabled()) log.debug("onDestroy");
 
         // Send external player result if we haven't already
         sendExternalPlayerResult();
@@ -1138,7 +1138,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         // Clear the pause state preference when activity is destroyed
         // This ensures fresh start when opening the video again
         mPreferences.edit().putBoolean("user_paused_video", false).apply();
-        if (log.isDebugEnabled()) log.debug("onDestroy: cleared user_paused_video preference");
+        //if (log.isDebugEnabled()) log.debug("onDestroy: cleared user_paused_video preference");
 
         // Unregister DisplayListener to prevent memory leak
         if (mDisplayManager != null && mDisplayListener != null) {
@@ -1148,7 +1148,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         }
 
         VideoEffect.resetForcedMode();
-        if (log.isDebugEnabled()) log.debug("onDestroy: setEffect");
+        //if (log.isDebugEnabled()) log.debug("onDestroy: setEffect");
         setEffect(VideoEffect.getDefaultMode());
         super.onDestroy();
     }
@@ -1197,15 +1197,15 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             layoutHeight = displayHeight;
         }
 
-        if (log.isDebugEnabled()) log.debug("CONFIG updateSizes isPortrait={}, isSeenPortrait={}, isInMultiWindowMode()={}, isInPictureInPictureMode()={}, layout=({},{}), display=({},{})",
-                isPortrait, isSeenPortrait, isInMultiWindowMode, isInPictureInPictureMode,
-                layoutWidth, layoutHeight, displayWidth, displayHeight);
+        //if (log.isDebugEnabled()) log.debug("CONFIG updateSizes isPortrait={}, isSeenPortrait={}, isInMultiWindowMode()={}, isInPictureInPictureMode()={}, layout=({},{}), display=({},{})",
+                //isPortrait, isSeenPortrait, isInMultiWindowMode, isInPictureInPictureMode,
+                //layoutWidth, layoutHeight, displayWidth, displayHeight);
 
         // if rotation is locked reverse w/h but only if we have a difference of portrait/landscape perception between layout and screen dimension
         if (isRotationLocked()&&(isPortrait != isSeenPortrait)) {
             displayWidth = realPoint.y;
             displayHeight = realPoint.x;
-            if (log.isDebugEnabled()) log.debug("CONFIG updateSizes RotationLocked overriding display ({},{})", displayWidth, displayHeight);
+            //if (log.isDebugEnabled()) log.debug("CONFIG updateSizes RotationLocked overriding display ({},{})", displayWidth, displayHeight);
         }
 
         if (!isInPictureInPictureMode&&!isInMultiWindowMode) {
@@ -1217,7 +1217,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         }
 
         // Note: mRootView contains player.xml layout and must cover full screen including cutout
-        if (log.isDebugEnabled()) log.debug("CONFIG updateSizes: trueFullscreen size WxH={}x{}", width, height);
+        //if (log.isDebugEnabled()) log.debug("CONFIG updateSizes: trueFullscreen size WxH={}x{}", width, height);
         if(!isChromeOS(mContext)) { //keeping things as it was on other devices
             ViewGroup.LayoutParams lp = mRootView.getLayoutParams();
             lp.width = width;
@@ -1229,7 +1229,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         mSurfaceController.setScreenSize(width, height);
         mSubtitleManager.setScreenSize(width, height);
         if(!isInPictureInPictureMode) {
-            if (log.isDebugEnabled()) log.debug("CONFIG updateSizes: not PIP mPlayerController.setSizes layout=({},{}), display=({},{})", layoutWidth, layoutHeight, displayWidth, displayHeight);
+            //if (log.isDebugEnabled()) log.debug("CONFIG updateSizes: not PIP mPlayerController.setSizes layout=({},{}), display=({},{})", layoutWidth, layoutHeight, displayWidth, displayHeight);
             mPlayerController.setSizes(displayWidth, displayHeight, layoutWidth, layoutHeight);
             // Close the menus if needed
             mAudioInfoController.resetPopup();
@@ -1242,7 +1242,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             // note that in multiwindow mode chromeos returns correct height but not in full screen thus it works here
             vpos = (int) ((layoutHeight / (float)(displayHeight<displayWidth?displayHeight:displayWidth)) * vpos);
         }
-        if (log.isDebugEnabled()) log.debug("CONFIG updateSizes: mSubtitleManager.setSize({}), vpos={}", size, vpos);
+        //if (log.isDebugEnabled()) log.debug("CONFIG updateSizes: mSubtitleManager.setSize({}), vpos={}", size, vpos);
         mSubtitleManager.setSize(size);
         setSubtitleVpos(vpos, "updateSizes");
     }
@@ -1253,7 +1253,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (log.isDebugEnabled()) log.debug("CONFIG onConfigurationChanged: do updateSizes()");
+                //if (log.isDebugEnabled()) log.debug("CONFIG onConfigurationChanged: do updateSizes()");
                 updateSizes();
             }
         });
@@ -1284,7 +1284,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private void setLockRotation(boolean avpLock) {
         Display display = getWindowManager().getDefaultDisplay();
         int rotation = display.getRotation();
-        if (log.isDebugEnabled()) log.debug("CONFIG setLockRotation, rotation status: {}, i.e. {}", rotation, getHumanReadableRotation(rotation));
+        //if (log.isDebugEnabled()) log.debug("CONFIG setLockRotation, rotation status: {}, i.e. {}", rotation, getHumanReadableRotation(rotation));
 
         boolean systemLock;
         try {
@@ -1293,10 +1293,10 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             systemLock = false;
         }
         mIsRotationLocked = (avpLock || systemLock);
-        if (log.isDebugEnabled()) log.debug("avpLock: {} systemLock: {}", avpLock, systemLock);
+        //if (log.isDebugEnabled()) log.debug("avpLock: {} systemLock: {}", avpLock, systemLock);
         if (mIsRotationLocked) {
             int tmpOrientation = getResources().getConfiguration().orientation;
-            if (log.isDebugEnabled()) log.debug("CONFIG setLockRotation: current orientation is {}", getHumanReadableActivityOrientation(tmpOrientation));
+            //if (log.isDebugEnabled()) log.debug("CONFIG setLockRotation: current orientation is {}", getHumanReadableActivityOrientation(tmpOrientation));
             int wantedOrientation;
 
             if (tmpOrientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -1307,7 +1307,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     wantedOrientation = ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
                     mLockedRotation = Surface.ROTATION_270;
                 }
-                if (log.isDebugEnabled()) log.debug("CONFIG setLockRotation: wanted orientation is {}", getHumanReadableActivityOrientation(wantedOrientation));
+                //if (log.isDebugEnabled()) log.debug("CONFIG setLockRotation: wanted orientation is {}", getHumanReadableActivityOrientation(wantedOrientation));
                 setRequestedOrientation(wantedOrientation);
             }
             else if (tmpOrientation == Configuration.ORIENTATION_PORTRAIT || tmpOrientation == Configuration.ORIENTATION_UNDEFINED) {
@@ -1318,18 +1318,18 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     wantedOrientation = ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
                     mLockedRotation = Surface.ROTATION_270;
                 }
-                if (log.isDebugEnabled()) log.debug("CONFIG setLockRotation: wanted orientation is {}", getHumanReadableActivityOrientation(wantedOrientation));
+                //if (log.isDebugEnabled()) log.debug("CONFIG setLockRotation: wanted orientation is {}", getHumanReadableActivityOrientation(wantedOrientation));
                 setRequestedOrientation(wantedOrientation);
             }
         } else {
-            if (log.isDebugEnabled()) log.debug("CONFIG setLockRotation: wanted orientation is unspecified");
+            //if (log.isDebugEnabled()) log.debug("CONFIG setLockRotation: wanted orientation is unspecified");
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
         }
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
-        if (log.isDebugEnabled()) log.debug("onNewIntent: {}", intent);
+        //if (log.isDebugEnabled()) log.debug("onNewIntent: {}", intent);
         setIntent(intent);
         if(mWasInPictureInPicture) {
             if (PlayerService.sPlayerService != null) {
@@ -1444,7 +1444,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         if(mPlayerController!=null && !mPlayerController.isTVMenuDisplayed())
             if (event.getAction() == MotionEvent.ACTION_MOVE) {
                 int joystickZone = MediaUtils.getJoystickZone(event);
-                if (log.isDebugEnabled()) log.debug("onGenericMotionEvent : event=ACTION_MOVE");
+                //if (log.isDebugEnabled()) log.debug("onGenericMotionEvent : event=ACTION_MOVE");
 
                 if (!mSeekingWithJoystickStarted && joystickZone != MediaUtils.JOYSTICK_ZONE_CENTER) {
                     // Starting to seek => make the control bar visible
@@ -1695,7 +1695,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             @Override
             public void onClick(View view) {
                 saveSettingCB.toggle();
-                if (log.isDebugEnabled()) log.debug("createTVAudioDelayDialog:onClick saveSettingCB.isChecked()={}", saveSettingCB.isChecked());
+                //if (log.isDebugEnabled()) log.debug("createTVAudioDelayDialog:onClick saveSettingCB.isChecked()={}", saveSettingCB.isChecked());
             }
         });
         // View hierarchy is
@@ -1708,7 +1708,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         tvPicker.init(PlayerService.sPlayerService.getAudioDelay(), new AudioDelayPickerAbstract.OnAudioDelayChangedListener() {
             @Override
             public void onAudioDelayChanged(AudioDelayPickerAbstract view, int delay) {
-                if (log.isDebugEnabled()) log.debug("createTVAudioDelayDialog:onAudioDelayChanged delay={}", delay);
+                //if (log.isDebugEnabled()) log.debug("createTVAudioDelayDialog:onAudioDelayChanged delay={}", delay);
                 PlayerActivity.this.onAudioDelayChange(null, delay);
             }
         });
@@ -1718,11 +1718,11 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             public void onResult(int code) {
                 mPlayerController.getTVMenuAdapter().setDiscrete(false);
                 if(saveSettingCB.isChecked()){
-                    if (log.isDebugEnabled()) log.debug("createTVAudioDelayDialog:onResult save audio delay={} in prefs", PlayerService.sPlayerService.getAudioDelay());
+                    //if (log.isDebugEnabled()) log.debug("createTVAudioDelayDialog:onResult save audio delay={} in prefs", PlayerService.sPlayerService.getAudioDelay());
                     mPreferences.edit().putInt(getString(R.string.save_delay_setting_pref_key), PlayerService.sPlayerService.getAudioDelay()).apply();
                 }
                 else {
-                    if (log.isDebugEnabled()) log.debug("createTVAudioDelayDialog:onResult do not save audio delay and carve 0 in prefs");
+                    //if (log.isDebugEnabled()) log.debug("createTVAudioDelayDialog:onResult do not save audio delay and carve 0 in prefs");
                     mPreferences.edit().putInt(getString(R.string.save_delay_setting_pref_key), 0).apply();
                 }
             }
@@ -1755,10 +1755,10 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 saveSettingCB.toggle();
                 // Save preference immediately when toggled
                 if(saveSettingCB.isChecked()){
-                    if (log.isDebugEnabled()) log.debug("createTVAudioSpeedDialog: keep setting toggled ON, save current audio speed={} in prefs", PlayerService.sPlayerService.getAudioSpeed());
+                    //if (log.isDebugEnabled()) log.debug("createTVAudioSpeedDialog: keep setting toggled ON, save current audio speed={} in prefs", PlayerService.sPlayerService.getAudioSpeed());
                     mPreferences.edit().putFloat(getString(R.string.save_audio_speed_setting_pref_key), PlayerService.sPlayerService.getAudioSpeed()).apply();
                 } else {
-                    if (log.isDebugEnabled()) log.debug("createTVAudioSpeedDialog: keep setting toggled OFF, save 1.0f in prefs");
+                    //if (log.isDebugEnabled()) log.debug("createTVAudioSpeedDialog: keep setting toggled OFF, save 1.0f in prefs");
                     mPreferences.edit().putFloat(getString(R.string.save_audio_speed_setting_pref_key), 1.0f).apply();
                 }
             }
@@ -1769,7 +1769,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 PlayerActivity.this.onAudioSpeedChange(null, speed);
                 // Save preference immediately when speed changes if keep setting is enabled
                 if(saveSettingCB.isChecked()) {
-                    if (log.isDebugEnabled()) log.debug("createTVAudioSpeedDialog: audio speed changed to {} with keep setting ON, save in prefs", speed);
+                    //if (log.isDebugEnabled()) log.debug("createTVAudioSpeedDialog: audio speed changed to {} with keep setting ON, save in prefs", speed);
                     mPreferences.edit().putFloat(getString(R.string.save_audio_speed_setting_pref_key), speed).apply();
                 }
             }
@@ -1778,14 +1778,14 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         ((TVCardDialog)dialogView).setOnDialogResultListener(new TVCardDialog.OnDialogResultListener() {
             @Override
             public void onResult(int code) {
-                if (log.isDebugEnabled()) log.debug("createTVAudioSpeedDialog:onResult CALLED with code={}", code);
+                //if (log.isDebugEnabled()) log.debug("createTVAudioSpeedDialog:onResult CALLED with code={}", code);
                 mPlayerController.getTVMenuAdapter().setDiscrete(false);
                 if(saveSettingCB.isChecked()){
-                    if (log.isDebugEnabled()) log.debug("createTVAudioSpeedDialog:onResult save audio speed={} in prefs", PlayerService.sPlayerService.getAudioSpeed());
+                    //if (log.isDebugEnabled()) log.debug("createTVAudioSpeedDialog:onResult save audio speed={} in prefs", PlayerService.sPlayerService.getAudioSpeed());
                     mPreferences.edit().putFloat(getString(R.string.save_audio_speed_setting_pref_key), PlayerService.sPlayerService.getAudioSpeed()).apply();
                 }
                 else {
-                    if (log.isDebugEnabled()) log.debug("createTVAudioSpeedDialog:onResult do not save audio speed and carve 1.0f in prefs");
+                    //if (log.isDebugEnabled()) log.debug("createTVAudioSpeedDialog:onResult do not save audio speed and carve 1.0f in prefs");
                     mPreferences.edit().putFloat(getString(R.string.save_audio_speed_setting_pref_key), 1.0f).apply();
                 }
             }
@@ -1809,7 +1809,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         if (mSubtitleTVMenu != null) {
             mSubtitleTVMenu.clean();
 
-            if (log.isDebugEnabled()) log.debug("refreshSubtitleTVMenu: mSubtitleInfoController.getTrackCount()={}", mSubtitleInfoController.getTrackCount());
+            //if (log.isDebugEnabled()) log.debug("refreshSubtitleTVMenu: mSubtitleInfoController.getTrackCount()={}", mSubtitleInfoController.getTrackCount());
 
             mPlayerController.getTVMenuAdapter().setCardViewVisibility(View.VISIBLE, mSubtitleTVCardView);
 
@@ -1827,7 +1827,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     }
                 });
 
-                if (log.isDebugEnabled()) log.debug("refreshSubtitleTVMenu: isCurrentSubtrackNone={}", isCurrentSubtrackNone());
+                //if (log.isDebugEnabled()) log.debug("refreshSubtitleTVMenu: isCurrentSubtrackNone={}", isCurrentSubtrackNone());
                 disableSubtitleDelayTVMenuItem(isCurrentSubtrackNone());
 
                 mSubtitleSettingsMenuItem = mSubtitleTVMenu.createAndAddTVMenuItem(getText(R.string.menu_player_settings).toString(), false, false);
@@ -1838,7 +1838,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     }
                 });
 
-                if (log.isDebugEnabled()) log.debug("refreshSubtitleTVMenu: isCurrentSubtrackGfx={}", isCurrentSubtrackGfx());
+                //if (log.isDebugEnabled()) log.debug("refreshSubtitleTVMenu: isCurrentSubtrackGfx={}", isCurrentSubtrackGfx());
                 disableSubtitleSettingsMenuItem(isCurrentSubtrackGfx() || isCurrentSubtrackNone());
             }
             mSubtitleTVMenu.createAndAddTVMenuItem(getText(R.string.get_subtitles_online).toString(), false, false).setOnClickListener(new View.OnClickListener() {
@@ -2156,7 +2156,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 default:
                     break;
             }
-            if (log.isDebugEnabled()) log.debug("set3DMode: setEffect");
+            //if (log.isDebugEnabled()) log.debug("set3DMode: setEffect");
             setEffectForced(mode);
         }
     }
@@ -2342,7 +2342,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 return true;
             case MENU_LOCK_ROTATION_ID:
                 mLockRotation = !mLockRotation;
-                if (log.isDebugEnabled()) log.debug("onStart: setLockRotation {}", mLockRotation);
+                //if (log.isDebugEnabled()) log.debug("onStart: setLockRotation {}", mLockRotation);
                 setLockRotation(mLockRotation);
                 mPreferences.edit().putBoolean(KEY_LOCK_ROTATION, mLockRotation).apply();
                 //item.setTitle(mLockRotation ? R.string.rotation_unlock : R.string.rotation_lock);
@@ -2533,14 +2533,14 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         // TODO Auto-generated method stub
                         if (isChecked) {
-                            if (log.isDebugEnabled()) log.debug("onOptionsItemSelected: setEffect");
+                            //if (log.isDebugEnabled()) log.debug("onOptionsItemSelected: setEffect");
                             setEffectForced(mSavedMode);
                             ad.getListView().setEnabled(true);
                             for(RadioButton rb : rbs)
                                 rb.setEnabled(true);
                         }
                         else {
-                            if (log.isDebugEnabled()) log.debug("onOptionsItemSelected: setEffect");
+                            //if (log.isDebugEnabled()) log.debug("onOptionsItemSelected: setEffect");
                             setEffectForced(VideoEffect.NORMAL_2D_MODE, false);
                             ad.getListView().setEnabled(false);
                             for (RadioButton rb : rbs)
@@ -2835,13 +2835,13 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         int viewType = VideoEffect.getDefaultType();
         if (mVideoInfo != null) {
 
-            if (log.isDebugEnabled()) log.debug("setVideoInfo: mVideoInfo.subtitleTrack {}", mVideoInfo.subtitleTrack);
+            //if (log.isDebugEnabled()) log.debug("setVideoInfo: mVideoInfo.subtitleTrack {}", mVideoInfo.subtitleTrack);
 
             // one of them is already known, don't care and overwrite both
 
             mVideoId = mVideoInfo.id;
             mUri = mVideoInfo.uri;
-            if (log.isDebugEnabled()) log.debug("setVideoInfo mVideoId: {}", mVideoId);
+            //if (log.isDebugEnabled()) log.debug("setVideoInfo mVideoId: {}", mVideoId);
 
             applyRemotePositionIfNeeded();
 
@@ -2896,7 +2896,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         if (viewMode == VideoEffect.NORMAL_2D_MODE)
             viewType = VideoEffect.EFFECT_NONE;
 
-        if (log.isDebugEnabled()) log.debug("setVideoInfo: setEffect");
+        //if (log.isDebugEnabled()) log.debug("setVideoInfo: setEffect");
         setEffect(viewType, viewMode);
 
         /*
@@ -2913,7 +2913,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         }
 
         mPlayerController.setVideoTitle(mTitle);
-        if (log.isDebugEnabled()) log.debug("setVideoInfo: mTitle {}, call postVideoInfoAndPrepared", mTitle);
+        //if (log.isDebugEnabled()) log.debug("setVideoInfo: mTitle {}, call postVideoInfoAndPrepared", mTitle);
         postVideoInfoAndPrepared();
     }
 
@@ -2921,7 +2921,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
      * set start state = removing progress + enabling controllers
      */
     private void  postVideoInfoAndPrepared() {
-        if (log.isDebugEnabled()) log.debug("postVideoInfoAndPrepared mVideoInfo!= null && (PlayerState PREPARED || PLAYING)={}", String.valueOf((PlayerService.sPlayerService.mPlayerState == PlayerService.PlayerState.PREPARED||PlayerService.sPlayerService.mPlayerState == PlayerService.PlayerState.PLAYING) && mVideoInfo != null));
+        //if (log.isDebugEnabled()) log.debug("postVideoInfoAndPrepared mVideoInfo!= null && (PlayerState PREPARED || PLAYING)={}", String.valueOf((PlayerService.sPlayerService.mPlayerState == PlayerService.PlayerState.PREPARED||PlayerService.sPlayerService.mPlayerState == PlayerService.PlayerState.PLAYING) && mVideoInfo != null));
         // ex onStreamingUriOK
         if ((PlayerService.sPlayerService.mPlayerState == PlayerService.PlayerState.PREPARED||PlayerService.sPlayerService.mPlayerState == PlayerService.PlayerState.PLAYING) && mVideoInfo != null) {
             if (mThumbnail != null) {
@@ -2962,10 +2962,10 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             PlayerService.sPlayerService.requestIndexAndScrap();
         }
     	// if we want to display a dialog for trakt resume, uncomment this
-    	/* if (log.isDebugEnabled()) log.debug("onVideoDb: trakt: into dialog");
+    	/* //if (log.isDebugEnabled()) log.debug("onVideoDb: trakt: into dialog");
     	if(localTraktPosition>0&&
         		(localTraktPosition<localVideoInfo.resume-60000||localTraktPosition>localVideoInfo.resume+60000)){
-    		if (log.isDebugEnabled()) log.debug("onVideoDb: trakt: showing dialog");
+    		//if (log.isDebugEnabled()) log.debug("onVideoDb: trakt: showing dialog");
         	AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage(R.string.use_trakt_resume)
             .setCancelable(false)
@@ -2985,7 +2985,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             alert.show();
         }
     	else */
-        if (log.isDebugEnabled()) log.debug("showTraktResumeDialog: call setVideoInfo");
+        //if (log.isDebugEnabled()) log.debug("showTraktResumeDialog: call setVideoInfo");
         setVideoInfo(mVideoInfo);
     }
 
@@ -3004,7 +3004,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         Intent intent = getIntent();
         mPlayer.setSurfaceController(mSurfaceController);
         mPlayer.setWindow(getWindow());
-        if (log.isDebugEnabled()) log.debug("start: {}", intent);
+        //if (log.isDebugEnabled()) log.debug("start: {}", intent);
         if (mBufferView != null)
             mBufferView.setText("");
         mHandler.removeMessages(MSG_PROGRESS_VISIBLE);
@@ -3039,7 +3039,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     }
 
     private void stop() {
-        if (log.isDebugEnabled()) log.debug("stop");
+        //if (log.isDebugEnabled()) log.debug("stop");
 
         mPlayer.pause(PlayerController.STATE_OTHER);
 
@@ -3277,7 +3277,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             mPlayer.setSubtitleRatio(mVideoInfo.subtitleRatio);
             // Save the subtitle delay and ratio to the database for persistence across resume
             mIndexHelper.writeVideoInfo(mVideoInfo, mNetworkBookmarksEnabled);
-            if (log.isDebugEnabled()) log.debug("onDelayChange: saved subtitleDelay={} subtitleRatio={} to database", mVideoInfo.subtitleDelay, mVideoInfo.subtitleRatio);
+            //if (log.isDebugEnabled()) log.debug("onDelayChange: saved subtitleDelay={} subtitleRatio={} to database", mVideoInfo.subtitleDelay, mVideoInfo.subtitleRatio);
         }
     }
 
@@ -3289,10 +3289,10 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     /* AudioSpeedPickerDialog.OnAudioSpeedChangeListener */
     public void onAudioSpeedChange(AudioSpeedPickerAbstract speedPicker, float speed) {
         if (Integer.parseInt(mPreferences.getString("force_audio_passthrough_multiple","0")) == 0) {
-            if (log.isDebugEnabled()) log.debug("onAudioSpeedChange: setAudioSpeed {}", speed);
+            //if (log.isDebugEnabled()) log.debug("onAudioSpeedChange: setAudioSpeed {}", speed);
              PlayerService.sPlayerService.setAudioSpeed(speed, false);
         } else {
-            if (log.isDebugEnabled()) log.debug("onAudioSpeedChange: DO NOT setAudioSpeed coz passthrough");
+            //if (log.isDebugEnabled()) log.debug("onAudioSpeedChange: DO NOT setAudioSpeed coz passthrough");
         }
     }
 
@@ -3300,7 +3300,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
         // mThumbnailDone is the state of the thread: 0: not started yet, 1: started, 2: done
         if (mThumbnailDone == 0) {
-            if (log.isDebugEnabled()) log.debug("XXT", "starting new Thread");
+            //if (log.isDebugEnabled()) log.debug("XXT", "starting new Thread");
             mThumbnailDone = 1;
             final ContentResolver cr = getContentResolver();
             final String posterPath = mPosterPath;
@@ -3422,20 +3422,20 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             int newSubtitleTrack = nextVideoInfoSubtitleTrack(mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles);
             int newSubtitlePosition = subtitleTrackToPosition(newSubtitleTrack, mVideoInfo.nbSubtitles);
             int playerPosition = positionToPlayerSubtitleTrack(newSubtitlePosition, mVideoInfo.nbSubtitles);
-            if (log.isDebugEnabled()) log.debug("switchSubtitleTrack: {}/{} -> (track,position)=({},{}), playerPosition={}", mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles,
-                    newSubtitleTrack, newSubtitlePosition, playerPosition);
+            //if (log.isDebugEnabled()) log.debug("switchSubtitleTrack: {}/{} -> (track,position)=({},{}), playerPosition={}", mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles,
+                    //newSubtitleTrack, newSubtitlePosition, playerPosition);
             if (mPlayer.setSubtitleTrack(playerPosition)) {
                 mVideoInfo.subtitleTrack = newSubtitleTrack;
                 mSubtitleManager.clear();
                 mSubtitleInfoController.setTrack(subtitleTrackToPosition(mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles)); // +1 since none track is at position 0, for UI only
                 if (mSubtitleInfoController.getTrack() == 0) { // 0 is nonePosition
-                    if (log.isDebugEnabled()) log.debug("switchSubtitleTrack: disableSubtitleDelayTVMenuItem(true) because nonePosition");
+                    //if (log.isDebugEnabled()) log.debug("switchSubtitleTrack: disableSubtitleDelayTVMenuItem(true) because nonePosition");
                     disableSubtitleDelayTVMenuItem(true);
                     disableSubtitleSettingsMenuItem(true);
                 }
                 refreshSubtitleTVMenu();
                 CharSequence subTrackName = mSubtitleInfoController.getTrackNameAt(subtitleTrackToPosition(mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles));
-                if (log.isDebugEnabled()) log.debug("switchSubtitleTrack: changed track={} -> {}", mVideoInfo.subtitleTrack, subTrackName);
+                //if (log.isDebugEnabled()) log.debug("switchSubtitleTrack: changed track={} -> {}", mVideoInfo.subtitleTrack, subTrackName);
                 setSubtitleVpos("switchSubtitleTrack");
                 mPlayerController.updateToast(getResources().getText(R.string.player_subtitle_track_toast) + " " + subTrackName);
             }
@@ -3446,7 +3446,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     public void switchAudioTrack() {
         if (mAudioInfoController.getTrackCount() > 1) {
             int newAudioTrack = (mVideoInfo.audioTrack + 1) % mAudioInfoController.getTrackCount();
-            if (log.isDebugEnabled()) log.debug("switchAudioTrack: circular increment from {} to  {}", mVideoInfo.audioTrack, newAudioTrack);
+            //if (log.isDebugEnabled()) log.debug("switchAudioTrack: circular increment from {} to  {}", mVideoInfo.audioTrack, newAudioTrack);
             if (setPlayerAudioTrack(newAudioTrack)) {
                 mVideoInfo.audioTrack = newAudioTrack;
                 mAudioInfoController.setTrack(mVideoInfo.audioTrack);
@@ -3488,18 +3488,18 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         if (mVideoInfo == null || mVideoInfo.subtitleTrack == -1 || mVideoInfo.subtitleTrack >= mVideoInfo.nbSubtitles) return;
         VideoMetadata.SubtitleTrack subtitleTrack = mPlayer.getVideoMetadata().getSubtitleTrack(mVideoInfo.subtitleTrack);
         if (subtitleTrack != null && subtitleTrack.isGfx) {
-            if (log.isDebugEnabled()) log.debug("{}: set vpos to 0, mVideoInfo={}", caller, ((mVideoInfo == null) ? "null" : "noNull" + ", subtitleTrack=" + ((mVideoInfo == null) ? "null" : mVideoInfo.subtitleTrack)));
+            //if (log.isDebugEnabled()) log.debug("{}: set vpos to 0, mVideoInfo={}", caller, ((mVideoInfo == null) ? "null" : "noNull" + ", subtitleTrack=" + ((mVideoInfo == null) ? "null" : mVideoInfo.subtitleTrack)));
             mSubtitleManager.setVerticalPosition(0);
             disableSubtitleSettingsMenuItem(true);
         } else {
-            if (log.isDebugEnabled()) log.debug("{}: set vpos to {}, subtitleTrack={}", caller, vpos, mVideoInfo.subtitleTrack);
+            //if (log.isDebugEnabled()) log.debug("{}: set vpos to {}, subtitleTrack={}", caller, vpos, mVideoInfo.subtitleTrack);
             mSubtitleManager.setVerticalPosition(vpos);
             disableSubtitleSettingsMenuItem(false);
         }
     }
 
     private void disableSubtitleDelayTVMenuItem(boolean disable) {
-        if (log.isDebugEnabled()) log.debug("disableSubtitleDelayTVMenuItem: {}", disable);
+        //if (log.isDebugEnabled()) log.debug("disableSubtitleDelayTVMenuItem: {}", disable);
         mSubtitleInfoController.enableSettings(SUBTITLE_MENU_DELAY, !disable, disable);
         if (mSubtitleDelayMenuItem != null) {
             mSubtitleDelayMenuItem.setDisabled(disable);
@@ -3507,7 +3507,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     }
 
     private void disableSubtitleSettingsMenuItem(boolean disable) {
-        if (log.isDebugEnabled()) log.debug("disableSubtitleSettingsMenuItem: {}", disable);
+        //if (log.isDebugEnabled()) log.debug("disableSubtitleSettingsMenuItem: {}", disable);
         mSubtitleInfoController.enableSettings(SUBTITLE_MENU_SETTINGS, !disable, disable);
         if (mSubtitleSettingsMenuItem != null) {
             mSubtitleSettingsMenuItem.setDisabled(disable);
@@ -3522,7 +3522,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             return false;
         log.info("onTrackSelected(" + position + "): " + name);
         if (Objects.equals(trackInfoController, mAudioInfoController)) {
-            if (log.isDebugEnabled()) log.debug("onTrackSelected: position={}, mVideoInfo.audioTrack={}", position, mVideoInfo.audioTrack);
+            //if (log.isDebugEnabled()) log.debug("onTrackSelected: position={}, mVideoInfo.audioTrack={}", position, mVideoInfo.audioTrack);
             AudioTrack at = mPlayer.getVideoMetadata().getAudioTrack(position);
             if (at != null && at.supported) {
                 ret = setPlayerAudioTrack(position);
@@ -3530,21 +3530,21 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     mVideoInfo.audioTrack = position;
                     // Save the audio track selection to the database for persistence across resume
                     mIndexHelper.writeVideoInfo(mVideoInfo, mNetworkBookmarksEnabled);
-                    if (log.isDebugEnabled()) log.debug("onTrackSelected: saved audioTrack {} to database", mVideoInfo.audioTrack);
+                    //if (log.isDebugEnabled()) log.debug("onTrackSelected: saved audioTrack {} to database", mVideoInfo.audioTrack);
                 }
             } else if (at == null || !at.supported){
                 mErrorMsg = at.format;
                 myShowDialog(DIALOG_CODEC_NOT_SUPPORTED);
             }
         } else if (Objects.equals(trackInfoController, mSubtitleInfoController)) {
-            if (log.isDebugEnabled()) log.debug("onTrackSelected: position={}, mVideoInfo.subtitleTrack={}, mVideoInfo.nbSubtitles={}, subtitleTrackToPosition={}", position, mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles, subtitleTrackToPosition(mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles));
+            //if (log.isDebugEnabled()) log.debug("onTrackSelected: position={}, mVideoInfo.subtitleTrack={}, mVideoInfo.nbSubtitles={}, subtitleTrackToPosition={}", position, mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles, subtitleTrackToPosition(mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles));
             if (position != subtitleTrackToPosition(mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles)) {
-                if (log.isDebugEnabled()) log.debug("onTrackSelected: position={}, old mVideoInfo.subtitleTrack={}", position, mVideoInfo.subtitleTrack);
+                //if (log.isDebugEnabled()) log.debug("onTrackSelected: position={}, old mVideoInfo.subtitleTrack={}", position, mVideoInfo.subtitleTrack);
                 ret = mPlayer.setSubtitleTrack(positionToPlayerSubtitleTrack(position, mVideoInfo.nbSubtitles));
                 if (ret) {
                     mSubtitleManager.clear();
                     mVideoInfo.subtitleTrack = positionToSubtitleTrack(position, mVideoInfo.nbSubtitles);
-                    if (log.isDebugEnabled()) log.debug("onTrackSelected: -> mVideoInfo.subtitleTrack={}", mVideoInfo.subtitleTrack);
+                    //if (log.isDebugEnabled()) log.debug("onTrackSelected: -> mVideoInfo.subtitleTrack={}", mVideoInfo.subtitleTrack);
                     // Extract and save the subtitle language for track validation on re-enumeration
                     if (mVideoInfo.subtitleTrack >= 0) {
                         SubtitleTrack track = mPlayer.getVideoMetadata().getSubtitleTrack(mVideoInfo.subtitleTrack);
@@ -3556,7 +3556,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                                 language = ISO639codes.getLanguageNameForLetterCode(track.language);
                             }
                             mVideoInfo.subtitleLanguage = extractLanguageCode(language).toLowerCase();
-                            if (log.isDebugEnabled()) log.debug("onTrackSelected: saved subtitleLanguage={} for track {}", mVideoInfo.subtitleLanguage, mVideoInfo.subtitleTrack);
+                            //if (log.isDebugEnabled()) log.debug("onTrackSelected: saved subtitleLanguage={} for track {}", mVideoInfo.subtitleLanguage, mVideoInfo.subtitleTrack);
                         }
                     } else {
                         mVideoInfo.subtitleLanguage = null;
@@ -3564,17 +3564,17 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     setSubtitleVpos("onTrackSelected");
                     // Save the subtitle track selection to the database for persistence across resume
                     mIndexHelper.writeVideoInfo(mVideoInfo, mNetworkBookmarksEnabled);
-                    if (log.isDebugEnabled()) log.debug("onTrackSelected: saved subtitleTrack {} to database", mVideoInfo.subtitleTrack);
+                    //if (log.isDebugEnabled()) log.debug("onTrackSelected: saved subtitleTrack {} to database", mVideoInfo.subtitleTrack);
                 } else {
-                    if (log.isDebugEnabled()) log.debug("onTrackSelected: player failed to get to subtitletrack {}", positionToSubtitleTrack(position, mVideoInfo.nbSubtitles));
+                    //if (log.isDebugEnabled()) log.debug("onTrackSelected: player failed to get to subtitletrack {}", positionToSubtitleTrack(position, mVideoInfo.nbSubtitles));
                 }
                 if (mVideoInfo.subtitleTrack >= 0) {
                     String trackName = mSubtitleInfoController.getTrackNameAt(subtitleTrackToPosition(mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles)).toString();
                     disableSubtitleDelayTVMenuItem(position == 0);
                     disableSubtitleSettingsMenuItem(position == 0 || isCurrentSubtrackGfx());
-                    if (log.isDebugEnabled()) log.debug("onTrackSelected: position={}, mSubtitleInfoController.getTrackNameAt({}) mVideoInfo.subtitleTrack={}", position, trackName, mVideoInfo.subtitleTrack);
+                    //if (log.isDebugEnabled()) log.debug("onTrackSelected: position={}, mSubtitleInfoController.getTrackNameAt({}) mVideoInfo.subtitleTrack={}", position, trackName, mVideoInfo.subtitleTrack);
                 } else {
-                    if (log.isDebugEnabled()) log.debug("onTrackSelected: position={}, None mVideoInfo.subtitleTrack={}", position, mVideoInfo.subtitleTrack);
+                    //if (log.isDebugEnabled()) log.debug("onTrackSelected: position={}, None mVideoInfo.subtitleTrack={}", position, mVideoInfo.subtitleTrack);
                 }
             }
         }
@@ -3657,7 +3657,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == SUBTITLE_REQUEST && resultCode == Activity.RESULT_OK){
-            if (log.isDebugEnabled()) log.debug("Get result from SubtitlesDownloaderActivity/SubtitlesWizardActivity");
+            //if (log.isDebugEnabled()) log.debug("Get result from SubtitlesDownloaderActivity/SubtitlesWizardActivity");
             mPlayer.checkSubtitles();
         }
     }
@@ -3666,7 +3666,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     }
 
     private boolean setPlayerAudioTrack(int audioTrack) {
-        if (log.isDebugEnabled()) log.debug("setPlayerAudioTrack: {}", audioTrack);
+        //if (log.isDebugEnabled()) log.debug("setPlayerAudioTrack: {}", audioTrack);
         if (mPlayer.getType() == IMediaPlayer.TYPE_ANDROID) {
             /*
              * On android, AudioTrack can only be changed on Prepared State
@@ -3688,7 +3688,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         if (intent != null) {
             String action = intent.getAction();
             boolean returnResult = intent.getBooleanExtra("return_result", false);
-            if (log.isDebugEnabled()) log.debug("detectExternalPlayerMode: action={}, return_result={}", action, returnResult);
+            //if (log.isDebugEnabled()) log.debug("detectExternalPlayerMode: action={}, return_result={}", action, returnResult);
             // Check if launched via ACTION_VIEW (typical for external player usage)
             if (Intent.ACTION_VIEW.equals(action)) {
                 // Check if the calling package is different from Nova (external app launched us)
@@ -3697,7 +3697,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     // Only treat as external player if return_result is requested or if called by external app
                     if (returnResult || !mCallingPackage.equals(getPackageName())) {
                         mIsExternalPlayer = true;
-                        if (log.isDebugEnabled()) log.debug("detectExternalPlayerMode: Nova launched as external player by {}", mCallingPackage);
+                        //if (log.isDebugEnabled()) log.debug("detectExternalPlayerMode: Nova launched as external player by {}", mCallingPackage);
                     }
                 } else {
                 }
@@ -3708,7 +3708,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     }
 
     private void sendExternalPlayerResult() {
-        if (log.isDebugEnabled()) log.debug("sendExternalPlayerResult called - mIsExternalPlayer={}, mResultSent={}", mIsExternalPlayer, mResultSent);
+        //if (log.isDebugEnabled()) log.debug("sendExternalPlayerResult called - mIsExternalPlayer={}, mResultSent={}", mIsExternalPlayer, mResultSent);
         if (!mIsExternalPlayer || mResultSent) {
             return;
         }
@@ -3753,7 +3753,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             resultIntent.putExtra("extra_position", (long) duration);
         }
 
-        if (log.isDebugEnabled()) log.debug("sendExternalPlayerResult: position={}, duration={}, finished={}, callingPackage={}, action={}", currentPosition, duration, mVideoFinished, mCallingPackage, resultIntent.getAction());
+        //if (log.isDebugEnabled()) log.debug("sendExternalPlayerResult: position={}, duration={}, finished={}, callingPackage={}, action={}", currentPosition, duration, mVideoFinished, mCallingPackage, resultIntent.getAction());
 
 
         setResult(Activity.RESULT_OK, resultIntent);
@@ -3766,9 +3766,9 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 broadcastIntent.setPackage(mCallingPackage);
                 broadcastIntent.putExtras(resultIntent);
                 sendBroadcast(broadcastIntent);
-                if (log.isDebugEnabled()) log.debug("sendExternalPlayerResult: broadcast sent to {}", mCallingPackage);
+                //if (log.isDebugEnabled()) log.debug("sendExternalPlayerResult: broadcast sent to {}", mCallingPackage);
             } catch (Exception e) {
-                if (log.isDebugEnabled()) log.debug("sendExternalPlayerResult: broadcast failed: {}", e.getMessage());
+                //if (log.isDebugEnabled()) log.debug("sendExternalPlayerResult: broadcast failed: {}", e.getMessage());
             }
         }
     }
@@ -3782,7 +3782,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     public void finish() {
         // Send result before finishing if we haven't already
         if (mIsExternalPlayer && !mResultSent) {
-            if (log.isDebugEnabled()) log.debug("finish() called - sending result before finish");
+            //if (log.isDebugEnabled()) log.debug("finish() called - sending result before finish");
             sendExternalPlayerResult();
         }
         super.finish();
@@ -3795,14 +3795,14 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     public class PlayerListener implements PlayerService.PlayerFrontend {
 
         public void onPrepared() {
-            if (log.isDebugEnabled()) log.debug("onPrepared");
+            //if (log.isDebugEnabled()) log.debug("onPrepared");
             mNetworkFailed = false;
-            if (log.isDebugEnabled()) log.debug("onPrepared: call postVideoInfoAndPrepared");
+            //if (log.isDebugEnabled()) log.debug("onPrepared: call postVideoInfoAndPrepared");
             postVideoInfoAndPrepared();
         }
 
         public void onCompletion() {
-            if (log.isDebugEnabled()) log.debug("onCompletion");
+            //if (log.isDebugEnabled()) log.debug("onCompletion");
 
             PlayerService.sPlayerService.setAudioFilt();
         }
@@ -3871,7 +3871,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
             // Set mPlayOnResume to true for user-initiated play (STATE_NORMAL)
             if (state == PlayerController.STATE_NORMAL && PlayerService.sPlayerService != null) {
-                if (log.isDebugEnabled()) log.debug("onPlay: user initiated play, setting mPlayOnResume = true and mUserPausedVideo = false");
+                //if (log.isDebugEnabled()) log.debug("onPlay: user initiated play, setting mPlayOnResume = true and mUserPausedVideo = false");
                 mUserPausedVideo = false;
                 PlayerService.sPlayerService.setPlayOnResume(true);
                 // Clear the pause state preference
@@ -3890,7 +3890,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             // Set mPlayOnResume to false for user-initiated pause (STATE_NORMAL)
             // so that video doesn't auto-play when screen turns back on
             if (state == PlayerController.STATE_NORMAL && PlayerService.sPlayerService != null) {
-                if (log.isDebugEnabled()) log.debug("onPause: user paused, setting mPlayOnResume = false and mUserPausedVideo = true");
+                //if (log.isDebugEnabled()) log.debug("onPause: user paused, setting mPlayOnResume = false and mUserPausedVideo = true");
                 mUserPausedVideo = true;
                 PlayerService.sPlayerService.setPlayOnResume(false);
                 // Save pause state to preferences to survive activity recreation
@@ -3907,7 +3907,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             if (isStereoEffectOn()) {
                 int mode = vMetadata.getVideoTrack().s3dMode;
                 if (mode != 0) {
-                    if (log.isDebugEnabled()) log.debug("onVideoMetadataUpdated: setEffect");
+                    //if (log.isDebugEnabled()) log.debug("onVideoMetadataUpdated: setEffect");
                     setEffect (mode);
                 }
             }
@@ -3926,13 +3926,13 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             boolean firstTimeUpdated = mAudioInfoController.getTrackCount() == 0;
             int nbTrack = vMetadata.getAudioTrackNb();
 
-            if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: newAudio: {}  mVideoInfo.audioTrack: {}  firstTimeUpdated: {}  nbTrack: {}", newAudioTrack, mVideoInfo.audioTrack, firstTimeUpdated, nbTrack);
+            //if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: newAudio: {}  mVideoInfo.audioTrack: {}  firstTimeUpdated: {}  nbTrack: {}", newAudioTrack, mVideoInfo.audioTrack, firstTimeUpdated, nbTrack);
 
             mAudioInfoController.clear();
             String trackName = null;
             for (int i = 0; i < nbTrack; ++i) {
                 VideoMetadata.AudioTrack audio = vMetadata.getAudioTrack(i);
-                if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: name={}, language={}, format={}", audio.name, audio.language, audio.format);
+                //if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: name={}, language={}, format={}", audio.name, audio.language, audio.format);
                 trackName = generateTrackName(mContext, audio.name, audio.language, audio.format, true);
                 CharSequence name = trackName;
                 // when no name use track number instead of R.string.unknown_track_name th
@@ -3958,7 +3958,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
             final boolean firstTimeCalled = mSubtitleInfoController.getTrackCount() == 0;
 
-            if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: newSubtitle: {}, mVideoInfo.subtitleTrack: {}, firstTimeCalled: {}, nbTrack: {}", newSubtitleTrack, mVideoInfo.subtitleTrack, firstTimeCalled, nbTrack);
+            //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: newSubtitle: {}, mVideoInfo.subtitleTrack: {}, firstTimeCalled: {}, nbTrack: {}", newSubtitleTrack, mVideoInfo.subtitleTrack, firstTimeCalled, nbTrack);
 
             mSubtitleInfoController.clear();
 
@@ -3975,9 +3975,9 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                     if (vMetadata.getSubtitleTrack(i).isExternal) {
                         // external subtitle get name from file
                         lang = getSubLanguageFromSubPathAndVideoPath(mContext, vMetadata.getSubtitleTrack(i).path, vMetadata.getFile().getPath());
-                        if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: extsub name={}, path={}, videoPath={}, isExternal={}, langFromPath={}", vMetadata.getSubtitleTrack(i).name, vMetadata.getSubtitleTrack(i).path, vMetadata.getFile().getPath(), vMetadata.getSubtitleTrack(i).isExternal, lang);
+                        //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: extsub name={}, path={}, videoPath={}, isExternal={}, langFromPath={}", vMetadata.getSubtitleTrack(i).name, vMetadata.getSubtitleTrack(i).path, vMetadata.getFile().getPath(), vMetadata.getSubtitleTrack(i).isExternal, lang);
                         if (lang != null) {
-                            if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: extsub name might not be null add track name with lang={}", lang);
+                            //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: extsub name might not be null add track name with lang={}", lang);
                             mSubtitleInfoController.addTrack(lang, true);
                         } else { // this should never happen
                             log.warn("onSubtitleMetadataUpdated: extsub name and lang are null, add track name to unknown");
@@ -3985,7 +3985,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                         }
                     } else {
                         // internal subtitle get name from name
-                    if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: intsub add track name with name={} replacing language code in {}", vMetadata.getSubtitleTrack(i).name, vMetadata.getSubtitleTrack(i).language);
+                    //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: intsub add track name with name={} replacing language code in {}", vMetadata.getSubtitleTrack(i).name, vMetadata.getSubtitleTrack(i).language);
                     SubtitleTrack track = vMetadata.getSubtitleTrack(i);
                     String format = VideoUtils.getSubtitleFormatLabel(mContext, track.format);
                     mSubtitleInfoController.addTrack(generateTrackName(mContext, track.name, track.language, format, false), false);
@@ -4011,10 +4011,10 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 // mVideoInfo.subtitleTrack is the track number with the none track 0<=mVideoInfo.subtitleTrack<=nbTrack, nbTrack for none track
                 // but mSubtitleInfoController is the track number with the none track (i.e. nbTrack + 1) at position 0
                 // at this point mVideoInfo.subtitleTrack is the track number to be used
-                if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: set mSubtitleInfoController.setTrack: {}", subtitleTrackToPosition(mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles));
+                //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: set mSubtitleInfoController.setTrack: {}", subtitleTrackToPosition(mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles));
                 mSubtitleInfoController.setTrack(subtitleTrackToPosition(mVideoInfo.subtitleTrack, mVideoInfo.nbSubtitles)); // +1 since none track is at position 0, for UI only
                 if (mSubtitleInfoController.getTrack() == nonePosition) {
-                    if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: disableSubtitleDelayTVMenuItem(true) because nonePosition");
+                    //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: disableSubtitleDelayTVMenuItem(true) because nonePosition");
                     disableSubtitleDelayTVMenuItem(true);
                     disableSubtitleSettingsMenuItem(true);
                 }
@@ -4046,18 +4046,18 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
         @Override
         public void onVideoDb(final VideoDbInfo localVideoInfo, final VideoDbInfo remoteVideoInfo) {
-            if (log.isDebugEnabled()) log.debug("onVideoDb: localVideoInfo.subtitleTrack={}, remoteVideoInfo.subtitleTrack={}", ((localVideoInfo != null) ? localVideoInfo.subtitleTrack : "none"), ((remoteVideoInfo != null) ? remoteVideoInfo.subtitleTrack : "none"));
-            if (log.isDebugEnabled()) log.debug("onVideoDb: trakt: {} local {}", localVideoInfo.traktResume, localVideoInfo.resume);
-            if (log.isDebugEnabled()) log.debug("onVideoDb: localVideoInfo.lastTimePlayed: {}, remoteVideoInfo.lastTimePlayed: {}", ((localVideoInfo != null) ? localVideoInfo.lastTimePlayed : "none"), ((remoteVideoInfo != null) ? remoteVideoInfo.lastTimePlayed : "none"));
+            //if (log.isDebugEnabled()) log.debug("onVideoDb: localVideoInfo.subtitleTrack={}, remoteVideoInfo.subtitleTrack={}", ((localVideoInfo != null) ? localVideoInfo.subtitleTrack : "none"), ((remoteVideoInfo != null) ? remoteVideoInfo.subtitleTrack : "none"));
+            //if (log.isDebugEnabled()) log.debug("onVideoDb: trakt: {} local {}", localVideoInfo.traktResume, localVideoInfo.resume);
+            //if (log.isDebugEnabled()) log.debug("onVideoDb: localVideoInfo.lastTimePlayed: {}, remoteVideoInfo.lastTimePlayed: {}", ((localVideoInfo != null) ? localVideoInfo.lastTimePlayed : "none"), ((remoteVideoInfo != null) ? remoteVideoInfo.lastTimePlayed : "none"));
             if (localVideoInfo != null) {
                 if (remoteVideoInfo != null) {
                     if (localVideoInfo.lastTimePlayed == 0 && remoteVideoInfo.audioTrack == -1) {
-                        if (log.isDebugEnabled()) log.debug("onVideoDb: first play");
+                        //if (log.isDebugEnabled()) log.debug("onVideoDb: first play");
                         //fileHasAlreadyPlayed = false;
                     } //else fileHasAlreadyPlayed = true;
                 } else {
                     if (localVideoInfo.lastTimePlayed == 0) {
-                        if (log.isDebugEnabled()) log.debug("onVideoDb: first play");
+                        //if (log.isDebugEnabled()) log.debug("onVideoDb: first play");
                        // fileHasAlreadyPlayed = false;
                     } //else fileHasAlreadyPlayed = true;
                 }
@@ -4067,10 +4067,10 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 log.info("onVideoDb: trakt calc: "+ localTraktPosition+ " local "+ localVideoInfo.resume);
 
                 if (localVideoInfo != null && remoteVideoInfo != null && mResume != RESUME_NO&& mResume !=  RESUME_FROM_LOCAL_POS) {
-                    if (log.isDebugEnabled()) log.debug("hasRemoteVideoInfo");
+                    //if (log.isDebugEnabled()) log.debug("hasRemoteVideoInfo");
                     // Don't show resume dialog if user explicitly paused the video
                     // Use mUserPausedVideo flag which is set by onPause listener and cleared by onPlay
-                    if (log.isDebugEnabled()) log.debug("onVideoDb: mUserPausedVideo={}", mUserPausedVideo);
+                    //if (log.isDebugEnabled()) log.debug("onVideoDb: mUserPausedVideo={}", mUserPausedVideo);
 
                     if (!mUserPausedVideo) {
                         int localLastPosition = getLastPosition(localVideoInfo, mResume);
@@ -4079,7 +4079,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                         if (localLastPosition != remoteLastPosition && remoteLastPosition > 0) {
                             //do not display dialog if remote position is the only available
                             if (localLastPosition <= 0) {
-                                if (log.isDebugEnabled()) log.debug("use remoteVideoInfo");
+                                //if (log.isDebugEnabled()) log.debug("use remoteVideoInfo");
                                 showTraktResumeDialog(localTraktPosition,remoteVideoInfo);
 
                             } else {
@@ -4093,7 +4093,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                                         PlayerService.sPlayerService.setVideoInfo(mVideoInfo);
                                         PlayerService.sPlayerService.requestIndexAndScrap();
                                     }
-                                    if (log.isDebugEnabled()) log.debug("onVideoDb: call setVideoInfo");
+                                    //if (log.isDebugEnabled()) log.debug("onVideoDb: call setVideoInfo");
                                     setVideoInfo(mVideoInfo);
                                 }
                                 else {
@@ -4108,7 +4108,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                                                         PlayerService.sPlayerService.setVideoInfo(mVideoInfo);
                                                         PlayerService.sPlayerService.requestIndexAndScrap();
                                                     }
-                                                    if (log.isDebugEnabled()) log.debug("onVideoDb: call setVideoInfo");
+                                                    //if (log.isDebugEnabled()) log.debug("onVideoDb: call setVideoInfo");
                                                     setVideoInfo(mVideoInfo);
                                                 }
                                             })
@@ -4124,7 +4124,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                             return;
                         }
                     } else {
-                        if (log.isDebugEnabled()) log.debug("onVideoDb: player is paused, skipping resume dialog");
+                        //if (log.isDebugEnabled()) log.debug("onVideoDb: player is paused, skipping resume dialog");
                     }
                 }
                 //	showTraktResumeDialog(localTraktPosition,localVideoInfo);
@@ -4132,7 +4132,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
             }
 
             // this provides the video info to the player based on localVideoInfo (keeping subtrack etc...)
-            if (log.isDebugEnabled()) log.debug("onVideoDb: call setVideoInfo for playerActivity and playerService");
+            //if (log.isDebugEnabled()) log.debug("onVideoDb: call setVideoInfo for playerActivity and playerService");
             mVideoInfo = localVideoInfo;
 
             applyRemotePositionIfNeeded();
@@ -4158,7 +4158,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
         @Override
         public void setVideoInfo(VideoDbInfo mVideoInfo) {
-            if (log.isDebugEnabled()) log.debug("setVideoInfo {}", String.valueOf(mVideoInfo != null));
+            //if (log.isDebugEnabled()) log.debug("setVideoInfo {}", String.valueOf(mVideoInfo != null));
             PlayerActivity.this.setVideoInfo(mVideoInfo);
         }
 
@@ -4188,7 +4188,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
     private SurfaceController.Listener mSurfaceListener = new SurfaceController.Listener() {
         public void onSwitchVideoFormat(int fmt, int autoFmt) {
-            if (log.isDebugEnabled()) log.debug("CONFIG onSwitchVideoFormat: fmt={}, autoFmt={}", fmt, autoFmt);
+            //if (log.isDebugEnabled()) log.debug("CONFIG onSwitchVideoFormat: fmt={}, autoFmt={}", fmt, autoFmt);
             SharedPreferences.Editor editor = mPreferences.edit();
             editor.putString(KEY_PLAYER_FORMAT, String.valueOf(fmt));
             editor.putString(KEY_PLAYER_AUTO_FORMAT, String.valueOf(autoFmt));
@@ -4213,13 +4213,13 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
      * Apply remote position to VideoDbInfo if we're in remote resume mode
      */
     private void applyRemotePositionIfNeeded() {
-        if (log.isDebugEnabled()) log.debug("applyRemotePositionIfNeeded: mResume={}, mRemotePosition={}, mVideoInfo={}", mResume, mRemotePosition, mVideoInfo != null ? "not null" : "null");
+        //if (log.isDebugEnabled()) log.debug("applyRemotePositionIfNeeded: mResume={}, mRemotePosition={}, mVideoInfo={}", mResume, mRemotePosition, mVideoInfo != null ? "not null" : "null");
         if (mResume == RESUME_FROM_REMOTE_POS && mRemotePosition > 0 && mVideoInfo != null) {
             mVideoInfo.resume = mRemotePosition;
-            if (log.isDebugEnabled()) log.debug("applyRemotePositionIfNeeded: Applied mRemotePosition={} to mVideoInfo.resume", mRemotePosition);
+            //if (log.isDebugEnabled()) log.debug("applyRemotePositionIfNeeded: Applied mRemotePosition={} to mVideoInfo.resume", mRemotePosition);
         } else {
-            if (log.isDebugEnabled()) log.debug("applyRemotePositionIfNeeded: Conditions not met. mResume==RESUME_FROM_REMOTE_POS? {}, mRemotePosition>0? {}, mVideoInfo!=null? {}",
-                    mResume == RESUME_FROM_REMOTE_POS, mRemotePosition > 0, mVideoInfo != null);
+            //if (log.isDebugEnabled()) log.debug("applyRemotePositionIfNeeded: Conditions not met. mResume==RESUME_FROM_REMOTE_POS? {}, mRemotePosition>0? {}, mVideoInfo!=null? {}",
+                   //mResume == RESUME_FROM_REMOTE_POS, mRemotePosition > 0, mVideoInfo != null);
         }
     }
 }

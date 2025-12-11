@@ -266,7 +266,7 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
             fullscreenButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                   if (log.isDebugEnabled()) log.debug("Fullscreen button clicked");
+                   //if (log.isDebugEnabled()) log.debug("Fullscreen button clicked");
                    startPlayerActivity();
                 }
             });

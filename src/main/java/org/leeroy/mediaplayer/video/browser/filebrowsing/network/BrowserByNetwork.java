@@ -84,7 +84,7 @@ public class BrowserByNetwork extends BrowserByFolder {
         isCurrentDirectoryIndexed = ShortcutDbAdapter.VIDEO.isHimselfOrAncestorShortcut(getActivity(), uriStringWithoutCred);
         isHimselfIndexedFolder = ShortcutDbAdapter.VIDEO.isShortcut(getActivity(), uriStringWithoutCred) > 0;
         isCurrentDirectoryShortcut = (ShortcutDb.STATIC.isShortcut(getContext(), uriStringWithoutCred) != -1);
-        if (log.isDebugEnabled()) log.debug("checkIfIsShortcut: isCurrentDirectoryIndexed={}, isHimselfIndexedFolder={}, isCurrentDirectoryShortcut={}", isCurrentDirectoryIndexed, isHimselfIndexedFolder, isCurrentDirectoryShortcut);
+        //if (log.isDebugEnabled()) log.debug("checkIfIsShortcut: isCurrentDirectoryIndexed={}, isHimselfIndexedFolder={}, isCurrentDirectoryShortcut={}", isCurrentDirectoryIndexed, isHimselfIndexedFolder, isCurrentDirectoryShortcut);
     }
 
     @Override
@@ -224,7 +224,7 @@ public class BrowserByNetwork extends BrowserByFolder {
 
     @Override
     public boolean onContextItemSelected(MenuItem menuItem) {
-        if (log.isDebugEnabled()) log.debug("onContextItemSelected");
+        //if (log.isDebugEnabled()) log.debug("onContextItemSelected");
         int itemId = menuItem.getItemId();
         AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) menuItem.getMenuInfo();
         Video video = null;
@@ -247,7 +247,7 @@ public class BrowserByNetwork extends BrowserByFolder {
 
                 mShortcutPath = metaFile2.getUri().toString();
                 mShortcutName = metaFile2.getName();
-                if (log.isDebugEnabled()) log.debug("onContextItemSelected: mShortcutPath={}, mShortcutName={}", mShortcutPath, mShortcutName);
+                //if (log.isDebugEnabled()) log.debug("onContextItemSelected: mShortcutPath={}, mShortcutName={}", mShortcutPath, mShortcutName);
                 if (itemId == R.string.add_to_indexed_folders) {
                     createShortcut(mShortcutPath, mShortcutName);
                 } else {
@@ -263,14 +263,14 @@ public class BrowserByNetwork extends BrowserByFolder {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (log.isDebugEnabled()) log.debug("onOptionsItemSelected");
+        //if (log.isDebugEnabled()) log.debug("onOptionsItemSelected");
         boolean ret;
         switch (item.getItemId()) {
             case R.string.add_to_indexed_folders:
                 // Handle this item when it is in the options menu
                 mShortcutPath = mCurrentDirectory.toString();
                 mShortcutName = FileUtils.getName(mCurrentDirectory);
-                if (log.isDebugEnabled()) log.debug("onOptionsItemSelected: index folder mShortcutPath={}, mShortcutName={}", mShortcutPath, mShortcutName);
+                //if (log.isDebugEnabled()) log.debug("onOptionsItemSelected: index folder mShortcutPath={}, mShortcutName={}", mShortcutPath, mShortcutName);
                 createShortcut(mShortcutPath, mShortcutName);
                 ret = true;
                 break;
@@ -282,7 +282,7 @@ public class BrowserByNetwork extends BrowserByFolder {
             case R.string.add_ssh_shortcut:
                 mShortcutPath = mCurrentDirectory.toString();
                 mShortcutName = getActionBarTitle();
-                if (log.isDebugEnabled()) log.debug("onOptionsItemSelected: add as shortcut mShortcutPath={}, mShortcutName={}", mShortcutPath, mShortcutName);
+                //if (log.isDebugEnabled()) log.debug("onOptionsItemSelected: add as shortcut mShortcutPath={}, mShortcutName={}", mShortcutPath, mShortcutName);
                 // have a dialog where shortcut name can be specified and add to library option too
                 final View v = getActivity().getLayoutInflater().inflate(R.layout.ssh_shortcut_dialog_layout, null);
                 ((EditText)v.findViewById(R.id.shortcut_name)).setText(Uri.parse(getFriendlyUri()).getLastPathSegment());
@@ -338,7 +338,7 @@ public class BrowserByNetwork extends BrowserByFolder {
     }
 
     protected String getFriendlyUri() {
-        if (log.isDebugEnabled()) log.debug("getFriendlyUri={}", mCurrentDirectory.toString());
+        //if (log.isDebugEnabled()) log.debug("getFriendlyUri={}", mCurrentDirectory.toString());
         return mCurrentDirectory.toString();
     }
 
@@ -347,7 +347,7 @@ public class BrowserByNetwork extends BrowserByFolder {
         public void onClick(View v) {
             mShortcutPath = mCurrentDirectory.toString();
             mShortcutName = getActionBarTitle();
-            if (log.isDebugEnabled()) log.debug("mIndexFolderActionClickListener: mShortcutPath={}, mShortcutName={}", mShortcutPath, mShortcutName);
+            //if (log.isDebugEnabled()) log.debug("mIndexFolderActionClickListener: mShortcutPath={}, mShortcutName={}", mShortcutPath, mShortcutName);
             createShortcut(mShortcutPath, mShortcutName);
         }
     };
@@ -389,7 +389,7 @@ public class BrowserByNetwork extends BrowserByFolder {
             } else {
                 // Check if the current folder or one of its ancestor is indexed
                 checkIfIsShortcut();
-                if (log.isDebugEnabled()) log.debug("onPrepareOptionsMenu: isCurrentDirectoryIndexed={}, isHimselfIndexedFolder={}, isCurrentDirectoryShortcut={}", isCurrentDirectoryIndexed, isHimselfIndexedFolder, isCurrentDirectoryShortcut);
+                //if (log.isDebugEnabled()) log.debug("onPrepareOptionsMenu: isCurrentDirectoryIndexed={}, isHimselfIndexedFolder={}, isCurrentDirectoryShortcut={}", isCurrentDirectoryIndexed, isHimselfIndexedFolder, isCurrentDirectoryShortcut);
                 // If the current folder is indexed => show the "unindex folder" item and do not show "remove the shortcut" item
                 // If the current folder is not indexed and none of its ancestors is indexed => show the "add as shortcut" item
                 // If the current folder is not indexed but one of its ancestors is indexed => show "add as shortcut" item and do not propose to index folder in add shortcut dialog

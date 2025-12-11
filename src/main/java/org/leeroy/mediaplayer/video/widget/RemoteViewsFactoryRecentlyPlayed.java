@@ -28,11 +28,11 @@ class RemoteViewsFactoryRecentlyPlayed extends RemoteViewsFactoryBase {
 
     public RemoteViewsFactoryRecentlyPlayed(Context context, Intent intent) {
         super(context, intent);
-        if (log.isDebugEnabled()) log.debug("Create RecentlyPlayed service for the video widget");
+        //if (log.isDebugEnabled()) log.debug("Create RecentlyPlayed service for the video widget");
     }
 
     protected boolean loadData(Context context, int maxItemCount) {
-        if (log.isDebugEnabled()) log.debug("loadData()");
+        //if (log.isDebugEnabled()) log.debug("loadData()");
     	String sortOrder = VideoStore.Video.VideoColumns.LEEROYFLIX_LAST_TIME_PLAYED + " DESC" + " LIMIT " + maxItemCount;
     	String where = VideoStore.Video.VideoColumns.LEEROYFLIX_LAST_TIME_PLAYED + "!=0 AND " + WHERE_NOT_HIDDEN;
         ContentResolver resolver = context.getContentResolver();
