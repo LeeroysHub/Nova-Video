@@ -425,7 +425,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
 
         // Find central play icon
         ImageView centralPlayIcon = (ImageView) v.findViewById(R.id.central_play_icon);
-        if (log.isDebugEnabled()) log.debug("initControllerView: looking for central_play_icon in v, found = {}", (centralPlayIcon != null));
+        //if (log.isDebugEnabled()) log.debug("initControllerView: looking for central_play_icon in v, found = {}", (centralPlayIcon != null));
 
         ImageButton mForwardButton = (ImageButton) v.findViewById(R.id.forward);
         if (mForwardButton != null) {
@@ -528,7 +528,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
             mCurrentTime = (TextView) v.findViewById(R.id.time_current);
             // The clock is only for actual leanback devices
             if (mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_LEANBACK) || isChromeOS(mContext)) {
-                if (log.isDebugEnabled()) log.debug("initControllerView: FEATURE_LEANBACK");
+                //if (log.isDebugEnabled()) log.debug("initControllerView: FEATURE_LEANBACK");
                 mClock = (TextView) v.findViewById(R.id.clock);
                 if(mClock!=null) {
                     // in the player we change the typeface and add shadow to improve visibility over the video plane
@@ -542,7 +542,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                     }
                     updateClock();
                 }
-            } else if (log.isDebugEnabled()) log.debug("initControllerView: no FEATURE_LEANBACK");
+            } //else //if (log.isDebugEnabled()) log.debug("initControllerView: no FEATURE_LEANBACK");
         }
         else{
             this.mUnlockInstructions2 = unlockInstructions;
@@ -574,14 +574,14 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         mLayoutWidth = layoutWidth;
         mLayoutHeight = layoutHeight;
         //mSystemBarHeight = displayHeight - mLayoutHeight;
-        if (log.isDebugEnabled()) log.debug("CONFIG setSizes layout: {}x{} / display: {}x{}, systemBarHeight: {}", mLayoutWidth, mLayoutHeight, displayWidth, displayHeight, displayHeight - /* mLayoutHeight = displayHeight - mLayoutHeight*/  displayHeight - mLayoutHeight);
+        //if (log.isDebugEnabled()) log.debug("CONFIG setSizes layout: {}x{} / display: {}x{}, systemBarHeight: {}", mLayoutWidth, mLayoutHeight, displayWidth, displayHeight, displayHeight - /* mLayoutHeight = displayHeight - mLayoutHeight*/  displayHeight - mLayoutHeight);
         if (mControllerView != null) {
-            if (log.isDebugEnabled()) log.debug("CONFIG setSizes, mControllerView != null, recreate whole layout");
+            //if (log.isDebugEnabled()) log.debug("CONFIG setSizes, mControllerView != null, recreate whole layout");
             // size changed and maybe orientation too, recreate the whole layout
             detachWindow();
             attachWindow();
         } else {
-            if (log.isDebugEnabled()) log.debug("CONFIG setSizes, mControllerView == null, doing nothing");
+            //if (log.isDebugEnabled()) log.debug("CONFIG setSizes, mControllerView == null, doing nothing");
         }
     }
 
@@ -591,9 +591,9 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         //if (mPreferences != null) mFullScreenWithCutout = mPreferences.getBoolean("enable_cutout_mode_short_edges", true);
 
-        if (log.isDebugEnabled()) log.debug("CONFIG attachWindow getStatusBarHeight={}, getNavigationBarHeight={}, getActionBarHeight={}, getGestureAreaHeight={}, isGestureAreaDisplayed={}, ",
-                MiscUtils.getStatusBarHeight(mContext), MiscUtils.getNavigationBarHeight(mContext), MiscUtils.getActionBarHeight(mContext),
-                MiscUtils.getGestureAreaHeight(mContext), MiscUtils.isGestureAreaDisplayed(mContext));
+        //if (log.isDebugEnabled()) log.debug("CONFIG attachWindow getStatusBarHeight={}, getNavigationBarHeight={}, getActionBarHeight={}, getGestureAreaHeight={}, isGestureAreaDisplayed={}, ",
+                //MiscUtils.getStatusBarHeight(mContext), MiscUtils.getNavigationBarHeight(mContext), MiscUtils.getActionBarHeight(mContext),
+               // MiscUtils.getGestureAreaHeight(mContext), MiscUtils.isGestureAreaDisplayed(mContext));
 
         if (mControllerView != null) return;
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -632,10 +632,10 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         playerControllersContainer = (FrameLayout)mControllerView.findViewById(R.id.playerControllersContainer);
         playerControllersContainer.addView(mControllerViewLeft);
 
-        if (log.isDebugEnabled()) log.debug("CONFIG attachWindow: layout WxH {}x{}", mLayoutWidth, mLayoutHeight);
+        //if (log.isDebugEnabled()) log.debug("CONFIG attachWindow: layout WxH {}x{}", mLayoutWidth, mLayoutHeight);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(mLayoutWidth, mLayoutHeight);
         mPlayerView.addView(mControllerView, params);
-        if (log.isDebugEnabled()) log.debug("CONFIG attachWindow, adjustControllerViewForInsets();");
+        //if (log.isDebugEnabled()) log.debug("CONFIG attachWindow, adjustControllerViewForInsets();");
 
         if (mControllerView != null) {
             mRootView = mControllerView.getRootView();
@@ -645,7 +645,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
 
             // insets observer is needed for rotation
             mControllerView.setOnApplyWindowInsetsListener((v, insets) -> {
-                if (log.isDebugEnabled()) log.debug("attachWindow, onApplyWindowInsetsListener");
+                //if (log.isDebugEnabled()) log.debug("attachWindow, onApplyWindowInsetsListener");
                 adjustView();
                 return insets;
             });
@@ -660,13 +660,13 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                 mGestureAreaHeight = MiscUtils.getGestureAreaHeight(mContext);
                 // assume that controlBar (seek bar + controls) is visible if mNavigationBarShowing || mIsGestureAreaShowing
                 mControlBarHeight = (mNavigationBarShowing || mIsGestureAreaShowing ? mControlBar.getHeight() : 0);
-                if (log.isDebugEnabled()) log.debug("attachWindow, setOnSystemUiVisibilityChangeListener: mNavigationBarShowing={}, mSystemBarShowing={}, mActionBarShowing={}, mControlBarShowing={}, mIsNavBarOnBottom={}, mIsGestureAreaShowing={}",
-                        mNavigationBarShowing, mSystemBarShowing, mActionBarShowing, mControlBarShowing, mIsNavBarOnBottom, mIsGestureAreaShowing);
+                //if (log.isDebugEnabled()) log.debug("attachWindow, setOnSystemUiVisibilityChangeListener: mNavigationBarShowing={}, mSystemBarShowing={}, mActionBarShowing={}, mControlBarShowing={}, mIsNavBarOnBottom={}, mIsGestureAreaShowing={}",
+                       // mNavigationBarShowing, mSystemBarShowing, mActionBarShowing, mControlBarShowing, mIsNavBarOnBottom, mIsGestureAreaShowing);
                 adjustView();
             });
 
         }
-        if (log.isDebugEnabled()) log.debug("CONFIG attachWindow, mPlayerView.addView");
+        //if (log.isDebugEnabled()) log.debug("CONFIG attachWindow, mPlayerView.addView");
 
         initMenuAdapter(mControllerViewLeft);
         switchMode(TVUtils.isTV(mContext));
@@ -723,7 +723,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     private void detachWindow() {
         if (mControllerView == null)
             return;
-        if (log.isDebugEnabled()) log.debug("detachWindow");
+        //if (log.isDebugEnabled()) log.debug("detachWindow");
         mPlayerView.removeView(mControllerView);
         mControllerView = null;
         mControllerViewLeft=null;
@@ -799,7 +799,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         return mControlBar;
     }
     protected void showSystemBar(boolean show) {
-        if (log.isDebugEnabled()) log.debug("showSystemBar {}", show);
+        //if (log.isDebugEnabled()) log.debug("showSystemBar {}", show);
         if (mSystemBarShowing == show) return;
         mSystemUiVisibility = mPlayerView.getSystemUiVisibility();
         int systemUiFlag = View.SYSTEM_UI_FLAG_LOW_PROFILE;
@@ -821,9 +821,9 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     private void showControlBar(boolean show) {
-        if (log.isDebugEnabled()) log.debug("showControlBar {}", show);
+        //if (log.isDebugEnabled()) log.debug("showControlBar {}", show);
         if (mControlBar != null && mControlBarShowing != show) {
-            if (log.isDebugEnabled()) log.debug("showControlBar {}", String.valueOf(show));
+            //if (log.isDebugEnabled()) log.debug("showControlBar {}", String.valueOf(show));
             setVisibility(mControlBar, show, true);
             if(mPlayPauseTouchZone!=null){
                 setVisibility(mPlayPauseTouchZone, show, false);
@@ -849,13 +849,13 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     private void showVolumeBar(boolean show) {
-        if (log.isDebugEnabled()) log.debug("showVolumeBar {}", show);
+        //if (log.isDebugEnabled()) log.debug("showVolumeBar {}", show);
         if (mVolumeBarEnabled && mVolumeBarShowing != show) {
-            if (log.isDebugEnabled()) log.debug("showVolumeBar, volume2");
+            //if (log.isDebugEnabled()) log.debug("showVolumeBar, volume2");
             setVisibility(mVolumeBar, show, true);
             if(mVolumeBar2!=null&&splitView){
                 setVisibility(mVolumeBar2, show, true);
-                if (log.isDebugEnabled()) log.debug("showVolumeBar, showing volume bar2");
+                //if (log.isDebugEnabled()) log.debug("showVolumeBar, showing volume bar2");
             }
             mVolumeBarShowing = show;
         }
@@ -870,7 +870,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     private void setOSDVisibility(boolean visible, int flags) {
-        if (log.isDebugEnabled()) log.debug("setOSDVisibility, visiblity {}", flags);
+        //if (log.isDebugEnabled()) log.debug("setOSDVisibility, visiblity {}", flags);
         if ((flags & FLAG_SIDE_CONTROL_BAR) != 0) {
             showControlBar(visible);
             // On phone we don't know how to display control bar without volume bar nicely, so force volume bar
@@ -883,7 +883,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
             showActionBar(visible);
         }
         if ((flags & FLAG_SIDE_VOLUME_BAR) != 0) {
-            if (log.isDebugEnabled()) log.debug("setOSDVisibility, volume");
+            //if (log.isDebugEnabled()) log.debug("setOSDVisibility, volume");
             showVolumeBar(visible);
         }
         if((flags & FLAG_SIDE_UNLOCK_INSTRUCTIONS)!=0){
@@ -899,7 +899,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
      * the controller until hide() is called.
      */
     private void show(int flags, int timeout) {
-        if (log.isDebugEnabled()) log.debug("show({}, {})", flags, timeout);
+        //if (log.isDebugEnabled()) log.debug("show({}, {})", flags, timeout);
         if (mIsStopped)
             return;
 
@@ -941,7 +941,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
      * Remove the controller from the screen.
      */
     public void hide(int flags) {
-        if (log.isDebugEnabled()) log.debug("hide({})", flags);
+        //if (log.isDebugEnabled()) log.debug("hide({})", flags);
         if (mIsStopped || DBG_ALWAYS_SHOW)
             return;
 
@@ -982,7 +982,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
 
     public void cancelToast() {
         if (mToast != null) {
-            if (log.isDebugEnabled()) log.debug("cancelToast: canceling toast");
+            //if (log.isDebugEnabled()) log.debug("cancelToast: canceling toast");
             mToast.cancel();
         }
     }
@@ -1009,11 +1009,11 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
             int pos;
             switch (msg.what) {
                 case MSG_FADE_OUT:
-                    if (log.isDebugEnabled()) log.debug("Handle: MSG_FADE_OUT");
+                    //if (log.isDebugEnabled()) log.debug("Handle: MSG_FADE_OUT");
                     hide();
                     break;
                 case MSG_SHOW_PROGRESS:
-                    if (log.isDebugEnabled()) log.debug("Handle: MSG_SHOW_PROGRESS");
+                    //if (log.isDebugEnabled()) log.debug("Handle: MSG_SHOW_PROGRESS");
                     pos = setProgress();
                     if (!mDragging && mControlBarShowing && Player.sPlayer.isPlaying()) {
                         msg = obtainMessage(MSG_SHOW_PROGRESS);
@@ -1021,7 +1021,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                     }
                     break;
                 case MSG_SEEK:
-                    if (log.isDebugEnabled()) log.debug("Handle: MSG_SEEK");
+                    //if (log.isDebugEnabled()) log.debug("Handle: MSG_SEEK");
                     if (mNextSeek >= 0) {
                         boolean stop = false;
 
@@ -1069,7 +1069,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                         }
                         if (mSeekComplete && isSeekPressed()) {
                             mSeekComplete = false;
-                            if (log.isDebugEnabled()) log.debug("current pos is {} seek to {}", Player.sPlayer.getCurrentPosition(), mNextSeek);
+                            //if (log.isDebugEnabled()) log.debug("current pos is {} seek to {}", Player.sPlayer.getCurrentPosition(), mNextSeek);
                             Player.sPlayer.seekTo((int) mNextSeek);
                             updatePauseButton();
                         }
@@ -1085,7 +1085,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                         mDragging = false;
                         if (mNextSeek > 0 && mLongSeekTime > 2 * SEEK_LONG_DELAY) {
                             mSeekComplete = false;
-                            if (log.isDebugEnabled()) log.debug("current pos is {} seek to {}", Player.sPlayer.getCurrentPosition(), mNextSeek);
+                            //if (log.isDebugEnabled()) log.debug("current pos is {} seek to {}", Player.sPlayer.getCurrentPosition(), mNextSeek);
                             Player.sPlayer.seekTo((int) mNextSeek);
                             updatePauseButton();
                         }
@@ -1098,7 +1098,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                     break;
                 case MSG_SEEK_RESUME:
                     if (mSeekWasPlaying) {
-                        if (log.isDebugEnabled()) log.debug("Handle: MSG_SEEK_RESUME");
+                        //if (log.isDebugEnabled()) log.debug("Handle: MSG_SEEK_RESUME");
                         Player.sPlayer.start(PlayerController.STATE_SEEK);
                         mSeekWasPlaying = false;
                     }
@@ -1107,18 +1107,18 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                     show(FLAG_SIDE_CONTROL_BAR, SHOW_TIMEOUT);
                     break;
                 case MSG_SWITCH_VIDEO_FORMAT:
-                    if (log.isDebugEnabled()) log.debug("Handle: MSG_SWITCH_VIDEO_FORMAT");
+                    //if (log.isDebugEnabled()) log.debug("Handle: MSG_SWITCH_VIDEO_FORMAT");
                     mSurfaceController.switchVideoFormat();
                     updateFormat();
                     break;
                 case MSG_HIDE_SYSTEM_BAR:
-                    if (log.isDebugEnabled()) log.debug("Handle: MSG_HIDE_SYSTEM_BAR");
+                    //if (log.isDebugEnabled()) log.debug("Handle: MSG_HIDE_SYSTEM_BAR");
                     mSystemUiVisibility |= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
                     mPlayerView.setSystemUiVisibility(mSystemUiVisibility);
                     manualVisibilityChange=true;
                     break;
                 case MSG_OVERLAY_FADE_OUT:
-                    if (log.isDebugEnabled()) log.debug("Handle: MSG_OVERLAY_FADE_OUT");
+                    //if (log.isDebugEnabled()) log.debug("Handle: MSG_OVERLAY_FADE_OUT");
                     final View overlay1 = mControllerViewLeft.findViewById(R.id.help_overlay);
                     if(overlay1!=null){
                         overlay1.animate().alpha(0).setListener(new AnimatorListener() {
@@ -1131,7 +1131,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                             }
                             public void onAnimationCancel(Animator animation) {}
                         });
-                        if (log.isDebugEnabled()) log.debug("hidding 1");
+                        //if (log.isDebugEnabled()) log.debug("hidding 1");
                     }
                     if(mControllerViewRight!=null){
                         final View overlay2 = mControllerViewRight.findViewById(R.id.help_overlay);
@@ -1146,7 +1146,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                                 }
                                 public void onAnimationCancel(Animator animation) {}
                             });
-                            if (log.isDebugEnabled()) log.debug("hidding 2");
+                            //if (log.isDebugEnabled()) log.debug("hidding 2");
                         }
                     }
             }
@@ -1178,7 +1178,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
             position = 0;
         }
         int duration = Player.sPlayer.getDuration();
-        if (log.isDebugEnabled()) log.debug("setProgress player position/duration={}/{}", position, duration);
+        //if (log.isDebugEnabled()) log.debug("setProgress player position/duration={}/{}", position, duration);
         CharSequence endText = "";
         CharSequence currentText = "";
 
@@ -1190,7 +1190,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                 if(mProgress2!=null)
                     mProgress2.setProgress((int) pos);
                 currentText = stringForTime(position);
-                if (log.isDebugEnabled()) log.debug("setProgress player currentText={}", currentText);
+                //if (log.isDebugEnabled()) log.debug("setProgress player currentText={}", currentText);
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
                 boolean makeTimeNegative = prefs.getBoolean(VideoPreferencesCommon.KEY_MAKE_TIME_NEGATIVE, VideoPreferencesCommon.MAKE_TIME_NEGATIVE_DEFAULT);
@@ -1242,7 +1242,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
             return;
 
         if (mSeekWasPlaying || Player.sPlayer.isPlaying()) {
-            if (log.isDebugEnabled()) log.debug("updatePausePlay: video is playing, hiding central play icon");
+            //if (log.isDebugEnabled()) log.debug("updatePausePlay: video is playing, hiding central play icon");
             mPauseButton.setImageResource(R.drawable.video_pause_selector);
             if(mPauseButton2!=null)
                 mPauseButton2.setImageResource(R.drawable.video_pause_selector);
@@ -1253,17 +1253,17 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                     mPlayPauseTouchZone.setVisibility(View.INVISIBLE);
             }
         } else {
-            if (log.isDebugEnabled()) log.debug("updatePausePlay: video is paused, showing central play icon (locked={})", mIsLocked);
+            //if (log.isDebugEnabled()) log.debug("updatePausePlay: video is paused, showing central play icon (locked={})", mIsLocked);
             mPauseButton.setImageResource(R.drawable.video_play_selector);
             if(mPauseButton2!=null)
                 mPauseButton2.setImageResource(R.drawable.video_play_selector);
             // Show central play icon when paused, but only if not locked
             if (mCentralPlayIcon != null && !mIsLocked && !isTVMode) {
-                if (log.isDebugEnabled()) log.debug("updatePausePlay: making play touch zone and central icon visible");
+                //if (log.isDebugEnabled()) log.debug("updatePausePlay: making play touch zone and central icon visible");
                 mPlayPauseTouchZone.setVisibility(View.VISIBLE);
                 mCentralPlayIcon.setVisibility(View.VISIBLE);
             } else {
-                if (log.isDebugEnabled()) log.debug("updatePausePlay: central play icon is null or device is locked");
+                //if (log.isDebugEnabled()) log.debug("updatePausePlay: central play icon is null or device is locked");
             }
         }
     }
@@ -1303,7 +1303,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     private void doPauseResume() {
         if (mIsStopped)
             return;
-        if (log.isDebugEnabled()) log.debug("doPauseResume: {} - {}", Player.sPlayer.isPlaying(), mSeekWasPlaying);
+        //if (log.isDebugEnabled()) log.debug("doPauseResume: {} - {}", Player.sPlayer.isPlaying(), mSeekWasPlaying);
         if (mNextSeek != -1) {
             mSeekWasPlaying = !mSeekWasPlaying;
         } else {
@@ -1344,7 +1344,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     public void start() {
-        if (log.isDebugEnabled()) log.debug("start");
+        //if (log.isDebugEnabled()) log.debug("start");
         attachWindow();
         setEnabled(true);
         if (DBG_ALWAYS_SHOW)
@@ -1352,7 +1352,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     public void stop() {
-        if (log.isDebugEnabled()) log.debug("stop");
+        //if (log.isDebugEnabled()) log.debug("stop");
 
         if (mIsStopped)
             return;
@@ -1367,7 +1367,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     public void onWindowFocusChanged(boolean hasFocus) {
-        if (log.isDebugEnabled()) log.debug("onWindowFocusChanged: {}", hasFocus);
+        //if (log.isDebugEnabled()) log.debug("onWindowFocusChanged: {}", hasFocus);
         if (!mIsStopped) {
             /* volume can be changed by an other application: update it */
             if (hasFocus) {
@@ -1381,7 +1381,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     private void onSeekAndDraggingComplete() {
-        if (log.isDebugEnabled()) log.debug("onSeekAndDraggingComplete: {}", mSeekWasPlaying);
+        //if (log.isDebugEnabled()) log.debug("onSeekAndDraggingComplete: {}", mSeekWasPlaying);
         if (mIsStopped)
             return;
         mNextSeek = -1;
@@ -1395,7 +1395,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     public void onAllSeekComplete() {
-        if (log.isDebugEnabled()) log.debug("onAllSeekComplete");
+        //if (log.isDebugEnabled()) log.debug("onAllSeekComplete");
         if (mIsStopped)
             return;
 
@@ -1406,12 +1406,12 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     public void onSeekComplete() {
-        if (log.isDebugEnabled()) log.debug("onSeekComplete");
+        //if (log.isDebugEnabled()) log.debug("onSeekComplete");
         setProgress();
     }
 
     public void resumePosition(int position, boolean playOnResume) {
-        if (log.isDebugEnabled()) log.debug("resumePositionresumePosition: {} pos: {}", playOnResume, position);
+        //if (log.isDebugEnabled()) log.debug("resumePositionresumePosition: {} pos: {}", playOnResume, position);
         if (position > 0) {
             mSeekWasPlaying = playOnResume;
             if (Player.sPlayer.getCurrentPosition() > 0) {
@@ -1438,7 +1438,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     private void setNextSeekPos(int way) {
-        if (log.isDebugEnabled()) log.debug("setNextSeekPos {}", way);
+        //if (log.isDebugEnabled()) log.debug("setNextSeekPos {}", way);
         mSeekDir = way;
         if (mLastRelativePosition == -1) {
             if (mNextSeek == -1) {
@@ -1460,7 +1460,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     private void onSeek(int way, boolean longPress) {
-        if (log.isDebugEnabled()) log.debug("onSeek {}", way);
+        //if (log.isDebugEnabled()) log.debug("onSeek {}", way);
         cancelFadeOut();
         mHandler.removeMessages(MSG_SHOW_PROGRESS);
         mHandler.removeMessages(MSG_SEEK_RESUME);
@@ -1500,7 +1500,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     // we will simply apply the updated position without suspending regular updates.
     private SeekBar.OnSeekBarChangeListener mProgressListener = new SeekBar.OnSeekBarChangeListener() {
         public void onStartTrackingTouch(SeekBar bar) {
-            if (log.isDebugEnabled()) log.debug("onStartTrackingTouch");
+            //if (log.isDebugEnabled()) log.debug("onStartTrackingTouch");
             if (mIsStopped)
                 return;
             show(FLAG_SIDE_CONTROL_BAR, 0);
@@ -1755,7 +1755,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent event) {
-        if (log.isDebugEnabled()) log.debug("onSingleTapConfirmed");
+        //if (log.isDebugEnabled()) log.debug("onSingleTapConfirmed");
         if (isTVMenuDisplayed) mLastTouchEventTime = event.getEventTime();
         if(mControllerViewLeft!=null){
             View overlay = mControllerViewLeft.findViewById(R.id.help_overlay);
@@ -1784,13 +1784,13 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         }
 
         if ((event.getButtonState() & MotionEvent.BUTTON_SECONDARY)!=0) {
-            if (log.isDebugEnabled()) log.debug("onSingleTapConfirmed: BUTTON_SECONDARY");
+            //if (log.isDebugEnabled()) log.debug("onSingleTapConfirmed: BUTTON_SECONDARY");
             return false;
         }
 
         // Check if touch is in central screen zone (middle third both horizontally and vertically)
         if (isTouchInCentralZone(event)) {
-            if (log.isDebugEnabled()) log.debug("onSingleTapConfirmed: central zone touch");
+            //if (log.isDebugEnabled()) log.debug("onSingleTapConfirmed: central zone touch");
             handleCentralZoneTouch();
         } else {
             // Original behavior for touches outside central zone
@@ -1916,10 +1916,10 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
 
         if (Math.abs(scrollGestureVertical) > SCROLL_THRESHOLD && isVerticalScroll) {
             if (e1.getX() < halfWidth) { // left screen part
-                if (log.isDebugEnabled()) log.debug("onScroll: left screen part, direction={}", (scrollGestureVertical > 0 ? "up" : "down"));
+                //if (log.isDebugEnabled()) log.debug("onScroll: left screen part, direction={}", (scrollGestureVertical > 0 ? "up" : "down"));
                 scrollIncrementalBrightnessUpdate(scrollGestureVertical > 0);
             } else { // right screen part
-                if (log.isDebugEnabled()) log.debug("onScroll: left screen part, direction={}", (scrollGestureVertical > 0 ? "up" : "down"));
+                //if (log.isDebugEnabled()) log.debug("onScroll: left screen part, direction={}", (scrollGestureVertical > 0 ? "up" : "down"));
                 scrollIncrementalVolumeUpdate(scrollGestureVertical > 0);
             }
             scrollGestureVertical = 0.0001f;
@@ -1948,7 +1948,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         }
 
         if (e.getAction() == MotionEvent.ACTION_UP) {
-            if (log.isDebugEnabled()) log.debug("onDoubleTapEvent");
+            //if (log.isDebugEnabled()) log.debug("onDoubleTapEvent");
             float x = e.getX();
             float y = e.getY();
             if (mControllerView == null) return false;
@@ -2008,7 +2008,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     @Override
     public boolean onGenericMotion(View v, MotionEvent event) {
         if(!isTVMenuDisplayed){
-            if (log.isDebugEnabled()) log.debug("onGenericMotion : event={}", event);
+            //if (log.isDebugEnabled()) log.debug("onGenericMotion : event={}", event);
             if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M&&event.getActionButton()==MotionEvent.BUTTON_PRIMARY) //
                 return false;
             int action = event.getAction();
@@ -2029,7 +2029,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     private Runnable hideOsdRunnable = new Runnable() {
         @Override
         public void run() {
-            if (log.isDebugEnabled()) log.debug("hideOsdRunnable");
+            //if (log.isDebugEnabled()) log.debug("hideOsdRunnable");
             // Hide both the fast forward and fast backward icons
             if (mOsdLeftTextView != null) mOsdLeftTextView.setVisibility(View.INVISIBLE);
             if (mOsdRightTextView != null) mOsdRightTextView.setVisibility(View.INVISIBLE);
@@ -2053,7 +2053,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         newVolume = Math.max(0, Math.min(newVolume, maxVolume)); // Constrain the value between 0 and maxVolume
         mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, newVolume, 0);
         if (mOsdLeftTextView != null) mOsdLeftTextView.setText(String.valueOf(newVolume));
-        if (log.isDebugEnabled()) log.debug("scrollIncrementalVolumeUpdate: increase={}, currentVolume={}, maxVolume={}, newVolume={}", increase, currentVolume, maxVolume, newVolume);
+        //if (log.isDebugEnabled()) log.debug("scrollIncrementalVolumeUpdate: increase={}, currentVolume={}, maxVolume={}, newVolume={}", increase, currentVolume, maxVolume, newVolume);
         if (newVolume == 0) volumeIcon = getDrawable(mContext, R.drawable.ic_volume_off);
         else volumeIcon = getDrawable(mContext, R.drawable.ic_volume);
         if (mOsdLeftTextView != null) mOsdLeftTextView.setCompoundDrawablesWithIntrinsicBounds(volumeIcon, null, null, null);
@@ -2077,7 +2077,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         newIntBrightness = Math.max(0, Math.min(newIntBrightness, 30)); // Constrain the brightness between 0 and maxBrightness
         PlayerBrightnessManager.setLinearBrightness(newIntBrightness, increase, mWindow);
         if (mOsdRightTextView != null) mOsdRightTextView.setCompoundDrawablesWithIntrinsicBounds(brightnessIcon, null, null, null);
-        if (log.isDebugEnabled()) log.debug("scrollIncrementalBrightnessUpdate: increase={}, currentBrightness={}, maxBrightness={}, newBrightness={}", increase, currentBrightness, 30, newIntBrightness);
+        //if (log.isDebugEnabled()) log.debug("scrollIncrementalBrightnessUpdate: increase={}, currentBrightness={}, maxBrightness={}, newBrightness={}", increase, currentBrightness, 30, newIntBrightness);
         hideOsdHandler.removeCallbacks(hideOsdRunnable);
         hideOsdHandler.postDelayed(hideOsdRunnable, 300);
     }
@@ -2091,7 +2091,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
             hideOsdHandler.removeCallbacks(hideOsdRunnable);
             hideOsdHandler.postDelayed(hideOsdRunnable, 300);
         }
-        if (log.isDebugEnabled()) log.debug("showAudioSpeedOSD: audioSpeed={}", audioSpeed);
+        //if (log.isDebugEnabled()) log.debug("showAudioSpeedOSD: audioSpeed={}", audioSpeed);
     }
 
     public boolean hasFocus() {
@@ -2100,7 +2100,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     public boolean onKey(int keyCode, KeyEvent event) {
-        if (log.isDebugEnabled()) log.debug("onKey()");
+        //if (log.isDebugEnabled()) log.debug("onKey()");
         if (mLastTouchEventTime == event.getEventTime()) {
             return true;
         }
@@ -2146,7 +2146,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                 }
                 if (!isTVMenuDisplayed) {
                     showTVMenu(true);
-                    if (log.isDebugEnabled()) log.debug("onKey, showing menu");
+                    //if (log.isDebugEnabled()) log.debug("onKey, showing menu");
                     return true;
                 }
             }
@@ -2200,11 +2200,11 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                             return true;
                         case KeyEvent.KEYCODE_DPAD_DOWN:
                             showControlBar();
-                            if (log.isDebugEnabled()) log.debug("onKey: dpad down");
+                            //if (log.isDebugEnabled()) log.debug("onKey: dpad down");
                             return true;
                         case KeyEvent.KEYCODE_MEDIA_FAST_FORWARD:
                         case KeyEvent.KEYCODE_DPAD_RIGHT:
-                            if (log.isDebugEnabled()) log.debug("onKey: next");
+                            //if (log.isDebugEnabled()) log.debug("onKey: next");
                             if (Player.sPlayer.canSeekForward() && mSeekKeyDirection != 1) {
                                 show(FLAG_SIDE_CONTROL_BAR|FLAG_SIDE_ACTION_BAR|FLAG_SIDE_SYSTEM_BAR, 0);
                                 mSeekKeyDirection = 1;
@@ -2213,7 +2213,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                             return true;
                         case KeyEvent.KEYCODE_MEDIA_REWIND:
                         case KeyEvent.KEYCODE_DPAD_LEFT:
-                            if (log.isDebugEnabled()) log.debug("onKey: previous");
+                            //if (log.isDebugEnabled()) log.debug("onKey: previous");
                             if (Player.sPlayer.canSeekBackward() && mSeekKeyDirection != -1) {
                                 show(FLAG_SIDE_CONTROL_BAR|FLAG_SIDE_ACTION_BAR|FLAG_SIDE_SYSTEM_BAR, 0);
                                 mSeekKeyDirection = -1;
@@ -2252,7 +2252,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                             }
                             break;
                         case KeyEvent.KEYCODE_MEDIA_PLAY:
-                            if (log.isDebugEnabled()) log.debug("onKey: play");
+                            //if (log.isDebugEnabled()) log.debug("onKey: play");
                             if (!Player.sPlayer.isPlaying()) {
                                 Player.sPlayer.start(PlayerController.STATE_NORMAL);
                                 updatePausePlay();
@@ -2261,7 +2261,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                             return true;
                         case KeyEvent.KEYCODE_MEDIA_PAUSE:
                             if (Player.sPlayer.isPlaying()) {
-                                if (log.isDebugEnabled()) log.debug("onKey: pause");
+                                //if (log.isDebugEnabled()) log.debug("onKey: pause");
                                 Player.sPlayer.pause(PlayerController.STATE_NORMAL);
                                 updatePausePlay();
                                 show();
@@ -2274,12 +2274,12 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                         case KeyEvent.KEYCODE_P:
                         case KeyEvent.KEYCODE_SPACE:
                             if (Player.sPlayer.isPlaying()) {
-                                if (log.isDebugEnabled()) log.debug("onKey: play/pause: pause");
+                                //if (log.isDebugEnabled()) log.debug("onKey: play/pause: pause");
                                 Player.sPlayer.pause(PlayerController.STATE_NORMAL);
                                 updatePausePlay();
                                 show(FLAG_SIDE_CONTROL_BAR|FLAG_SIDE_ACTION_BAR|FLAG_SIDE_SYSTEM_BAR, pauseTimeout);
                             } else {
-                                if (log.isDebugEnabled()) log.debug("onKey: play/pause: play");
+                                //if (log.isDebugEnabled()) log.debug("onKey: play/pause: play");
                                 Player.sPlayer.start(PlayerController.STATE_NORMAL);
                                 updatePausePlay();
                                 hide();
@@ -2287,7 +2287,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                             return true;
                         case KeyEvent.KEYCODE_MEDIA_STOP:
                             if (Player.sPlayer.isPlaying()) {
-                                if (log.isDebugEnabled()) log.debug("onKey: stop, thus pause");
+                                //if (log.isDebugEnabled()) log.debug("onKey: stop, thus pause");
                                 Player.sPlayer.pause(PlayerController.STATE_NORMAL);
                                 updatePausePlay();
                                 show();
@@ -2299,7 +2299,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                         case KeyEvent.KEYCODE_MEDIA_REWIND:
                         case KeyEvent.KEYCODE_DPAD_LEFT:
                             mSeekKeyDirection = 0;
-                            if (log.isDebugEnabled()) log.debug("onKey, button up");
+                            //if (log.isDebugEnabled()) log.debug("onKey, button up");
                             return true;
                         case KeyEvent.KEYCODE_O:
                         case KeyEvent.KEYCODE_PROG_RED:
@@ -2410,7 +2410,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         if ((mJoystickZone == MediaUtils.JOYSTICK_ZONE_RIGHT || mJoystickZone == MediaUtils.JOYSTICK_ZONE_FAR_RIGHT) && !mJoystickSeekingActive) {
             // Only call onSeek() once when starting to seek but set longPress=true so that
             // the seek event will be sent periodically until the joystick is released
-            if (log.isDebugEnabled()) log.debug("handleJoystickEvent, Joystick moved to the right => start seeking forward");
+            //if (log.isDebugEnabled()) log.debug("handleJoystickEvent, Joystick moved to the right => start seeking forward");
             if(mControlBar.isFocused()){
                 mJoystickSeekingActive = true;
                 onSeek(1, true);
@@ -2419,7 +2419,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         else if ((mJoystickZone == MediaUtils.JOYSTICK_ZONE_LEFT || mJoystickZone == MediaUtils.JOYSTICK_ZONE_FAR_LEFT) && !mJoystickSeekingActive) {
             // Only call onSeek() once when starting to seek but set longPress=true so that
             // the seek event will be sent periodically until the joystick is released
-            if (log.isDebugEnabled()) log.debug("handleJoystickEvent, Joystick moved to the left => start seeking backward");
+            //if (log.isDebugEnabled()) log.debug("handleJoystickEvent, Joystick moved to the left => start seeking backward");
             if(mControlBar.isFocused()){
                 mJoystickSeekingActive = true;
                 onSeek(-1, true);
@@ -2427,14 +2427,14 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         }
         else if (mJoystickZone == MediaUtils.JOYSTICK_ZONE_CENTER && mJoystickSeekingActive) {
             // The joystick is released (i.e. is back in the dead zone)
-            if (log.isDebugEnabled()) log.debug("handleJoystickEvent, Joystick released => stop seeking");
+            //if (log.isDebugEnabled()) log.debug("handleJoystickEvent, Joystick released => stop seeking");
             mJoystickSeekingActive = false;
             mSeekKeyDirection = 0;
         }
     }
 
     public void enableAllNotifications() {
-        if (log.isDebugEnabled()) log.debug("Enable all notifications");
+        //if (log.isDebugEnabled()) log.debug("Enable all notifications");
         mSystemUiVisibility = mPlayerView.getSystemUiVisibility();
         mSystemUiVisibility &= ~STATUS_BAR_DISABLE_NOTIFICATION_ICONS;
         mSystemUiVisibility &= ~STATUS_BAR_DISABLE_NOTIFICATION_TICKER;
@@ -2444,7 +2444,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     public void enableNotificationAlerts() {
-        if (log.isDebugEnabled()) log.debug("Enable notification alerts only");
+        //if (log.isDebugEnabled()) log.debug("Enable notification alerts only");
         mSystemUiVisibility = mPlayerView.getSystemUiVisibility();
         mSystemUiVisibility |= STATUS_BAR_DISABLE_NOTIFICATION_ICONS;
         mSystemUiVisibility |= STATUS_BAR_DISABLE_NOTIFICATION_TICKER;
@@ -2454,7 +2454,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     }
 
     public void disableNotifications() {
-        if (log.isDebugEnabled()) log.debug("Disable all notifications");
+        //if (log.isDebugEnabled()) log.debug("Disable all notifications");
         mSystemUiVisibility = mPlayerView.getSystemUiVisibility();
         mSystemUiVisibility |= STATUS_BAR_DISABLE_NOTIFICATION_ICONS;
         mSystemUiVisibility |= STATUS_BAR_DISABLE_NOTIFICATION_TICKER;
@@ -2562,7 +2562,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
 
     public void setUIMode(int mode) {
         UIMode = mode;
-        if (log.isDebugEnabled()) log.debug("setUIMode, setting ui mode {}", mode);
+        //if (log.isDebugEnabled()) log.debug("setUIMode, setting ui mode {}", mode);
         // TODO Auto-generated method stub
         if(mode==VideoEffect.SBS_MODE){
         	  if(!mControlBarShowing)

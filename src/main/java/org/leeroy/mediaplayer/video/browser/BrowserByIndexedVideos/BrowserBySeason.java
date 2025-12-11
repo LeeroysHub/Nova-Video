@@ -54,7 +54,7 @@ public class BrowserBySeason extends BrowserWithShowHeader  {
 
 
     public BrowserBySeason() {
-        if (log.isDebugEnabled()) log.debug("BrowserBySeason()");
+        //if (log.isDebugEnabled()) log.debug("BrowserBySeason()");
     }
 
 

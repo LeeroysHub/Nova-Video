@@ -151,7 +151,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        if (log.isDebugEnabled()) log.debug("onCreate {}", savedInstanceState);
+        //if (log.isDebugEnabled()) log.debug("onCreate {}", savedInstanceState);
         super.onCreate(savedInstanceState);
 
         mPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -159,7 +159,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
 
         mSortOrder = mPrefs.getString(SORT_PARAM_KEY, DEFAULT_SORT);
         mSortOrderItem = sortorder2itemid(mSortOrder);
-        if (log.isDebugEnabled()) log.debug("onCreate: mSortOrder={} mSortOrderItem={}", mSortOrder, mSortOrderItem);
+        //if (log.isDebugEnabled()) log.debug("onCreate: mSortOrder={} mSortOrderItem={}", mSortOrder, mSortOrderItem);
 
         updateBackground();
 
@@ -177,7 +177,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (log.isDebugEnabled()) log.debug("onCreateView {} {}", this, savedInstanceState);
+        //if (log.isDebugEnabled()) log.debug("onCreateView {} {}", this, savedInstanceState);
         View v = super.onCreateView(inflater, container, savedInstanceState);
 
         mSortOrderEntries = new CharSequence[]{
@@ -224,7 +224,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        if (log.isDebugEnabled()) log.debug("onViewCreated");
+        //if (log.isDebugEnabled()) log.debug("onViewCreated");
 
         super.onViewCreated(view, savedInstanceState);
 
@@ -246,11 +246,11 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
         // Set third orb action for sort
         getTitleView().setOnOrb4Description(getString(R.string.sort_mode));
         getTitleView().setOrb4IconResId(R.drawable.orb_sort);
-        if (log.isDebugEnabled()) log.debug("onViewCreated: mSortOrder={} mSortOrderItem={}", mSortOrder, mSortOrderItem);
+        //if (log.isDebugEnabled()) log.debug("onViewCreated: mSortOrder={} mSortOrderItem={}", mSortOrder, mSortOrderItem);
 
         getTitleView().setOnOrb4ClickedListener(view1 -> new AlertDialog.Builder(getActivity())
                 .setSingleChoiceItems(mSortOrderEntries, mSortOrderItem, (dialog, which) -> {
-                    if (log.isDebugEnabled()) log.debug("onViewCreated:onClick mSortOrderItem {} -> {}", mSortOrderItem, which);
+                    //if (log.isDebugEnabled()) log.debug("onViewCreated:onClick mSortOrderItem {} -> {}", mSortOrderItem, which);
                     if (mSortOrderItem != which) {
                         mSortOrderItem = which;
                         mSortOrder = itemid2sortorder(mSortOrderItem);
@@ -269,14 +269,14 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
 
     @Override
     public void onDestroyView() {
-        if (log.isDebugEnabled()) log.debug("onDestroyView");
+        //if (log.isDebugEnabled()) log.debug("onDestroyView");
         mOverlay.destroy();
         super.onDestroyView();
     }
 
     @Override
     public void onDestroy() {
-        if (log.isDebugEnabled()) log.debug("onDestroy");
+        //if (log.isDebugEnabled()) log.debug("onDestroy");
         mPrefs.edit()
                 .putString(SORT_PARAM_KEY, mSortOrder)
                 .apply();
@@ -289,7 +289,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
 
     @Override
     public void onResume() {
-        if (log.isDebugEnabled()) log.debug("onResume");
+        //if (log.isDebugEnabled()) log.debug("onResume");
         super.onResume();
         mOverlay.resume();
         if (mRefreshOnNextResume) {
@@ -302,7 +302,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
 
     @Override
     public void onPause() {
-        if (log.isDebugEnabled()) log.debug("onPause");
+        //if (log.isDebugEnabled()) log.debug("onPause");
         super.onPause();
         mOverlay.pause();
     }
@@ -427,7 +427,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
     }
 
     protected void startListing(Uri uri) {
-        if (log.isDebugEnabled()) log.debug("startListing {}", uri);
+        //if (log.isDebugEnabled()) log.debug("startListing {}", uri);
         // abort previous engine (in theory not needed)
         if (mListingEngine!=null) {
             mListingEngine.abort();
@@ -518,7 +518,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
      * This method also handle updates from the DB: file list is not updated, but we update the items with (new) data from the DB
      */
     private void updateAdapterIfReady() {
-        if (log.isDebugEnabled()) log.debug("updateAdapterIfReady: mFileListReady={}, mDbQueryReady={}", mFileListReady, mDbQueryReady);
+        //if (log.isDebugEnabled()) log.debug("updateAdapterIfReady: mFileListReady={}, mDbQueryReady={}", mFileListReady, mDbQueryReady);
         if (mFileListReady && mDbQueryReady) {
             VideoCursorMapper cursorMapper = new VideoCursorMapper();
             cursorMapper.publicBindColumns(mCursor);
@@ -545,7 +545,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
                     existingObjectInAdapter = mFilesAdapter.get(positionInAdapter);
                 }
                 boolean doReplace = areTheseTheSameFile(existingObjectInAdapter, file);
-                if (log.isDebugEnabled()) log.debug("updateAdapterIfReady: processing {}, existingObjectInAdapter={}", file.getName(), doReplace);
+                //if (log.isDebugEnabled()) log.debug("updateAdapterIfReady: processing {}, existingObjectInAdapter={}", file.getName(), doReplace);
 
                 if (file.isDirectory()){
                     if (!doReplace) {
@@ -586,10 +586,10 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
                     }
                     if (newObject!=null) {
                         if (doReplace) {
-                            if (log.isDebugEnabled()) log.debug("updateAdapterIfReady: replace {}", positionInAdapter);
+                            //if (log.isDebugEnabled()) log.debug("updateAdapterIfReady: replace {}", positionInAdapter);
                             mFilesAdapter.replace(positionInAdapter, newObject);
                         } else {
-                            if (log.isDebugEnabled()) log.debug("updateAdapterIfReady: remove {} and add", positionInAdapter);
+                            //if (log.isDebugEnabled()) log.debug("updateAdapterIfReady: remove {} and add", positionInAdapter);
                             mFilesAdapter.removeItems(positionInAdapter,1);
                             mFilesAdapter.add(newObject);
                         }
@@ -599,7 +599,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
             }
             //remove items
             if(mFilesAdapter.size()>mListedFiles.size()){
-                if (log.isDebugEnabled()) log.debug("updateAdapterIfReady: mFilesAdapter.size()={}>mListedFiles.size()={}, remove above", mFilesAdapter.size(), mListedFiles.size());
+                //if (log.isDebugEnabled()) log.debug("updateAdapterIfReady: mFilesAdapter.size()={}>mListedFiles.size()={}, remove above", mFilesAdapter.size(), mListedFiles.size());
                 mFilesAdapter.removeItems(mListedFiles.size(), mFilesAdapter.size()-mListedFiles.size());
             }
 
@@ -631,7 +631,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
 
     @Override
     public void onListingStart() {
-        if (log.isDebugEnabled()) log.debug("onListingStart:");
+        //if (log.isDebugEnabled()) log.debug("onListingStart:");
         // Delay the loading view to have it not show when the loading is quick
         mProgressView.setAlpha(0);
         mProgressView.setVisibility(View.VISIBLE);
@@ -643,7 +643,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
 
     @Override
     public void onListingUpdate(List<? extends MetaFile2> files) {
-        if (log.isDebugEnabled()) log.debug("onListingUpdate: mFileListReady->true");
+        //if (log.isDebugEnabled()) log.debug("onListingUpdate: mFileListReady->true");
         mListedFiles = files;
         mFileListReady = true;
         updateAdapterIfReady();
@@ -651,7 +651,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
 
     @Override
     public void onListingEnd() {
-        if (log.isDebugEnabled()) log.debug("onListingEnd:");
+        //if (log.isDebugEnabled()) log.debug("onListingEnd:");
         mProgressView.setVisibility(View.INVISIBLE);
         if (isEmpty() && (mErrorMessage.getVisibility()!=View.VISIBLE)) { // do not show empty view when there is an error displayed
             mEmptyView.setVisibility(View.VISIBLE);
@@ -706,7 +706,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor c) {
-        if (log.isDebugEnabled()) log.debug("onLoadFinished: mDbQueryReady->true");
+        //if (log.isDebugEnabled()) log.debug("onLoadFinished: mDbQueryReady->true");
         mCursor = c;
         mDbQueryReady = true;
         updateAdapterIfReady();
@@ -772,7 +772,7 @@ public abstract class ListingFragment extends MyVerticalGridFragment implements 
     private static String itemid2sortorder(int itemid) {
         String sortOrder = DEFAULT_SORT;
         if (itemid >= 0 && itemid < sortOrders.size()) sortOrder = sortOrders.get(itemid);
-        if (log.isDebugEnabled()) log.debug("itemid2sortorder: sortOrder={}", sortOrder);
+        //if (log.isDebugEnabled()) log.debug("itemid2sortorder: sortOrder={}", sortOrder);
         return sortOrder;
     }
 

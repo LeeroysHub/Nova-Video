@@ -104,7 +104,7 @@ public class SubtitlesWizardCommon {
         if (videoUri != null) {
             mVideoUri = videoUri;
             mVideoPath = videoUri.toString();
-            if (log.isDebugEnabled()) log.debug("onCreate : video to process = {}", mVideoPath);
+            //if (log.isDebugEnabled()) log.debug("onCreate : video to process = {}", mVideoPath);
 
             if (mVideoPath != null) {
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -113,11 +113,11 @@ public class SubtitlesWizardCommon {
 
                 // Retrieve the list of subtitles files already associated with the video
                 mCurrentFilesCount = buildCurrentSubtitlesFilesList(mVideoPath);
-                if (log.isDebugEnabled()) log.debug("onCreate : mCurrentFilesCount = {}", mCurrentFilesCount);
+                //if (log.isDebugEnabled()) log.debug("onCreate : mCurrentFilesCount = {}", mCurrentFilesCount);
 
                 // Get the list of subtitles files available in the current folder
                 mAvailableFilesCount = buildAvailableSubtitlesFilesList(mVideoPath);
-                if (log.isDebugEnabled()) log.debug("onCreate : mAvailableFilesCount = {}", mAvailableFilesCount);
+                //if (log.isDebugEnabled()) log.debug("onCreate : mAvailableFilesCount = {}", mAvailableFilesCount);
             }
         }
         else {
@@ -128,7 +128,7 @@ public class SubtitlesWizardCommon {
     }
 
     public int buildCurrentSubtitlesFilesList(String videoPath) {
-        if (log.isDebugEnabled()) log.debug("buildCurrentSubtitlesFilesList : get current subtitles files");
+        //if (log.isDebugEnabled()) log.debug("buildCurrentSubtitlesFilesList : get current subtitles files");
 
         mCurrentFiles = new ArrayList<String>();
 
@@ -153,7 +153,7 @@ public class SubtitlesWizardCommon {
     }
 
     public int buildAvailableSubtitlesFilesList(String videoPath) {
-        if (log.isDebugEnabled()) log.debug("buildAvailableSubtitlesFilesList : get available subtitles files");
+        //if (log.isDebugEnabled()) log.debug("buildAvailableSubtitlesFilesList : get available subtitles files");
 
         mAvailableFiles = new ArrayList<String>();
 
@@ -262,10 +262,10 @@ public class SubtitlesWizardCommon {
         // Rename the file
         try {
             fileRenamed = oldFile.rename(newName);
-            if (log.isDebugEnabled()) log.debug("onItemClick : selected file renamed as {}", newFilePath);
+            //if (log.isDebugEnabled()) log.debug("onItemClick : selected file renamed as {}", newFilePath);
         }
         catch (Exception e) {
-            if (log.isDebugEnabled()) log.debug("renameFile : can not rename file as {}", newFilePath);
+            //if (log.isDebugEnabled()) log.debug("renameFile : can not rename file as {}", newFilePath);
         }
 
         String cacheDirPath = Uri.fromFile(MediaUtils.getSubsDir(getActivity())).toString();
@@ -279,7 +279,7 @@ public class SubtitlesWizardCommon {
             if (cacheOldFile.exists()) {
                 try {
                     cacheOldFile.renameTo(cacheNewFile);
-                    if (log.isDebugEnabled()) log.debug("onItemClick : selected file renamed as {}", cacheNewFilePath);
+                    //if (log.isDebugEnabled()) log.debug("onItemClick : selected file renamed as {}", cacheNewFilePath);
                 }
                 catch (Exception e) {
                     log.error("renameFile : can not rename file as {}", cacheNewFilePath);
@@ -297,7 +297,7 @@ public class SubtitlesWizardCommon {
                 intent2.setPackage(LeeroyFlixUtils.getGlobalContext().getPackageName());
                 sendBroadcast(intent2);
 
-                if (log.isDebugEnabled()) log.debug("rescanning Video: {}", mVideoUri.toString());
+                //if (log.isDebugEnabled()) log.debug("rescanning Video: {}", mVideoUri.toString());
                 Intent intent3 = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, mVideoUri);
                 intent3.setPackage(LeeroyFlixUtils.getGlobalContext().getPackageName());
                 sendBroadcast(intent3);
@@ -321,10 +321,10 @@ public class SubtitlesWizardCommon {
         FileEditor file = FileEditorFactory.getFileEditorForUrl(uri, getActivity());
         try {
             file.delete();
-            if (log.isDebugEnabled()) log.debug("deleteFile : file {} deleted", path);
+            //if (log.isDebugEnabled()) log.debug("deleteFile : file {} deleted", path);
         }
         catch (Exception e) {
-            if (log.isDebugEnabled()) log.debug("deleteFile : can not delete file {}", path);
+            //if (log.isDebugEnabled()) log.debug("deleteFile : can not delete file {}", path);
         }
 
         fileDeleted = !file.exists();
@@ -337,7 +337,7 @@ public class SubtitlesWizardCommon {
             if (cacheFile.exists()) {
                 try {
                     cacheFile.delete();
-                    if (log.isDebugEnabled()) log.debug("deleteFile : file {} deleted", cacheFilePath);
+                    //if (log.isDebugEnabled()) log.debug("deleteFile : file {} deleted", cacheFilePath);
                 }
                 catch (Exception e) {
                     log.error("deleteFile : can not delete file {}", cacheFilePath);
@@ -352,7 +352,7 @@ public class SubtitlesWizardCommon {
                 intent1.setPackage(LeeroyFlixUtils.getGlobalContext().getPackageName());
                 sendBroadcast(intent1);
 
-                if (log.isDebugEnabled()) log.debug("rescanning Video: {}", mVideoUri.toString());
+                //if (log.isDebugEnabled()) log.debug("rescanning Video: {}", mVideoUri.toString());
                 Intent intent2 = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, mVideoUri);
                 intent2.setPackage(LeeroyFlixUtils.getGlobalContext().getPackageName());
                 sendBroadcast(intent2);

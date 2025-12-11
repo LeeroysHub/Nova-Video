@@ -308,7 +308,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
      *              </ul>
      */
     private void updateNextVideo(boolean repeatFolder, boolean binge, boolean sync) {
-        if (log.isDebugEnabled()) log.debug("updateNextVideo: repeatfolder {}, binge {}, sync {}", repeatFolder, binge, sync);
+        //if (log.isDebugEnabled()) log.debug("updateNextVideo: repeatfolder {}, binge {}, sync {}", repeatFolder, binge, sync);
         // reset to nothing
         mNextUri = null;
         mNextVideoId = -1;
@@ -321,7 +321,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
             mUpdateNextTask.setListener(new UpdateNextTask.Listener() {
                 @Override
                 public void onResult(Uri uri, long id) {
-                    if (log.isDebugEnabled()) log.debug("updateNextVideo: UpdateNextTask onResult: next video and id {}, id: {}", uri, id);
+                    //if (log.isDebugEnabled()) log.debug("updateNextVideo: UpdateNextTask onResult: next video and id {}, id: {}", uri, id);
                     mNextUri = uri;
                     mNextVideoId = id;
                     mUpdateNextTask = null;
@@ -359,7 +359,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
 
     public void setPlayMode(int newPlaymode, boolean wait) {
         mPlayMode = newPlaymode;
-        if (log.isDebugEnabled()) log.debug("setPlaymode: new Playmode {}", newPlaymode);
+        //if (log.isDebugEnabled()) log.debug("setPlaymode: new Playmode {}", newPlaymode);
         if (PLAYMODE_REPEAT_SINGLE == newPlaymode) {
             mPlayer.setLooping(true);
             // just in Case we drop out to OnCompletion
@@ -368,21 +368,21 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         } else {
             mPlayer.setLooping(false);
             if (PLAYMODE_SINGLE == newPlaymode) {
-                if (log.isDebugEnabled()) log.debug("setPlaymode: PLAYMODE_SINGLE");
+                //if (log.isDebugEnabled()) log.debug("setPlaymode: PLAYMODE_SINGLE");
                 // clear next
                 mNextUri = null;
                 mNextVideoId = -1;
             } else if (PLAYMODE_FOLDER == newPlaymode) {
-                if (log.isDebugEnabled()) log.debug("setPlaymode: PLAYMODE_FOLDER");
+                //if (log.isDebugEnabled()) log.debug("setPlaymode: PLAYMODE_FOLDER");
                 updateNextVideo(false, false, wait);
             } else if (PLAYMODE_REPEAT_FOLDER == newPlaymode) {
-                if (log.isDebugEnabled()) log.debug("setPlaymode: PLAYMODE_REPEAT_FOLDER");
+                //if (log.isDebugEnabled()) log.debug("setPlaymode: PLAYMODE_REPEAT_FOLDER");
                 updateNextVideo(true, false, wait);
             } else if (PLAYMODE_BINGE == newPlaymode) {
-                if (log.isDebugEnabled()) log.debug("setPlaymode: PLAYMODE_BINGE");
+                //if (log.isDebugEnabled()) log.debug("setPlaymode: PLAYMODE_BINGE");
                 updateNextVideo(false, true, wait);
             } else {
-                if (log.isDebugEnabled()) log.debug("unknown Playmode: {}", newPlaymode);
+                //if (log.isDebugEnabled()) log.debug("unknown Playmode: {}", newPlaymode);
             }
         }
     }
@@ -399,7 +399,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         super.onCreate();
 
 	AdditionalServiceSingleton.getInstance().bindToService(getApplicationContext());
-        if (log.isDebugEnabled()) log.debug("onCreate()");
+        //if (log.isDebugEnabled()) log.debug("onCreate()");
         sPlayerService = this;
         mHandler = new Handler();
         if (PERIODIC_BOOKMARK_SAVE) {
@@ -423,7 +423,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
             mAudioSpeedMin = 0.1f;
         }
 
-        if (log.isDebugEnabled()) log.debug("onCreate: register headsetPluggedReceiver");
+        //if (log.isDebugEnabled()) log.debug("onCreate: register headsetPluggedReceiver");
         if (Build.VERSION.SDK_INT >= 33) registerReceiver(headsetPluggedReceiver, new IntentFilter(Intent.ACTION_HEADSET_PLUG), Context.RECEIVER_NOT_EXPORTED);
         else registerReceiver(headsetPluggedReceiver, new IntentFilter(Intent.ACTION_HEADSET_PLUG));
         setPlayer();
@@ -440,7 +440,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
      */
 
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (log.isDebugEnabled()) log.debug("onStartCommand");
+        //if (log.isDebugEnabled()) log.debug("onStartCommand");
         super.onStartCommand(intent, flags, startId);
         return START_NOT_STICKY;
     }
@@ -451,7 +451,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         }
         firstTimeAudioCalled = true;
         firstTimeSubCalled = true;
-        if (log.isDebugEnabled()) log.debug("onStart() ");
+        //if (log.isDebugEnabled()) log.debug("onStart() ");
         mCallOnDataUriOKWhenVideoInfoIsSet = true;
         mIntent = intent;
         //boolean isDemoMode = (intent.getIntExtra(VIDEO_PLAYER_DEMO_MODE_EXTRA, 0) == 1);
@@ -465,19 +465,19 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         mHideSubtitles = mPreferences.getBoolean(KEY_HIDE_SUBTITLES, false);
         mPlayMode = mPreferences.getInt(KEY_PLAY_MODE, PLAYMODE_SINGLE);
         mResume = intent.getIntExtra(RESUME, RESUME_NO);
-        if (log.isDebugEnabled()) log.debug("PlayerService.onStart: read mResume={} from intent", mResume);
+        //if (log.isDebugEnabled()) log.debug("PlayerService.onStart: read mResume={} from intent", mResume);
 
         // Check if user had paused the video before - this persists in preferences
         boolean userPausedVideo = mPreferences.getBoolean("user_paused_video", false);
-        if (log.isDebugEnabled()) log.debug("PlayerService.onStart: userPausedVideo={} from preferences", userPausedVideo);
+        //if (log.isDebugEnabled()) log.debug("PlayerService.onStart: userPausedVideo={} from preferences", userPausedVideo);
 
         if (userPausedVideo) {
             // User had paused - preserve pause state
-            if (log.isDebugEnabled()) log.debug("PlayerService.onStart: user had paused video, preserving mPlayOnResume = false");
+            //if (log.isDebugEnabled()) log.debug("PlayerService.onStart: user had paused video, preserving mPlayOnResume = false");
             mPlayOnResume = false;
         } else {
             // New video or should play - reset to true
-            if (log.isDebugEnabled()) log.debug("PlayerService.onStart: starting/resuming video, setting mPlayOnResume = true");
+            //if (log.isDebugEnabled()) log.debug("PlayerService.onStart: starting/resuming video, setting mPlayOnResume = true");
             mPlayOnResume = true;
         }
 
@@ -487,12 +487,12 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         // Check if floating player is passing position when switching between players
         if (intent.hasExtra("floating_player_position")) {
             mExplicitPosition = intent.getIntExtra("floating_player_position", -1);
-            if (log.isDebugEnabled()) log.debug("PlayerService.onStart: Found floating_player_position={}", mExplicitPosition);
+            //if (log.isDebugEnabled()) log.debug("PlayerService.onStart: Found floating_player_position={}", mExplicitPosition);
         } else if (intent.hasExtra("position")) {
             int position = intent.getIntExtra("position", -1);
             if (position > 0) {
                 mExplicitPosition = position;
-                if (log.isDebugEnabled()) log.debug("PlayerService.onStart: Found position extra={}", mExplicitPosition);
+                //if (log.isDebugEnabled()) log.debug("PlayerService.onStart: Found position extra={}", mExplicitPosition);
             }
         }
 
@@ -502,12 +502,12 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
             mUri = Uri.parse(mIntent.getStringExtra(KEY_ORIGINAL_TORRENT_URL));
         }
         mUri = Uri.parse(removeFileSlashSlash(mUri.toString())); // we need to remove "file://"
-        if (log.isDebugEnabled()) log.debug("onStart() {}", mUri);
+        //if (log.isDebugEnabled()) log.debug("onStart() {}", mUri);
         mStreamingUri = intent.getParcelableExtra(KEY_STREAMING_URI);
         if(mPlayerFrontend!=null)
             mPlayerFrontend.setUri(mUri, mStreamingUri);
         mVideoId = intent.getIntExtra("id", -1);
-        if (log.isDebugEnabled()) log.debug("onStart mVideoId={}", mVideoId);
+        //if (log.isDebugEnabled()) log.debug("onStart mVideoId={}", mVideoId);
         mTorrentFilePosition = mIntent.getIntExtra(PlayerActivity.KEY_TORRENT, -1);
 
         // when mVideoInfo uri is the same as intent uri -> info has already been retrieved !
@@ -516,19 +516,19 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
             if (mResume != RESUME_FROM_REMOTE_POS) {
                 mResume = RESUME_FROM_LAST_POS;
             }
-            if (log.isDebugEnabled()) log.debug("PlayerService.onStart: URI matches existing mVideoInfo, mResume={}", mResume);
+            //if (log.isDebugEnabled()) log.debug("PlayerService.onStart: URI matches existing mVideoInfo, mResume={}", mResume);
             mDatabaseInfoHasBeenRetrieved = true;
             // Always reload audio settings from preferences even when replaying same video
             mAudioDelay = mPreferences.getInt(getString(R.string.save_delay_setting_pref_key), 0);
             mAudioSpeed = getAudioSpeedFromPreferences();
-            if (log.isDebugEnabled()) log.debug("onStart: mAudioSpeed={}", mAudioSpeed);
+            //if (log.isDebugEnabled()) log.debug("onStart: mAudioSpeed={}", mAudioSpeed);
         }
         else {
             mVideoInfo = null; //reset info
             mDatabaseInfoHasBeenRetrieved = false;
             mAudioDelay = mPreferences.getInt(getString(R.string.save_delay_setting_pref_key), 0);
             mAudioSpeed = getAudioSpeedFromPreferences();
-            if (log.isDebugEnabled()) log.debug("onStart: mAudioSpeed={}", mAudioSpeed);
+            //if (log.isDebugEnabled()) log.debug("onStart: mAudioSpeed={}", mAudioSpeed);
         }
         if(mTorrentFilePosition>=0){
             mCallOnDataUriOKWhenVideoInfoIsSet = false;
@@ -549,22 +549,22 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         else if(mVideoId==-1){
             Uri correctedUri = FileUtils.getRealUriFromVideoURI(this,mUri);
             if(correctedUri!=null) {
-                if (log.isDebugEnabled()) log.debug("onStart: correctedUri {}", correctedUri);
+                //if (log.isDebugEnabled()) log.debug("onStart: correctedUri {}", correctedUri);
                 mUri = correctedUri;
             }
         }
-        if (log.isDebugEnabled()) log.debug("onStart: mIndexHelper != null {}", String.valueOf(mIndexHelper != null));
+        //if (log.isDebugEnabled()) log.debug("onStart: mIndexHelper != null {}", String.valueOf(mIndexHelper != null));
 
         // store file that is playing: this is too soon at this point because information is not available do it later in onStreamingUriOK
-        if (log.isDebugEnabled()) log.debug("onStart videoUri {}, videoId {}, mVideoInfo.id={}, mVideoInfo.uri={}", mUri, mVideoId, (mVideoInfo != null ? mVideoInfo.id : "null"), (mVideoInfo != null ? mVideoInfo.uri : "null"));
+        //if (log.isDebugEnabled()) log.debug("onStart videoUri {}, videoId {}, mVideoInfo.id={}, mVideoInfo.uri={}", mUri, mVideoId, (mVideoInfo != null ? mVideoInfo.id : "null"), (mVideoInfo != null ? mVideoInfo.uri : "null"));
         //LeeroyFlixApp.setLastVideoPlayedId(mVideoId);
         //LeeroyFlixApp.setLastVideoPlayedUri(mUri);
 
         if(mIndexHelper!=null&&mVideoInfo==null) {
-            if (log.isDebugEnabled()) log.debug("onStart: mIndexHelper != null, call requestVideoDb()");
+            //if (log.isDebugEnabled()) log.debug("onStart: mIndexHelper != null, call requestVideoDb()");
             requestVideoDb();
         } else if(mVideoInfo!=null){
-            if (log.isDebugEnabled()) log.debug("onStart: mVideoInfo != null, call mPlayerFrontend.onVideoDb");
+            //if (log.isDebugEnabled()) log.debug("onStart: mVideoInfo != null, call mPlayerFrontend.onVideoDb");
             mPlayerFrontend.onVideoDb(mVideoInfo, null);
         }
         if (LeeroyFlixFeatures.isAndroidTV(this) && !PrivateMode.isActive()) {
@@ -654,7 +654,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
 
         // If an explicit position was passed from intent (e.g., from floating player), use it
         if (mExplicitPosition > 0) {
-            if (log.isDebugEnabled()) log.debug("getLastPosition: Using explicit position={}", mExplicitPosition);
+            //if (log.isDebugEnabled()) log.debug("getLastPosition: Using explicit position={}", mExplicitPosition);
             return mExplicitPosition;
         }
 
@@ -673,7 +673,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     }
 
     private void onDataUriOK() {
-        if (log.isDebugEnabled()) log.debug("onDataUriOK {}", mUri);
+        //if (log.isDebugEnabled()) log.debug("onDataUriOK {}", mUri);
         mCallOnDataUriOKWhenVideoInfoIsSet = false;
         //we check if we have a streaming uri, if we don't, streaming Uri must be equal to mUri
         if (mStreamingUri == null) {
@@ -702,7 +702,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     }
 
     private void prepareSubs() {
-        if (log.isDebugEnabled()) log.debug("prepareSubs: checking cache for mUri={}", mUri);
+        //if (log.isDebugEnabled()) log.debug("prepareSubs: checking cache for mUri={}", mUri);
         if(!mIsPreparingSubs) {
             mIsPreparingSubs = true;
             // Initialize latch to synchronize subtitle enumeration with video playback
@@ -719,16 +719,16 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                 // If cached, we can skip the expensive enumeration
                 cachedFiles = SubtitleManager.getCachedSubtitleFiles(mUri);
             } else {
-                if (log.isDebugEnabled()) log.debug("prepareSubs: skipping cache for remote file (requires local copy): {}", mUri);
+                //if (log.isDebugEnabled()) log.debug("prepareSubs: skipping cache for remote file (requires local copy): {}", mUri);
             }
 
             if (cachedFiles != null) {
-                if (log.isDebugEnabled()) log.debug("prepareSubs: cache HIT - found {} cached subtitle files, skipping enumeration", cachedFiles.size());
+                //if (log.isDebugEnabled()) log.debug("prepareSubs: cache HIT - found {} cached subtitle files, skipping enumeration", cachedFiles.size());
                 // Check if AVOS metadata is also cached
                 VideoMetadata cachedMetadata =
                         SubtitleManager.getCachedProcessedMetadata(mUri);
                 if (cachedMetadata != null) {
-                    if (log.isDebugEnabled()) log.debug("prepareSubs: cache HIT for both files AND metadata - using cached AVOS metadata, skipping checkSubtitles entirely");
+                    //if (log.isDebugEnabled()) log.debug("prepareSubs: cache HIT for both files AND metadata - using cached AVOS metadata, skipping checkSubtitles entirely");
                     // Both file list and AVOS result cached - skip all processing
                     onSubtitleMetadataUpdated(cachedMetadata, cachedMetadata.getSubtitleTrack(0) != null ? 0 : -1);
                     mIsPreparingSubs = false;
@@ -737,7 +737,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                     }
                     return;
                 } else {
-                    if (log.isDebugEnabled()) log.debug("prepareSubs: cache HIT for files, but not metadata - will call checkSubtitles");
+                    //if (log.isDebugEnabled()) log.debug("prepareSubs: cache HIT for files, but not metadata - will call checkSubtitles");
                     // Files cached but not AVOS result - call checkSubtitles to process them
                     mIsPreparingSubs = false;
                     mPlayer.checkSubtitles();
@@ -748,13 +748,13 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                 }
             }
 
-            if (log.isDebugEnabled()) log.debug("prepareSubs: cache MISS - proceeding with normal enumeration");
+            //if (log.isDebugEnabled()) log.debug("prepareSubs: cache MISS - proceeding with normal enumeration");
             SubtitleManager subtitleManager =
                     new SubtitleManager(this, new SubtitleManager.Listener() {
                         @Override
                         public void onAbort() {
                             mIsPreparingSubs = false;
-                            if (log.isDebugEnabled()) log.debug("prepareSubs: onAbort - signaling subtitles ready latch");
+                            //if (log.isDebugEnabled()) log.debug("prepareSubs: onAbort - signaling subtitles ready latch");
                             if (mSubtitlesReadyLatch != null) {
                                 mSubtitlesReadyLatch.countDown();
                             }
@@ -763,7 +763,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                         @Override
                         public void onError(Uri uri, Exception e) {
                             mIsPreparingSubs = false;
-                            if (log.isDebugEnabled()) log.debug("prepareSubs: onError - signaling subtitles ready latch");
+                            //if (log.isDebugEnabled()) log.debug("prepareSubs: onError - signaling subtitles ready latch");
                             if (mSubtitlesReadyLatch != null) {
                                 mSubtitlesReadyLatch.countDown();
                             }
@@ -771,23 +771,23 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
 
                         @Override
                         public void onSuccess(Uri uri) {
-                            if (log.isDebugEnabled()) log.debug("prepareSubs: onSuccess request player to check subs if {} = {}", mUri, uri);
+                            //if (log.isDebugEnabled()) log.debug("prepareSubs: onSuccess request player to check subs if {} = {}", mUri, uri);
                             mIsPreparingSubs = false;
                             if(mUri.equals(uri)) {
                                 // Check if AVOS metadata is cached (within 10 second TTL)
                                 VideoMetadata cachedMetadata =
                                         SubtitleManager.getCachedProcessedMetadata(mUri);
                                 if (cachedMetadata != null) {
-                                    if (log.isDebugEnabled()) log.debug("prepareSubs: onSuccess - using cached AVOS metadata, skipping checkSubtitles");
+                                    //if (log.isDebugEnabled()) log.debug("prepareSubs: onSuccess - using cached AVOS metadata, skipping checkSubtitles");
                                     // Use cached metadata directly instead of querying AVOS again
                                     onSubtitleMetadataUpdated(cachedMetadata, cachedMetadata.getSubtitleTrack(0) != null ? 0 : -1);
                                 } else {
-                                    if (log.isDebugEnabled()) log.debug("prepareSubs: onSuccess - no cached metadata, calling checkSubtitles");
+                                    //if (log.isDebugEnabled()) log.debug("prepareSubs: onSuccess - no cached metadata, calling checkSubtitles");
                                     mPlayer.checkSubtitles(); // will trigger subs reload
                                 }
                             }
                             // Signal that subtitles are ready after checkSubtitles completes
-                            if (log.isDebugEnabled()) log.debug("prepareSubs: onSuccess - signaling subtitles ready latch");
+                            //if (log.isDebugEnabled()) log.debug("prepareSubs: onSuccess - signaling subtitles ready latch");
                             if (mSubtitlesReadyLatch != null) {
                                 mSubtitlesReadyLatch.countDown();
                             }
@@ -796,7 +796,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                         @Override
                         public void onNoSubtitlesFound(Uri uri) {
                             mIsPreparingSubs = false;
-                            if (log.isDebugEnabled()) log.debug("prepareSubs: onNoSubtitlesFound - signaling subtitles ready latch");
+                            //if (log.isDebugEnabled()) log.debug("prepareSubs: onNoSubtitlesFound - signaling subtitles ready latch");
                             if (mSubtitlesReadyLatch != null) {
                                 mSubtitlesReadyLatch.countDown();
                             }
@@ -804,12 +804,12 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                     });
             subtitleManager.preFetchHTTPSubtitlesAndPrepareUpnpSubs(mUri, mStreamingUri);
         } else {
-            if (log.isDebugEnabled()) log.debug("prepareSubs: already preparing subs");
+            //if (log.isDebugEnabled()) log.debug("prepareSubs: already preparing subs");
         }
     }
 
     private void onStreamingUriOK() {
-        if (log.isDebugEnabled()) log.debug("onStreamingUriOK");
+        //if (log.isDebugEnabled()) log.debug("onStreamingUriOK");
         if(mTorrentFilePosition==-1)
             prepareSubs();
         if(mPlayerFrontend!=null)
@@ -819,10 +819,10 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
             // This prevents glitches caused by subtitle track selection during playback
             if (mSubtitlesReadyLatch != null) {
                 try {
-                    if (log.isDebugEnabled()) log.debug("onStreamingUriOK: waiting for subtitles enumeration (timeout={}ms)", SUBTITLE_ENUMERATION_TIMEOUT_MS);
+                    //if (log.isDebugEnabled()) log.debug("onStreamingUriOK: waiting for subtitles enumeration (timeout={}ms)", SUBTITLE_ENUMERATION_TIMEOUT_MS);
                     boolean finished = mSubtitlesReadyLatch.await(SUBTITLE_ENUMERATION_TIMEOUT_MS, java.util.concurrent.TimeUnit.MILLISECONDS);
                     if (finished) {
-                        if (log.isDebugEnabled()) log.debug("onStreamingUriOK: subtitles enumeration completed successfully");
+                        //if (log.isDebugEnabled()) log.debug("onStreamingUriOK: subtitles enumeration completed successfully");
                     } else {
                         log.warn("onStreamingUriOK: subtitles enumeration timeout after {}ms, proceeding with video start", SUBTITLE_ENUMERATION_TIMEOUT_MS);
                     }
@@ -838,12 +838,12 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     public void setPlayer(){
         if(mPlayer!=null)
             mPlayer.setListener(null);
-        else if (log.isDebugEnabled()) log.debug("setPlayer: mPlayer is null");
+        //else //if (log.isDebugEnabled()) log.debug("setPlayer: mPlayer is null");
         if(Player.sPlayer==null) {
-            if (log.isDebugEnabled()) log.debug("setPlayer: Player.sPlayer is null allocating a new one");
+            //if (log.isDebugEnabled()) log.debug("setPlayer: Player.sPlayer is null allocating a new one");
             Player.sPlayer = new Player(this, null, null, false);
         } else {
-            if (log.isDebugEnabled()) log.debug("setPlayer: Player.sPlayer is not null");
+            //if (log.isDebugEnabled()) log.debug("setPlayer: Player.sPlayer is not null");
         }
         mPlayer = Player.sPlayer;
         mPlayer.setListener(this);
@@ -877,7 +877,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     public void removePlayerFrontend(PlayerFrontend playerFrontend, boolean prepareForSurfaceSwitch) {
         if(mPlayerFrontend!=playerFrontend)
             return;
-        if (log.isDebugEnabled()) log.debug("removePlayerFrontend {}", String.valueOf(prepareForSurfaceSwitch));
+        //if (log.isDebugEnabled()) log.debug("removePlayerFrontend {}", String.valueOf(prepareForSurfaceSwitch));
         mIsChangingSurface = prepareForSurfaceSwitch;
         mPlayerFrontend = null;
         stopAndSaveVideoState();
@@ -907,14 +907,14 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     public void saveVideoStateIfReady(){
         if(mIndexHelper!=null) {
             if ((mPlayerState != PlayerState.INIT && mPlayerState != PlayerState.PREPARING)) {// if it has really been played at least once, otherwise it would overwrite lastresume with 0
-                if (log.isDebugEnabled()) log.debug("saveVideoStateIfReady");
+                //if (log.isDebugEnabled()) log.debug("saveVideoStateIfReady");
                 if (mLastPosition != LAST_POSITION_END) {//if last position, we went there through "onCompletion"
                     // If player is paused, keep exact position; otherwise update to bookmark position
                     if (mPlayer != null && !mPlayer.isPaused()) {
                         mLastPosition = getBookmarkPosition();
-                        if (log.isDebugEnabled()) log.debug("saveVideoStateIfReady: player playing, updated to bookmark position {}", mLastPosition);
+                        //if (log.isDebugEnabled()) log.debug("saveVideoStateIfReady: player playing, updated to bookmark position {}", mLastPosition);
                     } else {
-                        if (log.isDebugEnabled()) log.debug("saveVideoStateIfReady: player paused, keeping exact position {}", mLastPosition);
+                        //if (log.isDebugEnabled()) log.debug("saveVideoStateIfReady: player paused, keeping exact position {}", mLastPosition);
                     }
                 }
                 if (mVideoInfo != null && !PrivateMode.isActive()) {
@@ -929,7 +929,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                                 .edit()
                                 .putLong(PREFERENCE_LAST_TIME_VIDEO_PLAYED_UTC, utcSeconds)
                                 .apply();
-                        if (log.isDebugEnabled()) log.debug("saveVideoStateIfReady: saved last video played UTC timestamp {}", utcSeconds);
+                        //if (log.isDebugEnabled()) log.debug("saveVideoStateIfReady: saved last video played UTC timestamp {}", utcSeconds);
                     }
                     // saving seconds since the Unix epoch (January 1, 1970, 00:00:00 UTC) and this value is in UTC
                     // traktResume is set to -resume unless synced
@@ -952,12 +952,12 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     }
 
     public void stopAndSaveVideoState(){
-        if (log.isDebugEnabled()) log.debug("stopAndSaveVideoState");
+        //if (log.isDebugEnabled()) log.debug("stopAndSaveVideoState");
         if(mIndexHelper!=null) {
             mIndexHelper.abort(); //too late : do not retrieve db info
             saveVideoStateIfReady();
             if ((mPlayerState != PlayerState.INIT && mPlayerState != PlayerState.PREPARING)) {
-                if (log.isDebugEnabled()) log.debug("stopAndSaveVideoState: stopTrakt");
+                //if (log.isDebugEnabled()) log.debug("stopAndSaveVideoState: stopTrakt");
                 stopTrakt();
             }
             if (mUpdateNextTask != null) {
@@ -993,7 +993,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
 
         if(mUri!=null)
             playerFrontend.setUri(mUri,mStreamingUri);
-        if (log.isDebugEnabled()) log.debug("switchPlayerFrontend {}", String.valueOf(mVideoInfo != null));
+        //if (log.isDebugEnabled()) log.debug("switchPlayerFrontend {}", String.valueOf(mVideoInfo != null));
 
         if(mVideoInfo!=null)
             playerFrontend.setVideoInfo(mVideoInfo);
@@ -1006,7 +1006,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
      * @return player progress in percentage
      */
     private int getPlayerProgress() {
-        if (log.isDebugEnabled()) log.debug("getPlayerProgress");
+        //if (log.isDebugEnabled()) log.debug("getPlayerProgress");
         if (Player.sPlayer == null || mVideoInfo == null)
             return 0;
         if (mLastPosition == LAST_POSITION_END)
@@ -1032,7 +1032,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     private final Runnable mTraktWatchingRunnable = new Runnable() {
         @Override
         public void run() {
-            if (log.isDebugEnabled()) log.debug("mTraktWatchingRunnable");
+            //if (log.isDebugEnabled()) log.debug("mTraktWatchingRunnable");
             if (Player.sPlayer != null) {
                 mTraktClient.watching(mVideoInfo, getPlayerProgress());
                 mHandler.postDelayed(mTraktWatchingRunnable, Trakt.WATCHING_DELAY_MS);
@@ -1041,7 +1041,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     };
 
     private void startTrakt() {
-        if (log.isDebugEnabled()) log.debug("startTrakt");
+        //if (log.isDebugEnabled()) log.debug("startTrakt");
         if (mTraktClient != null) {
             mTraktError = false;
             mTraktLiveScrobblingEnabled = Trakt.isLiveScrobblingEnabled(mPreferences);
@@ -1053,7 +1053,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                 int progress = getPlayerProgress();
                 mVideoInfo.traktResume = -progress; // traktResume is set to -resume unless synced with trakt
                 mVideoInfo.duration = Player.sPlayer.getDuration();
-                if (log.isDebugEnabled()) log.debug("startTrakt: trakt watching progress={}", progress);
+                //if (log.isDebugEnabled()) log.debug("startTrakt: trakt watching progress={}", progress);
                 mTraktClient.watching(mVideoInfo, progress);
                 mHandler.postDelayed(mTraktWatchingRunnable, Trakt.WATCHING_DELAY_MS);
                 mTraktWatching = true;
@@ -1062,39 +1062,39 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     }
 
     private void stopTrakt() {
-        if (log.isDebugEnabled()) log.debug("stopTrakt");
+        //if (log.isDebugEnabled()) log.debug("stopTrakt");
         if (mTraktClient != null) {
-            if (log.isDebugEnabled()) log.debug("stopTrakt: mTraktClient != null, mTraktWatching={}", mTraktWatching);
+            //if (log.isDebugEnabled()) log.debug("stopTrakt: mTraktClient != null, mTraktWatching={}", mTraktWatching);
             if (mTraktWatching) {
                 mHandler.removeCallbacks(mTraktWatchingRunnable);
                 int progress = getPlayerProgress();
                 if (progress >= 0){
                     mVideoInfo.traktResume = - progress; // traktResume is set to -resume unless synced with trakt
-                    if (log.isDebugEnabled()) log.debug("stopTrakt: watchingStop progress={}", progress);
+                    //if (log.isDebugEnabled()) log.debug("stopTrakt: watchingStop progress={}", progress);
                     mTraktClient.watchingStop(mVideoInfo, progress);
                 }
-                if (log.isDebugEnabled()) log.debug("stopTrakt: progress negative not doing anything, progress={}", progress);
+                //if (log.isDebugEnabled()) log.debug("stopTrakt: progress negative not doing anything, progress={}", progress);
                 mTraktWatching = false;
             } else if (!mTraktError && Trakt.shouldMarkAsSeen(getPlayerProgress())) {
-                if (log.isDebugEnabled()) log.debug("stopTrakt: Trakt.ACTION_SEEN");
+                //if (log.isDebugEnabled()) log.debug("stopTrakt: Trakt.ACTION_SEEN");
                 mTraktClient.markAs(mVideoInfo, Trakt.ACTION_SEEN);
             } else {
-                if (log.isDebugEnabled()) log.debug("stopTrakt: mTraktWatching=false and should not mark as seend, doing nothing!!!");
+                //if (log.isDebugEnabled()) log.debug("stopTrakt: mTraktWatching=false and should not mark as seend, doing nothing!!!");
             }
         }
         // We now use the DB flag LEEROYFLIX_TRAKT_SEEN even if there is no sync with trakt
         else {
-            if (log.isDebugEnabled()) log.debug("stopTrakt: mTraktClient == null, not sending watchStop");
+            //if (log.isDebugEnabled()) log.debug("stopTrakt: mTraktClient == null, not sending watchStop");
             if (mVideoInfo != null) {
                 if (mVideoInfo.id >= 0 && Trakt.shouldMarkAsSeen(getPlayerProgress()) && !PrivateMode.isActive()) {
-                    if (log.isDebugEnabled()) log.debug("stopTrakt: marking video {} as seen in VideoStore", mVideoInfo.id);
+                    //if (log.isDebugEnabled()) log.debug("stopTrakt: marking video {} as seen in VideoStore", mVideoInfo.id);
                     final ContentValues cv = new ContentValues(1);
                     cv.put(VideoStore.Video.VideoColumns.LEEROYFLIX_TRAKT_SEEN, Trakt.TRAKT_DB_MARKED);
                     String where = VideoStore.Video.VideoColumns._ID + " = ?";
                     String[] whereArgs = new String[]{Long.toString(mVideoInfo.id)};
                     getContentResolver().update(VideoStore.Video.Media.EXTERNAL_CONTENT_URI, cv, where, whereArgs);
                 } else {
-                    if (log.isDebugEnabled()) log.debug("stopTrakt: not marking video mVideoInfo.id={} any resume", mVideoInfo.id);
+                    //if (log.isDebugEnabled()) log.debug("stopTrakt: not marking video mVideoInfo.id={} any resume", mVideoInfo.id);
                 }
             } else {
                 log.warn("stopTrakt: mVideoInfo is null");
@@ -1103,13 +1103,13 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     }
 
     private void pauseTrakt() {
-        if (log.isDebugEnabled()) log.debug("pauseTrakt");
+        //if (log.isDebugEnabled()) log.debug("pauseTrakt");
         if (mTraktClient != null) {
             if (mTraktWatching) {
                 int progress = getPlayerProgress();
                 if (progress > 0) {
                     mVideoInfo.traktResume = - progress; // traktResume is set to -resume unless synced with trakt
-                    if (log.isDebugEnabled()) log.debug("pauseTrakt: watchingPause progress={}", progress);
+                    //if (log.isDebugEnabled()) log.debug("pauseTrakt: watchingPause progress={}", progress);
                     mTraktClient.watchingPause(mVideoInfo, progress);
                 }
                 // consider that in pause we are still watching it is only on stop that it is the end
@@ -1155,7 +1155,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     }
 
     private void requestVideoDb() {
-        if (log.isDebugEnabled()) log.debug("requestVideoDb");
+        //if (log.isDebugEnabled()) log.debug("requestVideoDb");
         mDatabaseInfoHasBeenRetrieved= true;
         mIndexHelper.requestVideoDb(mUri, mVideoId,
                 null,
@@ -1171,7 +1171,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         @Override
         public void onChange(boolean selfChange) {
             if (mVideoInfo != null && (mVideoInfo.id==-1||mVideoInfo.scraperId <=0)&&!PrivateMode.isActive()){ // if we need to update
-                if (log.isDebugEnabled()) log.debug("VideoObserver onChange: update from db");
+                //if (log.isDebugEnabled()) log.debug("VideoObserver onChange: update from db");
                 VideoDbInfo info = VideoDbInfo.fromUri(getContentResolver(), mVideoInfo.uri);
                 if (info != null) {
                     info.subtitleTrack = mVideoInfo.subtitleTrack;
@@ -1190,7 +1190,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                     // check if it has been scraped
                 }
             } else {
-                if (log.isDebugEnabled()) log.debug("VideoObserver onChange: no need to update");
+                //if (log.isDebugEnabled()) log.debug("VideoObserver onChange: no need to update");
             }
         }
 
@@ -1219,10 +1219,10 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
      * @param videoInfo
      */
     public void setVideoInfo(VideoDbInfo videoInfo){
-        if (log.isDebugEnabled()) log.debug("setVideoInfo: videoInfo.id={}, videoInfo.uri={}", (videoInfo != null ? videoInfo.id : "null"), (videoInfo != null ? videoInfo.uri : "null"));
+        //if (log.isDebugEnabled()) log.debug("setVideoInfo: videoInfo.id={}, videoInfo.uri={}", (videoInfo != null ? videoInfo.id : "null"), (videoInfo != null ? videoInfo.uri : "null"));
         mVideoInfo = videoInfo;
         if (mVideoInfo != null) {
-            if (log.isDebugEnabled()) log.debug("setVideoInfo: setLastVideoPlayed");
+            //if (log.isDebugEnabled()) log.debug("setVideoInfo: setLastVideoPlayed");
             LeeroyFlixApp.setLastVideoPlayedId(mVideoInfo.id);
             LeeroyFlixApp.setLastVideoPlayedUri(mVideoInfo.uri);
         }
@@ -1247,21 +1247,21 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     @Override
     public void onDestroy(){
         super.onDestroy();
-        if (log.isDebugEnabled()) log.debug("onDestroy");
+        //if (log.isDebugEnabled()) log.debug("onDestroy");
         saveVideoStateIfReady();
-        if (log.isDebugEnabled()) log.debug("onDestroy: release mediaSessionCompat");
+        //if (log.isDebugEnabled()) log.debug("onDestroy: release mediaSessionCompat");
         if (mSession != null) mSession.release();
         if(mIndexHelper!=null)
             mIndexHelper.abort();
         mDestroyed = true;
-        if (log.isDebugEnabled()) log.debug("onDestroy: unregister headsetPluggedReceiver");
+        //if (log.isDebugEnabled()) log.debug("onDestroy: unregister headsetPluggedReceiver");
         unregisterReceiver(headsetPluggedReceiver);
         sPlayerService=null;
         if(mTorrent!=null)
             try {
                 unbindService(mTorrentObserverServiceConnection);
             }catch(java.lang.IllegalArgumentException e) {}
-        if (log.isDebugEnabled()) log.debug("onDestroy");
+        //if (log.isDebugEnabled()) log.debug("onDestroy");
     }
 
     /**
@@ -1274,7 +1274,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         if(mDestroyed) //will perhaps fix some weird crashes on playstore console
             return;
         if(mPlayerFrontend!=null) {
-            if (log.isDebugEnabled()) log.debug("onVideoDb: mPlayerFrontend.onVideoDb");
+            //if (log.isDebugEnabled()) log.debug("onVideoDb: mPlayerFrontend.onVideoDb");
             mPlayerFrontend.onVideoDb(info, remoteInfo);
         }
     }
@@ -1283,30 +1283,30 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     public void onScraped(ScrapeDetailResult result) {}
 
     private void postPreparedAndVideoDb() {
-        if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb");
+        //if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb");
         if(mVideoInfo!=null&&mPlayerState==PlayerState.PREPARED) {
             if (mLastPosition == mPlayer.getDuration())
                 mLastPosition = 0;
-            if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb: seeking to position {}", mLastPosition);
+            //if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb: seeking to position {}", mLastPosition);
             Player.sPlayer.seekTo(mLastPosition); //mLastPosition = mVideoInfo.resume when first start of service OR position on stop when switching player
             setAudioDelay(mAudioDelay, true);
             // no audio_speed if in passthrough
-            if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb: setAudioSpeed force {}", mAudioSpeed);
+            //if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb: setAudioSpeed force {}", mAudioSpeed);
             setAudioSpeed(mAudioSpeed, true);
             if(mPlayOnResume) {
                 mPlayerFrontend.onFirstPlay();
-                if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb: player start PlayerController.STATE_NORMAL");
+                //if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb: player start PlayerController.STATE_NORMAL");
                 Player.sPlayer.start(PlayerController.STATE_NORMAL);
                 PlayerService.sPlayerService.mPlayerState = PlayerService.PlayerState.PLAYING;
             }
             if(mAudioSubtitleNeedUpdate){ // when we have info about subs or audio track BEFORE mVideoInfo is set
-                if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb: subtitletrack onSubtitleMetadataUpdated {}", mNewSubtitleTrack);
+                //if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb: subtitletrack onSubtitleMetadataUpdated {}", mNewSubtitleTrack);
                 onSubtitleMetadataUpdated(mPlayer.getVideoMetadata(), mNewSubtitleTrack);
-                if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb: audiotrack onAudioMetadataUpdated {}", mNewAudioTrack);
+                //if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb: audiotrack onAudioMetadataUpdated {}", mNewAudioTrack);
                 onAudioMetadataUpdated(mPlayer.getVideoMetadata(), mNewAudioTrack);
                 mAudioSubtitleNeedUpdate = false;
             }
-            if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb: mPlayerFrontend.onPrepared, setPlaMode {}", mPlayMode);
+            //if (log.isDebugEnabled()) log.debug("postPreparedAndVideoDb: mPlayerFrontend.onPrepared, setPlaMode {}", mPlayMode);
             setPlayMode(mPlayMode, false); //look for next uri
             setAudioFilt();
             if (PERIODIC_BOOKMARK_SAVE)
@@ -1341,7 +1341,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
 
     @Override
     public void onPrepared() {
-        if (log.isDebugEnabled()) log.debug("onPrepared()");
+        //if (log.isDebugEnabled()) log.debug("onPrepared()");
         mPlayerState = PlayerState.PREPARED;
         if(mPlayerFrontend!=null) {
             mPlayerFrontend.onPrepared();
@@ -1354,14 +1354,14 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
      */
     @Override
     public void onCompletion() {
-        if (log.isDebugEnabled()) log.debug("onCompletion");
+        //if (log.isDebugEnabled()) log.debug("onCompletion");
 
         if (LeeroyFlixFeatures.isAndroidTV(this) && !PrivateMode.isActive()) {
             updateNowPlayingState();
         }
         mLastPosition = LAST_POSITION_END;
         if (mNextUri != null) {
-            if (log.isDebugEnabled()) log.debug("onCompletion: we have a new video {}", mNextUri);
+            //if (log.isDebugEnabled()) log.debug("onCompletion: we have a new video {}", mNextUri);
             stopAndSaveVideoState();
             if(mPlayerFrontend!=null) {
                 mPlayerFrontend.onCompletion();
@@ -1378,7 +1378,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
             mLastPosition = 0;
             onStart(mIntent);
         } else {
-            if (log.isDebugEnabled()) log.debug("onCompletion: we have no new video after {} mVideoInfo.id {}", mVideoId, mVideoInfo.id);
+            //if (log.isDebugEnabled()) log.debug("onCompletion: we have no new video after {} mVideoInfo.id {}", mVideoId, mVideoInfo.id);
             if(mPlayerFrontend!=null) {
                 mPlayerFrontend.onEnd();
             }
@@ -1387,7 +1387,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
 
     @Override
     public boolean onError(int errorCode, int errorQualCode, String msg) {
-        if (log.isDebugEnabled()) log.debug("onError");
+        //if (log.isDebugEnabled()) log.debug("onError");
         if (LeeroyFlixFeatures.isAndroidTV(this) && !PrivateMode.isActive()) {
             updateNowPlayingState();
         }
@@ -1420,12 +1420,12 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
 
     @Override
     public void onPlay(int state) {
-        if (log.isDebugEnabled()) log.debug("onPlay");
+        //if (log.isDebugEnabled()) log.debug("onPlay");
         if (state == PlayerController.STATE_NORMAL) {
-            if (log.isDebugEnabled()) log.debug("onPlay: PlayerController.STATE_NORMAL -> startTrakt()");
+            //if (log.isDebugEnabled()) log.debug("onPlay: PlayerController.STATE_NORMAL -> startTrakt()");
             startTrakt();
         } else {
-            if (log.isDebugEnabled()) log.debug("onPlay: !PlayerController.STATE_NORMAL -> not startTrakt()!");
+            //if (log.isDebugEnabled()) log.debug("onPlay: !PlayerController.STATE_NORMAL -> not startTrakt()!");
         }
         if (LeeroyFlixFeatures.isAndroidTV(this) && !PrivateMode.isActive()) {
             updateNowPlayingState();
@@ -1437,13 +1437,13 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
 
     @Override
     public void onPause(int state) {
-        if (log.isDebugEnabled()) log.debug("onPause");
+        //if (log.isDebugEnabled()) log.debug("onPause");
         saveVideoStateIfReady();
         if (state == PlayerController.STATE_NORMAL) {
-            if (log.isDebugEnabled()) log.debug("onPause: normal state thus pauseTrakt()!");
+            //if (log.isDebugEnabled()) log.debug("onPause: normal state thus pauseTrakt()!");
             pauseTrakt();
         } else {
-            if (log.isDebugEnabled()) log.debug("onPause: other/seek state thus not doing pauseTrakt()!");
+            //if (log.isDebugEnabled()) log.debug("onPause: other/seek state thus not doing pauseTrakt()!");
         }
         if (LeeroyFlixFeatures.isAndroidTV(this) && !PrivateMode.isActive()) {
             updateNowPlayingState();
@@ -1476,10 +1476,10 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         if (mVideoInfo == null) {
             mNewAudioTrack = newAudioTrack;
             mAudioSubtitleNeedUpdate = true;
-            if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: mVideoInfo == null, mNewAudioTrack={} newAudioTrack={} mAudioSubtitleNeedUpdate={}", mNewAudioTrack, newAudioTrack, mAudioSubtitleNeedUpdate);
+            //if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: mVideoInfo == null, mNewAudioTrack={} newAudioTrack={} mAudioSubtitleNeedUpdate={}", mNewAudioTrack, newAudioTrack, mAudioSubtitleNeedUpdate);
             return;
         } else {
-            if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: mVideoInfo != null, mVideoInfo.audioTrack={} newAudioTrack={} mAudioSubtitleNeedUpdate={}", mVideoInfo.audioTrack, newAudioTrack, mAudioSubtitleNeedUpdate);
+            //if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: mVideoInfo != null, mVideoInfo.audioTrack={} newAudioTrack={} mAudioSubtitleNeedUpdate={}", mVideoInfo.audioTrack, newAudioTrack, mAudioSubtitleNeedUpdate);
         }
         int nbTrack = vMetadata.getAudioTrackNb();
         boolean supported = true;
@@ -1494,21 +1494,21 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
             if (vMetadata.getAudioTrack(i).supported) {
                 trackName = generateTrackName(getApplicationContext(), vMetadata.getAudioTrack(i).name, vMetadata.getAudioTrack(i).language, vMetadata.getAudioTrack(i).format, true);
                 if (firstSupportedTrack == null) {
-                    if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: identify firstSupportedTrack={}({})", i, trackName);
+                    //if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: identify firstSupportedTrack={}({})", i, trackName);
                     firstSupportedTrack = i;
                     supported = true;
                 }
                 if ((mVideoInfo.audioTrack < 0 || mVideoInfo.audioTrack >= nbTrack || !vMetadata.getAudioTrack(mVideoInfo.audioTrack).supported) && firstTimeAudioCalled) { // track has not been selected yet and it is the first time video is played
-                    if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: trying to find {} in {}", locale.getDisplayLanguage(), trackName);
+                    //if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: trying to find {} in {}", locale.getDisplayLanguage(), trackName);
                     if (isLanguageInString(locale.getDisplayLanguage(), trackName)) {
-                        if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: selected default track: #{} -> {} matching favorite audioTrack language {}", i, trackName, locale.getDisplayLanguage());
+                        //if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: selected default track: #{} -> {} matching favorite audioTrack language {}", i, trackName, locale.getDisplayLanguage());
                         mVideoInfo.audioTrack = i;
                         break;
                     } else {
-                        if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: skip track: #{} -> {} not matching favorite audioTrack language {}", i, trackName, locale.getDisplayLanguage());
+                        //if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: skip track: #{} -> {} not matching favorite audioTrack language {}", i, trackName, locale.getDisplayLanguage());
                     }
                 } else {
-                    if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: not trying to find {} in {} because mVideoInfo.audioTrack={} out of range or not supported or firstTimeAudioCalled={}", locale.getDisplayLanguage(), trackName, mVideoInfo.audioTrack, firstTimeAudioCalled);
+                    //if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: not trying to find {} in {} because mVideoInfo.audioTrack={} out of range or not supported or firstTimeAudioCalled={}", locale.getDisplayLanguage(), trackName, mVideoInfo.audioTrack, firstTimeAudioCalled);
                 }
             }
         }
@@ -1535,7 +1535,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         }
 
         if(mPlayerFrontend!=null) {
-            if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: mPlayerFrontend.onAudioMetadataUpdated");
+            //if (log.isDebugEnabled()) log.debug("onAudioMetadataUpdated: mPlayerFrontend.onAudioMetadataUpdated");
             mPlayerFrontend.onAudioMetadataUpdated(vMetadata, newAudioTrack);
         }
     }
@@ -1558,7 +1558,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
 
         int nbTrack = vMetadata.getSubtitleTrackNb(); // this contains the number of subtitlesTracks not including the none track
         Integer fallbackTextTrack = null; // track for external text subs with no language provided
-        if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: nbTrack={} newSubtitleTrack={} mVideoInfo.subtitleTrack={} mHideSubtitles={} mSubsFavoriteLanguage={} firstTimeSubCalled={} mIsPreparingSubs={}", nbTrack, newSubtitleTrack, mVideoInfo.subtitleTrack, mHideSubtitles, mSubsFavoriteLanguage, firstTimeSubCalled, mIsPreparingSubs);
+        //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: nbTrack={} newSubtitleTrack={} mVideoInfo.subtitleTrack={} mHideSubtitles={} mSubsFavoriteLanguage={} firstTimeSubCalled={} mIsPreparingSubs={}", nbTrack, newSubtitleTrack, mVideoInfo.subtitleTrack, mHideSubtitles, mSubsFavoriteLanguage, firstTimeSubCalled, mIsPreparingSubs);
         // selection logic
         if (nbTrack != 0) {
             int noneTrack = nbTrack; // here it tracks mVideoInfo.subtitleTrack that are the tracks of the video (not the none from menu)
@@ -1575,7 +1575,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                     String currentLang2Letter = extractLanguageCode(currentLanguage).toLowerCase();
                     String savedLang2Letter = mVideoInfo.subtitleLanguage.toLowerCase();
                     if (!savedLang2Letter.equals(currentLang2Letter)) {
-                        if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: subtitle language mismatch at index {}: saved={}, current={}", mVideoInfo.subtitleTrack, savedLang2Letter, currentLang2Letter);
+                        //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: subtitle language mismatch at index {}: saved={}, current={}", mVideoInfo.subtitleTrack, savedLang2Letter, currentLang2Letter);
                         mVideoInfo.subtitleTrack = -1;
                         mVideoInfo.subtitleLanguage = null;
                     }
@@ -1584,11 +1584,11 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
             // do the scan for preferred lang at second call since onSubtitleMetadataUpdated is called twice and the first time it does not get all subtracks when there are a Subs/ dir with a lot of subs
             if (mVideoInfo.subtitleTrack == -1 && (firstTimeSubCalled || ! mIsPreparingSubs)) { // means no track has been selected before
                 if (mHideSubtitles) {
-                    if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: hide subs -> selected none track");
+                    //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: hide subs -> selected none track");
                     mVideoInfo.subtitleTrack = noneTrack;
                 } else {
                     Locale locale = new Locale(mSubsFavoriteLanguage);
-                    if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: favorite locale {}, current locale {}", locale.getDisplayLanguage(), Locale.getDefault().getDisplayLanguage());
+                    //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: favorite locale {}, current locale {}", locale.getDisplayLanguage(), Locale.getDefault().getDisplayLanguage());
                     String trackName = "";
                     String lang = null;
                     for (int i = 0; i < nbTrack; ++i) { // select default track
@@ -1597,29 +1597,29 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                         if (vMetadata.getSubtitleTrack(i).isExternal) {
                             // this returns the subtitle format (e.g. SRT/VTT) if subFileName is video.<ext> and videoFileName is video.mkv
                             lang = getSubLanguageFromSubPathAndVideoPath(getApplicationContext(), vMetadata.getSubtitleTrack(i).path, vMetadata.getFile().getPath());
-                            if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: subtrack {}, ext sub found lang={} ({})", i, lang, vMetadata.getSubtitleTrack(i).path);
+                            //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: subtrack {}, ext sub found lang={} ({})", i, lang, vMetadata.getSubtitleTrack(i).path);
                         } else {
                             lang = ISO639codes.getLanguageNameForLetterCode(vMetadata.getSubtitleTrack(i).language);
-                            if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: subtrack {}, int sub found lang={} ({})", i, lang, trackName);
+                            //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: subtrack {}, int sub found lang={} ({})", i, lang, trackName);
                         }
                         if (lang == null || lang.isEmpty()) {
-                            if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: no language found in track/file name -> set it to unknown");
+                            //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: no language found in track/file name -> set it to unknown");
                             lang = getText(R.string.unknown_track_name).toString();
                         } else {
                             if (stringContainsForced(trackName)) {
-                                if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: skip track: {} with identified lang: {} because it contains forced sub", trackName, lang);
+                                //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: skip track: {} with identified lang: {} because it contains forced sub", trackName, lang);
                             } else {
                                 if (lang.toLowerCase().contains(locale.getDisplayLanguage().toLowerCase())) {
-                                    if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: selected default track: {} identified lang: {} matching locale language {}", trackName, lang, locale.getDisplayLanguage());
+                                    //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: selected default track: {} identified lang: {} matching locale language {}", trackName, lang, locale.getDisplayLanguage());
                                     mVideoInfo.subtitleTrack = i;
                                     break;
                                 } else {
-                                    if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: skip track: {} identified lang: {} != locale language {}", trackName, lang, locale.getDisplayLanguage());
+                                    //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: skip track: {} identified lang: {} != locale language {}", trackName, lang, locale.getDisplayLanguage());
                                 }
                             }
                         }
                         if (vMetadata.getSubtitleTrack(i).isExternal && isGenericTextSubtitleFormat(lang)) {
-                            if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: found external text track {} ({}) -> setting fallbackTextTrack={}", i, lang, i);
+                            //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: found external text track {} ({}) -> setting fallbackTextTrack={}", i, lang, i);
                             fallbackTextTrack = i;
                         }
                     }
@@ -1633,12 +1633,12 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                             newTrack = Objects.requireNonNullElse(fallbackTextTrack, newSubtitleTrack); // strategy to revert to newSubtitleTrack if lang not found (legacy)
                             revertTrackName = "newSubtitleTrack";
                         }
-                        if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: no default sub found mVideoInfo.subtitleTrack: {} -> setting {} or external text ({}) track if exists -> videoInfo.subtitleTrack={}", mVideoInfo.subtitleTrack, revertTrackName, fallbackTextTrack, newTrack);
+                        //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: no default sub found mVideoInfo.subtitleTrack: {} -> setting {} or external text ({}) track if exists -> videoInfo.subtitleTrack={}", mVideoInfo.subtitleTrack, revertTrackName, fallbackTextTrack, newTrack);
                         mVideoInfo.subtitleTrack = newTrack;
                     }
                     if (mHideSubtitles || mVideoInfo.subtitleTrack == noneTrack) { // if none track selected, player gets -1 track
                         // nonTrack is nbTracks
-                        if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: hideSubs or noneTrack -> player.setSubtitleTrack(-1) and  videoInfo.subtitleTrack={}", noneTrack);
+                        //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: hideSubs or noneTrack -> player.setSubtitleTrack(-1) and  videoInfo.subtitleTrack={}", noneTrack);
                         mVideoInfo.subtitleTrack = noneTrack;
                         mPlayer.setSubtitleTrack(-1);
                     }
@@ -1659,26 +1659,26 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                             language = ISO639codes.getLanguageNameForLetterCode(track.language);
                         }
                         mVideoInfo.subtitleLanguage = extractLanguageCode(language).toLowerCase();
-                        if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: auto-selected track {} with language={}", mVideoInfo.subtitleTrack, mVideoInfo.subtitleLanguage);
+                        //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: auto-selected track {} with language={}", mVideoInfo.subtitleTrack, mVideoInfo.subtitleLanguage);
                     }
                 } else {
                     // None track selected or invalid, clear language
                     mVideoInfo.subtitleLanguage = null;
-                    if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: none track or invalid selected, clearing language");
+                    //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: none track or invalid selected, clearing language");
                 }
             }
             // application logic
             // mVideoInfo.subtitleTrack is the track number without the none track 0<=mVideoInfo.subtitleTrack<=nbTrack, nbTrack is the noneTrack position
             if (mVideoInfo.subtitleTrack >= 0 && mVideoInfo.subtitleTrack <= nbTrack) {
-                if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: newSubtitleTrack={}, mVideoInfo.subtitleTrack={}", newSubtitleTrack, mVideoInfo.subtitleTrack);
+                //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: newSubtitleTrack={}, mVideoInfo.subtitleTrack={}", newSubtitleTrack, mVideoInfo.subtitleTrack);
 
                 if (!mPlayer.setSubtitleTrack(mVideoInfo.subtitleTrack)) {
-                    if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: setSubtitleTrack failed, setting none track");
+                    //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: setSubtitleTrack failed, setting none track");
                     mVideoInfo.subtitleTrack = noneTrack;
                 } else {
-                    if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: setSubtitleTrack done to track {}", mVideoInfo.subtitleTrack);
+                    //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: setSubtitleTrack done to track {}", mVideoInfo.subtitleTrack);
                 }
-                if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: subtitleDelay = {}", mVideoInfo.subtitleDelay);
+                //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: subtitleDelay = {}", mVideoInfo.subtitleDelay);
                 mPlayer.setSubtitleDelay(mVideoInfo.subtitleDelay);
                 if (mVideoInfo.subtitleRatio >= 0) {
                     mPlayer.setSubtitleRatio(mVideoInfo.subtitleRatio);
@@ -1689,20 +1689,20 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
             firstTimeSubCalled = false;
         } else {
             firstTimeSubCalled = true;
-            if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: no subtitle track found");
+            //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: no subtitle track found");
         }
 
         // the way to set a new track in the player is to redefine mNewSubtitleTrack: this is the one taken into account
         mNewSubtitleTrack = mVideoInfo.subtitleTrack;
 
         if(mPlayerFrontend!=null) {
-            if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: subtitletrack onSubtitleMetadataUpdated {} -> {}", newSubtitleTrack, mVideoInfo.subtitleTrack);
+            //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: subtitletrack onSubtitleMetadataUpdated {} -> {}", newSubtitleTrack, mVideoInfo.subtitleTrack);
             mPlayerFrontend.onSubtitleMetadataUpdated(vMetadata, newSubtitleTrack);
         }
 
         // Cache the AVOS metadata result for future playback within 10 second TTL
         SubtitleManager.cacheProcessedMetadata(mUri, vMetadata);
-        if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: cached AVOS metadata for {}", mUri);
+        //if (log.isDebugEnabled()) log.debug("onSubtitleMetadataUpdated: cached AVOS metadata for {}", mUri);
     }
 
     private static boolean isGenericTextSubtitleFormat(String lang) {
@@ -1778,7 +1778,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                 @Override
                 public void onPlay() {
                     super.onPlay();
-                    if (log.isDebugEnabled()) log.debug("setNowPlayingCards.onPlay PlayerController.STATE_OTHER");
+                    //if (log.isDebugEnabled()) log.debug("setNowPlayingCards.onPlay PlayerController.STATE_OTHER");
                     if (Player.sPlayer != null) {
                         Player.sPlayer.start(PlayerController.STATE_OTHER);
                         updateNowPlayingState();
@@ -1788,7 +1788,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
                 @Override
                 public void onPause() {
                     super.onPause();
-                    if (log.isDebugEnabled()) log.debug("setNowPlayingCards.onPause PlayerController.STATE_OTHER");
+                    //if (log.isDebugEnabled()) log.debug("setNowPlayingCards.onPause PlayerController.STATE_OTHER");
                     if (Player.sPlayer != null) {
                         Player.sPlayer.pause(PlayerController.STATE_OTHER);
                         updateNowPlayingState();
@@ -1837,7 +1837,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     private void stopNowPlayingCard() {
         if(mSession==null)
             return;
-        if (log.isDebugEnabled()) log.debug("stopNowPlayingCard");
+        //if (log.isDebugEnabled()) log.debug("stopNowPlayingCard");
 
         PlaybackStateCompat.Builder stateBuilder = new PlaybackStateCompat.Builder()
                 .setActions(getAvailableActions());
@@ -1916,12 +1916,12 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
         boolean speedChanged = speed != mAudioSpeed || force;
          if (speedChanged && (speed > (mAudioSpeedMin - 0.05f) && speed < (mAudioSpeedMax + 0.05f))) { // min granularity is 0.05
             if (Integer.parseInt(mPreferences.getString("force_audio_passthrough_multiple","0")) == 0) {
-                if (log.isDebugEnabled()) log.debug("setAudioSpeed: audio speed changed from {} to {}", mAudioSpeed, speed);
+                //if (log.isDebugEnabled()) log.debug("setAudioSpeed: audio speed changed from {} to {}", mAudioSpeed, speed);
                 mAudioSpeed = speed;
                 if ((AUDIO_SPEED_ON_THE_FLY && mPreferences.getBoolean(KEY_PLAYBACK_SPEED,false)) || force)
                     mPlayer.setAvSpeed(mAudioSpeed);
             } else {
-                if (log.isDebugEnabled()) log.debug("setAudioSpeed does nothing coz passthrough");
+                //if (log.isDebugEnabled()) log.debug("setAudioSpeed does nothing coz passthrough");
                 mAudioSpeed = 1.0f;
             }
         }
@@ -1933,20 +1933,20 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
 
     public float getAudioSpeed() { // no audio_speed if in passthrough
         if (Integer.parseInt(mPreferences.getString("force_audio_passthrough_multiple","0")) == 0) {
-            if (log.isDebugEnabled()) log.debug("getAudioSpeed: {}", mAudioSpeed);
+            //if (log.isDebugEnabled()) log.debug("getAudioSpeed: {}", mAudioSpeed);
             return mAudioSpeed;
         } else {
-            if (log.isDebugEnabled()) log.debug("getAudioSpeed: {}", 1.0f);
+            //if (log.isDebugEnabled()) log.debug("getAudioSpeed: {}", 1.0f);
             return 1.0f;
         }
     }
 
     public float getAudioSpeedFromPreferences() { // no audio_speed if in passthrough
         if (Integer.parseInt(mPreferences.getString("force_audio_passthrough_multiple","0")) == 0) {
-            if (log.isDebugEnabled()) log.debug("getAudioSpeedFromPreferences: {}", mPreferences.getFloat(getString(R.string.save_audio_speed_setting_pref_key), 1.0f));
+            //if (log.isDebugEnabled()) log.debug("getAudioSpeedFromPreferences: {}", mPreferences.getFloat(getString(R.string.save_audio_speed_setting_pref_key), 1.0f));
             return mPreferences.getFloat(getString(R.string.save_audio_speed_setting_pref_key), 1.0f);
         } else {
-            if (log.isDebugEnabled()) log.debug("getAudioSpeedFromPreferences: {}", 1.0f);
+            //if (log.isDebugEnabled()) log.debug("getAudioSpeedFromPreferences: {}", 1.0f);
             return 1.0f;
         }
     }
@@ -1978,7 +1978,7 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
     }
 
     public void setPlayOnResume(boolean playOnResume) {
-        if (log.isDebugEnabled()) log.debug("setPlayOnResume: {}", playOnResume);
+        //if (log.isDebugEnabled()) log.debug("setPlayOnResume: {}", playOnResume);
         mPlayOnResume = playOnResume;
     }
 
@@ -2015,13 +2015,13 @@ public class PlayerService extends Service implements Player.Listener, IndexHelp
             }
             if (intent.getAction().equals(Intent.ACTION_HEADSET_PLUG)) {
                 int state = intent.getIntExtra("state", -1);
-                if (log.isDebugEnabled()) log.debug("headsetPluggedReceiver: headset plug event: {}", state);
+                //if (log.isDebugEnabled()) log.debug("headsetPluggedReceiver: headset plug event: {}", state);
                 if (state != -1) {
                     if (state == UNPLUGGED) {
-                        if (log.isDebugEnabled()) log.debug("headsetPluggedReceiver: headset unplugged during playback");
+                        //if (log.isDebugEnabled()) log.debug("headsetPluggedReceiver: headset unplugged during playback");
                         if (mPlayer != null && mPlayer.isPlaying()) mPlayer.pause(PlayerController.STATE_NORMAL);
                     } else if (state == PLUGGED) {
-                        if (log.isDebugEnabled()) log.debug("headsetPluggedReceiver: headset plugged during playback");
+                        //if (log.isDebugEnabled()) log.debug("headsetPluggedReceiver: headset plugged during playback");
                     }
                 } else {
                     log.error("headsetPluggedReceiver: received invalid ACTION_HEADSET_PLUG intent");

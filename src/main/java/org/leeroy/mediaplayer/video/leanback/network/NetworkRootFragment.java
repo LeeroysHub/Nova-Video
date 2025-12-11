@@ -135,7 +135,7 @@ public class NetworkRootFragment extends BrowseSupportFragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (log.isDebugEnabled()) log.debug("onResume");
+        //if (log.isDebugEnabled()) log.debug("onResume");
         mOverlay.resume();
         updateBackground();
         setTitle(getString(R.string.network_storage));
@@ -160,7 +160,7 @@ public class NetworkRootFragment extends BrowseSupportFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (log.isDebugEnabled()) log.debug("onCreate");
+        //if (log.isDebugEnabled()) log.debug("onCreate");
         updateBackground();
 
         setTitle(getString(R.string.network_storage));
@@ -269,7 +269,7 @@ public class NetworkRootFragment extends BrowseSupportFragment {
         @Override
         public void onItemClicked(Presenter.ViewHolder itemViewHolder, Object item, RowPresenter.ViewHolder rowViewHolder, Row row) {
             if (item instanceof GenericNetworkShortcut) { // network shortcuts are for now only *ftp*
-                if (log.isDebugEnabled()) log.debug("onItemClicked: GenericNetworkShortcut");
+                //if (log.isDebugEnabled()) log.debug("onItemClicked: GenericNetworkShortcut");
                 Intent intent = new Intent(getActivity(), NetworkShortcutDetailsActivity.class);
                 intent.putExtra(NetworkShortcutDetailsFragment.EXTRA_SHORTCUT, (Serializable) item);
                 Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
@@ -278,7 +278,7 @@ public class NetworkRootFragment extends BrowseSupportFragment {
                 startActivityForResult(intent, REQUEST_CODE_DETAILS, bundle);
             }
             else if (item instanceof NetworkBrowse) { // browse network
-                if (log.isDebugEnabled()) log.debug("onItemClicked: NetworkBrowse");
+                //if (log.isDebugEnabled()) log.debug("onItemClicked: NetworkBrowse");
                 if (getParentFragmentManager().findFragmentByTag(NetworkServerCredentialsDialog.class.getCanonicalName()) == null) {
                     NetworkServerCredentialsDialog dialog = new NetworkServerCredentialsDialog();
                     dialog.setOnConnectClickListener(new NetworkServerCredentialsDialog.onConnectClickListener() {
@@ -320,7 +320,7 @@ public class NetworkRootFragment extends BrowseSupportFragment {
                             final Uri uri = Uri.parse(uriToBuild);
 
                             Intent intent = new Intent(getActivity(), ListingActivity.getActivityForUri(uri));
-                            if (log.isDebugEnabled()) log.debug("onItemClicked: NetworkBrowse ListingActivity root uri={}, root name={}", uri, uri.getHost());
+                            //if (log.isDebugEnabled()) log.debug("onItemClicked: NetworkBrowse ListingActivity root uri={}, root name={}", uri, uri.getHost());
                             intent.putExtra(ListingActivity.EXTRA_ROOT_URI, uri);
                             String shareName = FileUtils.getName(uri);
                             intent.putExtra(ListingActivity.EXTRA_ROOT_NAME, (shareName==null || shareName.isEmpty())?uri.getHost():shareName);
@@ -336,7 +336,7 @@ public class NetworkRootFragment extends BrowseSupportFragment {
                 }
             }
             else if (item instanceof NetworkShortcut) { // indexed folders
-                if (log.isDebugEnabled()) log.debug("onItemClicked: NetworkShortcut");
+                //if (log.isDebugEnabled()) log.debug("onItemClicked: NetworkShortcut");
                 Intent intent = new Intent(getActivity(), NetworkShortcutDetailsActivity.class);
                 intent.putExtra(NetworkShortcutDetailsFragment.EXTRA_SHORTCUT, (Serializable)item);
                 Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
@@ -345,31 +345,31 @@ public class NetworkRootFragment extends BrowseSupportFragment {
                 startActivityForResult(intent, REQUEST_CODE_DETAILS, bundle);
             }
             else if (item instanceof Box) {
-                if (log.isDebugEnabled()) log.debug("onItemClicked: Box");
+                //if (log.isDebugEnabled()) log.debug("onItemClicked: Box");
                 Box box = (Box)item;
                 if (box.getBoxId()==Box.ID.INDEXED_FOLDERS_REFRESH) {
                     startActivity(new Intent(getActivity(), RescanActivity.class));
                 }
             }
             else if (item instanceof SmbShare) {
-                if (log.isDebugEnabled()) log.debug("onItemClicked: SmbShare");
+                //if (log.isDebugEnabled()) log.debug("onItemClicked: SmbShare");
                 SmbShare share = (SmbShare)item;
                 final Uri uri = share.getFileCoreShare().toUri();
 
-                if (log.isDebugEnabled()) log.debug("onItemClicked: SmbShare ListingActivity root uri={}, root name={}", uri, uri.getHost());
+                //if (log.isDebugEnabled()) log.debug("onItemClicked: SmbShare ListingActivity root uri={}, root name={}", uri, uri.getHost());
                 Intent intent = new Intent(getActivity(), ListingActivity.getActivityForUri(uri));
                 intent.putExtra(ListingActivity.EXTRA_ROOT_URI, uri);
                 intent.putExtra(ListingActivity.EXTRA_ROOT_NAME, share.getName());
                 startActivityForResult(intent, REQUEST_CODE_BROWSING);
             }
             else if (item instanceof UpnpServer) {
-                if (log.isDebugEnabled()) log.debug("onItemClicked: UpnpServer");
+                //if (log.isDebugEnabled()) log.debug("onItemClicked: UpnpServer");
                 UpnpServer server = (UpnpServer)item;
 
                 // Build our own special Upnp Uri
                 final Uri uri = UpnpServiceManager.getDeviceUri(server.getClingDevice());
 
-                if (log.isDebugEnabled()) log.debug("onItemClicked: UpnpServer ListingActivity root uri={}, root name={}", uri, uri.getHost());
+                //if (log.isDebugEnabled()) log.debug("onItemClicked: UpnpServer ListingActivity root uri={}, root name={}", uri, uri.getHost());
                 Intent intent = new Intent(getActivity(), ListingActivity.getActivityForUri(uri));
                 intent.putExtra(ListingActivity.EXTRA_ROOT_URI, uri);
                 intent.putExtra(ListingActivity.EXTRA_ROOT_NAME, server.getName());
@@ -415,7 +415,7 @@ public class NetworkRootFragment extends BrowseSupportFragment {
                             // First item is not an actual shortcut, it opens the re-scan settings
                             if (cursor.getCount() > 0) {
                                 Box rescanBox = new Box(Box.ID.INDEXED_FOLDERS_REFRESH, getString(R.string.rescan), R.drawable.filetype_new_rescan);
-                                if (log.isDebugEnabled()) log.debug("ShortcutsLoaderTask NetworkScannerReceiver.isScannerWorking()={}", NetworkScannerReceiver.isScannerWorking());
+                                //if (log.isDebugEnabled()) log.debug("ShortcutsLoaderTask NetworkScannerReceiver.isScannerWorking()={}", NetworkScannerReceiver.isScannerWorking());
                                 mIndexedFoldersAdapter.add(rescanBox);
                             }
 
@@ -493,7 +493,7 @@ public class NetworkRootFragment extends BrowseSupportFragment {
             }
         }
         for (NetworkSource source : toRemove) {
-            if (log.isDebugEnabled()) log.debug("Removing {} ({})", source.getName(), source.getClass());
+            //if (log.isDebugEnabled()) log.debug("Removing {} ({})", source.getName(), source.getClass());
             adapter.remove(source);
         }
     }
@@ -506,13 +506,13 @@ public class NetworkRootFragment extends BrowseSupportFragment {
 
         @Override
         public void onDiscoveryStart() {
-            if (log.isTraceEnabled()) log.trace("SambaDiscovery onDiscoveryStart");
+            //if (log.isTraceEnabled()) log.trace("SambaDiscovery onDiscoveryStart");
             flagObjectsAsOld(mSmbDiscoveryAdapter);
         }
 
         @Override
         public void onDiscoveryEnd() {
-            if (log.isTraceEnabled()) log.trace("SambaDiscovery onDiscoveryEnd");
+            //if (log.isTraceEnabled()) log.trace("SambaDiscovery onDiscoveryEnd");
             removeOldObjects(mSmbDiscoveryAdapter);
 
             // Schedule a discovery refresh
@@ -522,7 +522,7 @@ public class NetworkRootFragment extends BrowseSupportFragment {
 
         @Override
         public void onDiscoveryUpdate(List<Workgroup> workgroups) {
-            if (log.isTraceEnabled()) log.trace("SambaDiscovery onDiscoveryUpdate");
+            //if (log.isTraceEnabled()) log.trace("SambaDiscovery onDiscoveryUpdate");
 
             for (Workgroup workgroup : workgroups) {
                 for (Share share : workgroup.getShares()) {
@@ -538,11 +538,11 @@ public class NetworkRootFragment extends BrowseSupportFragment {
                     }
                     int index = mSmbDiscoveryAdapter.indexOf(newInstance);
                     if (index==-1) {
-                        if (log.isDebugEnabled()) log.debug("smb Adding {}", newInstance.getName());
+                        //if (log.isDebugEnabled()) log.debug("smb Adding {}", newInstance.getName());
                         addInAdapterInAlphabeticalOrder(newInstance, mSmbDiscoveryAdapter);
                     }
                     else {
-                        if (log.isDebugEnabled()) log.debug("smb {} already present", newInstance.getName());
+                        //if (log.isDebugEnabled()) log.debug("smb {} already present", newInstance.getName());
                         SmbShare existingItem = (SmbShare) mSmbDiscoveryAdapter.get(index);
                         // seen again, flag as not old
                         existingItem.setOld(false);
@@ -569,7 +569,7 @@ public class NetworkRootFragment extends BrowseSupportFragment {
 
         @Override
         public void onDeviceListUpdate(List<Device> devices) {
-            if (log.isTraceEnabled()) log.trace("UpnpDiscovery onDiscoveryUpdate");
+            //if (log.isTraceEnabled()) log.trace("UpnpDiscovery onDiscoveryUpdate");
 
             // NOTE: for UPnP, onDiscoveryUpdate() is called each time a server is added or removed
 
@@ -580,11 +580,11 @@ public class NetworkRootFragment extends BrowseSupportFragment {
                 // Check if this server is already in the adapter (even if it is not the same instance it is OK due to the equals() implementation)
                 int index = mUpnpDiscoveryAdapter.indexOf(newInstance);
                 if (index==-1) {
-                    if (log.isTraceEnabled()) log.trace("upnp Adding {}", newInstance.getName());
+                    //if (log.isTraceEnabled()) log.trace("upnp Adding {}", newInstance.getName());
                     addInAdapterInAlphabeticalOrder(newInstance, mUpnpDiscoveryAdapter);
                 }
                 else {
-                    if (log.isTraceEnabled()) log.trace("upnp {} already present, flag as not old", newInstance.getName());
+                    //if (log.isTraceEnabled()) log.trace("upnp {} already present, flag as not old", newInstance.getName());
                     ((NetworkSource)mUpnpDiscoveryAdapter.get(index)).setOld(false);
                 }
             }
