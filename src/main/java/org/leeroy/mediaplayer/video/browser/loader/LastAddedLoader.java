@@ -39,14 +39,14 @@ public class LastAddedLoader extends VideoLoader {
         if (VideoLoader.ALLVIDEO_THROTTLE) setUpdateThrottle(VideoLoader.ALLVIDEO_THROTTLE_DELAY);
 
         // When smart mode is enabled, add GROUP BY and HAVING via URI query parameters
-        if (LoaderUtils.isSmartRecentlyRows()) {
-            Uri baseUri = getUri();
-            Uri.Builder builder = baseUri.buildUpon();
-            builder.appendQueryParameter("group", "COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_S_IMDB_ID + ")");
-            builder.appendQueryParameter("having", "COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_S_IMDB_ID + ") IS NOT NULL");
-            setUri(builder.build());
-            if (DBG) Log.d(TAG, "Modified URI: " + builder.build());
-        }
+        //if (LoaderUtils.isSmartRecentlyRows()) {
+        Uri baseUri = getUri();
+        Uri.Builder builder = baseUri.buildUpon();
+        builder.appendQueryParameter("group", "COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_S_IMDB_ID + ")");
+        builder.appendQueryParameter("having", "COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_S_IMDB_ID + ") IS NOT NULL");
+        setUri(builder.build());
+        if (DBG) Log.d(TAG, "Modified URI: " + builder.build());
+        //}
     }
     
     @Override
@@ -60,10 +60,10 @@ public class LastAddedLoader extends VideoLoader {
 
             //If we have played it at all (watched or started), it's not new anymore - it will show in Last Played!
             sb.append(" AND " + VideoStore.Video.VideoColumns.LEEROYFLIX_LAST_TIME_PLAYED + "=0");
-        } else {
+        } //else {
             //NO NULL MOVIES, I WILL LEAVE OUT SO I CAN FIX THe LIBRARY!
-            sb.append (" AND COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_S_IMDB_ID + ") IS NOT NULL");
-        }
+            //sb.append (" AND COALESCE(" + VideoStore.Video.VideoColumns.SCRAPER_M_IMDB_ID + ", " + VideoStore.Video.VideoColumns.SCRAPER_S_IMDB_ID + ") IS NOT NULL");
+        //}
 
         String selection = sb.toString();
         if (DBG) Log.d(TAG, "getSelection() returned: " + selection);
