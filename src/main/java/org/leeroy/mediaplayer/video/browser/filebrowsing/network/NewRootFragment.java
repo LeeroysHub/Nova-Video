@@ -36,7 +36,7 @@ import org.leeroy.filecorelibrary.FileUtils;
 import org.leeroy.mediaplayer.utils.ActionItem;
 import org.leeroy.mediaplayer.utils.QuickAction;
 import org.leeroy.mediaplayer.utils.ShortcutDbAdapter;
-import org.leeroy.mediaplayer.video.LeeroyFlixApp;
+//import org.leeroy.mediaplayer.video.LeeroyFlixApp;
 import org.leeroy.mediaplayer.video.R;
 import org.leeroy.mediaplayer.video.browser.BrowserCategory;
 import org.leeroy.mediaplayer.video.browser.ShortcutDb;
@@ -44,6 +44,7 @@ import org.leeroy.mediaplayer.video.browser.filebrowsing.network.FtpBrowser.Brow
 import org.leeroy.mediaplayer.video.browser.filebrowsing.network.SmbBrowser.BrowserBySmb;
 import org.leeroy.mediaplayer.video.browser.filebrowsing.network.UpnpBrowser.BrowserByUpnp;
 import org.leeroy.mediaprovider.NetworkScanner;
+import org.leeroy.mediaprovider.video.LoaderUtils;
 import org.leeroy.mediaprovider.video.NetworkScannerServiceVideo;
 
 import org.slf4j.Logger;
@@ -184,7 +185,7 @@ public abstract class NewRootFragment extends Fragment implements WorkgroupShort
                     loadIndexedShortcuts();
                 }
             });
-         return true;
+             return true;
         }
         return false;
     }
@@ -203,6 +204,12 @@ public abstract class NewRootFragment extends Fragment implements WorkgroupShort
 
         switch (itemId) {
             case R.string.remove_from_indexed_folders:
+                //If we are scraping, we need to stop that.
+                if (LoaderUtils.getScrapeInProgress()) {
+                    //Stop the scrape.
+                    LoaderUtils.setScrapeInProgress(false);
+                }
+
                 removeShortcut(mSelectedShortcut);
                 return true;
 
