@@ -1190,6 +1190,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
 
         //Update the Strecth X /Y Icon
         mPlayerController.setFullscreenWithCutoutButtonIcon(mFullScreenWithCutout);
+        mPlayerController.setBarRemoveIcon(isSeenPortrait);
 
         // hack to fix fullscreen height on chromeos pixelbook (and more?) since it reports 2400x1440 instead of 2400x1600 but ok in multiWindow
         if(isChromeOS(mContext)&&(layoutWidth == displayWidth)&&(layoutHeight != displayHeight)) {
