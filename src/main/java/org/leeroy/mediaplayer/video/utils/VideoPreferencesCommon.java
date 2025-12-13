@@ -774,6 +774,11 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
 
         mDbExportManualPreference = findPreference(getString(R.string.db_export_manual_prefkey));
         mDbExportManualPreference.setOnPreferenceClickListener(preference -> {
+            if (LoaderUtils.getScrapeInProgress()) {
+                //Stop the scrape.
+                LoaderUtils.setScrapeInProgress(false);
+            }
+
             Toast.makeText(getActivity(), R.string.db_export_in_progress, Toast.LENGTH_SHORT).show();
             backupDatabase(getContext(),"media.db");
             return true;
@@ -781,6 +786,10 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
 
         mDbImportManualPreference = findPreference(getString(R.string.db_import_manual_prefkey));
         mDbImportManualPreference.setOnPreferenceClickListener(preference -> {
+            if (LoaderUtils.getScrapeInProgress()) {
+                //Stop the scrape.
+                LoaderUtils.setScrapeInProgress(false);
+            }
             importDatabase(getContext(),"media.db");
             Toast.makeText(getActivity(), R.string.db_import_in_progress, Toast.LENGTH_SHORT).show();
             return true;

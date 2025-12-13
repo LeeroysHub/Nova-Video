@@ -45,7 +45,7 @@ import org.leeroy.mediaplayer.video.leanback.presenter.ShortcutDetailsPresenter;
 import org.leeroy.mediaplayer.video.utils.VideoUtils;
 import org.leeroy.mediaprovider.NetworkScanner;
 
-import com.archos.mediaprovider.video.LoaderUtils;
+import org.leeroy.mediaprovider.video.LoaderUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

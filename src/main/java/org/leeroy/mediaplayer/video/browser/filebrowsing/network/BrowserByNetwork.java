@@ -49,6 +49,7 @@ import org.leeroy.mediaplayer.video.browser.filebrowsing.ListingAdapter;
 import org.leeroy.mediaprovider.NetworkScanner;
 import org.leeroy.mediaprovider.video.LoaderUtils;
 
+import org.leeroy.mediaprovider.video.LoaderUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
