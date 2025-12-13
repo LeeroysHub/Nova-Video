@@ -98,7 +98,6 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -167,6 +166,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
     protected int mTouchY;
     protected boolean mIsClickValid;
     protected View mRootView;
+    protected boolean mUseDetailsMode = false;
     protected ActionBarSubmenu mSortModeSubmenu;
     protected int mScroll =0;
     protected int mOffset=0;
@@ -476,7 +476,8 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
         setViewMode(viewMode!=VideoUtils.VIEW_MODE_GRID_SHORT?viewMode:VideoUtils.VIEW_MODE_GRID);
         setViewMode(viewMode);
 
-        View menuAnchor = = mRootView.findViewById(R.id.menu_anchor);
+        View menuAnchor = mRootView.findViewById(R.id.menu_anchor);
+
         mSortModeSubmenu = new ActionBarSubmenu(mContext, inflater, menuAnchor);
         mSortModeSubmenu.setListener(this);
         return mRootView;
@@ -1054,6 +1055,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
             MenuItem viewModeMenuItem = menu.add(MENU_VIEW_MODE_GROUP, MENU_VIEW_MODE, Menu.NONE, R.string.view_mode);
             viewModeMenuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
             // Details view is only proposed on tablets, not on phones
+            mUseDetailsMode =  (getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE)||TVUtils.isTV(getActivity()));
             
         }
         if(shouldEnableMultiSelection())
@@ -1070,7 +1072,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
             if (mViewMode == VideoUtils.VIEW_MODE_LIST) {
                 item.setIcon(R.drawable.ic_menu_poster_mode);
             } else if (mViewMode == VideoUtils.VIEW_MODE_GRID) {
-                item.setIcon(R.drawable.ic_menu_details_mode2);
+                item.setIcon(mUseDetailsMode ?  R.drawable.ic_menu_details_mode2 : R.drawable.ic_menu_list_mode2);
             } else if (mViewMode == VideoUtils.VIEW_MODE_DETAILS) {
                 item.setIcon(R.drawable.ic_menu_list_mode2);
             }
@@ -1092,7 +1094,7 @@ public abstract class Browser extends Fragment implements AbsListView.OnScrollLi
             if (mViewMode == VideoUtils.VIEW_MODE_LIST) {
                 applySelectedViewMode(VideoUtils.VIEW_MODE_GRID);
             } else if (mViewMode == VideoUtils.VIEW_MODE_GRID) {
-                applySelectedViewMode(VideoUtils.VIEW_MODE_DETAILS);
+                applySelectedViewMode(mUseDetailsMode ? VideoUtils.VIEW_MODE_DETAILS : VideoUtils.VIEW_MODE_LIST);
             } else if (mViewMode == VideoUtils.VIEW_MODE_DETAILS) {
                 applySelectedViewMode(VideoUtils.VIEW_MODE_LIST);
             }
