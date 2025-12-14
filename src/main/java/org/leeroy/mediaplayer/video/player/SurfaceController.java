@@ -284,8 +284,6 @@ public class SurfaceController {
     }
     
     synchronized public void updateSurface() {
-        //if (log.isDebugEnabled()) log.debug("updateSurface");
-        // get screen size
         int dw, dh, vw, vh, fmt, dcw, dch;
         float cropW = 1.0f;
         float cropH = 1.0f;
@@ -332,9 +330,7 @@ public class SurfaceController {
             dcw =  dw - cutoutLeft - cutoutRight;
             dch =  dh - cutoutTop - cutoutBottom;
         }
-
-        //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: v=({},{})", vw, vh);
-
+        
         //Get the Display aspect ratio, with and without cutouts.
         double dar = (double) dw / (double) dh;     // display aspect ratio
         double dcar = (double) dcw / (double) dch;  // display aspect ratio without cutout
@@ -356,9 +352,7 @@ public class SurfaceController {
 
         //Is the STRETCH_XY doing Y? 
         willStretchY = (dcar < ar) ;
-
-        //if (log.isDebugEnabled()) log.debug("CONFIG updateSurface: sar={}, ar={}, dar={}, dcar={}", sar, ar, dar, dcar);
-
+        
         //Apply any Video Format Effects, stretch to the right size.
         switch (fmt) {
             case VideoFormat.ORIGINAL, VideoFormat.FORCE43, VideoFormat.FORCE169, VideoFormat.FORCE185, VideoFormat.FORCE239:
@@ -390,7 +384,7 @@ public class SurfaceController {
                         //cropW = (float) dcar / (float) ar;        //Cropping won't help you! We need a way to not draw the left and r-ecentre, cutting equal left and right. 
                     else {
                         //WE ARE FULLSCREEN, turn Video with Cutouts ON to FIX!
-                        if (!mCutoutBugToasted) Toast.makeText(mView.getContext(), R.string.toast_cutout_aspect_ratio_fix, Toast.LENGTH_SHORT).show();
+                        if (!mCutoutBugToasted) Toast.makeText(mView.getContext(), "Turn on Fullscreen Video with Cutouts for correct Aspect Ratio.", Toast.LENGTH_SHORT).show();
                         mCutoutBugToasted = true;
                     }
                     
