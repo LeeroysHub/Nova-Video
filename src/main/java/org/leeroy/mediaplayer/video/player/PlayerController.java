@@ -1272,7 +1272,8 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     private void updateFormat() {
         if (mFormatButton == null)
             return;
-
+        
+        mBarXYIconResource = mSurfaceController.willStretchY ? R.drawable.video_format_arrow_vertical : R.drawable.video_format_arrow_horizontal;
         switch (mSurfaceController.getCurrentVideoFormat()) {
             case SurfaceController.VideoFormat.ORIGINAL:
                 mFormatButton.setImageResource(R.drawable.video_format_0);
@@ -1301,8 +1302,8 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
         }
     }
 
-    public void setBarRemoveIcon(boolean isScreenPortrait) {
-        mBarXYIconResource = isScreenPortrait ? R.drawable.video_format_arrow_vertical : R.drawable.video_format_arrow_horizontal;
+    public void setStretchXYIcon() {
+        mBarXYIconResource = mSurfaceController.willStretchY ? R.drawable.video_format_arrow_vertical : R.drawable.video_format_arrow_horizontal;
         if (mFormatButton != null && mSurfaceController.getCurrentVideoFormat() == SurfaceController.VideoFormat.STRETCH_XY)
             mFormatButton.setImageResource(mBarXYIconResource);
     }
