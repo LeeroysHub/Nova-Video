@@ -252,7 +252,7 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
                     mWindowManager.updateViewLayout(mFloatingPlayerRootView, mParamsF);
 
                 }
-            });
+            }); */ 
             mProgress = (LeeroyFlixProgressSlider)mPlayerController.findViewById(R.id.seek_progress);
             mProgress.setMax(1000);
             mProgress.setOnSeekBarChangeListener(mProgressListener);
