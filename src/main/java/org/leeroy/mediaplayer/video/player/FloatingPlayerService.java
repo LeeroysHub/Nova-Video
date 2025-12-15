@@ -466,8 +466,9 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
             Intent intentToUse = PlayerService.sPlayerService.getLastIntent();
             if (mStartIntent != null && mStartIntent.hasExtra("floating_player_position")) {
                 intentToUse.putExtra("floating_player_position", mStartIntent.getIntExtra("floating_player_position", -1));
-                if (log.isDebugEnabled()) log.debug("addFloatingView: Added floating_player_position to intent");
                 mFloatingPlayerSize = mStartIntent.getIntExtra("floating_player_size", STARTING_WIDTH);
+
+                //if (log.isDebugEnabled()) log.debug("addFloatingView: Added floating_player_position to intent");
             }
             PlayerService.sPlayerService.onStart(intentToUse);
 
