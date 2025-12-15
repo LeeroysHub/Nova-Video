@@ -141,7 +141,7 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
                     mSubtitleManager.setScreenSize(mParamsF.width, mParamsF.height);
                     mWindowManager.updateViewLayout(mFloatingPlayerRootView, mParamsF);
 
-                    PlayerService.sPlayerService.startStatusbarNotification(false);
+                    //PlayerService.sPlayerService.startStatusbarNotification(false);
 
                 }
                 else if(PlayerService.PLAY_INTENT.equals(intent.getAction())){
@@ -214,7 +214,7 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
 
     @Nullable
     public void addFloatingView() {
-        PlayerService.sPlayerService.startStatusbarNotification(false);
+        //PlayerService.sPlayerService.startStatusbarNotification(false);
 
         if(!contains) {
 
@@ -224,8 +224,11 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
             mPausePlayButton = (ImageView) mPlayerController.findViewById(R.id.play_button);
             ImageView fullscreenButton = (ImageView) mPlayerController.findViewById(R.id.fullscreen_button);
 
-            ImageView discreteButton = (ImageView) mPlayerController.findViewById(R.id.discrete_button);
-            discreteButton.setOnClickListener(new View.OnClickListener() {
+            //WHEN THE DISCRETE MODE IS FIXED WE CAN HAVE IT BACK.
+            //Android givees error messages about it, and you have to stop the app or restart phone to kill it.
+
+            /* ImageView discreteButton = (ImageView) */ mPlayerController.findViewById(R.id.discrete_button).setVisibility(View.GONE);
+            /*discreteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     PlayerService.sPlayerService.startStatusbarNotification(true);
@@ -235,9 +238,10 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
                     mWindowManager.updateViewLayout(mFloatingPlayerRootView, mParamsF);
 
                 }
-            });
-            ImageView hideButton = (ImageView) mPlayerController.findViewById(R.id.hide_button);
-            hideButton.setOnClickListener(new View.OnClickListener() {
+            }); */
+
+            /* ImageView hideButton = (ImageView)*/ mPlayerController.findViewById(R.id.hide_button).setVisibility(View.GONE);
+            /* hideButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     PlayerService.sPlayerService.startStatusbarNotification(true);
@@ -249,7 +253,7 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
                     mWindowManager.updateViewLayout(mFloatingPlayerRootView, mParamsF);
 
                 }
-            });
+            }); */ 
             mProgress = (LeeroyFlixProgressSlider)mPlayerController.findViewById(R.id.seek_progress);
             mProgress.setMax(1000);
             mProgress.setOnSeekBarChangeListener(mProgressListener);
@@ -614,7 +618,7 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
 
     @Override
     public void onFrontendDetached() {
-        PlayerService.sPlayerService.stopStatusbarNotification();
+        //PlayerService.sPlayerService.stopStatusbarNotification();
         if(contains) {
             mWindowManager.removeViewImmediate(mFloatingPlayerRootView);
             contains = false;
@@ -666,14 +670,14 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
         if (mSubtitleManager != null)
             mSubtitleManager.onPlay();
         setProgress();
-        PlayerService.sPlayerService.startStatusbarNotification(isDiscrete());
+        //PlayerService.sPlayerService.startStatusbarNotification(isDiscrete());
     }
 
     @Override
     public void onPause(int state) {
         if (mSubtitleManager != null)
             mSubtitleManager.onPause();
-        PlayerService.sPlayerService.startStatusbarNotification(isDiscrete());
+        //PlayerService.sPlayerService.startStatusbarNotification(isDiscrete());
     }
 
 
