@@ -101,6 +101,7 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
     };
 
 
+    private int mFloatingPlayerSize = STARTING_WIDTH;
     private BroadcastReceiver mReceiver;
     private int mLastWidth;
     private int mLastHeight;
@@ -453,6 +454,8 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
             Intent intentToUse = PlayerService.sPlayerService.getLastIntent();
             if (mStartIntent != null && mStartIntent.hasExtra("floating_player_position")) {
                 intentToUse.putExtra("floating_player_position", mStartIntent.getIntExtra("floating_player_position", -1));
+                mFloatingPlayerSize = mStartIntent.getIntExtra("floating_player_size", STARTING_WIDTH);
+
                 //if (log.isDebugEnabled()) log.debug("addFloatingView: Added floating_player_position to intent");
             }
             PlayerService.sPlayerService.onStart(intentToUse);
@@ -502,8 +505,7 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
 
         int width, height;
 
-        width = (int) dipToPixels(STARTING_WIDTH);;
-
+        width = (int) dipToPixels(mFloatingPlayerSize);;
 
         height = getHeight(width);
         paramsF.width = width;
@@ -512,8 +514,6 @@ public class FloatingPlayerService extends Service implements PlayerService.Play
         mSubtitleManager.setScreenSize(width, height);
 
         updateSubsSize();
-
-
     }
     public void updateSubsSize(){
         if(mSize>=0) {

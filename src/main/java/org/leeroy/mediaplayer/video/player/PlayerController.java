@@ -157,6 +157,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     private Window              mWindow;
     private int                 mLayoutWidth, mLayoutHeight;
     //final private boolean       mSw600dp; // are we using the sw600dp ressources?
+    public int floatingPlayerSize;
 
     //private int                 mActionBarHeight = 0;
     //private int                 mSystemBarHeight = 0;
