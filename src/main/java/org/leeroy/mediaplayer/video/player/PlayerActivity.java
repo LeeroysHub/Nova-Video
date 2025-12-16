@@ -256,7 +256,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private static int          mScreenWidth, mScreenHeight;
     private static int          mCurrentRotation;
     // screen cutouts
-    private static int          mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom;
+    public static int          mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom;
     private static boolean      mFullScreenWithCutout = true;
 
     private NetworkState        networkState = null;
@@ -534,17 +534,15 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        
         // cutout mode: display below cutout
+        boolean cutBothSidesX = false;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            if (mPreferences.getBoolean("enable_cutout_mode_short_edges", true)) {
-                mFullScreenWithCutout = true;
-                //if (log.isDebugEnabled()) log.debug("onCreate applying LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES");
-                attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
-            } else {
-                mFullScreenWithCutout = false;
-                //if (log.isDebugEnabled()) log.debug("onCreate applying LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER");
-                attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER;
-            }
+            mFullScreenWithCutout = mPreferences.getBoolean("enable_cutout_mode_short_edges", true);
+            cutBothSidesX = mPreferences.getBoolean("enable_cutout_both_sidesx", false);
+
+            //Always using the long one, does this matter!?
+            attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
         }
 
         mPlayerController.pauseTimeout = (mPreferences.getBoolean("hide_controls_on_pause", false)) ? 5000 : 0;
@@ -568,9 +566,11 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 @Override
                 public WindowInsets onApplyWindowInsets(View view, WindowInsets insets) {
                     //NOTE do not do updateSizes() here otherwise player controller is not displayed
+                    
                     MiscUtils.setCutoutMetrics(insets, mRootView, PlayerActivity.this);
-                    if (mFullScreenWithCutout) mSurfaceController.setCutoutMetrics(0, 0, 0, 0);
-                    else mSurfaceController.setCutoutMetrics(mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom);
+                    //if (mFullScreenWithCutout) mSurfaceController.setCutoutMetrics(0, 0, 0, 0);
+                    //else
+                    mSurfaceController.setCutoutMetrics(mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom);
                     //if (log.isDebugEnabled()) log.debug("CONFIG onApplyWindowInsets: cutout=({},{},{},{})", mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom);
                     getWindow().getDecorView().setOnApplyWindowInsetsListener(null);
                     // needed on Bravia for HDR content to avoid grey bars cf. issue #270
@@ -620,6 +620,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         mSubtitleColorDefault = Color.parseColor(getResources().getString(R.string.subtitle_color_default));
         mSubtitleOutlineDefault = false;
         mSurfaceController = new SurfaceController(mRootView);
+        mSurfaceController.mFullScreenWithCutout = mFullScreenWithCutout;
 
         mSurfaceController.setListener(mSurfaceListener);
 
@@ -1187,6 +1188,9 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         
         //Update the Strecth X /Y Icon
         mPlayerController.setStretchXYIcon();
+
+        //Update the Strecth X /Y Icon
+        mPlayerController.setFullscreenWithCutoutButtonIcon(mFullScreenWithCutout);
 
         // hack to fix fullscreen height on chromeos pixelbook (and more?) since it reports 2400x1440 instead of 2400x1600 but ok in multiWindow
         if(isChromeOS(mContext)&&(layoutWidth == displayWidth)&&(layoutHeight != displayHeight)) {

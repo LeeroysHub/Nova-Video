@@ -118,6 +118,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     private static final int MSG_SWITCH_VIDEO_FORMAT = 5;
     private static final int MSG_HIDE_SYSTEM_BAR = 6;
     private static final int MSG_OVERLAY_FADE_OUT = 7;
+    private static final int MSG_SWITCH_FULLSCREEN_WITH_CUTOUT = 8;
 
     // introducing states to inform listeners/player that it is in some specific state
     public static final int STATE_NORMAL = 0;
@@ -176,6 +177,7 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
     private ImageButton         mBackwardButton;
     private ImageButton         mForwardButton;
     private ImageButton         mFormatButton;
+    private ImageButton         mFullscreenWithCutoutButton;
     //private ImageButton         mBackwardButton2;
     //private ImageButton         mForwardButton2;
     //private ImageButton         mFormatButton2;
@@ -448,6 +450,20 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
             mFormatButton.setOnClickListener(mFormatListener);
         }
 
+        ImageButton fullscreenWithCutoutButton = (ImageButton) v.findViewById(R.id.fullscreen_cutouts);
+        if (fullscreenWithCutoutButton != null) {
+            //If we have a Cutout, show the Fullscreen with Cutouts Button
+            PlayerActivity playerActivity = ((PlayerActivity) mContext);
+            if (playerActivity.mCutoutLeft + playerActivity.mCutoutRight + playerActivity.mCutoutTop + playerActivity.mCutoutBottom > 0) {
+                setFullscreenWithCutoutButtonIcon(mSurfaceController.mFullScreenWithCutout);
+                fullscreenWithCutoutButton.setVisibility(View.VISIBLE);
+                fullscreenWithCutoutButton.setOnClickListener(fullscreenWithCutoutListener);
+            } else {
+                fullscreenWithCutoutButton.setVisibility(View.GONE);
+                fullscreenWithCutoutListener = null;
+                fullscreenWithCutoutButton = null;
+            }
+        }
 
         SeekBar mProgress = (SeekBar) v.findViewById(R.id.seek_progress);
         if (mProgress != null) {
@@ -522,6 +538,8 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
             this.mControlBar=mControlBar;
             this.mPauseButton=mPauseButton;
             this.mFormatButton=mFormatButton ;
+            this.mFullscreenWithCutoutButton = fullscreenWithCutoutButton;
+            setFullscreenWithCutoutButtonIcon(mSurfaceController.mFullScreenWithCutout);
             this.mBackwardButton=mBackwardButton ;
             this.mForwardButton=mForwardButton ;
             this.mProgress=mProgress ;
@@ -1108,6 +1126,11 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                     updateButtons();
                     show(FLAG_SIDE_CONTROL_BAR, SHOW_TIMEOUT);
                     break;
+                case MSG_SWITCH_FULLSCREEN_WITH_CUTOUT:
+                    mSurfaceController.mFullScreenWithCutout = !mSurfaceController.mFullScreenWithCutout;
+                    setFullscreenWithCutoutButtonIcon(mSurfaceController.mFullScreenWithCutout);
+                    mSurfaceController.updateSurface();
+                    break;
                 case MSG_SWITCH_VIDEO_FORMAT:
                     //if (log.isDebugEnabled()) log.debug("Handle: MSG_SWITCH_VIDEO_FORMAT");
                     mSurfaceController.switchVideoFormat();
@@ -1647,6 +1670,17 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
                 /* video format change can take long time: exec asynchronously */
                 mHandler.removeMessages(MSG_SWITCH_VIDEO_FORMAT);
                 mHandler.sendMessage(mHandler.obtainMessage(MSG_SWITCH_VIDEO_FORMAT));
+            }
+        }
+    };
+
+    private View.OnClickListener fullscreenWithCutoutListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            if (!mIsStopped) {
+                sendFadeOut(SHOW_TIMEOUT);
+                /* video format change can take long time: exec asynchronously */
+                mHandler.removeMessages(MSG_SWITCH_FULLSCREEN_WITH_CUTOUT);
+                mHandler.sendMessage(mHandler.obtainMessage(MSG_SWITCH_FULLSCREEN_WITH_CUTOUT));
             }
         }
     };
@@ -2679,5 +2713,10 @@ public class PlayerController implements View.OnTouchListener, OnGenericMotionLi
             if (mUnlockInstructions2 != null)
                 mUnlockInstructions2.setVisibility(View.GONE);
         }
+    }
+    
+    public void setFullscreenWithCutoutButtonIcon(boolean isFullscreenWithCutout) {
+        if (mFullscreenWithCutoutButton != null)
+            mFullscreenWithCutoutButton.setImageResource(isFullscreenWithCutout ? R.drawable.video_fullscreen_cutout_on : R.drawable.video_fullscreen_cutout_off);
     }
 }
