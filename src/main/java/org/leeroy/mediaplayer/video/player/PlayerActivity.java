@@ -256,7 +256,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
     private static int          mScreenWidth, mScreenHeight;
     private static int          mCurrentRotation;
     // screen cutouts
-    private static int          mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom;
+    public static int          mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom;
     private static boolean      mFullScreenWithCutout = true;
 
     private NetworkState        networkState = null;
@@ -540,7 +540,6 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             mFullScreenWithCutout = mPreferences.getBoolean("enable_cutout_mode_short_edges", true);
             cutBothSidesX = mPreferences.getBoolean("enable_cutout_both_sidesx", false);
-            //if (log.isDebugEnabled()) log.debug("onCreate cutout: mFullScreenWithCutout={}, cutBothSidesX={}",  mFullScreenWithCutout, cutBothSidesX);
             //Always using the long one, does this matter!?
             attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
         }
@@ -566,6 +565,7 @@ public class PlayerActivity extends AppCompatActivity implements PlayerControlle
                 @Override
                 public WindowInsets onApplyWindowInsets(View view, WindowInsets insets) {
                     //NOTE do not do updateSizes() here otherwise player controller is not displayed
+                    
                     MiscUtils.setCutoutMetrics(insets, mRootView, PlayerActivity.this);
                     mSurfaceController.setCutoutMetrics(mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom);
                     //if (log.isDebugEnabled()) log.debug("CONFIG onApplyWindowInsets: cutout=({},{},{},{})", mCutoutLeft, mCutoutTop, mCutoutRight, mCutoutBottom);
