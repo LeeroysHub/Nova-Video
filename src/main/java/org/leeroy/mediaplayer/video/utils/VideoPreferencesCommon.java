@@ -247,6 +247,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
     private CheckBoxPreference mEnableDownmixATV = null;
     private ListPreference mActivateRefreshrateTVSwitch = null;
     private CheckBoxPreference mEnableCutoutModeShortEdge = null;
+    private CheckBoxPreference mEnableCutBothSidesX = null;
     private CheckBoxPreference mActivate3DTVSwitch = null;
     private CheckBoxPreference mEnableAndroidFrameTiming = null;
     private PreferenceCategory mAdvancedPreferences = null;
@@ -372,9 +373,11 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
                 prefCategory.addPreference(mDisableDownmix);
             if (MiscUtils.hasCutout) {
                 prefCategory.addPreference(mEnableCutoutModeShortEdge);
+                prefCategory.addPreference(mEnableCutBothSidesX);
             }
             else {
                 prefCategory.removePreference(mEnableCutoutModeShortEdge);
+                prefCategory.removePreference(mEnableCutBothSidesX);
             }
         } else {
             // note enable_downmix_androidtv and disable_downmix are the opposite same settings but only one applies to androidTV
@@ -385,6 +388,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
             prefCategory.addPreference(mActivate3DTVSwitch);
             prefCategory.addPreference(mActivateRefreshrateTVSwitch);
             prefCategory.removePreference(mEnableCutoutModeShortEdge);
+            prefCategory.removePreference(mEnableCutBothSidesX);
         }
         PreferenceCategory prefScraperCategory = (PreferenceCategory) findPreference(KEY_SCRAPER_CATEGORY);
         PreferenceCategory prefImportExportCategory = (PreferenceCategory) findPreference("import_export_category");
@@ -612,6 +616,7 @@ public class VideoPreferencesCommon implements OnSharedPreferenceChangeListener 
         mStreamMaxIFrameSize = (EditTextPreference) findPreference(KEY_STREAM_MAX_IFRAME_SIZE);
         mActivate3DTVSwitch = (CheckBoxPreference) findPreference(KEY_ACTIVATE_3D_SWITCH);
         mEnableCutoutModeShortEdge = (CheckBoxPreference) findPreference("enable_cutout_mode_short_edges");
+        mEnableCutBothSidesX = (CheckBoxPreference) findPreference("enable_cutout_both_sidesx");
 
         mActivateRefreshrateTVSwitch = (ListPreference) findPreference(KEY_ACTIVATE_REFRESHRATE_SWITCH);
         // last option "match frame rate" is only available for android 12+, remove it on old android versions
