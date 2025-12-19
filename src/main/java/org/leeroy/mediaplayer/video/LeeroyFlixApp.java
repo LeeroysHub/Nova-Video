@@ -287,13 +287,13 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
         updateDirectPcmMultichannelCapability();
 
         if (log != null) {
-            log.info("refreshAudioOutputCapabilities({}): hasHdmi={} (type={}) hasSpdif={} maxAudioChannelCount={} hdmiCaps={}",
-                    reason, hasHdmi, bestHdmiType, hasSpdif, maxAudioChannelCount, getSupportedAudioCodecs(hdmiAudioEncodingFlag));
+            log.info("refreshAudioOutputCapabilities({}): hasHdmi={} (type={}) hasSpdif={} maxAudioChannelCount={} hdmiCaps={} spdifCaps={}",
+                    reason, hasHdmi, bestHdmiType, hasSpdif, maxAudioChannelCount, getSupportedAudioCodecs(hdmiAudioEncodingFlag), getSupportedAudioCodecs(spdifAudioEncodingFlag));
         }
     }
 
     public static long getHdmiAudioCodecsFlag() {
-        return hdmiAudioEncodingFlag;
+        return hdmiAudioEncodingFlag | spdifAudioEncodingFlag;
     }
 
     private static SambaDiscovery mSambaDiscovery = null;
@@ -800,6 +800,18 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
         return hasHdmi;
     }
 
+    public static boolean isSpdifConnected() {
+        return hasSpdif;
+    }
+
+    public static long getHdmiOnlyAudioCodecsFlag() {
+        return hdmiAudioEncodingFlag;
+    }
+
+    public static long getSpdifOnlyAudioCodecsFlag() {
+        return spdifAudioEncodingFlag;
+    }
+
     public static boolean isPassthroughSupported () {
         return hasHdmi || hasSpdif;
     }
@@ -869,7 +881,7 @@ public class LeeroyFlixApp extends Application implements DefaultLifecycleObserv
     }
 
     public static String getSupportedAudioCodecs() {
-        return getSupportedAudioCodecs(hdmiAudioEncodingFlag);
+        return getSupportedAudioCodecs(getHdmiAudioCodecsFlag());
     }
 
     public static String getSupportedAudioCodecs(long audioEncodingFlag) {
