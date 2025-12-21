@@ -608,6 +608,12 @@
             android:title="@string/network_nfo_parse"
             app:iconSpaceReserved="false"/>
         <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="scrape_from_database_key"
+            android:summary="@string/enable_scrape_from_db_summary"
+            android:title="@string/enable_scrape_from_db_title"
+            app:iconSpaceReserved="false"/>
+        <CheckBoxPreference
             android:defaultValue="false"
             android:title="@string/enable_adult_scrap_title"
             android:summary="@string/enable_adult_scrap_summary"
